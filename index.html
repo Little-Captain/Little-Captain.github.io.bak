@@ -175,6 +175,7 @@
 <li>在<code>数据发送对象</code>中<code>定义 Block 属性</code></li>
 <li>在<code>数据接收对象</code>中给 Block 赋值, Block 中写具体要做得事情</li>
 <li>在<code>数据发送对象</code>内部调用这个 Block , 就可以把<code>数据通过 Block 的参数传递</code>给<code>数据接收对象</code></li>
+<li>这个过程其实就是<code>代理设计模式</code>所描述的过程. </li>
 </ul>
 <h2 id="Block-使用注意"><a href="#Block-使用注意" class="headerlink" title="Block 使用注意"></a>Block 使用注意</h2><ul>
 <li><code>Block</code>当做参数传递, 如果外界传入的值为<code>nil</code>, 直接<code>调用</code>会<code>崩溃</code></li>

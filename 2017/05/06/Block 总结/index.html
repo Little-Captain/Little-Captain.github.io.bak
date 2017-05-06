@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/06/Block 总结/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="基本概念 Block 即带有自动变量(局部变量)的匿名函数 Block 提供了类似由 C++ 和 Objective-C 类生成实例或对象来保持变量值的能力 Block 其实就是一个代码块，把你想要执行的代码封装在这个代码块里，等到需要的时候再去调用 Block 是 OC 对象. OC 对象? 好像不对? Block 不是函数指针吗? 如果 Block 是函数指针, 那么还有必要把 Block 从">
-<meta property="og:updated_time" content="2017-05-06T05:39:35.000Z">
+<meta property="og:updated_time" content="2017-05-06T05:41:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Block 总结">
 <meta name="twitter:description" content="基本概念 Block 即带有自动变量(局部变量)的匿名函数 Block 提供了类似由 C++ 和 Objective-C 类生成实例或对象来保持变量值的能力 Block 其实就是一个代码块，把你想要执行的代码封装在这个代码块里，等到需要的时候再去调用 Block 是 OC 对象. OC 对象? 好像不对? Block 不是函数指针吗? 如果 Block 是函数指针, 那么还有必要把 Block 从">
@@ -178,6 +178,7 @@
 <li>在<code>数据发送对象</code>中<code>定义 Block 属性</code></li>
 <li>在<code>数据接收对象</code>中给 Block 赋值, Block 中写具体要做得事情</li>
 <li>在<code>数据发送对象</code>内部调用这个 Block , 就可以把<code>数据通过 Block 的参数传递</code>给<code>数据接收对象</code></li>
+<li>这个过程其实就是<code>代理设计模式</code>所描述的过程. </li>
 </ul>
 <h2 id="Block-使用注意"><a href="#Block-使用注意" class="headerlink" title="Block 使用注意"></a>Block 使用注意</h2><ul>
 <li><code>Block</code>当做参数传递, 如果外界传入的值为<code>nil</code>, 直接<code>调用</code>会<code>崩溃</code></li>
