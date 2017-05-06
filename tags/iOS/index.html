@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Little Captain&#39;s Blog</title>
+  <title>Tag: iOS | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Little Captain&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/iOS/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Little Captain&#39;s Blog">
@@ -127,72 +127,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Block 总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/05/06/Block 总结/" class="archive-article-date">
+  	<time datetime="2017-05-06T04:37:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-06</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/06/Block 总结/">Block 总结</a>
+      <a class="archive-article-title" href="/2017/05/06/Block 总结/">Block 总结</a>
     </h1>
   
 
-        
-        <a href="/2017/05/06/Block 总结/" class="archive-article-date">
-  	<time datetime="2017-05-06T04:37:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
-<li>Block 即<code>带有</code>自动变量(<code>局部变量</code>)的<code>匿名函数</code></li>
-<li>Block <code>提供</code>了类似由 C++ 和 Objective-C 类生成实例或对象来<code>保持变量值的能力</code></li>
-<li>Block 其实就是一个代码块，把你想要执行的代码封装在这个代码块里，等到需要的时候再去调用</li>
-<li>Block 是 OC 对象. OC 对象? 好像不对? Block 不是函数指针吗? 如果 Block 是函数指针, 那么还有必要把 Block 从栈区拷贝到堆区吗? 还能使用 copy 关键字修饰 Block 属性吗? 用事实说话好吧!</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过使用 OC 运行时机制, 打印出 Block 的继承链</span></div><div class="line">- (<span class="keyword">void</span>)testGetClassInheritChain &#123;</div><div class="line">    </div><div class="line">    <span class="keyword">void</span> (^testBlock)(<span class="keyword">void</span>) = ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"testBlock"</span>);</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [[testBlock <span class="keyword">class</span>] lc_classInheritChain]);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 打印结果: __NSGlobalBlock__ -&gt; __NSGlobalBlock -&gt; NSBlock -&gt; NSObject</span></div></pre></td></tr></table></figure>
-<ul>
-<li><a href="https://github.com/Little-Captain/LCRuntimeTool" target="_blank" rel="external">源码地址</a></li>
-</ul>
-<h2 id="Block-属性的修饰-copy-strong-retain-assign"><a href="#Block-属性的修饰-copy-strong-retain-assign" class="headerlink" title="Block 属性的修饰 (copy, strong, retain, assign)"></a>Block 属性的修饰 (copy, strong, retain, assign)</h2><ul>
-<li>Block 本身就是对象, 所以可以 retain 和 release</li>
-<li>Block 在创建的时候，它的内存是分配在栈(stack)上，而不是在堆(heap)上</li>
-<li>Block 的作于域是属于创建时的作用域，一旦在创建时候的作用域外面调用这个 Block 将导致程序崩溃</li>
-<li>使用 retain/strong 可以，但是 Block 的 retain/strong 行为和用 copy 的行为是一样的, 即将 Block 从栈上拷贝(copy)到堆中, 所以一般直接使用 copy</li>
-</ul>
-<h2 id="block-关键字"><a href="#block-关键字" class="headerlink" title="__block 关键字"></a>__block 关键字</h2><ul>
-<li>在 Block 的 {} 体内，是不可以对外面的变量进行更改的, 使用 __block 就能改变 Block 块中变量的值. 不使用时, 是值捕获; 使用时, 是地址捕获. </li>
-</ul>
-<h2 id="block-和-weak"><a href="#block-和-weak" class="headerlink" title="block 和 weak"></a><strong>block 和 </strong>weak</h2><ul>
-<li>__block 不管是 ARC 还是 MRC 模式下都可以使用，可以修饰对象，还可以修饰基本数据类型</li>
-<li>__weak 只能在 ARC 模式下使用，也只能修饰对象，不能修饰基本数据类型</li>
-<li><strong>block 对象可以在 Block 中被重新赋值，</strong>weak 不可以</li>
-</ul>
-<h2 id="使用-Block-传递数据"><a href="#使用-Block-传递数据" class="headerlink" title="使用 Block 传递数据"></a>使用 Block 传递数据</h2><ul>
-<li>在<code>数据发送对象</code>中<code>定义 Block 属性</code></li>
-<li>在<code>数据接收对象</code>中给 Block 赋值, Block 中写具体要做得事情</li>
-<li>在<code>数据发送对象</code>内部调用这个 Block , 就可以把<code>数据通过 Block 的参数传递</code>给<code>数据接收对象</code></li>
-<li><code>注意</code> : 循环引用问题. <code>解决方法</code>: weak strong dance</li>
-</ul>
-<h2 id="Block-使用注意"><a href="#Block-使用注意" class="headerlink" title="Block 使用注意"></a>Block 使用注意</h2><ul>
-<li><code>Block</code>当做参数传递, 如果外界传入的值为<code>nil</code>, 直接<code>调用</code>会<code>崩溃</code></li>
-<li>Block 引入<code>循环引用</code><ul>
-<li><code>堆中 Block 访问了外界对象</code>, 会对对象进行<code>retain 操作</code>, 这时可以<code>给对象加__block</code>, 就不会 retain</li>
-<li><code>堆中 Block</code>会<code>对</code>里面的<code>强指针强引用</code>, 这很<code>容易造成循环引用</code>, 可以用个<code>中间变量</code>保存想用的对象, 并加上<code>__weak</code>, 也可<code>消除循环引用</code>. </li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -208,101 +170,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/06/Block 总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-
-
-
   
-    <article id="post-hello-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/06/hello-blog/">Hello Blog</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/06/hello-blog/" class="archive-article-date">
-  	<time datetime="2017-05-06T03:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="拿来说说"><a href="#拿来说说" class="headerlink" title="拿来说说"></a>拿来说说</h1><p>在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。</p>
-<p>说到搭建 Blog , 早在半年前就搭建过, 由于当时对”拿来主义”这个概念理解不够成熟, 以为搭建 Blog 就一定要什么都亲力亲为, 无形的放大了工作量. </p>
-<p>今天周六, 正好有空, 于是就有了这个 Blog.</p>
-<h1 id="用到了什么"><a href="#用到了什么" class="headerlink" title="用到了什么"></a>用到了什么</h1><ul>
-<li>Hexo<ul>
-<li>简单易用</li>
-<li>使用 Node.js 技术(喜欢 Node, 虽然不需要写 Node 代码)</li>
-</ul>
-</li>
-<li>github page<ul>
-<li>方便, github 仓库直接管理</li>
-<li>穷, 不解释</li>
-</ul>
-</li>
-<li><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">Yilia</a>主题 </li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a><br><a href="https://pages.github.com" target="_blank" rel="external">github pages</a><br><a href="http://baixin.io/2015/08/HEXO搭建个人博客/" target="_blank" rel="external">HEXO搭建个人博客</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/06/hello-blog/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-  
 
 
           </div>
@@ -321,10 +201,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		root: "/",
