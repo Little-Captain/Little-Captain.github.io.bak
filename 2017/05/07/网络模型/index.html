@@ -6,14 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/5 | Little Captain&#39;s Blog</title>
+  <title>网络模型 | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Little Captain&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/05/index.html">
+  <meta name="description" content="OSI七层模型1. 应用层 数据单位: APDU 作用: 针对用户(应用程序)  2. 表示层">
+<meta name="keywords" content="计算机网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络模型">
+<meta property="og:url" content="http://yoursite.com/2017/05/07/网络模型/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
+<meta property="og:description" content="OSI七层模型1. 应用层 数据单位: APDU 作用: 针对用户(应用程序)  2. 表示层">
+<meta property="og:image" content="http://yoursite.com/assets/images/网络/TCP:IP%203%20次握手.png">
+<meta property="og:image" content="http://yoursite.com/assets/images/网络/TCP包头.png">
+<meta property="og:image" content="http://yoursite.com/assets/images/网络/UDP包头.png">
+<meta property="og:image" content="http://yoursite.com/assets/images/网络/IP包头.png">
+<meta property="og:updated_time" content="2017-05-07T15:47:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Little Captain&#39;s Blog">
+<meta name="twitter:title" content="网络模型">
+<meta name="twitter:description" content="OSI七层模型1. 应用层 数据单位: APDU 作用: 针对用户(应用程序)  2. 表示层">
+<meta name="twitter:image" content="http://yoursite.com/assets/images/网络/TCP:IP%203%20次握手.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -125,36 +135,157 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-网络模型" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      网络模型
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/07/网络模型/" class="archive-article-date">
+
+        
+        <a href="/2017/05/07/网络模型/" class="archive-article-date">
   	<time datetime="2017-05-07T14:26:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-07</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/07/网络模型/">网络模型</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h1><h2 id="1-应用层"><a href="#1-应用层" class="headerlink" title="1. 应用层"></a>1. 应用层</h2><ul>
+<li>数据单位: APDU</li>
+<li>作用: 针对用户(应用程序)</li>
+</ul>
+<h2 id="2-表示层"><a href="#2-表示层" class="headerlink" title="2. 表示层"></a>2. 表示层</h2><a id="more"></a>
+<ul>
+<li>数据单位: PPDU</li>
+<li>作用: 数据的编码、加密和解压缩等</li>
+</ul>
+<h2 id="3-会话层"><a href="#3-会话层" class="headerlink" title="3. 会话层"></a>3. 会话层</h2><ul>
+<li>数据单位: SPDU</li>
+<li>作用: 确定数据是否向下传递</li>
+</ul>
+<h2 id="4-传输层"><a href="#4-传输层" class="headerlink" title="4. 传输层"></a>4. 传输层</h2><ul>
+<li>数据单位: TPDU</li>
+<li>作用: 确定数据是否可靠; 确定网络端口是否可靠; 查错、校验; 流量控制等等</li>
+</ul>
+<h2 id="5-网络层"><a href="#5-网络层" class="headerlink" title="5. 网络层"></a>5. 网络层</h2><ul>
+<li>数据单位: 报文, 报文中有 IP 地址</li>
+<li>作用: 确定IP地址编码</li>
+</ul>
+<h2 id="6-数据链路层"><a href="#6-数据链路层" class="headerlink" title="6. 数据链路层"></a>6. 数据链路层</h2><ul>
+<li>数据单位: 帧, 帧中最重要的数据就是MAC地址</li>
+<li>作用: MAC地址编码</li>
+</ul>
+<h2 id="7-物理层"><a href="#7-物理层" class="headerlink" title="7. 物理层"></a>7. 物理层</h2><ul>
+<li>数据单位: 比特</li>
+<li>作用: 实际的数据传递     </li>
+</ul>
+<hr>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ul>
+<li>上3层给用户提供服务, 所有软件都会用(包括PPT这类不用联网就能用的软件)</li>
+<li>下4层为传送数据提供服务, 只有需要网络传输的软件才会用</li>
+</ul>
+<h1 id="TCP-IP-四层模型"><a href="#TCP-IP-四层模型" class="headerlink" title="TCP/IP 四层模型"></a>TCP/IP 四层模型</h1><h2 id="1-应用层-1"><a href="#1-应用层-1" class="headerlink" title="1. 应用层"></a>1. 应用层</h2><ul>
+<li>对应七层模型: 应用层; 表示层; 会话层</li>
+<li>作用: 为用户提供各种具体服务(FTP, Telnet, DNS, SMTP)</li>
+</ul>
+<h2 id="2-传输层"><a href="#2-传输层" class="headerlink" title="2. 传输层"></a>2. 传输层</h2><ul>
+<li>对应七层模型: 传输层</li>
+<li>作用:     <ul>
+<li>为应用层实体提供端到端的通信功能</li>
+<li>保证数据包的顺序传送及数据的完整性; 确定发送和接收端口号</li>
+<li>查错、校验、流量控制</li>
+<li>最重要的就是确定TCP包头和UDP包头</li>
+</ul>
+</li>
+<li><p>主要协议:     </p>
+<ul>
+<li><p>传输控制协议TCP</p>
+<ul>
+<li><p>3 次握手</p>
+<p><img src="/assets/images/网络/TCP:IP 3 次握手.png" alt=""></p>
+</li>
+<li><p>可靠的面向连接的协议</p>
+</li>
+<li>类似: 打电话</li>
+<li>传输数据过程中始终有交流, 有错误就要求对方重发</li>
+<li>应用: 网页, 邮件…</li>
+<li>优点: 数据安全可靠</li>
+<li>缺点: 慢</li>
+</ul>
+</li>
+<li><p>用户数据报协议UDP</p>
+<ul>
+<li>不可靠的面向无连接的协议</li>
+<li>类似: 发短信</li>
+<li>不管对方能否接受直接发送</li>
+<li>应用: QQ</li>
+<li>优点: 快</li>
+<li>缺点: 数据可能丢失</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>传输层头内容: 主要是<code>端口</code></p>
+<p>  <img src="/assets/images/网络/TCP包头.png" alt=""></p>
+<p>  <img src="/assets/images/网络/UDP包头.png" alt=""></p>
+</li>
+</ul>
+<h2 id="3-网际互连层"><a href="#3-网际互连层" class="headerlink" title="3. 网际互连层"></a>3. 网际互连层</h2><ul>
+<li>对应七层模型: 网络层</li>
+<li><p>作用: </p>
+<ul>
+<li>解决主机到主机的通信问题</li>
+<li>其协议设计数据包在整个网络上的逻辑传输</li>
+</ul>
+</li>
+<li><p>主要协议</p>
+<ul>
+<li>网际协议IP: 源IP,目的IP; 确定数据在公网上如何发送</li>
+<li>互联网组管理协议IGMP</li>
+<li>互联网控制报文协议ICMP: ping命令利用了这个协议</li>
+</ul>
+</li>
+<li><p>网际层头: 主要是<code>IP</code></p>
+<p>  <img src="/assets/images/网络/IP包头.png" alt=""></p>
+</li>
+</ul>
+<h2 id="4-网络接口层"><a href="#4-网络接口层" class="headerlink" title="4. 网络接口层"></a>4. 网络接口层</h2><ul>
+<li>对应七层模型: 数据链路层; 物理层</li>
+<li><p>作用:</p>
+<ul>
+<li>负责监视数据在主机和网络之间交换</li>
+<li>地址解析协议(ARP)工作在此层(七层中的数据链路层)</li>
+<li>arp指令: 将IP翻译成对应的MAC地址; 翻译的目的(外网通信用IP, 局域网通信用MAC, 交换机值识别MAC地址)</li>
+</ul>
+</li>
+<li><p>网络层头: 主要是<code>MAC</code>, 又名<code>以太帧头</code></p>
+</li>
+</ul>
+<h1 id="七层模型与四层模型的比较"><a href="#七层模型与四层模型的比较" class="headerlink" title="七层模型与四层模型的比较"></a>七层模型与四层模型的比较</h1><h2 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h2><ul>
+<li>都采用了层次结构的概念</li>
+<li>分层设计</li>
+<li>都能够提供面向连接和无连接两种通信服务机制</li>
+</ul>
+<h2 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h2><ul>
+<li>一个七层一个四层</li>
+<li>对可靠性要求不同</li>
+<li>七层模型具有通用性: 在协议开发前设计的</li>
+<li>四层模型是先有协议集后在建立模型: 不适用于非 TCP/IP 网络</li>
+<li>实际市场应用不同: 七层只是理论模型, 无成熟产品; TCP/IP已成为实际上的国际标准</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -166,301 +297,89 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/07/网络模型/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/07/网络基础概念/" class="archive-article-date">
-  	<time datetime="2017-05-07T13:37:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-07</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/07/网络基础概念/">网络基本概念</a>
-    </h1>
+  
+    <a href="/2017/05/07/网络基础概念/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">网络基本概念</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/07/iOS开发中的各种尺寸/" class="archive-article-date">
-  	<time datetime="2017-05-07T08:04:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/07/iOS开发中的各种尺寸/">iOS开发中的各种尺寸</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/07/搭建git服务器/" class="archive-article-date">
-  	<time datetime="2017-05-07T07:45:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/07/搭建git服务器/">搭建git服务器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">源代码管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/07/分布式Git-工作流程/" class="archive-article-date">
-  	<time datetime="2017-05-07T06:48:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/07/分布式Git-工作流程/">分布式Git - 工作流程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">源代码管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/07/git常用命令/" class="archive-article-date">
-  	<time datetime="2017-05-07T06:11:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/07/git常用命令/">git常用命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">源代码管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/06/Block 总结/" class="archive-article-date">
-  	<time datetime="2017-05-06T04:37:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/06/Block 总结/">Block 总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/06/hello-blog/" class="archive-article-date">
-  	<time datetime="2017-05-06T03:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/06/hello-blog/">Hello Blog</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -480,8 +399,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
