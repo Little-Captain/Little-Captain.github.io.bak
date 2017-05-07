@@ -127,6 +127,170 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-搭建git服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/07/搭建git服务器/">搭建git服务器</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/07/搭建git服务器/" class="archive-article-date">
+  	<time datetime="2017-05-07T07:45:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="准备篇"><a href="#准备篇" class="headerlink" title="准备篇"></a>准备篇</h2><h3 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h3><ul>
+<li>创建git专用账户git</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo adduser --system --shell /bin/bash --user-group git <span class="comment"># CentOS</span></div><div class="line">sudo adduser git ssh</div><div class="line">sudo passwd git</div></pre></td></tr></table></figure>
+<ul>
+<li>修改git账户的home目录(有需求才改)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 当然可以直接修改/etc/passwd文件</span></div><div class="line">usermod <span class="_">-d</span> /tmp git</div></pre></td></tr></table></figure>
+<ul>
+<li>安装相关软件(在任何账户都可)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install git-core openssh-server openssh-client</div><div class="line">sudo apt-get install python-setuptools</div></pre></td></tr></table></figure>
+<ul>
+<li><p>进入<code>git账户</code>, 安装gitosis</p>
+</li>
+<li><p>1.获取</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/res0nat0r/gitosis.git</div></pre></td></tr></table></figure>
+<ul>
+<li>2.进入gitosis目录安装gitosis</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo python setup.py install</div></pre></td></tr></table></figure>
+<blockquote>
+<p>安装完gitosis, 并没有任何仓库, 我们还要用管理员的SSH key公钥来初始化gitosis</p>
+</blockquote>
+<h3 id="管理员主机"><a href="#管理员主机" class="headerlink" title="管理员主机"></a>管理员主机</h3><ul>
+<li>生成 SSH key</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -P后面的代表密码, ''表示无密码</span></div><div class="line"><span class="comment"># 在生成时, 为新的key指定路径和名称, 不要覆盖.ssh目录下已有的key</span></div><div class="line">ssh-keygen -t rsa -P <span class="string">''</span></div></pre></td></tr></table></figure>
+<ul>
+<li>将刚刚生成的SSH key加入ssh-agent, 这一步一定不要忘记了, 如果忘记以后使用git和服务器通信时, 都会提示输入服务器密码, 而不会使用SSH key验证</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-add ~/.ssh/gitHost</div></pre></td></tr></table></figure>
+<ul>
+<li>将SSH key复制到服务器(只要能把公钥复制到服务器都可)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp .ssh/gitHost.pub git@192.168.11.116:~/gitHost.pub</div></pre></td></tr></table></figure>
+<h2 id="服务器上安装gitosis-git账户下"><a href="#服务器上安装gitosis-git账户下" class="headerlink" title="服务器上安装gitosis(git账户下)"></a>服务器上安装gitosis(git账户下)</h2><ul>
+<li>使用本地主机上传的公钥来对gitosis初始化</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -H -u git gitosis-init &lt; .ssh/gitHost.pub</div></pre></td></tr></table></figure>
+<blockquote>
+<p>初始化完成后, 会在gitosis会将gitHost.pub的内容复制到<code>.ssh/authorized_keys</code>中, 所以可以使用管理员主机进行管理了</p>
+</blockquote>
+<ul>
+<li>修改目录权限, 不然, 在本地主机clone的项目读写权限不够</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod 755 /home/git/repositories/gitosis-admin.git/hooks/post-update</div></pre></td></tr></table></figure>
+<blockquote>
+<p>初始化完后, 默认的仓库在<code>~/repositories</code>目录下, <code>gitosis-admin.git</code>仓库就是我们管理仓库的专用仓库.</p>
+</blockquote>
+<h2 id="管理员配置仓库"><a href="#管理员配置仓库" class="headerlink" title="管理员配置仓库"></a>管理员配置仓库<span id="3"></span></h2><ul>
+<li>在管理员主机上clone gitosis-admin.git</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> git@server:gitosis-admin.git</div></pre></td></tr></table></figure>
+<blockquote>
+<p>clone下来会有一个gitosis.conf的配置文件和一个keydir的目录。gitosis.conf用于配置用户的权限信息，keydir主要用户存放ssh公钥文件（一般以“用户名.pub”命名，gitosis.conf配置文件中需使用相同用户名），用于认证请求的客户端机器。</p>
+</blockquote>
+<ul>
+<li>修改配置文件gitosis.conf, 配置好后推送到服务器才算配置成功, 新增的用户不能立即生效, 服务器端需要重启sshd服务<code>sudo service sshd restart</code></li>
+</ul>
+<p><em>gitosis.conf格式如下</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">[gitosis]</div><div class="line"></div><div class="line">[group gitosis-admin] <span class="comment">#管理员组</span></div><div class="line">members = charn@ubuntu <span class="comment">#管理员用户名，需要在keydir目录下找到相应的.pub文件，多个可用空格隔开（下同）</span></div><div class="line">writable = gitosis-admin <span class="comment">#可写的项目仓库名，多个可用空格隔开（下同）</span></div><div class="line"></div><div class="line">[group testwrite] <span class="comment">#可写权限组</span></div><div class="line">members = zhangsan <span class="comment">#组用户</span></div><div class="line">writable = mytestproject <span class="comment">#可写的项目仓库名</span></div><div class="line"></div><div class="line">[group testread] <span class="comment">#只读权限组</span></div><div class="line">members =lisi <span class="comment">#组用户</span></div><div class="line"><span class="built_in">readonly</span>= mytestproject <span class="comment">#只读项目仓库名</span></div></pre></td></tr></table></figure>
+<h2 id="管理员新建仓库"><a href="#管理员新建仓库" class="headerlink" title="管理员新建仓库"></a>管理员新建仓库</h2><ul>
+<li>1.配置管理员仓库的gitosis.conf文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[group groupName] <span class="comment"># 组</span></div><div class="line">members = memberName <span class="comment"># 用户</span></div><div class="line">writable = projectName <span class="comment"># 项目名</span></div></pre></td></tr></table></figure>
+<ul>
+<li>2.增加相应的memberName.pub到keydir文件夹</li>
+<li>3.将更新推送到服务器</li>
+<li>4.重启服务器的sshd服务</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service sshd restart</div></pre></td></tr></table></figure>
+<ul>
+<li>5.在本地新建仓库, 并推送到服务器</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 新建项目文件夹</span></div><div class="line">mkdir projectName</div><div class="line"><span class="comment"># 进入</span></div><div class="line"><span class="built_in">cd</span> projectName</div><div class="line"><span class="comment"># git初始化</span></div><div class="line">git init</div><div class="line"><span class="comment"># 加入一些必要文件比如.gitignore和项目文件夹</span></div><div class="line">git add .</div><div class="line"><span class="comment"># 提交</span></div><div class="line">git commit -m <span class="string">'initialize project'</span></div><div class="line"><span class="comment"># 添加远程仓库地址</span></div><div class="line">git remote add origin git@192.168.11.116:projectName.git</div><div class="line"><span class="comment"># 设置上游仓库, 并推送上去</span></div><div class="line">git push -u origin master:master</div></pre></td></tr></table></figure>
+<blockquote>
+<p>经过以上步骤, 服务器上的仓库就建立完毕了, 这时就可以在其他客户机上clone仓库了</p>
+</blockquote>
+<ul>
+<li>6.测试仓库是否建立成功</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ..</div><div class="line"><span class="comment"># 删除项目文件夹</span></div><div class="line">rm -rf projectName</div><div class="line"><span class="comment"># 再次克隆远程仓库</span></div><div class="line">git <span class="built_in">clone</span> git@192.168.11.116:projectName.git</div><div class="line"><span class="comment"># 进入工程文件件</span></div><div class="line"><span class="built_in">cd</span> projectName</div><div class="line"><span class="comment"># 查看分支信息</span></div><div class="line">git branch <span class="_">-a</span></div><div class="line"><span class="comment"># 显示结果如下, 表示仓库建立成功</span></div><div class="line">* master</div><div class="line">  remotes/origin/HEAD -&gt; origin/master</div><div class="line">  remotes/origin/master</div></pre></td></tr></table></figure>
+<h2 id="使用GitWeb"><a href="#使用GitWeb" class="headerlink" title="使用GitWeb"></a>使用GitWeb</h2><blockquote>
+<p>在本地, 如果你对项目有读写权限或只读权限，你可能需要建立起一个基于网页的简易查看器。 Git 提供了一个叫做 Git Web 的 CGI 脚本来做这项工作。</p>
+</blockquote>
+<p><em>Mac上</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 启动一个监听 1234 端口的 HTTP 服务器，并且自动打开了浏览器</span></div><div class="line">git instaweb --httpd=webrick</div><div class="line"><span class="comment"># 完成了工作, 关闭这个服务器</span></div><div class="line">git instaweb --httpd=webrick --stop</div></pre></td></tr></table></figure>
+<ul>
+<li>服务器上新建项目仓库. 新建的这个仓库暂时还是空的，不能被客户端clone，还需要对gitosis进行一些配置操作. <a href="#3">参见</a></li>
+</ul>
+<h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><p><em>git is not in the sudoers file. This incident will be reported的解决方法</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 方法1, 修改git ALL=(ALL) ALL</span></div><div class="line">vim /etc/sudoers</div><div class="line"><span class="comment"># 方法2</span></div><div class="line">sudo su</div><div class="line"><span class="built_in">echo</span> <span class="string">'git ALL=(ALL) ALL'</span> &gt;&gt; /etc/sudoers</div></pre></td></tr></table></figure>
+<h3 id="建立客户机与服务器SSH无密码登录"><a href="#建立客户机与服务器SSH无密码登录" class="headerlink" title="建立客户机与服务器SSH无密码登录"></a>建立客户机与服务器SSH无密码登录</h3><ul>
+<li>将本地上传的gitHost.pub手动添加到.ssh/authorzied_keys文件里</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cat gitHost.pub &gt;&gt; .ssh/authorized_keys</div><div class="line">// authorized_keys的权限要是600</div><div class="line">chmod 600 .ssh/authorized_keys</div></pre></td></tr></table></figure>
+<p><em>经过以上所有的步骤, 已经可以通过SSH key在本地主机无秘密链接服务器了</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh git@192.168.11.116</div></pre></td></tr></table></figure>
+<p><em>在.ssh文件夹中配置config文件</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">* config文件</div><div class="line">host gitHost</div><div class="line">user git</div><div class="line">hostname 192.168.11.116</div><div class="line">port 22</div><div class="line">identityfile ~/.ssh/gitHost</div></pre></td></tr></table></figure>
+<p><em>这时可以使用简写形式</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh gitHost</div></pre></td></tr></table></figure>
+<ul>
+<li>修改服务器的/etc/passwd文件, 禁止用户通过shell登陆</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 原本</div><div class="line">git:x:122:130::/home/git:/bin/bash</div><div class="line"># 修改后</div><div class="line">git:x:122:130:,,,:/home/git:/bin/bash</div></pre></td></tr></table></figure>
+<ul>
+<li>在使用 <code>ssh git@192.168.11.116</code>链接服务器如果提示<code>REMOTE HOST IDENTIFICATION HAS CHANGED</code>, 进入<code>~/.ssh/known_hosts</code>将<code>192.168.11.116</code>相关的rsa都删除</li>
+<li>SSH免密码登录补充</li>
+</ul>
+<p><em>修改SSH配置文件</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/ssh/sshd_config</div></pre></td></tr></table></figure>
+<p><em>修改后</em></p>
+<p><img src="/assets/images/git/git常用命令-12.png" alt=""></p>
+<blockquote>
+<p>注意: 建立这种登录关系, 如果没有必要不要操作, 因为前面已经建立了git账户的SSH链接, 如果这个也建立, 会出现一些奇怪的现象, 比如在使用git克隆仓库时, 必须使用仓库在服务器上的全路径才能克隆. 其实核心的操作就是不要将客户机的公钥手动追加到authorized_keys中, 如果git链接不成功, 或者链接后还要输服务器密码, 那么这里的其他配置, 是可以用来配置git的SSH链接的</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 使用全路径才能clone仓库</span></div><div class="line">git <span class="built_in">clone</span> git@192.168.11.116:~/repositories/gitosis-admin.git</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-分布式Git-工作流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
