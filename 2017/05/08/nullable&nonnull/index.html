@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/08/nullable&nonnull/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="直面问题Swift 中有 optional 和 non-optional. 在 Objective-C 中没有这一概念.那么在 Swift 和 Objective-C 混合编程的时候, 编译器会统一使用 non-optional 处理, 这样处理往往并不是我们想要的结果.">
-<meta property="og:updated_time" content="2017-05-08T13:07:29.000Z">
+<meta property="og:updated_time" content="2017-05-08T13:09:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nullable&amp;nonnull">
 <meta name="twitter:description" content="直面问题Swift 中有 optional 和 non-optional. 在 Objective-C 中没有这一概念.那么在 Swift 和 Objective-C 混合编程的时候, 编译器会统一使用 non-optional 处理, 这样处理往往并不是我们想要的结果.">
@@ -162,7 +162,7 @@
 <h2 id="使用总结"><a href="#使用总结" class="headerlink" title="使用总结"></a>使用总结</h2><ul>
 <li>nonnull 和 nullable: 属性、方法返回值、方法参数</li>
 <li>_Nonnull 和 _Nullable:  C 函数的参数、Block 的参数、Block 的返回值</li>
-<li><strong>nonnull 和 </strong>nullable: 不建议使用, 用法和 _Nonnull 和 _Nullable 一样</li>
+<li>__nonnull 和 __nullable: 不建议使用, 用法和 _Nonnull 和 _Nullable 一样</li>
 </ul>
 <h2 id="减小指定的工作量"><a href="#减小指定的工作量" class="headerlink" title="减小指定的工作量"></a>减小指定的工作量</h2><ul>
 <li>宏: NS_ASSUME_NONNULL_BEGIN 和 NS_ASSUME_NONNULL_END</li>
@@ -340,19 +340,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">源代码管理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">源代码管理</a>
               </li>
              
               <li class="article-tag-list-item">
