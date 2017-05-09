@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello Blog | Little Captain&#39;s Blog</title>
+  <title>一款基于AFNetworking封装的网络框架 | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="拿来说说在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。 说到搭建 Blog , 早在半年前就搭建过, 由于当时对”拿来主义”这个概念理解不够成熟, 以为搭建 Blog 就一定要什么都亲力亲为, 无形的放大了工作量.  今天周六, 正好有空, 于是就有了这个 Blog. 用到了什么">
-<meta name="keywords" content="杂谈">
+  <meta name="description" content="框架地址 AFNetworking 存在的问题如果你的项目中使用了 AFNetworking, 就一定会出现内存泄漏的问题. 这个是我在用做测试的时候发现的. 问题重现 安装 AFNetworking, 使用 AFNetworking 做网络请求 使用 Debug Memory Graph 查看内存引用关系  Debug Memory Graph(Xcode 8.0+)  AFNetworing">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello Blog">
-<meta property="og:url" content="http://yoursite.com/2017/05/06/hello-blog/index.html">
+<meta property="og:title" content="一款基于AFNetworking封装的网络框架">
+<meta property="og:url" content="http://yoursite.com/2017/05/09/一款基于AFNetworking封装的网络框架/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="拿来说说在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。 说到搭建 Blog , 早在半年前就搭建过, 由于当时对”拿来主义”这个概念理解不够成熟, 以为搭建 Blog 就一定要什么都亲力亲为, 无形的放大了工作量.  今天周六, 正好有空, 于是就有了这个 Blog. 用到了什么">
-<meta property="og:updated_time" content="2017-05-07T17:24:20.000Z">
+<meta property="og:description" content="框架地址 AFNetworking 存在的问题如果你的项目中使用了 AFNetworking, 就一定会出现内存泄漏的问题. 这个是我在用做测试的时候发现的. 问题重现 安装 AFNetworking, 使用 AFNetworking 做网络请求 使用 Debug Memory Graph 查看内存引用关系  Debug Memory Graph(Xcode 8.0+)  AFNetworing">
+<meta property="og:image" content="http://yoursite.com/assets/images/LCNetworking/Debug%20Memory%20Graph.png">
+<meta property="og:image" content="http://yoursite.com/assets/images/LCNetworking/AFN的内存泄漏.png">
+<meta property="og:image" content="http://yoursite.com/assets/images/LCNetworking/内存泄漏解决.png">
+<meta property="og:updated_time" content="2017-05-09T09:34:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello Blog">
-<meta name="twitter:description" content="拿来说说在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。 说到搭建 Blog , 早在半年前就搭建过, 由于当时对”拿来主义”这个概念理解不够成熟, 以为搭建 Blog 就一定要什么都亲力亲为, 无形的放大了工作量.  今天周六, 正好有空, 于是就有了这个 Blog. 用到了什么">
+<meta name="twitter:title" content="一款基于AFNetworking封装的网络框架">
+<meta name="twitter:description" content="框架地址 AFNetworking 存在的问题如果你的项目中使用了 AFNetworking, 就一定会出现内存泄漏的问题. 这个是我在用做测试的时候发现的. 问题重现 安装 AFNetworking, 使用 AFNetworking 做网络请求 使用 Debug Memory Graph 查看内存引用关系  Debug Memory Graph(Xcode 8.0+)  AFNetworing">
+<meta name="twitter:image" content="http://yoursite.com/assets/images/LCNetworking/Debug%20Memory%20Graph.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -130,44 +133,72 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-blog" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-一款基于AFNetworking封装的网络框架" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello Blog
+      一款基于AFNetworking封装的网络框架
     </h1>
   
 
         
-        <a href="/2017/05/06/hello-blog/" class="archive-article-date">
-  	<time datetime="2017-05-06T03:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-06</time>
+        <a href="/2017/05/09/一款基于AFNetworking封装的网络框架/" class="archive-article-date">
+  	<time datetime="2017-05-09T08:54:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="拿来说说"><a href="#拿来说说" class="headerlink" title="拿来说说"></a>拿来说说</h1><p>在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。</p>
-<p>说到搭建 Blog , 早在半年前就搭建过, 由于当时对”拿来主义”这个概念理解不够成熟, 以为搭建 Blog 就一定要什么都亲力亲为, 无形的放大了工作量. </p>
-<p>今天周六, 正好有空, 于是就有了这个 Blog.</p>
-<h1 id="用到了什么"><a href="#用到了什么" class="headerlink" title="用到了什么"></a>用到了什么</h1><a id="more"></a>
+        <p><a href="https://github.com/Little-Captain/LCNetworking" target="_blank" rel="external">框架地址</a></p>
+<h1 id="AFNetworking-存在的问题"><a href="#AFNetworking-存在的问题" class="headerlink" title="AFNetworking 存在的问题"></a>AFNetworking 存在的问题</h1><p>如果你的项目中使用了 AFNetworking, 就一定会出现内存泄漏的问题. 这个是我在用做测试的时候发现的.</p>
+<h2 id="问题重现"><a href="#问题重现" class="headerlink" title="问题重现"></a>问题重现</h2><ul>
+<li>安装 AFNetworking, 使用 AFNetworking 做网络请求</li>
+<li>使用 Debug Memory Graph 查看内存引用关系</li>
+</ul>
+<p><em>Debug Memory Graph(Xcode 8.0+)</em></p>
+<p><img src="/assets/images/LCNetworking/Debug Memory Graph.png" alt=""></p>
+<p><em>AFNetworing 的一些对象被 Xcode 标记</em></p>
+<p><img src="/assets/images/LCNetworking/AFN的内存泄漏.png" alt=""></p>
+<p>图上结果表示: 这些对象无法被释放, 即内存泄漏.</p>
 <ul>
-<li>Hexo<ul>
-<li>简单易用</li>
-<li>使用 Node.js 技术(喜欢 Node, 虽然不需要写 Node 代码)</li>
+<li>使用 Instrument 测试得到类似结果</li>
 </ul>
-</li>
-<li>github page<ul>
-<li>方便, github 仓库直接管理</li>
-<li>穷, 不解释</li>
+<h1 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h1><p>失败的解决办法</p>
+<ul>
+<li>控制器退出时, 取消所有任务</li>
+<li>使用 weak strong dance</li>
+<li>…</li>
 </ul>
-</li>
-<li><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">Yilia</a>主题 </li>
+<p>成功的解决办法</p>
+<ul>
+<li>使用单例封装 AFNetworking, 实现自己的网络工具类.</li>
 </ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a><br><a href="https://pages.github.com" target="_blank" rel="external">github pages</a><br><a href="http://baixin.io/2015/08/HEXO搭建个人博客/" target="_blank" rel="external">HEXO搭建个人博客</a></p>
+<p><em>效果图</em></p>
+<p><img src="/assets/images/LCNetworking/内存泄漏解决.png" alt=""></p>
+<h1 id="LCNetworking"><a href="#LCNetworking" class="headerlink" title="LCNetworking"></a>LCNetworking</h1><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul>
+<li>一款基于 AFNetworking 的框架</li>
+<li>使用单例模式解决了 AFNetworking 的内存泄漏问题</li>
+<li>与 AFNetworking 原有 API 完全兼容</li>
+</ul>
+<h2 id="增加-API"><a href="#增加-API" class="headerlink" title="增加 API"></a>增加 API</h2><ul>
+<li>获取单例对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+ (instancetype)sharedInstance;</div></pre></td></tr></table></figure>
+<ul>
+<li>GET / POST</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (nullable NSURLSessionDataTask *)request:...;</div></pre></td></tr></table></figure>
+<ul>
+<li>上传文件方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (nullable NSURLSessionDataTask *)upload:...;</div></pre></td></tr></table></figure>
+<ul>
+<li>方法持续扩展维护中</li>
+</ul>
 
       
 
@@ -176,17 +207,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -237,7 +257,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/06/hello-blog/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/09/一款基于AFNetworking封装的网络框架/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -251,15 +271,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/06/Block 总结/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Block 总结
-        
-      </div>
-    </a>
   
+    <a href="/2017/05/09/UITableView 的性能优化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">UITableView 的性能优化</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
