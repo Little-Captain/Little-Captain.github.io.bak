@@ -6,28 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>git常用命令 | Little Captain&#39;s Blog</title>
+  <title>Tag: 软件架构 | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="git核心命令工作示意图">
-<meta name="keywords" content="git,源代码管理">
-<meta property="og:type" content="article">
-<meta property="og:title" content="git常用命令">
-<meta property="og:url" content="http://yoursite.com/2017/05/07/git常用命令/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Little Captain&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/tags/软件架构/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="git核心命令工作示意图">
-<meta property="og:image" content="http://yoursite.com/assets/images/git/git常用命令-01.png">
-<meta property="og:image" content="http://yoursite.com/assets/images/git/git常用命令-02.png">
-<meta property="og:image" content="http://yoursite.com/assets/images/git/git常用命令-03.png">
-<meta property="og:image" content="http://yoursite.com/assets/images/git/git常用命令-04.png">
-<meta property="og:image" content="http://yoursite.com/assets/images/git/git常用命令-05.png">
-<meta property="og:image" content="http://yoursite.com/assets/images/git/git常用命令-06.png">
-<meta property="og:image" content="http://yoursite.com/assets/images/git/git常用命令-07.png">
-<meta property="og:image" content="http://yoursite.com/assets/images/git/git常用命令-08.png">
-<meta property="og:updated_time" content="2017-05-07T10:58:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git常用命令">
-<meta name="twitter:description" content="git核心命令工作示意图">
-<meta name="twitter:image" content="http://yoursite.com/assets/images/git/git常用命令-01.png">
+<meta name="twitter:title" content="Little Captain&#39;s Blog">
   
   
     <link rel="icon" href="/favicon.png">
@@ -139,286 +125,68 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-git常用命令" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      git常用命令
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/05/09/聊聊 iOS 的 MVC 架构/" class="archive-article-date">
+  	<time datetime="2017-05-09T05:35:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/05/09/聊聊 iOS 的 MVC 架构/">聊聊 iOS 的 MVC 架构</a>
     </h1>
   
 
-        
-        <a href="/2017/05/07/git常用命令/" class="archive-article-date">
-  	<time datetime="2017-05-07T06:11:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>git核心命令工作示意图</em></p>
-<p><img src="/assets/images/git/git常用命令-01.png" alt=""></p>
-<a id="more"></a>
-<p><img src="/assets/images/git/git常用命令-02.png" alt=""></p>
-<p><img src="/assets/images/git/git常用命令-03.png" alt=""></p>
-<ul>
-<li>git帮助</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">help</span> &lt;verb&gt;</div><div class="line">git &lt;verb&gt; --help</div><div class="line">man git-&lt;verb&gt;</div><div class="line">git <span class="built_in">help</span></div><div class="line">git <span class="built_in">help</span> 其他指令</div></pre></td></tr></table></figure>
-<ul>
-<li>初始化一个本地仓库，生成一个.git目录，用于维护版本信息</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># 初始化可以在一个空文件执行, 也可以在一个非空文件执行</div><div class="line">git init</div><div class="line">git init 仓库路径</div><div class="line"># 初始化共享仓库, 共享仓库不能直接操作, 必须clone到本地</div><div class="line">git init --bare</div><div class="line"># Git 会自动修改该仓库目录的组权限为可写</div><div class="line">git init --bare --shared</div></pre></td></tr></table></figure>
-<ul>
-<li>克隆远程仓库到本地</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 下载远程仓库到当前路径</span></div><div class="line">git <span class="built_in">clone</span> 仓库的URL</div><div class="line"><span class="comment"># 下载远程仓库到特定路径</span></div><div class="line">git <span class="built_in">clone</span> 仓库的URL 存放仓库的路径</div><div class="line"><span class="comment"># 克隆时, 创建一个裸仓库(即一个不包含当前工作目录的仓库)</span></div><div class="line">git <span class="built_in">clone</span> --bare my_project my_project.git</div></pre></td></tr></table></figure>
-<ul>
-<li>下载远程仓库的最新信息到本地仓库, 注意它与git fetch的区别</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span></div><div class="line">git pull</div></pre></td></tr></table></figure>
-<ul>
-<li>将本地的仓库信息推送到远程仓库</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git push</div><div class="line">git push --force <span class="comment"># 强制推送</span></div></pre></td></tr></table></figure>
-<ul>
-<li>git仓库的忽略处理, 指定哪些文件不纳入版本库的管理. 把文件修改或者新添加的文件添加到暂存区域.  git add 命令使用文件或目录的路径作为参数; 如果参数是目录的路径，该命令将递归 地跟踪该目录下的所有文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">touch .gitignore <span class="comment"># 或使用已有的.gitignore文件</span></div><div class="line">git add .gitignore</div><div class="line">git commit -m <span class="string">"进行忽略操作"</span> .gitignore</div></pre></td></tr></table></figure>
-<p><em>.gitignore 格式规范</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 所有空行或者以 # 开头的行都会被 Git 忽略。</span></div><div class="line"><span class="comment"># 可以使用标准的 glob 模式匹配。</span></div><div class="line"><span class="comment"># 匹配模式可以以(/)开头防止递归。</span></div><div class="line"><span class="comment"># 匹配模式可以以(/)结尾指定目录。</span></div><div class="line"><span class="comment"># 要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号(!)取反。</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>所谓的 glob 模式是指 shell 所使用的简化了的正则表达式。 星号()匹配零个或多个任意字符;[abc] 匹配 任何一个列在方括号中的字符(这个例子要么匹配一个 a，要么匹配一个 b，要么匹配一个 c);问号(?)只匹配一个任意字符;如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配(比如 [0-9] 表示匹配所有 0 到 9 的数字)。 使用两个星号**示匹配任意中间目录，比如a/**/z 可以匹配 a/z, a/b/z 或 a/b/c/z等。</p>
-</blockquote>
-<ul>
-<li>配置该仓库的用户名和邮箱</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config user.name &quot;manager&quot; </div><div class="line">git config user.email &quot;manager@qq.com&quot;</div></pre></td></tr></table></figure>
-<ul>
-<li>配置全局用户名和邮箱</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;Katie-Liu&quot;</div><div class="line">git config --global user.name &quot;Katie-Liu@126.com&quot;</div></pre></td></tr></table></figure>
-<ul>
-<li>配置文本编辑器</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 当Git需要你输入信息时会调用它, Git默认的是vim</span></div><div class="line">git config --global core.editor vim</div></pre></td></tr></table></figure>
-<ul>
-<li>配置信息</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看当前所有配置信息</span></div><div class="line">git config <span class="_">-l</span> <span class="comment"># list</span></div><div class="line"><span class="comment"># 编辑当前配置信息</span></div><div class="line">git config <span class="_">-e</span> <span class="comment"># edit 使用vim</span></div><div class="line"><span class="comment"># 检查某一项配置</span></div><div class="line">git config user.name</div></pre></td></tr></table></figure>
-<ul>
-<li>查看git仓库状态</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># 使用git status -s</div><div class="line">XY</div><div class="line">X shows the status of the index</div><div class="line">Y shows the status of the work tree</div><div class="line">For untracked paths, XY are ??</div><div class="line">Other status codes can be interpreted as follows:</div><div class="line">o   &apos; &apos; = unmodified</div><div class="line">o   M = modified</div><div class="line">o   A = added</div><div class="line">o   D = deleted</div><div class="line">o   R = renamed</div><div class="line">o   C = copied</div><div class="line">o   U = updated but unmerged</div><div class="line">Ignored files are not listed, unless --ignored option is in effect, in which case XY are !!.</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 红色表示该文件并没有被git仓库管理, 还有其他可能的含义</div><div class="line"># 绿色表示该文件已被添加到git的暂缓区中</div><div class="line">git status</div><div class="line">git status 文件名</div><div class="line">git status -s</div></pre></td></tr></table></figure>
-<ul>
-<li>使用git status -s显示状态的含义说明</li>
-</ul>
-<blockquote>
-<p>新添加的未跟踪文件前面有 ?? 标记，新添加到暂存区中的文件前面有 A 标记，修改过的文件前面有 M 标记。 你可能注意到了 M 有两个可以出现的位置，出现在右边的 M 表示该文件被修改了但是还没放入暂存区，出现在 靠左边的 M 表示该文件被修改了并放入了暂存区。</p>
-</blockquote>
-<ul>
-<li>总结: <code>左边</code>表示<code>暂存区</code>, <code>右边</code>表示<code>工作区</code></li>
-<li>将工作区的文件添加到git仓库的暂缓区, 不管是新建文件还是修改了的文件, 都需要再次添加</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 跟文件名或文件夹名</span></div><div class="line">git add . <span class="comment"># 常用</span></div><div class="line">git add xxx</div></pre></td></tr></table></figure>
-<p><img src="/assets/images/git/git常用命令-04.png" alt=""></p>
-<ul>
-<li>提交到本地git仓库, 把暂存区域的所有内容提交到当前分支,  每一次运行提交操作，都是对你项目作一次快照，以后可以回到这个状态，或者进行比较。</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># xxx 文件名或文件夹名, 也可以不写, 表示提交所有</span></div><div class="line">git commit -m <span class="string">"注释"</span> xxx</div><div class="line"><span class="comment"># 尽管使用暂存区域的方式可以精心准备要提交的细节，但有时候这么做略显繁琐。 Git 提供了一个跳过使用暂存区域的方式，只要在提交的时候，给 git commit 加上 -a 选项，Git 就会自动把所有已经跟踪过的文件暂存起 来一并提交，从而跳过 git add 步骤</span></div><div class="line">git commit <span class="_">-a</span> -m <span class="string">'注释'</span></div></pre></td></tr></table></figure>
-<p><img src="/assets/images/git/git常用命令-05.png" alt=""></p>
-<ul>
-<li>撤销操作</li>
-</ul>
-<blockquote>
-<p>在任何一个阶段都有可能想要撤消某些操作。注 意，有些撤消操作是不可逆的。 这是在使用 Git 的过程中，会因为操作失误而导致之前的工作丢失的少有的几个地方之一。</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 提交完了才发现漏掉了几个文件没有添加，或者提交信息写错了。 此时，可以运行带有 --amend 选项的提交命令尝试重新提交. 这个命令会将暂存区中的文件提交。如果自上次提交以来你还未做任何修改(如果在上次提交后马上执行了此命令)，那么快照会保持不变，而你所修改的只是提交信息。只会有一个提交, 第二次提交将代替第一次提交的结果</span></div><div class="line">git commit --amend</div></pre></td></tr></table></figure>
-<ul>
-<li>给git命令取别名</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 当前仓库别名</span></div><div class="line">git config alias.st <span class="string">"status"</span> <span class="comment"># status--&gt;st</span></div><div class="line">git config alias.ci <span class="string">"commit -m"</span> <span class="comment"># commit -m --&gt;ci</span></div><div class="line"></div><div class="line"><span class="comment"># 全局的别名</span></div><div class="line">git config --global alias.st <span class="string">"status"</span></div><div class="line"></div><div class="line"><span class="comment"># 配置带颜色的log别名</span></div><div class="line">git config --global alias.lg <span class="string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span></div></pre></td></tr></table></figure>
-<ul>
-<li>git中删除文件</li>
-</ul>
-<blockquote>
-<p>要从 Git 中移除某个文件，就必须要从已跟踪文件清单中移除(确切地说，是从暂存区域移除)，然后提交。 可以用 git rm 命令完成此项工作，并连带从工作目录中删除指定的文件，这样以后就不会出现在未跟踪文件清 单中了。<br> 如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 -f(译注:即 force 的首字母)。 这是一种安全特性，用于防止误删还没有添加到快照的数据，这样的数据不能被 Git 恢复。<br> 把文件从 Git 仓库中删除(亦即从暂存区域移除)，但仍然希望保留在当前工作目录 中。 换句话说，你想让文件保留在磁盘，但是并不想让 Git 继续跟踪。为达到这一目 的，使用 –cached 选项</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 后跟文件名, 可以同时跟多个</span></div><div class="line"><span class="comment"># 删除只在工作区和暂缓去, 本地仓库并没有删除, 所以我们需要commit</span></div><div class="line">git rm xxx1 xxx2</div><div class="line"><span class="comment"># 只删除仓库中的文件, 而保留工作目录中的</span></div><div class="line">git rm --cached xxx</div><div class="line"><span class="comment"># git rm 命令后面可以列出文件或者目录的名字，也可以使用 glob 模式. 注意到星号 * 之前的反斜杠 \， 因为 Git 有它自己的文件模式扩展匹配方式，所以我们不用 shell 来帮忙展开。</span></div><div class="line">git rm <span class="built_in">log</span>/\*.log <span class="comment"># 删除 log/ 目录下扩展名为 .log 的所有文件</span></div><div class="line">git rm \*~ <span class="comment"># 删除以 ~ 结尾的所有文件</span></div></pre></td></tr></table></figure>
-<ul>
-<li>移动文件</li>
-</ul>
-<blockquote>
-<p>Git 并不显式跟踪文件移动操作. 如果在 Git 中重命名了某个文件，仓库中存储的元数据并不会体现出这是一次改名操作。 不过 Git能推断出究竟发生了什么.</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git mv file_from file_to</div><div class="line"><span class="comment"># 上面一条命令相当于下面三条</span></div><div class="line">mv file_from file_to</div><div class="line">git rm file_from</div><div class="line">git add file_to</div><div class="line"><span class="comment"># 有时候用其他工具批处理改名的话，要记得在 提交前删除老的文件名，再添加新的文件名。</span></div></pre></td></tr></table></figure>
-<ul>
-<li>查看版本信息</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看版本信息(基本版) </span></div><div class="line"><span class="comment"># 按提交时间列出所有的更新，最近的更新排在最上面</span></div><div class="line"><span class="comment"># 版本号是一个由SHA1生成的哈希值</span></div><div class="line">git <span class="built_in">log</span></div><div class="line"><span class="comment"># 查看指定文件的版本库日志</span></div><div class="line">git <span class="built_in">log</span> 文件名</div><div class="line"><span class="comment"># 查看最近的N次信息</span></div><div class="line">git <span class="built_in">log</span> -N</div><div class="line"><span class="comment"># 显示每次提交的内容差异, 当进行代码审查，或者快速浏览某个搭档提交的 commit 所带来的变化的时候，这个参数就非常有用了。</span></div><div class="line">git <span class="built_in">log</span> -p</div><div class="line"><span class="comment"># 看每次提交的简略的统计信息，可以使用 --stat 选项. --stat 选项在每次提交的下面列出额所有被修改过的文件、有多少文件被修改了以及被修改过 的文件的哪些行被移除或是添加了</span></div><div class="line">git <span class="built_in">log</span> --stat</div><div class="line"><span class="comment"># HEAD指向当前所在的分支, 可以简单地使用 git log 命令查看各个分支当前所指的对象。 提供这一功能的参数是 --decorate。</span></div><div class="line">git <span class="built_in">log</span> --decorate</div><div class="line"><span class="comment"># --graph, 引入图形显示方式</span></div><div class="line">git <span class="built_in">log</span> --graph</div><div class="line">git <span class="built_in">log</span> --oneline --decorate --graph --all</div><div class="line"><span class="comment"># --all, 显示所有提交历史</span></div><div class="line">git <span class="built_in">log</span> --all</div><div class="line"><span class="comment"># --pretty选项可以指定使用不同于默认格式的方式展示提交历史--pretty=[oneline short full fuller format]</span></div><div class="line">git <span class="built_in">log</span> --pretty=oneline</div><div class="line"><span class="comment"># --pretty的子选项format，可以定制要显示的记录格式</span></div><div class="line">git <span class="built_in">log</span> --pretty=format:<span class="string">"%h - %an, %ar : %s"</span></div><div class="line"><span class="comment"># 当 oneline 或 format 与另一个 log 选项 --graph 结合使用时尤其有用。 这个选项添加了一些ASCII字符串来形象地展示你的分支、合并历史</span></div><div class="line">git <span class="built_in">log</span> --pretty=format:<span class="string">"%h %s"</span> --graph</div><div class="line"><span class="comment"># 一个很实用的 git log 选项是路径(path)， 如果只关心某些文件或者目录的历史提交，可以在 git log 选 项的最后指定它们的路径。 因为是放在最后位置上的选项，所以用两个短划线(--)隔开之前的选项和后面限定 的路径名。</span></div><div class="line"><span class="comment"># 一个综合例子: 查看 Git 仓库中，2008 年 10 月期间，Junio Hamano 提交的但未合并的测试文件</span></div><div class="line">git <span class="built_in">log</span> --pretty=<span class="string">"%h - %s"</span> --author=gitster --since=<span class="string">"2008-10-01"</span> --before=<span class="string">"2008-11-01"</span> --no-merges -- t/</div><div class="line"><span class="comment"># 查看版本信息(加强版)</span></div><div class="line"><span class="comment"># 可以查看版本回退信息</span></div><div class="line">git reflog</div></pre></td></tr></table></figure>
-<p><em>git log –pretty=format 常用的选项</em></p>
-<p><img src="/assets/images/git/git常用命令-06.png" alt=""></p>
-<p><em>git log 的常用选项</em></p>
-<p><img src="/assets/images/git/git常用命令-07.png" alt=""></p>
-<p><em>限制git log输出的选项</em></p>
-<p><img src="/assets/images/git/git常用命令-08.png" alt=""></p>
-<ul>
-<li>查看改动, 想知道具体修改了什么地方，可以用 git diff 命令, git diff 将通过文件补丁的格式显示具体哪些行发生了改变</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看当前路径所有文件最新改动的地方</span></div><div class="line"><span class="comment"># 查看尚未暂存的文件更新了哪些部分</span></div><div class="line"><span class="comment"># 比较的是工作目录中当前文件和暂存区域快照之间的差异， 也就是修改之后还没有暂存起来的变化内容</span></div><div class="line"><span class="comment"># 只显示尚未暂存的改动，而不是自上次提交以来所做的所有改动</span></div><div class="line">git diff</div><div class="line"><span class="comment"># 查看某个文件的最新改动的地方</span></div><div class="line">git diff 文件名</div><div class="line"><span class="comment"># 查看已暂存的将要添加到下次提交里的内容</span></div><div class="line"><span class="comment"># 也就是比较暂存区和git仓库中的内容</span></div><div class="line">git diff --cached</div><div class="line">git diff --staged <span class="comment"># Git 1.6.1及以上</span></div><div class="line">git diff --tool=vimdiff <span class="comment"># 启动图形化差异分析工具</span></div><div class="line"><span class="comment"># emerge</span></div><div class="line"><span class="comment"># opendiff</span></div><div class="line"><span class="comment"># vimdiff</span></div><div class="line"><span class="comment"># vimdiff2</span></div><div class="line"><span class="comment"># vimdiff3</span></div><div class="line"><span class="comment"># 可以使用config的diff.tool属性, 指定默认分析工具</span></div></pre></td></tr></table></figure>
-<ul>
-<li>查看标签</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git tag</div></pre></td></tr></table></figure>
-<ul>
-<li>对当前版本打一个标签</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git tag <span class="_">-a</span> MOMO1.0 -m <span class="string">"MOMO1.0"</span></div><div class="line"><span class="comment"># 将标签推送到远程代码库中</span></div><div class="line">git push origin MOMO1.0</div></pre></td></tr></table></figure>
-<ul>
-<li>使用tag，就能够将项目快速切换到某一个中间状态，例如产品开发线上的某一个稳定版本</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 签出v1.0标签</span></div><div class="line">git checkout v1.0</div><div class="line"><span class="comment"># 从检出状态创建v1.0bugfix分支</span></div><div class="line">git checkout -b bugfix1.0</div><div class="line"><span class="comment"># 上面一条代码相当于: </span></div><div class="line">git branch bugfix1.0</div><div class="line">git checkout bugfix1.0</div></pre></td></tr></table></figure>
-<ul>
-<li>版本回退</li>
-<li><ol>
-<li>修改已经add到了暂存区, 但是这个修改还没有提交到版本库(取消修改). 例如，你已经修改了两个文件并且想要将它们作为两次独立的修改提交，但是却意外地输入了 git add * 暂存了它们两个。</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 加上 --hard 选项可以令 git reset 成为一个危险的命令(可能导致工作目录中所有当前进度丢失!)，但这种情况跟工作目录内的文件并不会被修改。 不加选项地调用 git reset 并不危险, 它只会修改暂存区域。</span></div><div class="line">git reset HEAD fileName</div></pre></td></tr></table></figure>
-<ul>
-<li><ol>
-<li>本地仓库修改了内容,并且这个修改已经被提交到版本库(回退到以前的版本)</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 回退到上一个版本</span></div><div class="line">git reset --hard HEAD^</div><div class="line"><span class="comment"># 回退到上N个版本</span></div><div class="line">git reset --hard HEAD~N</div><div class="line"><span class="comment"># 回退到指向的任意版本</span></div><div class="line">git reset --hard 五位数字的版本号 <span class="comment">#当然多于5位也可</span></div></pre></td></tr></table></figure>
-<ul>
-<li>3.撤消对文件的修改. 如何方便地撤消修改, 将它还原成上次提交时的样子(或者刚克隆完的样子，或者刚把它放入工作目录时的样子)?</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -- [file]</div></pre></td></tr></table></figure>
-<blockquote>
-<p><code>重要</code>: git checkout – [file] 是一个危险的命令。 你对那个文件做的任何修改都会消失, 只是拷贝了另一个文件来覆盖它。 除非你确实清楚不想要那个文件了，否则不要使用这个命令。记住，在 Git 中任何已提交的东西几乎总是可以恢复的。 甚至那些被删除的分支中的提交或使用 –amend 选项覆盖的提交也可以恢复。 然而，任何你未提交的东西丢失后很可能再也找不 到了。</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">源代码管理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MVC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">软件架构</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/07/git常用命令/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/05/07/分布式Git-工作流程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          分布式Git - 工作流程
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/05/06/Block 总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Block 总结</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -438,9 +206,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
