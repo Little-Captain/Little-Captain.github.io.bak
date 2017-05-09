@@ -148,52 +148,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="https://github.com/Little-Captain/LCNetworking" target="_blank" rel="external">框架地址</a></p>
-<h1 id="AFNetworking-存在的问题"><a href="#AFNetworking-存在的问题" class="headerlink" title="AFNetworking 存在的问题"></a>AFNetworking 存在的问题</h1><p>如果你的项目中使用了 AFNetworking, 就一定会出现内存泄漏的问题. 这个是我在用做测试的时候发现的.</p>
-<h2 id="问题重现"><a href="#问题重现" class="headerlink" title="问题重现"></a>问题重现</h2><ul>
-<li>安装 AFNetworking, 使用 AFNetworking 做网络请求</li>
-<li>使用 Debug Memory Graph 查看内存引用关系</li>
-</ul>
-<p><em>Debug Memory Graph(Xcode 8.0+)</em></p>
-<p><img src="/assets/images/LCNetworking/Debug Memory Graph.png" alt=""></p>
-<p><em>AFNetworing 的一些对象被 Xcode 标记</em></p>
-<p><img src="/assets/images/LCNetworking/AFN的内存泄漏.png" alt=""></p>
-<p>图上结果表示: 这些对象无法被释放, 即内存泄漏.</p>
-<ul>
-<li>使用 Instrument 测试得到类似结果</li>
-</ul>
-<h1 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h1><p>失败的解决办法</p>
-<ul>
-<li>控制器退出时, 取消所有任务</li>
-<li>使用 weak strong dance</li>
-<li>…</li>
-</ul>
-<p>成功的解决办法</p>
-<ul>
-<li>使用单例封装 AFNetworking, 实现自己的网络工具类.</li>
-</ul>
-<p><em>效果图</em></p>
-<p><img src="/assets/images/LCNetworking/内存泄漏解决.png" alt=""></p>
-<h1 id="LCNetworking"><a href="#LCNetworking" class="headerlink" title="LCNetworking"></a>LCNetworking</h1><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul>
-<li>一款基于 AFNetworking 的框架</li>
-<li>使用单例模式解决了 AFNetworking 的内存泄漏问题</li>
-<li>与 AFNetworking 原有 API 完全兼容</li>
-</ul>
-<h2 id="增加-API"><a href="#增加-API" class="headerlink" title="增加 API"></a>增加 API</h2><ul>
-<li>获取单例对象</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+ (instancetype)sharedInstance;</div></pre></td></tr></table></figure>
-<ul>
-<li>GET / POST</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (nullable NSURLSessionDataTask *)request:...;</div></pre></td></tr></table></figure>
-<ul>
-<li>上传文件方法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (nullable NSURLSessionDataTask *)upload:...;</div></pre></td></tr></table></figure>
-<ul>
-<li>方法持续扩展维护中</li>
-</ul>
-
+<h1 id="AFNetworking-存在的问题"><a href="#AFNetworking-存在的问题" class="headerlink" title="AFNetworking 存在的问题"></a>AFNetworking 存在的问题</h1>
+        
+          <a class="article-more-a" href="/2017/05/09/一款基于AFNetworking封装的网络框架/#more">more >></a>
+        
       
 
       
@@ -889,6 +847,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
               </li>
              
@@ -901,22 +867,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
@@ -925,7 +875,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -934,6 +888,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>

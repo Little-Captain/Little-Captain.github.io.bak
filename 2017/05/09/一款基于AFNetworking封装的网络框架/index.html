@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>一款基于AFNetworking封装的网络框架 | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="框架地址 AFNetworking 存在的问题如果你的项目中使用了 AFNetworking, 就一定会出现内存泄漏的问题. 这个是我在用做测试的时候发现的. 问题重现 安装 AFNetworking, 使用 AFNetworking 做网络请求 使用 Debug Memory Graph 查看内存引用关系  Debug Memory Graph(Xcode 8.0+)  AFNetworing">
+  <meta name="description" content="框架地址 AFNetworking 存在的问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一款基于AFNetworking封装的网络框架">
 <meta property="og:url" content="http://yoursite.com/2017/05/09/一款基于AFNetworking封装的网络框架/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="框架地址 AFNetworking 存在的问题如果你的项目中使用了 AFNetworking, 就一定会出现内存泄漏的问题. 这个是我在用做测试的时候发现的. 问题重现 安装 AFNetworking, 使用 AFNetworking 做网络请求 使用 Debug Memory Graph 查看内存引用关系  Debug Memory Graph(Xcode 8.0+)  AFNetworing">
+<meta property="og:description" content="框架地址 AFNetworking 存在的问题">
 <meta property="og:image" content="http://yoursite.com/assets/images/LCNetworking/Debug%20Memory%20Graph.png">
 <meta property="og:image" content="http://yoursite.com/assets/images/LCNetworking/AFN的内存泄漏.png">
 <meta property="og:image" content="http://yoursite.com/assets/images/LCNetworking/内存泄漏解决.png">
-<meta property="og:updated_time" content="2017-05-09T09:34:43.000Z">
+<meta property="og:updated_time" content="2017-05-09T09:36:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一款基于AFNetworking封装的网络框架">
-<meta name="twitter:description" content="框架地址 AFNetworking 存在的问题如果你的项目中使用了 AFNetworking, 就一定会出现内存泄漏的问题. 这个是我在用做测试的时候发现的. 问题重现 安装 AFNetworking, 使用 AFNetworking 做网络请求 使用 Debug Memory Graph 查看内存引用关系  Debug Memory Graph(Xcode 8.0+)  AFNetworing">
+<meta name="twitter:description" content="框架地址 AFNetworking 存在的问题">
 <meta name="twitter:image" content="http://yoursite.com/assets/images/LCNetworking/Debug%20Memory%20Graph.png">
   
   
@@ -154,7 +154,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><a href="https://github.com/Little-Captain/LCNetworking" target="_blank" rel="external">框架地址</a></p>
-<h1 id="AFNetworking-存在的问题"><a href="#AFNetworking-存在的问题" class="headerlink" title="AFNetworking 存在的问题"></a>AFNetworking 存在的问题</h1><p>如果你的项目中使用了 AFNetworking, 就一定会出现内存泄漏的问题. 这个是我在用做测试的时候发现的.</p>
+<h1 id="AFNetworking-存在的问题"><a href="#AFNetworking-存在的问题" class="headerlink" title="AFNetworking 存在的问题"></a>AFNetworking 存在的问题</h1><a id="more"></a>
+<p>如果你的项目中使用了 AFNetworking, 就一定会出现内存泄漏的问题. 这个是我在用做测试的时候发现的.</p>
 <h2 id="问题重现"><a href="#问题重现" class="headerlink" title="问题重现"></a>问题重现</h2><ul>
 <li>安装 AFNetworking, 使用 AFNetworking 做网络请求</li>
 <li>使用 Debug Memory Graph 查看内存引用关系</li>
@@ -374,6 +375,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
               </li>
              
@@ -386,22 +395,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
@@ -410,7 +403,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -419,6 +416,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
             
             <div class="clearfix"></div>
