@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/09/UITableView 的性能优化/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="重要性UITableView 是 iOS 开发中最常使用的控件之一, 在各类 App 中都充斥着各种表格. 表格展示的内容如果比较多, 比较复杂, 往往会影响界面的刷新帧率, 在用户的角度就是界面卡顿, 这时必须对 UITableView 进行性能优化.">
-<meta property="og:updated_time" content="2017-05-09T07:26:21.000Z">
+<meta property="og:updated_time" content="2017-05-09T07:30:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UITableView 的性能优化">
 <meta name="twitter:description" content="重要性UITableView 是 iOS 开发中最常使用的控件之一, 在各类 App 中都充斥着各种表格. 表格展示的内容如果比较多, 比较复杂, 往往会影响界面的刷新帧率, 在用户的角度就是界面卡顿, 这时必须对 UITableView 进行性能优化.">
@@ -153,7 +153,7 @@
         <h1 id="重要性"><a href="#重要性" class="headerlink" title="重要性"></a>重要性</h1><p>UITableView 是 iOS 开发中最常使用的控件之一, 在各类 App 中都充斥着各种表格. 表格展示的内容如果比较多, 比较复杂, 往往会影响界面的刷新帧率, 在用户的角度就是界面卡顿, 这时必须对 UITableView 进行性能优化.</p>
 <a id="more"></a>
 <h1 id="表格为什么会卡"><a href="#表格为什么会卡" class="headerlink" title="表格为什么会卡?"></a>表格为什么会卡?</h1><p>iOS 设备的刷新帧率为 60Hz, 也就是一秒钟会有 60 帧图片绘制在屏幕上. 如果在下一帧图片绘制的时候, CPU正忙, 那么这一帧就会被跳过, 频繁出现这种情况, 界面就卡了.<br>总结: 在两帧之间运算没有做完, 就会出现跳帧</p>
-<h1 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h1><p>实时优化的准则: 测量(Instrument), 而不是猜测</p>
+<h1 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h1><p>实施优化的准则: 测量(Instrument), 而不是猜测</p>
 <h2 id="关于计算"><a href="#关于计算" class="headerlink" title="关于计算"></a>关于计算</h2><ul>
 <li>尽量少计算, 所有需要的素材提前计算好!</li>
 </ul>
@@ -380,19 +380,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">源代码管理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">源代码管理</a>
               </li>
              
               <li class="article-tag-list-item">
