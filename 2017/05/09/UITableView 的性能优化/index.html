@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello Blog | Little Captain&#39;s Blog</title>
+  <title>UITableView 的性能优化 | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="拿来说说在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。 说到搭建 Blog , 早在半年前就搭建过, 由于当时对”拿来主义”这个概念理解不够成熟, 以为搭建 Blog 就一定要什么都亲力亲为, 无形的放大了工作量.  今天周六, 正好有空, 于是就有了这个 Blog. 用到了什么">
-<meta name="keywords" content="杂谈">
+  <meta name="description" content="重要性UITableView 是 iOS 开发中最常使用的控件之一, 在各类 App 中都充斥着各种表格. 表格展示的内容如果比较多, 比较复杂, 往往会影响界面的刷新帧率, 在用户的角度就是界面卡顿, 这时必须对 UITableView 进行性能优化. 表格为什么会卡?iOS 设备的刷新帧率为 60Hz, 也就是一秒钟会有 60 帧图片绘制在屏幕上. 如果在下一帧图片绘制的时候, CPU正忙,">
+<meta name="keywords" content="iOS,UITableView,性能优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello Blog">
-<meta property="og:url" content="http://yoursite.com/2017/05/06/hello-blog/index.html">
+<meta property="og:title" content="UITableView 的性能优化">
+<meta property="og:url" content="http://yoursite.com/2017/05/09/UITableView 的性能优化/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="拿来说说在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。 说到搭建 Blog , 早在半年前就搭建过, 由于当时对”拿来主义”这个概念理解不够成熟, 以为搭建 Blog 就一定要什么都亲力亲为, 无形的放大了工作量.  今天周六, 正好有空, 于是就有了这个 Blog. 用到了什么">
-<meta property="og:updated_time" content="2017-05-07T17:24:20.000Z">
+<meta property="og:description" content="重要性UITableView 是 iOS 开发中最常使用的控件之一, 在各类 App 中都充斥着各种表格. 表格展示的内容如果比较多, 比较复杂, 往往会影响界面的刷新帧率, 在用户的角度就是界面卡顿, 这时必须对 UITableView 进行性能优化. 表格为什么会卡?iOS 设备的刷新帧率为 60Hz, 也就是一秒钟会有 60 帧图片绘制在屏幕上. 如果在下一帧图片绘制的时候, CPU正忙,">
+<meta property="og:updated_time" content="2017-05-09T07:25:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello Blog">
-<meta name="twitter:description" content="拿来说说在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。 说到搭建 Blog , 早在半年前就搭建过, 由于当时对”拿来主义”这个概念理解不够成熟, 以为搭建 Blog 就一定要什么都亲力亲为, 无形的放大了工作量.  今天周六, 正好有空, 于是就有了这个 Blog. 用到了什么">
+<meta name="twitter:title" content="UITableView 的性能优化">
+<meta name="twitter:description" content="重要性UITableView 是 iOS 开发中最常使用的控件之一, 在各类 App 中都充斥着各种表格. 表格展示的内容如果比较多, 比较复杂, 往往会影响界面的刷新帧率, 在用户的角度就是界面卡顿, 这时必须对 UITableView 进行性能优化. 表格为什么会卡?iOS 设备的刷新帧率为 60Hz, 也就是一秒钟会有 60 帧图片绘制在屏幕上. 如果在下一帧图片绘制的时候, CPU正忙,">
   
   
     <link rel="icon" href="/favicon.png">
@@ -130,44 +130,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-blog" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-UITableView 的性能优化" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello Blog
+      UITableView 的性能优化
     </h1>
   
 
         
-        <a href="/2017/05/06/hello-blog/" class="archive-article-date">
-  	<time datetime="2017-05-06T03:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-06</time>
+        <a href="/2017/05/09/UITableView 的性能优化/" class="archive-article-date">
+  	<time datetime="2017-05-09T06:51:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="拿来说说"><a href="#拿来说说" class="headerlink" title="拿来说说"></a>拿来说说</h1><p>在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。</p>
-<p>说到搭建 Blog , 早在半年前就搭建过, 由于当时对”拿来主义”这个概念理解不够成熟, 以为搭建 Blog 就一定要什么都亲力亲为, 无形的放大了工作量. </p>
-<p>今天周六, 正好有空, 于是就有了这个 Blog.</p>
-<h1 id="用到了什么"><a href="#用到了什么" class="headerlink" title="用到了什么"></a>用到了什么</h1><a id="more"></a>
+        <h1 id="重要性"><a href="#重要性" class="headerlink" title="重要性"></a>重要性</h1><p>UITableView 是 iOS 开发中最常使用的控件之一, 在各类 App 中都充斥着各种表格. 表格展示的内容如果比较多, 比较复杂, 往往会影响界面的刷新帧率, 在用户的角度就是界面卡顿, 这时必须对 UITableView 进行性能优化.</p>
+<h1 id="表格为什么会卡"><a href="#表格为什么会卡" class="headerlink" title="表格为什么会卡?"></a>表格为什么会卡?</h1><p>iOS 设备的刷新帧率为 60Hz, 也就是一秒钟会有 60 帧图片绘制在屏幕上. 如果在下一帧图片绘制的时候, CPU正忙, 那么这一帧就会被跳过, 频繁出现这种情况, 界面就卡了.<br>总结: 在两帧之间运算没有做完, 就会出现跳帧</p>
+<h1 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h1><p>实时优化的准则: 测量(Instrument), 而不是猜测</p>
+<h2 id="关于计算"><a href="#关于计算" class="headerlink" title="关于计算"></a>关于计算</h2><ul>
+<li>尽量少计算, 所有需要的素材提前计算好!</li>
+</ul>
+<h2 id="关于圆角"><a href="#关于圆角" class="headerlink" title="关于圆角"></a>关于圆角</h2><ul>
+<li>控件上不要设置圆角半径, 所有图像渲染的属性, 都要注意!</li>
+</ul>
+<h2 id="关于创建控件"><a href="#关于创建控件" class="headerlink" title="关于创建控件"></a>关于创建控件</h2><ul>
+<li>不要动态创建控件, 所有需要的控件, 都要提前创建好, 在显示的时候, 根据数据决定显示 / 隐藏</li>
+</ul>
+<h2 id="关于控件数量"><a href="#关于控件数量" class="headerlink" title="关于控件数量"></a>关于控件数量</h2><ul>
+<li>cell 中控件的层次越少越好, 数量越少越好!</li>
+</ul>
+<h2 id="行高一定要缓存"><a href="#行高一定要缓存" class="headerlink" title="行高一定要缓存"></a>行高一定要缓存</h2><ul>
+<li>表格性能优化中最重要的一环</li>
+<li>如果系统适配 iOS 8.0+, 推荐使用苹果的自动计算行高, 苹果本身的性能优化已经够好!</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 设置估算高度, 这个值可以尽量大一点儿, 太大苹果也会通过实际需要进行估算</div><div class="line">self.tableView.estimatedRowHeight = 200;</div><div class="line">// 设置自动尺寸</div><div class="line">self.tableView.rowHeight = UITableViewAutomaticDimension;</div></pre></td></tr></table></figure>
 <ul>
-<li>Hexo<ul>
-<li>简单易用</li>
-<li>使用 Node.js 技术(喜欢 Node, 虽然不需要写 Node 代码)</li>
+<li>如何缓存行高, 一般通过在 Model 中增加一个 cellHeight 属性, 在给 Model 设置数据时, 就可以计算了(因为 Model 唯一确定行高), 而且要控制器只计算一次. 如果采用 MVVM 模式, 就在 VM 中计算行高并缓存</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (CGFloat)cellHeight &#123;</div><div class="line">    </div><div class="line">    if (!_cellHeight) &#123; // 行高还没有计算的</div><div class="line">        // 计算行高</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return _cellHeight;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="高级优化"><a href="#高级优化" class="headerlink" title="高级优化"></a>高级优化</h2><ul>
+<li>离屏渲染, 启用异步绘制, 让视图在显示前尽量绘制好</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.layer.drawsAsynchronously = true</div></pre></td></tr></table></figure>
+<ul>
+<li>栅格化, 栅格化之后, 会生成一张独立的图像, cell在屏幕上滚动的时候, 本质上滚动的是这张图片</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 启动栅格化</div><div class="line">self.layer.shouldRasterize = true</div><div class="line">// 设置栅格化的比例, 不然界面显示比较模糊</div><div class="line">self.layer.rasterizationScale = UIScreen.main.scale</div></pre></td></tr></table></figure>
+<ul>
+<li>如果检测到cell的性能已经很好, 就不需要再离屏渲染了<ul>
+<li>离屏渲染需要在GPU / CPU 之间快速切换</li>
+<li>耗电厉害</li>
 </ul>
 </li>
-<li>github page<ul>
-<li>方便, github 仓库直接管理</li>
-<li>穷, 不解释</li>
 </ul>
-</li>
-<li><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">Yilia</a>主题 </li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a><br><a href="https://pages.github.com" target="_blank" rel="external">github pages</a><br><a href="http://baixin.io/2015/08/HEXO搭建个人博客/" target="_blank" rel="external">HEXO搭建个人博客</a></p>
 
       
 
@@ -181,7 +202,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">UITableView</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">性能优化</a>
         		</li>
       		
 		</ul>
@@ -237,7 +266,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/06/hello-blog/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/09/UITableView 的性能优化/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -251,15 +280,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/06/Block 总结/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Block 总结
-        
-      </div>
-    </a>
   
+    <a href="/2017/05/09/聊聊 iOS 的 MVC 架构/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">聊聊 iOS 的 MVC 架构</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
