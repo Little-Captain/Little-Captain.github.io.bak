@@ -17,7 +17,7 @@
 <meta property="og:description" content="资源共享问题 1块资源可能会被多个线程共享，也就是多个线程可能会访问同一块资源 比如: 多个线程访问同一个对象、同一个变量、同一个文件 当多个线程访问同一块资源时，很容易引发数据错乱和数据安全问题">
 <meta property="og:image" content="http://yoursite.com/assets/images/多线程/不加锁.png">
 <meta property="og:image" content="http://yoursite.com/assets/images/多线程/加互斥锁.png">
-<meta property="og:updated_time" content="2017-05-09T10:45:15.000Z">
+<meta property="og:updated_time" content="2017-05-10T04:06:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多线程-安全隐患">
 <meta name="twitter:description" content="资源共享问题 1块资源可能会被多个线程共享，也就是多个线程可能会访问同一块资源 比如: 多个线程访问同一个对象、同一个变量、同一个文件 当多个线程访问同一块资源时，很容易引发数据错乱和数据安全问题">
@@ -165,22 +165,10 @@
 <li>@synchronized(锁对象) {// 需要锁定的代码}</li>
 <li>锁定1份代码只用1把锁，用多把锁是无效的</li>
 <li>使用注意点<ul>
-<li><ol>
 <li>注意加锁的位置</li>
-</ol>
-</li>
-<li><ol>
 <li>注意加锁的前提条件 : 多条线程共享同一块资源</li>
-</ol>
-</li>
-<li><ol>
 <li>注意加锁是需要代价的 : 需要耗费性能</li>
-</ol>
-</li>
-<li><ol>
 <li>加锁的结果 : 线程同步了</li>
-</ol>
-</li>
 </ul>
 </li>
 </ul>
@@ -460,6 +448,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
               </li>
              
               <li class="article-tag-list-item">
