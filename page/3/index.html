@@ -215,11 +215,6 @@
 <li>Block 其实就是一个<code>代码块</code>，把你想要执行的代码封装在这个代码块里，等到需要的时候再去调用</li>
 <li>Block 是 <code>OC 对象</code>. OC 对象? 好像不对? Block 不是函数指针吗? 如果 Block 是函数指针, 那么还有必要把 Block 从栈区拷贝到堆区吗? 还能使用 copy 关键字修饰 Block 属性吗? 用事实说话好吧!</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过使用 OC 运行时机制, 打印出 全局 Block 的继承链</span></div><div class="line">- (<span class="keyword">void</span>)testGetClassInheritChain &#123;</div><div class="line">    </div><div class="line">    <span class="keyword">void</span> (^testBlock)(<span class="keyword">void</span>) = ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"testBlock"</span>);</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [[testBlock <span class="keyword">class</span>] lc_classInheritChain]);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 打印结果: __NSGlobalBlock__ -&gt; __NSGlobalBlock -&gt; NSBlock -&gt; NSObject</span></div></pre></td></tr></table></figure>
-<ul>
-<li><a href="https://github.com/Little-Captain/LCRuntimeTool" target="_blank" rel="external">源码地址</a></li>
-</ul>
-<h2 id="Block-属性的修饰-copy-strong-retain-assign"><a href="#Block-属性的修饰-copy-strong-retain-assign" class="headerlink" title="Block 属性的修饰 (copy, strong, retain, assign)"></a>Block 属性的修饰 (copy, strong, retain, assign)</h2>
         
           <a class="article-more-a" href="/2017/05/06/Block 总结/#more">more >></a>
         

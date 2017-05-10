@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/06/Block 总结/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="基本概念 Block 即带有自动变量(局部变量)的匿名函数 Block 提供了类似由 C++ 和 Objective-C 类生成实例或对象来保持变量值的能力 Block 其实就是一个代码块，把你想要执行的代码封装在这个代码块里，等到需要的时候再去调用 Block 是 OC 对象. OC 对象? 好像不对? Block 不是函数指针吗? 如果 Block 是函数指针, 那么还有必要把 Block 从">
-<meta property="og:updated_time" content="2017-05-07T07:16:08.000Z">
+<meta property="og:updated_time" content="2017-05-10T09:57:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Block 总结">
 <meta name="twitter:description" content="基本概念 Block 即带有自动变量(局部变量)的匿名函数 Block 提供了类似由 C++ 和 Objective-C 类生成实例或对象来保持变量值的能力 Block 其实就是一个代码块，把你想要执行的代码封装在这个代码块里，等到需要的时候再去调用 Block 是 OC 对象. OC 对象? 好像不对? Block 不是函数指针吗? 如果 Block 是函数指针, 那么还有必要把 Block 从">
@@ -156,12 +156,12 @@
 <li>Block 其实就是一个<code>代码块</code>，把你想要执行的代码封装在这个代码块里，等到需要的时候再去调用</li>
 <li>Block 是 <code>OC 对象</code>. OC 对象? 好像不对? Block 不是函数指针吗? 如果 Block 是函数指针, 那么还有必要把 Block 从栈区拷贝到堆区吗? 还能使用 copy 关键字修饰 Block 属性吗? 用事实说话好吧!</li>
 </ul>
+<a id="more"></a>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过使用 OC 运行时机制, 打印出 全局 Block 的继承链</span></div><div class="line">- (<span class="keyword">void</span>)testGetClassInheritChain &#123;</div><div class="line">    </div><div class="line">    <span class="keyword">void</span> (^testBlock)(<span class="keyword">void</span>) = ^&#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"testBlock"</span>);</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [[testBlock <span class="keyword">class</span>] lc_classInheritChain]);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 打印结果: __NSGlobalBlock__ -&gt; __NSGlobalBlock -&gt; NSBlock -&gt; NSObject</span></div></pre></td></tr></table></figure>
 <ul>
 <li><a href="https://github.com/Little-Captain/LCRuntimeTool" target="_blank" rel="external">源码地址</a></li>
 </ul>
-<h2 id="Block-属性的修饰-copy-strong-retain-assign"><a href="#Block-属性的修饰-copy-strong-retain-assign" class="headerlink" title="Block 属性的修饰 (copy, strong, retain, assign)"></a>Block 属性的修饰 (copy, strong, retain, assign)</h2><a id="more"></a>
-<ul>
+<h2 id="Block-属性的修饰-copy-strong-retain-assign"><a href="#Block-属性的修饰-copy-strong-retain-assign" class="headerlink" title="Block 属性的修饰 (copy, strong, retain, assign)"></a>Block 属性的修饰 (copy, strong, retain, assign)</h2><ul>
 <li>Block 本身就是<code>对象</code>, 所以可以 <code>retain</code> 和 <code>release</code></li>
 <li>Block 在<code>创建的时候</code>，它的内存是分配在<code>栈</code>(stack)上，而不是在堆(heap)上</li>
 <li>Block 的作于域是属于创建时的作用域，一旦在创建时候的<code>作用域外</code>面<code>调用</code>这个 Block 将导致<code>程序崩溃</code></li>
