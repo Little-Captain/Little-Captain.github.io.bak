@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/09/UITableView 的性能优化/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="重要性UITableView 是 iOS 开发中最常使用的控件之一, 在各类 App 中都充斥着各种表格. 表格展示的内容如果比较多, 比较复杂, 往往会影响界面的刷新帧率, 在用户的角度就是界面卡顿, 这时必须对 UITableView 进行性能优化.">
-<meta property="og:updated_time" content="2017-05-09T07:55:51.000Z">
+<meta property="og:updated_time" content="2017-05-11T06:23:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UITableView 的性能优化">
 <meta name="twitter:description" content="重要性UITableView 是 iOS 开发中最常使用的控件之一, 在各类 App 中都充斥着各种表格. 表格展示的内容如果比较多, 比较复杂, 往往会影响界面的刷新帧率, 在用户的角度就是界面卡顿, 这时必须对 UITableView 进行性能优化.">
@@ -170,15 +170,15 @@
 <li>表格性能优化中最重要的一环</li>
 <li>如果系统适配 iOS 8.0+, 推荐使用苹果的自动计算行高, 苹果本身的性能优化已经够好!</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 设置估算高度, 这个值可以尽量大一点儿, 太大苹果也会通过实际需要进行估算</div><div class="line">self.tableView.estimatedRowHeight = 200;</div><div class="line">// 设置自动尺寸</div><div class="line">self.tableView.rowHeight = UITableViewAutomaticDimension;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 设置估算高度, 这个值可以尽量大一点儿, 太大苹果也会通过实际需要进行估算</span></div><div class="line"><span class="keyword">self</span>.tableView.estimatedRowHeight = <span class="number">200</span>;</div><div class="line"><span class="comment">// 设置自动尺寸</span></div><div class="line"><span class="keyword">self</span>.tableView.rowHeight = <span class="built_in">UITableViewAutomaticDimension</span>;</div></pre></td></tr></table></figure>
 <ul>
 <li>如何缓存行高, 一般通过在 Model 中增加一个 cellHeight 属性, 在给 Model 设置数据时, 就可以计算了(因为 Model 唯一确定行高), 而且要控制器只计算一次. 如果采用 MVVM 模式, 就在 VM 中计算行高并缓存</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (CGFloat)cellHeight &#123;</div><div class="line">    </div><div class="line">    if (!_cellHeight) &#123; // 行高还没有计算的</div><div class="line">        // 计算行高</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return _cellHeight;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">CGFloat</span>)cellHeight &#123;</div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (!_cellHeight) &#123; <span class="comment">// 行高还没有计算的</span></div><div class="line">        <span class="comment">// 计算行高</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> _cellHeight;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="高级优化"><a href="#高级优化" class="headerlink" title="高级优化"></a>高级优化</h2><ul>
 <li>离屏渲染, 启用异步绘制, 让视图在显示前尽量绘制好</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.layer.drawsAsynchronously = true</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">self</span>.layer.drawsAsynchronously = <span class="literal">true</span></div></pre></td></tr></table></figure>
 <ul>
 <li>栅格化, 栅格化之后, 会生成一张独立的图像, cell在屏幕上滚动的时候, 本质上滚动的是这张图片</li>
 </ul>
@@ -445,11 +445,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,11 +469,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
               <li class="article-tag-list-item">

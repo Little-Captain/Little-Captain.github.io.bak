@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/assets/images/LCNetworking/Debug%20Memory%20Graph.png">
 <meta property="og:image" content="http://yoursite.com/assets/images/LCNetworking/AFN的内存泄漏.png">
 <meta property="og:image" content="http://yoursite.com/assets/images/LCNetworking/内存泄漏解决.png">
-<meta property="og:updated_time" content="2017-05-09T09:48:46.000Z">
+<meta property="og:updated_time" content="2017-05-11T06:23:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一款基于AFNetworking封装的网络框架">
 <meta name="twitter:description" content="框架地址 AFNetworking 存在的问题">
@@ -189,15 +189,15 @@
 <h2 id="增加-API"><a href="#增加-API" class="headerlink" title="增加 API"></a>增加 API</h2><ul>
 <li>获取单例对象</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+ (instancetype)sharedInstance;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">instancetype</span>)sharedInstance;</div></pre></td></tr></table></figure>
 <ul>
 <li>GET / POST</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (nullable NSURLSessionDataTask *)request:...;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSURLSessionDataTask</span> *)request:...;</div></pre></td></tr></table></figure>
 <ul>
 <li>上传文件方法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (nullable NSURLSessionDataTask *)upload:...;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSURLSessionDataTask</span> *)upload:...;</div></pre></td></tr></table></figure>
 <ul>
 <li>方法持续扩展维护中</li>
 </ul>
@@ -456,11 +456,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,11 +480,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>iOS文件上传 | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="步骤设置请求头1[request setValue:@&amp;quot;multipart/form-data; boundary=分割线&amp;quot; forHTTPHeaderField:@&amp;quot;Content-Type&amp;quot;];">
+  <meta name="description" content="步骤设置请求头1[request setValue:@&quot;multipart/form-data; boundary=分割线&quot; forHTTPHeaderField:@&quot;Content-Type&quot;];">
 <meta name="keywords" content="iOS,文件上传">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS文件上传">
 <meta property="og:url" content="http://yoursite.com/2017/05/11/iOS文件上传/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="步骤设置请求头1[request setValue:@&amp;quot;multipart/form-data; boundary=分割线&amp;quot; forHTTPHeaderField:@&amp;quot;Content-Type&amp;quot;];">
+<meta property="og:description" content="步骤设置请求头1[request setValue:@&quot;multipart/form-data; boundary=分割线&quot; forHTTPHeaderField:@&quot;Content-Type&quot;];">
 <meta property="og:image" content="http://yoursite.com/assets/images/网络/部分文件的MIMEType.png">
-<meta property="og:updated_time" content="2017-05-11T06:21:22.000Z">
+<meta property="og:updated_time" content="2017-05-11T06:25:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS文件上传">
-<meta name="twitter:description" content="步骤设置请求头1[request setValue:@&amp;quot;multipart/form-data; boundary=分割线&amp;quot; forHTTPHeaderField:@&amp;quot;Content-Type&amp;quot;];">
+<meta name="twitter:description" content="步骤设置请求头1[request setValue:@&quot;multipart/form-data; boundary=分割线&quot; forHTTPHeaderField:@&quot;Content-Type&quot;];">
 <meta name="twitter:image" content="http://yoursite.com/assets/images/网络/部分文件的MIMEType.png">
   
   
@@ -152,7 +152,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="设置请求头"><a href="#设置请求头" class="headerlink" title="设置请求头"></a>设置请求头</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[request setValue:@&quot;multipart/form-data; boundary=分割线&quot; forHTTPHeaderField:@&quot;Content-Type&quot;];</div></pre></td></tr></table></figure>
+        <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="设置请求头"><a href="#设置请求头" class="headerlink" title="设置请求头"></a>设置请求头</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[request setValue:<span class="string">@"multipart/form-data; boundary=分割线"</span> forHTTPHeaderField:<span class="string">@"Content-Type"</span>];</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="设置请求体"><a href="#设置请求体" class="headerlink" title="设置请求体"></a>设置请求体</h2><ul>
 <li>非文件参数</li>
@@ -167,8 +167,8 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--分割线--\r\n</div></pre></td></tr></table></figure>
 <h1 id="部分文件的MIMEType"><a href="#部分文件的MIMEType" class="headerlink" title="部分文件的MIMEType"></a>部分文件的MIMEType</h1><p><img src="/assets/images/网络/部分文件的MIMEType.png" alt=""></p>
-<h1 id="获得文件的MIMEType"><a href="#获得文件的MIMEType" class="headerlink" title="获得文件的MIMEType"></a>获得文件的MIMEType</h1><h2 id="利用NSURLConnection"><a href="#利用NSURLConnection" class="headerlink" title="利用NSURLConnection"></a>利用NSURLConnection</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (NSString *)MIMEType:(NSURL *)url &#123;</div><div class="line">    // 1.创建一个请求</div><div class="line">    NSURLRequest *request = [NSURLRequest requestWithURL:url];</div><div class="line">    // 2.发送请求（返回响应）</div><div class="line">    NSURLResponse *response = nil;</div><div class="line">    [NSURLConnection sendSynchronousRequest:request returningResponse:&amp;response error:nil];</div><div class="line">    // 3.获得MIMEType</div><div class="line">    return response.MIMEType;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="C语言API"><a href="#C语言API" class="headerlink" title="C语言API"></a>C语言API</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">+ (NSString *)mimeTypeForFileAtPath:(NSString *)path &#123;</div><div class="line">	if (![[NSFileManager alloc] init] fileExistsAtPath:path]) &#123;</div><div class="line">		return nil;</div><div class="line">	&#125;</div><div class="line">    </div><div class="line">	CFStringRef UTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)[path pathExtension], NULL);</div><div class="line">    CFStringRef MIMEType = UTTypeCopyPreferredTagWithClass (UTI, kUTTagClassMIMEType);</div><div class="line">    CFRelease(UTI);</div><div class="line">	if (!MIMEType) &#123;</div><div class="line">		return @&quot;application/octet-stream&quot;;</div><div class="line">	&#125;</div><div class="line">    return NSMakeCollectable(MIMEType);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="获得文件的MIMEType"><a href="#获得文件的MIMEType" class="headerlink" title="获得文件的MIMEType"></a>获得文件的MIMEType</h1><h2 id="利用NSURLConnection"><a href="#利用NSURLConnection" class="headerlink" title="利用NSURLConnection"></a>利用NSURLConnection</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">NSString</span> *)MIMEType:(<span class="built_in">NSURL</span> *)url &#123;</div><div class="line">    <span class="comment">// 1.创建一个请求</span></div><div class="line">    <span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];</div><div class="line">    <span class="comment">// 2.发送请求（返回响应）</span></div><div class="line">    <span class="built_in">NSURLResponse</span> *response = <span class="literal">nil</span>;</div><div class="line">    [<span class="built_in">NSURLConnection</span> sendSynchronousRequest:request returningResponse:&amp;response error:<span class="literal">nil</span>];</div><div class="line">    <span class="comment">// 3.获得MIMEType</span></div><div class="line">    <span class="keyword">return</span> response.MIMEType;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="C语言API"><a href="#C语言API" class="headerlink" title="C语言API"></a>C语言API</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">+ (<span class="built_in">NSString</span> *)mimeTypeForFileAtPath:(<span class="built_in">NSString</span> *)path &#123;</div><div class="line">	<span class="keyword">if</span> (![[<span class="built_in">NSFileManager</span> alloc] init] fileExistsAtPath:path]) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="literal">nil</span>;</div><div class="line">	&#125;</div><div class="line">    </div><div class="line">	<span class="built_in">CFStringRef</span> UTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (<span class="built_in">CFStringRef</span>)[path pathExtension], <span class="literal">NULL</span>);</div><div class="line">    <span class="built_in">CFStringRef</span> MIMEType = UTTypeCopyPreferredTagWithClass (UTI, kUTTagClassMIMEType);</div><div class="line">    <span class="built_in">CFRelease</span>(UTI);</div><div class="line">	<span class="keyword">if</span> (!MIMEType) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">@"application/octet-stream"</span>;</div><div class="line">	&#125;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">NSMakeCollectable</span>(MIMEType);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
 
@@ -420,11 +420,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -444,11 +444,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
               <li class="article-tag-list-item">
