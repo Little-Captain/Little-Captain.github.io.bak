@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: JavaScript | Little Captain&#39;s Blog</title>
+  <title>iOS文件上传 | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Little Captain&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/JavaScript/index.html">
+  <meta name="description" content="步骤设置请求头1[request setValue:@&amp;quot;multipart/form-data; boundary=分割线&amp;quot; forHTTPHeaderField:@&amp;quot;Content-Type&amp;quot;]; 设置请求体 非文件参数  12345--分割线\r\nContent-Disposition: form-data; name=&amp;quot;参数名&amp;quot;\">
+<meta name="keywords" content="iOS,文件上传">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS文件上传">
+<meta property="og:url" content="http://yoursite.com/2017/05/11/iOS文件上传/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
+<meta property="og:description" content="步骤设置请求头1[request setValue:@&amp;quot;multipart/form-data; boundary=分割线&amp;quot; forHTTPHeaderField:@&amp;quot;Content-Type&amp;quot;]; 设置请求体 非文件参数  12345--分割线\r\nContent-Disposition: form-data; name=&amp;quot;参数名&amp;quot;\">
+<meta property="og:image" content="http://yoursite.com/assets/images/网络/部分文件的MIMEType.png">
+<meta property="og:updated_time" content="2017-05-11T06:11:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Little Captain&#39;s Blog">
+<meta name="twitter:title" content="iOS文件上传">
+<meta name="twitter:description" content="步骤设置请求头1[request setValue:@&amp;quot;multipart/form-data; boundary=分割线&amp;quot; forHTTPHeaderField:@&amp;quot;Content-Type&amp;quot;]; 设置请求体 非文件参数  12345--分割线\r\nContent-Disposition: form-data; name=&amp;quot;参数名&amp;quot;\">
+<meta name="twitter:image" content="http://yoursite.com/assets/images/网络/部分文件的MIMEType.png">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -125,68 +132,148 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-iOS文件上传" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/11/Node-js概述/" class="archive-article-date">
-  	<time datetime="2017-05-11T01:00:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/11/Node-js概述/">Node.js概述</a>
+    <h1 class="article-title" itemprop="name">
+      iOS文件上传
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/05/11/iOS文件上传/" class="archive-article-date">
+  	<time datetime="2017-05-11T06:06:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="设置请求头"><a href="#设置请求头" class="headerlink" title="设置请求头"></a>设置请求头</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[request setValue:@&quot;multipart/form-data; boundary=分割线&quot; forHTTPHeaderField:@&quot;Content-Type&quot;];</div></pre></td></tr></table></figure>
+<h2 id="设置请求体"><a href="#设置请求体" class="headerlink" title="设置请求体"></a>设置请求体</h2><ul>
+<li>非文件参数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">--分割线\r\n</div><div class="line">Content-Disposition: form-data; name=&quot;参数名&quot;\r\n</div><div class="line">\r\n</div><div class="line">参数值</div><div class="line">\r\n</div></pre></td></tr></table></figure>
+<ul>
+<li>文件参数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">--分割线\r\n</div><div class="line">Content-Disposition: form-data; name=&quot;参数名&quot;; filename=&quot;文件名&quot;\r\n</div><div class="line">Content-Type: 文件的MIMEType\r\n</div><div class="line">\r\n</div><div class="line">文件数据</div><div class="line">\r\n</div></pre></td></tr></table></figure>
+<ul>
+<li>结束的标记</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">--分割线--\r\n</div></pre></td></tr></table></figure>
+<h1 id="部分文件的MIMEType"><a href="#部分文件的MIMEType" class="headerlink" title="部分文件的MIMEType"></a>部分文件的MIMEType</h1><p><img src="/assets/images/网络/部分文件的MIMEType.png" alt=""></p>
+<h1 id="获得文件的MIMEType"><a href="#获得文件的MIMEType" class="headerlink" title="获得文件的MIMEType"></a>获得文件的MIMEType</h1><h2 id="利用NSURLConnection"><a href="#利用NSURLConnection" class="headerlink" title="利用NSURLConnection"></a>利用NSURLConnection</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (NSString *)MIMEType:(NSURL *)url &#123;</div><div class="line">    // 1.创建一个请求</div><div class="line">    NSURLRequest *request = [NSURLRequest requestWithURL:url];</div><div class="line">    // 2.发送请求（返回响应）</div><div class="line">    NSURLResponse *response = nil;</div><div class="line">    [NSURLConnection sendSynchronousRequest:request returningResponse:&amp;response error:nil];</div><div class="line">    // 3.获得MIMEType</div><div class="line">    return response.MIMEType;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="C语言API"><a href="#C语言API" class="headerlink" title="C语言API"></a>C语言API</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">+ (NSString *)mimeTypeForFileAtPath:(NSString *)path &#123;</div><div class="line">	if (![[NSFileManager alloc] init] fileExistsAtPath:path]) &#123;</div><div class="line">		return nil;</div><div class="line">	&#125;</div><div class="line">    </div><div class="line">	CFStringRef UTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, (CFStringRef)[path pathExtension], NULL);</div><div class="line">    CFStringRef MIMEType = UTTypeCopyPreferredTagWithClass (UTI, kUTTagClassMIMEType);</div><div class="line">    CFRelease(UTI);</div><div class="line">	if (!MIMEType) &#123;</div><div class="line">		return @&quot;application/octet-stream&quot;;</div><div class="line">	&#125;</div><div class="line">    return NSMakeCollectable(MIMEType);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件上传</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/11/iOS文件上传/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/05/11/iOS文件下载/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS文件下载</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -206,9 +293,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
