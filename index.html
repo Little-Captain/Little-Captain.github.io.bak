@@ -127,6 +127,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux任务管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/11/Linux任务管理/">Linux任务管理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/11/Linux任务管理/" class="archive-article-date">
+  	<time datetime="2017-05-11T01:36:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h1><ul>
+<li>加在命令后, 把这个任务放入到后台执行</li>
+</ul>
+<h1 id="ctrl-z"><a href="#ctrl-z" class="headerlink" title="ctrl + z"></a>ctrl + z</h1><ul>
+<li>可以将正在前台执行的命令放入后台, 并处于暂停状态</li>
+</ul>
+<h1 id="ctrl-c"><a href="#ctrl-c" class="headerlink" title="ctrl + c"></a>ctrl + c</h1><ul>
+<li>终止前台进程</li>
+</ul>
+<h1 id="jobs"><a href="#jobs" class="headerlink" title="jobs"></a>jobs</h1><ul>
+<li>查看当前有多少在后台运行的任务</li>
+<li>jobs -l选项可显示所有任务的PID，jobs的状态可以是running, stopped, Terminated。但是如果任务被终止了（kill），shell 从当前的shell环境已知的列表中删除任务的进程标识。</li>
+</ul>
+<h1 id="fg"><a href="#fg" class="headerlink" title="fg"></a>fg</h1><ul>
+<li>将后台中的命令调至前台继续运行。如果后台中有多个命令，可以用fg %jobnumber（是命令编号，不是进程号）将选中的命令调出</li>
+</ul>
+<h1 id="bg"><a href="#bg" class="headerlink" title="bg"></a>bg</h1><ul>
+<li>将一个在后台暂停的命令，变成在后台继续执行。如果后台中有多个命令，可以用bg %jobnumber将选中的命令调出</li>
+</ul>
+<h1 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h1><ul>
+<li>通过jobs命令查看job号（假设为num），然后执行kill %num</li>
+<li>通过ps命令查看job的进程号（PID，假设为pid），然后执行kill pid</li>
+</ul>
+<h1 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h1><ul>
+<li>如果让程序始终在后台执行，即使关闭当前的终端也执行（之前的&amp;做不到），这时候需要nohup。该命令可以在你退出帐户/关闭终端之后继续运行相应的进程。关闭中断后，在另一个终端jobs已经无法看到后台跑得程序了，此时利用ps（进程查看命令）</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-Node-js概述" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -769,70 +849,6 @@
 
 
   
-    <article id="post-多线程-基本概念和原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/09/多线程-基本概念和原理/">多线程-基本概念和原理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/09/多线程-基本概念和原理/" class="archive-article-date">
-  	<time datetime="2017-05-09T09:42:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><ul>
-<li>在操作系统中正在运行的一个应用程序</li>
-<li>每个进程之间是独立的，每个进程均运行在其专用且受保护的内存空间内</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/05/09/多线程-基本概念和原理/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -934,6 +950,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -986,11 +1006,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
+                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
+                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
               <li class="article-tag-list-item">
