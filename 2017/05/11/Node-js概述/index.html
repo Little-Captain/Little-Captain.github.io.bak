@@ -6,23 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>分布式Git - 工作流程 | Little Captain&#39;s Blog</title>
+  <title>Node.js概述 | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="集中式工作流 集中式系统中通常使用的是单点协作模型 - 集中式工作流。 一个中心集线器，或者说仓库，可以接受代码，所有人将自己的工作与之同步。 若干个开发者则作为节点 - 也就是中心仓库的消费者 - 并且与其进行同步。">
-<meta name="keywords" content="git,源代码管理">
+  <meta name="description" content="V8引擎 用于Chrome浏览器的 JS 解释部分 没有历史包袱，没有同步I/O。不会出现一个同步I/O导致事件循环性能急剧降低的情况。 V8性能足够好，远远比Python、Ruby等其他脚本语言的引擎快。 JavaScript语言的闭包特性非常方便，比C中的回调函数好用。">
+<meta name="keywords" content="JavaScript,Node.js,后端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分布式Git - 工作流程">
-<meta property="og:url" content="http://yoursite.com/2017/05/07/分布式Git-工作流程/index.html">
+<meta property="og:title" content="Node.js概述">
+<meta property="og:url" content="http://yoursite.com/2017/05/11/Node-js概述/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="集中式工作流 集中式系统中通常使用的是单点协作模型 - 集中式工作流。 一个中心集线器，或者说仓库，可以接受代码，所有人将自己的工作与之同步。 若干个开发者则作为节点 - 也就是中心仓库的消费者 - 并且与其进行同步。">
-<meta property="og:image" content="http://yoursite.com/assets/images/git/git常用命令-09.png">
-<meta property="og:image" content="http://yoursite.com/assets/images/git/git常用命令-10.png">
-<meta property="og:image" content="http://yoursite.com/assets/images/git/git常用命令-11.png">
-<meta property="og:updated_time" content="2017-05-07T07:16:38.000Z">
+<meta property="og:description" content="V8引擎 用于Chrome浏览器的 JS 解释部分 没有历史包袱，没有同步I/O。不会出现一个同步I/O导致事件循环性能急剧降低的情况。 V8性能足够好，远远比Python、Ruby等其他脚本语言的引擎快。 JavaScript语言的闭包特性非常方便，比C中的回调函数好用。">
+<meta property="og:image" content="http://yoursite.com/assets/images/js/Node.js/传统服务器语言处理.png">
+<meta property="og:image" content="http://yoursite.com/assets/images/js/Node.js/Node.js处理.png">
+<meta property="og:image" content="http://yoursite.com/assets/images/js/Node.js/事件驱动.png">
+<meta property="og:updated_time" content="2017-05-11T01:30:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分布式Git - 工作流程">
-<meta name="twitter:description" content="集中式工作流 集中式系统中通常使用的是单点协作模型 - 集中式工作流。 一个中心集线器，或者说仓库，可以接受代码，所有人将自己的工作与之同步。 若干个开发者则作为节点 - 也就是中心仓库的消费者 - 并且与其进行同步。">
-<meta name="twitter:image" content="http://yoursite.com/assets/images/git/git常用命令-09.png">
+<meta name="twitter:title" content="Node.js概述">
+<meta name="twitter:description" content="V8引擎 用于Chrome浏览器的 JS 解释部分 没有历史包袱，没有同步I/O。不会出现一个同步I/O导致事件循环性能急剧降低的情况。 V8性能足够好，远远比Python、Ruby等其他脚本语言的引擎快。 JavaScript语言的闭包特性非常方便，比C中的回调函数好用。">
+<meta name="twitter:image" content="http://yoursite.com/assets/images/js/Node.js/传统服务器语言处理.png">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -134,62 +134,112 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-分布式Git-工作流程" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Node-js概述" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      分布式Git - 工作流程
+      Node.js概述
     </h1>
   
 
         
-        <a href="/2017/05/07/分布式Git-工作流程/" class="archive-article-date">
-  	<time datetime="2017-05-07T06:48:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-07</time>
+        <a href="/2017/05/11/Node-js概述/" class="archive-article-date">
+  	<time datetime="2017-05-11T01:00:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="集中式工作流"><a href="#集中式工作流" class="headerlink" title="集中式工作流"></a>集中式工作流</h3><ul>
-<li>集中式系统中通常使用的是单点协作模型 - 集中式工作流。 一个中心集线器，或者说仓库，可以接受代码，所有人将自己的工作与之同步。 若干个开发者则作为节点 - 也就是中心仓库的消费者 - 并且与其进行同步。</li>
+        <h1 id="V8引擎"><a href="#V8引擎" class="headerlink" title="V8引擎"></a>V8引擎</h1><ul>
+<li>用于Chrome浏览器的 JS 解释部分</li>
+<li>没有历史包袱，没有同步I/O。不会出现一个同步I/O导致事件循环性能急剧降低的情况。</li>
+<li>V8性能足够好，远远比Python、Ruby等其他脚本语言的引擎快。</li>
+<li>JavaScript语言的闭包特性非常方便，比C中的回调函数好用。</li>
 </ul>
 <a id="more"></a>
-<ul>
-<li>如果两个开发者从中心仓库克隆代码下来，同时作了一些修改，那么只有第一个开发者可以顺利地把数据推送回共享服务器。 第二个开发者在推送修改之前，必须先将第一个人的工作合并进来，这样才不会覆盖第一个人的修改。 这和 Subversion (或任何 CVCS)中的概念一样，而且这个模式也可以很好地运用到 Git 中。</li>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><ul>
+<li>Node.js是一个让JavaScript运行在服务器端的开发平台</li>
+<li>Node就是一个js的执行环境</li>
+<li>Node.js不是一种独立的语言，与PHP、JSP、Python、Perl、Ruby的“既是语言，也是平台”不同，Node.js使用JavaScript进行编程，运行在JavaScript引擎上（V8）</li>
+<li>与PHP、JSP等相比，Node.js跳过了Apache、Naginx、IIS等HTTP服务器，它自己不用建设在任何服务器软件之上。Node.js的许多设计理念与经典架构（LAMP）有着很大的不同，可以提供强大的伸缩能力。</li>
+<li>Node.js哲学，花最小的硬件成本，追求更高的并发，更高的处理性能。</li>
+<li>Node.js 没有 web 容器</li>
 </ul>
-<p><img src="/assets/images/git/git常用命令-09.png" alt=""></p>
-<h3 id="集成管理者工作流"><a href="#集成管理者工作流" class="headerlink" title="集成管理者工作流"></a>集成管理者工作流</h3><ul>
-<li>每个开发者拥有自己仓库的写权限和其他所有人仓库的读权限。 这种情形下通常会有个代表“官方”项目的权威的仓库。 要为这个项目做贡献，你需要从该项目克隆出一个自己的公开仓库，然后将自己的修改推送上去。 接着你可以请求官方仓库的维护者拉取更新合并到主项目。 维护者可以将你的仓库作为远程仓库添加进来，在本地测试你的变更，将其合并入他们的分支并推送回官方仓库。 整个流程看起来是这样的: <ol>
-<li>项目维护者推送到主仓库。</li>
-<li>贡献者克隆此仓库，做出修改。</li>
-<li>贡献者将数据推送到自己的公开仓库。</li>
-<li>贡献者给维护者发送邮件，请求拉取自己的更新。</li>
-<li>维护者在自己本地的仓库中，将贡献者的仓库加为远程仓库并合并修改。</li>
-<li>维护者将合并后的修改推送到主仓库。</li>
-</ol>
+<h1 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h1><h2 id="Node-js如何解决服务器高性能瓶颈"><a href="#Node-js如何解决服务器高性能瓶颈" class="headerlink" title="Node.js如何解决服务器高性能瓶颈"></a>Node.js如何解决服务器高性能瓶颈</h2><h3 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h3><ul>
+<li>这是Node.js不健壮的原因, 只要这个线程崩溃了, 所有的用户都崩溃了。</li>
+</ul>
+<h4 id="传统服务器语言"><a href="#传统服务器语言" class="headerlink" title="传统服务器语言"></a>传统服务器语言</h4><ul>
+<li>在Java、PHP或者.net等服务器端语言中，会为每一个客户端连接创建一个新的线程。而每个线程需要耗费大约2MB内存。也就是说，理论上，一个8GB内存的服务器可以同时连接的最大用户数为4000个左右。要让Web应用程序支持更多的用户，就需要增加服务器的数量，而Web应用程序的硬件成本当然就上升了。</li>
+</ul>
+<p><em>示意图</em></p>
+<p><img src="/assets/images/js/Node.js/传统服务器语言处理.png" alt=""></p>
+<h4 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h4><ul>
+<li>Node.js不为每个客户连接创建一个新的线程，而仅仅使用一个线程。当有用户连接了，就触发一个内部事件，通过非阻塞I/O、事件驱动机制，让Node.js程序宏观上也是并行的。使用Node.js，一个8GB内存的服务器，可以同时处理超过4万用户的连接。另外，单线程的带来的好处，还有操作系统完全不再有线程创建、销毁的时间开销。</li>
+</ul>
+<p><em>示意图</em></p>
+<p><img src="/assets/images/js/Node.js/Node.js处理.png" alt=""></p>
+<h3 id="非阻塞I-O"><a href="#非阻塞I-O" class="headerlink" title="非阻塞I/O"></a>非阻塞I/O</h3><h4 id="传统"><a href="#传统" class="headerlink" title="传统"></a>传统</h4><ul>
+<li>当在访问数据库取得数据的时候，需要一段时间。在传统的单线程处理机制中，在执行了访问数据库代码之后，整个线程都将暂停下来，等待数据库返回结果，才能执行后面的代码。也就是说，I/O阻塞了代码的执行，极大地降低了程序的执行效率。</li>
+</ul>
+<h4 id="Node-js哲学"><a href="#Node-js哲学" class="headerlink" title="Node.js哲学"></a>Node.js哲学</h4><ul>
+<li>由于Node.js中采用了非阻塞型I/O机制，因此在执行了访问数据库的代码之后，将立即转而执行其后面的代码，把数据库返回结果的处理代码放在回调函数中，从而提高了程序的执行效率。</li>
+<li>当某个I/O执行完毕时，将以事件的形式通知执行I/O操作的线程，线程执行这个事件的回调函数。为了处理异步I/O，线程必须有事件循环，不断的检查有没有未处理的事件，依次予以处理。</li>
+<li>阻塞模式下，一个线程只能处理一项任务，要想提高吞吐量必须通过多线程。而非阻塞模式下，一个线程永远在执行计算操作，这个线程的CPU核心利用率永远是100%。所以，这是一种特别有哲理的解决方案：与其人多，但是好多人闲着；还不如一个人玩命，往死里干活儿。</li>
+</ul>
+<h3 id="事件驱动"><a href="#事件驱动" class="headerlink" title="事件驱动"></a>事件驱动</h3><ul>
+<li>这是Node.js的核心</li>
+<li>在Node中，客户端请求建立连接，提交数据等行为，会触发相应的事件。在Node中，在一个时刻，只能执行一个事件回调函数，但是在执行一个事件回调函数的中途，可以转而处理其他事件（比如，又有新用户连接了），然后返回继续执行原事件的回调函数，这种处理机制，称为“事件环”机制。</li>
+<li>Node.js底层是C++（V8也是C++写的）。底层代码中，近半数都用于事件队列、回调函数队列的构建。用事件驱动来完成服务器的任务调度。</li>
+</ul>
+<p><em>示意图</em></p>
+<p><img src="/assets/images/js/Node.js/事件驱动.png" alt=""></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>这三个特点其实就是一个事儿的不同方面</li>
+<li>单线程的好处, 减小了内存开销, 操作系统的内存换页面, 如果某一个事情，进入了，但是被I/O阻塞了，所以这个线程就阻塞了。</li>
+<li>非阻塞I/O， 不会傻等I/O语句结束，而会执行后面的语句。非阻塞就能解决问题了么？比如执行着小红的业务，执行过程中，小刚的I/O回调完成了，此时怎么办？？</li>
+<li>事件机制，事件环，不管是新用户的请求，还是老用户的I/O完成，都将以事件方式加入事件环，等待调度。</li>
+<li>说是三个特点，实际上是一个特点，离开谁都不行，都玩儿不转了。Node.js很像抠门的餐厅老板，只聘请1个服务员，服务很多人。结果，比很多服务员效率还高。Node.js中所有的I/O都是异步的，回调函数，套回调函数。</li>
+</ul>
+<h1 id="适合业务"><a href="#适合业务" class="headerlink" title="适合业务"></a>适合业务</h1><h3 id="擅长I-O-不擅长计算"><a href="#擅长I-O-不擅长计算" class="headerlink" title="擅长I/O, 不擅长计算"></a>擅长I/O, 不擅长计算</h3><ul>
+<li>Node.js最擅长的就是任务调度，如果你的业务有很多的CPU计算，实际上也相当于这个计算阻塞了这个单线程，就不适合Node.js开发</li>
+<li>当应用程序需要处理大量并发的I/O，而在向客户端发出响应之前，应用程序内部并不需要进行非常复杂的处理的时候，Node.js非常适合。Node.js也非常适合与web socket配合，开发长连接的实时交互应用程序。</li>
+</ul>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li>用户表单收集</li>
+<li>考试系统</li>
+<li>聊天室</li>
+<li>图文直播</li>
+<li>提供JSON的API（为前台Angular使用）</li>
+</ul>
+<h3 id="地位"><a href="#地位" class="headerlink" title="地位"></a>地位</h3><ul>
+<li>Node无法挑战PHP、JSP等老牌后台语言</li>
+<li>Node.js本是就是极客追求性能极致的产物，缺少了很多服务器的健壮考量。所以Node不可能应用在银行、证券、电信等需要极高可靠性的业务中。</li>
+<li>创业型公司（正处于A轮、B轮）非常爱使用Node做核心业务</li>
+<li>成熟大企业，基本上都是用Node实现某一方面的功能<ul>
+<li>知乎用了一个Node进程，跑起了“站内信”功能</li>
+<li>百度的很多表单，是用Node保存到数据库的</li>
+</ul>
 </li>
 </ul>
-<blockquote>
-<p>这是 GitHub 和 GitLab 等集线器式(hub-based)工具最常用的工作流程。人们可以容易地将某个项目派生成为自己的公开仓库，向这个仓库推送自己的修改，并为每个人所见。 这么做最主要的优点之一是你可以持续地工作，而主仓库的维护者可以随时拉取你的修改。 贡献者不必等待维护者处 理完提交的更新 - 每一方都可以按照自己节奏工作。</p>
-</blockquote>
-<p><img src="/assets/images/git/git常用命令-10.png" alt=""></p>
-<h3 id="司令官与副官工作流"><a href="#司令官与副官工作流" class="headerlink" title="司令官与副官工作流"></a>司令官与副官工作流</h3><ul>
-<li>这其实是多仓库工作流程的变种。 一般拥有数百位协作开发者的超大型项目才会用到这样的工作方式. 被称为副官(lieutenant)的各个集成管理者分别负责集成项目中的特定部分。 所有这些副官头上还有一位称为司令官(dictator)的总集成管理者负责统筹。 司令官维护的仓库作为参考仓库，为所有协作者提供他们需要拉取的项目代码。 整个流程看起来是这样的:<ol>
-<li>普通开发者在自己的特性分支上工作，并根据 master 分支进行变基。 这里是司令官的master分支。 </li>
-<li>副官将普通开发者的特性分支合并到自己的 master 分支中。</li>
-<li>司令官将所有副官的 master 分支并入自己的 master 分支中。</li>
-<li>司令官将集成后的 master 分支推送到参考仓库中，以便所有其他开发者以此为基础进行变基。</li>
-</ol>
-</li>
+<h1 id="Node-js与其他服务器平台重大区别"><a href="#Node-js与其他服务器平台重大区别" class="headerlink" title="Node.js与其他服务器平台重大区别"></a>Node.js与其他服务器平台重大区别</h1><h3 id="没有web容器"><a href="#没有web容器" class="headerlink" title="没有web容器"></a>没有web容器</h3><ul>
+<li>也就是不存在根目录的概念, 没有任何文件夹的概念</li>
+<li>Node.js中的路由设计非常牛逼<ul>
+<li>擅长做顶层路由设计</li>
+<li>URL和真实物理文件，是没有关系的。URL是通过了Node的顶层路由设计，呈递某一个静态文件的。</li>
 </ul>
-<blockquote>
-<p>这种工作流程并不常用，只有当项目极为庞杂，或者需要多级别管理时，才会体现出优势。 利用这种方式，项目总负责人(即司令官)可以把大量分散的集成工作委托给不同的小组负责人分别处理，然后在不同时刻将大块的代码子集统筹起来，用于之后的整合。</p>
-</blockquote>
-<p><img src="/assets/images/git/git常用命令-11.png" alt=""></p>
+</li>
+<li>让Node.js提供一个静态服务都很难</li>
+</ul>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><h2 id="Node-js的编程精髓"><a href="#Node-js的编程精髓" class="headerlink" title="Node.js的编程精髓"></a>Node.js的编程精髓</h2><ul>
+<li>所有的都是异步处理, 回调是 Node.js 编程的精髓</li>
+<li>内层函数的数据不是 return 返回的, 而是通过调用高层函数提供的回调函数实现数据的传递的. </li>
+<li>内层函数通过把数据作为回调函数的参数来传回高层函数的</li>
+<li>因为Node.js中全是回调函数, 所以自己封装的函数, 如果有异步方法, 比如I/O操作, 那么就要用回调函数的方法封装.</li>
+</ul>
 
       
 
@@ -203,11 +253,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">源代码管理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
         		</li>
       		
 		</ul>
@@ -263,7 +317,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/07/分布式Git-工作流程/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/11/Node-js概述/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,18 +331,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/07/搭建git服务器/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          搭建git服务器
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/07/git常用命令/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">git常用命令</div>
+    <a href="/2017/05/10/RunLoop就这一篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">RunLoop就这一篇</div>
       <i class="icon-circle-right"></i>
     </a>
   
