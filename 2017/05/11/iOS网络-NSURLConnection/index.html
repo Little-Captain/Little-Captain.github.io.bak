@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: GCD | Little Captain&#39;s Blog</title>
+  <title>iOS网络-NSURLConnection | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Little Captain&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/GCD/index.html">
+  <meta name="description" content="作用 负责发送请求，建立客户端和服务器的连接 发送数据给服务器，并收集来自服务器的响应数据">
+<meta name="keywords" content="iOS,网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS网络-NSURLConnection">
+<meta property="og:url" content="http://yoursite.com/2017/05/11/iOS网络-NSURLConnection/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
+<meta property="og:description" content="作用 负责发送请求，建立客户端和服务器的连接 发送数据给服务器，并收集来自服务器的响应数据">
+<meta property="og:updated_time" content="2017-05-11T03:15:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Little Captain&#39;s Blog">
+<meta name="twitter:title" content="iOS网络-NSURLConnection">
+<meta name="twitter:description" content="作用 负责发送请求，建立客户端和服务器的连接 发送数据给服务器，并收集来自服务器的响应数据">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -125,36 +130,112 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-iOS网络-NSURLConnection" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/多线程-GCD总结/" class="archive-article-date">
-  	<time datetime="2017-05-10T04:19:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/多线程-GCD总结/">多线程-GCD总结</a>
+    <h1 class="article-title" itemprop="name">
+      iOS网络-NSURLConnection
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/05/11/iOS网络-NSURLConnection/" class="archive-article-date">
+  	<time datetime="2017-05-11T03:01:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><ul>
+<li>负责发送请求，建立客户端和服务器的连接</li>
+<li>发送数据给服务器，并收集来自服务器的响应数据</li>
+</ul>
+<a id="more"></a>
+<h1 id="常用相关类"><a href="#常用相关类" class="headerlink" title="常用相关类"></a>常用相关类</h1><h2 id="NSURL"><a href="#NSURL" class="headerlink" title="NSURL"></a>NSURL</h2><ul>
+<li>请求地址</li>
+<li>有时必须进行百分号转码, 使用方法stringByAddingPercentEscapesUsingEncoding</li>
+</ul>
+<h2 id="NSURLRequest"><a href="#NSURLRequest" class="headerlink" title="NSURLRequest"></a>NSURLRequest</h2><ul>
+<li>一个NSURLRequest对象就代表一个请求</li>
+<li>包含的信息<ul>
+<li>请求方法</li>
+<li>请求头</li>
+<li>请求体</li>
+<li>NSURL对象</li>
+<li>请求超时</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+<h2 id="NSMutableURLRequest"><a href="#NSMutableURLRequest" class="headerlink" title="NSMutableURLRequest"></a>NSMutableURLRequest</h2><ul>
+<li>setTimeoutInterval<ul>
+<li>超过这个时间就算超时，请求失败</li>
+<li>设置请求超时等待时间</li>
+</ul>
+</li>
+<li>setHTTPMethod<ul>
+<li>设置请求方法</li>
+<li>GET或POST</li>
+</ul>
+</li>
+<li>setHTTPBody<ul>
+<li>设置请求体</li>
+</ul>
+</li>
+<li>setValue:forHTTPHeaderField:<ul>
+<li>设置请求头</li>
+</ul>
+</li>
+</ul>
+<h1 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h1><h2 id="1-创建一个NSURL对象"><a href="#1-创建一个NSURL对象" class="headerlink" title="1. 创建一个NSURL对象"></a>1. 创建一个NSURL对象</h2><ul>
+<li>设置请求路径</li>
+</ul>
+<h2 id="2-创建一个NSURLRequest对象"><a href="#2-创建一个NSURLRequest对象" class="headerlink" title="2. 创建一个NSURLRequest对象"></a>2. 创建一个NSURLRequest对象</h2><ul>
+<li>设置<ul>
+<li>NSURL对象</li>
+<li>请求头</li>
+<li>请求体</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-发送请求"><a href="#3-发送请求" class="headerlink" title="3. 发送请求"></a>3. 发送请求</h2><p>NSURLConnection常见的发送请求方法</p>
+<h2 id="同步请求"><a href="#同步请求" class="headerlink" title="同步请求"></a>同步请求</h2><ul>
+<li>sendSynchronousRequest</li>
+</ul>
+<h2 id="异步请求"><a href="#异步请求" class="headerlink" title="异步请求"></a>异步请求</h2><h3 id="根据对服务器返回数据的处理方式的不同，又可以分为2种"><a href="#根据对服务器返回数据的处理方式的不同，又可以分为2种" class="headerlink" title="根据对服务器返回数据的处理方式的不同，又可以分为2种"></a>根据对服务器返回数据的处理方式的不同，又可以分为2种</h3><h4 id="block回调"><a href="#block回调" class="headerlink" title="block回调"></a>block回调</h4><ul>
+<li>sendAsynchronousRequest</li>
+</ul>
+<h4 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h4><ul>
+<li>initWithRequest<ul>
+<li>在startImmediately = NO的情况下，需要调用start方法开始发送请求</li>
+</ul>
+</li>
+<li>connectionWithRequest</li>
+<li>遵守NSURLConnectionDataDelegate协议<ul>
+<li>才能成为代理</li>
+<li>而且这个代理是被强引用的</li>
+</ul>
+</li>
+<li>代理方法<ul>
+<li>didReceiveResponse : 开始接收到服务器的响应时调用</li>
+<li>didReceiveData : 接收到服务器返回的数据时调用, 服务器返回的数据比较大时会调用多次</li>
+<li>didFailWithError : 请求出错时调用, 比如请求超时</li>
+<li>connectionDidFinishLoading : 服务器返回的数据完全接收完毕后调用</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -164,29 +245,104 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GCD</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/11/iOS网络-NSURLConnection/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/05/11/iOS网络-NSURLSession/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          iOS网络-NSURLSession
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/05/11/iOS网络-HTTP/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iOS网络-HTTP</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -206,9 +362,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
