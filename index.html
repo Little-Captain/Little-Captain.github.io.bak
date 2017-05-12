@@ -152,104 +152,9 @@
 <li>应用沙盒就是文件系统目录,  与其它文件系统隔离</li>
 <li>应用必须待在自己的沙盒里, 其它应用不能访问该沙盒</li>
 </ul>
-<h2 id="沙盒的访问"><a href="#沙盒的访问" class="headerlink" title="沙盒的访问"></a>沙盒的访问</h2><ul>
-<li>NSHomeDirectory() : 沙盒的根目录</li>
-<li>Documents<ul>
-<li>保存应用运行时生成的需要持久化的数据</li>
-<li>iTunes同步设备时会备份该目录</li>
-<li>不允许放缓存大数据</li>
-</ul>
-</li>
-<li>Library/Caches<ul>
-<li>保存应用运行时生成的需要持久化的数据</li>
-<li>iTunes同步设备时不会备份该目录</li>
-<li>一般存储体积大、不需要备份的缓存数据</li>
-</ul>
-</li>
-<li>Library/Preference<ul>
-<li>保存应用的所有偏好设置</li>
-<li>iOS的Settings(设置)应用会在该目录中查找应用的设置信息</li>
-<li>iTunes同步设备时会备份该目录</li>
-</ul>
-</li>
-<li>tmp<ul>
-<li>保存应用运行时所需的临时数据</li>
-<li>使用完毕后再将相应的文件从该目录删除</li>
-<li>应用没有运行时，系统也可能会清除该目录下的文件</li>
-<li>iTunes同步设备时不会备份该目录</li>
-</ul>
-</li>
-</ul>
-<h2 id="应用程序包"><a href="#应用程序包" class="headerlink" title="应用程序包"></a>应用程序包</h2><ul>
-<li>包含了所有的资源文件和可执行文件</li>
-<li>[NSBundle mainBundle]<ul>
-<li>获取应用程序包路径</li>
-<li>代表 App 本身</li>
-</ul>
-</li>
-<li>注意和沙盒做区分</li>
-</ul>
-<h1 id="偏好设置"><a href="#偏好设置" class="headerlink" title="偏好设置"></a>偏好设置</h1><ul>
-<li>小数据</li>
-<li>保存用户名、密码(MD5)、是否自动登录、字体大小等设置</li>
-<li>NSUserDefaults 实例，通过它来存取偏好设置</li>
-<li>实质上它是保存在 Library/Preference 中的 plist 文件</li>
-<li>注意 : UserDefaults 设置数据时，不是立即写入，而是根据时间戳定时地把缓存中的数据写入本地磁盘。所以调用了 set 方法之后数据有可能还没有写入磁盘应用程序就终止了。可以通过调用 synchornize 方法强制立即写入</li>
-</ul>
-<h1 id="归档"><a href="#归档" class="headerlink" title="归档"></a>归档</h1><ul>
-<li>整存整取</li>
-<li>保存自定义对象</li>
-<li>Foundation框架中的基本数据类型遵守了NSCoding协议可以直接用NSKeyedArchiver进行归档和NSKeyedUnarchiver进行解档</li>
-</ul>
-<h2 id="NSCoding-协议"><a href="#NSCoding-协议" class="headerlink" title="NSCoding 协议"></a>NSCoding 协议</h2><ul>
-<li>encodeWithCoder<ul>
-<li>每次归档对象时，都会调用这个方法</li>
-<li>使用encodeObject:forKey:方法归档实例变量</li>
-<li>注意调用父类的方法</li>
-</ul>
-</li>
-<li>initWithCoder<ul>
-<li>每次从文件中解档对象时，都会调用这个方法</li>
-<li>使用decodeObject:forKey方法解码实例变量</li>
-<li>注意调用父类的方法</li>
-</ul>
-</li>
-</ul>
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><ul>
-<li>initWithCoder<ul>
-<li>初始化解析xib的时候调用</li>
-</ul>
-</li>
-<li>awakeFromNib<ul>
-<li>已经从xib中加载完毕时调用</li>
-</ul>
-</li>
-</ul>
-<h1 id="plist"><a href="#plist" class="headerlink" title="plist"></a>plist</h1><ul>
-<li>小数据</li>
-<li>XML格式</li>
-<li>属性列表</li>
-<li>不能存储对象</li>
-</ul>
-<h1 id="json"><a href="#json" class="headerlink" title="json"></a>json</h1><ul>
-<li>json 文件的序列化和反序列化</li>
-</ul>
-<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="FMDB"><a href="#FMDB" class="headerlink" title="FMDB"></a>FMDB</h2><ul>
-<li>大数据</li>
-<li>SQLite3 C代码的OC封装</li>
-</ul>
-<h2 id="CoreData"><a href="#CoreData" class="headerlink" title="CoreData"></a>CoreData</h2><ul>
-<li>大数据</li>
-<li>封装SQLite3</li>
-<li>重量级框架</li>
-</ul>
-<h1 id="钥匙串访问"><a href="#钥匙串访问" class="headerlink" title="钥匙串访问"></a>钥匙串访问</h1><ul>
-<li>小数据</li>
-<li>自动加密</li>
-<li>存储在系统的钥匙串中, 不随应用的删除而删除</li>
-<li>第三方框架 : SSKeychain</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2017/05/12/iOS数据的存储方式/#more">more >></a>
+        
       
 
       
@@ -972,7 +877,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -980,11 +889,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -993,6 +898,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1016,14 +929,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
               </li>
              
@@ -1036,15 +941,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
              
               <li class="article-tag-list-item">
