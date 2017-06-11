@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>在Windows平台搭建gogs服务 | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="准备Git 安装包官网 nssm Windows Windows 服务包装软件官网 gogs 二进制包官网 安装Git一直下一步就可以了 nssm这个不用安装, 解压后, 根据系统使用不同的程序. 要能够在命令行中使用, 必须要将它的路径加入环境变量中 gogs将压缩包解压, 然后启动 nssm 程序来包装 gogs, 包装流程参见.  防火墙配置 不配置好防火墙, 本机外是没法访问的.   启动">
+  <meta name="description" content="准备Git 安装包">
 <meta name="keywords" content="git,gogs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Windows平台搭建gogs服务">
 <meta property="og:url" content="http://yoursite.com/2017/06/11/在Windows平台搭建gogs服务/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="准备Git 安装包官网 nssm Windows Windows 服务包装软件官网 gogs 二进制包官网 安装Git一直下一步就可以了 nssm这个不用安装, 解压后, 根据系统使用不同的程序. 要能够在命令行中使用, 必须要将它的路径加入环境变量中 gogs将压缩包解压, 然后启动 nssm 程序来包装 gogs, 包装流程参见.  防火墙配置 不配置好防火墙, 本机外是没法访问的.   启动">
+<meta property="og:description" content="准备Git 安装包">
 <meta property="og:image" content="http://yoursite.com/assets/images/git/启动或关闭%20Windows%20防火墙.png">
 <meta property="og:image" content="http://yoursite.com/assets/images/git/高级设置.png">
-<meta property="og:updated_time" content="2017-06-11T12:54:13.000Z">
+<meta property="og:updated_time" content="2017-06-11T13:15:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Windows平台搭建gogs服务">
-<meta name="twitter:description" content="准备Git 安装包官网 nssm Windows Windows 服务包装软件官网 gogs 二进制包官网 安装Git一直下一步就可以了 nssm这个不用安装, 解压后, 根据系统使用不同的程序. 要能够在命令行中使用, 必须要将它的路径加入环境变量中 gogs将压缩包解压, 然后启动 nssm 程序来包装 gogs, 包装流程参见.  防火墙配置 不配置好防火墙, 本机外是没法访问的.   启动">
+<meta name="twitter:description" content="准备Git 安装包">
 <meta name="twitter:image" content="http://yoursite.com/assets/images/git/启动或关闭%20Windows%20防火墙.png">
   
   
@@ -153,7 +153,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="Git-安装包"><a href="#Git-安装包" class="headerlink" title="Git 安装包"></a>Git 安装包</h2><p><a href="https://git-for-windows.github.io" target="_blank" rel="external">官网</a></p>
+        <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="Git-安装包"><a href="#Git-安装包" class="headerlink" title="Git 安装包"></a>Git 安装包</h2><a id="more"></a>
+<p><a href="https://git-for-windows.github.io" target="_blank" rel="external">官网</a></p>
 <h2 id="nssm-Windows-Windows-服务包装软件"><a href="#nssm-Windows-Windows-服务包装软件" class="headerlink" title="nssm Windows Windows 服务包装软件"></a>nssm Windows Windows 服务包装软件</h2><p><a href="http://nssm.cc" target="_blank" rel="external">官网</a></p>
 <h2 id="gogs-二进制包"><a href="#gogs-二进制包" class="headerlink" title="gogs 二进制包"></a>gogs 二进制包</h2><p><a href="https://gogs.io" target="_blank" rel="external">官网</a></p>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>一直下一步就可以了</p>
@@ -166,6 +167,10 @@
 <p><img src="/assets/images/git/启动或关闭 Windows 防火墙.png" alt=""></p>
 <p><strong> 高级设置 </strong></p>
 <p><img src="/assets/images/git/高级设置.png" alt=""></p>
+<p>剩下的就是打开浏览器, 访问 gogs 服务了!</p>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>我们在 clone 时, 需要输入密码, 以后可能还要输入, 解决方案有两个, 这两个其实就是一个</p>
+<h2 id="方案1"><a href="#方案1" class="headerlink" title="方案1"></a>方案1</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 这样以后任何时候都不会再叫你输入账号密码了</span></div><div class="line">git <span class="built_in">clone</span> http://用户名:密码@仓库地址</div></pre></td></tr></table></figure>
+<h2 id="方案2"><a href="#方案2" class="headerlink" title="方案2"></a>方案2</h2><p>这个方案是在没有采用方案1的情况下的不就方案.<br>打开.git目录下config文件, 将url替换为方案1采用的形式即可</p>
 
       
 
@@ -364,14 +369,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -388,11 +385,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -400,7 +397,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -409,6 +406,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -424,11 +429,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
+                <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -444,7 +445,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -452,11 +453,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,6 +470,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
             
             <div class="clearfix"></div>
