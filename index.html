@@ -127,6 +127,77 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-在Windows平台搭建gogs服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/11/在Windows平台搭建gogs服务/">在Windows平台搭建gogs服务</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/11/在Windows平台搭建gogs服务/" class="archive-article-date">
+  	<time datetime="2017-06-11T12:33:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="Git-安装包"><a href="#Git-安装包" class="headerlink" title="Git 安装包"></a>Git 安装包</h2><p><a href="https://git-for-windows.github.io" target="_blank" rel="external">官网</a></p>
+<h2 id="nssm-Windows-Windows-服务包装软件"><a href="#nssm-Windows-Windows-服务包装软件" class="headerlink" title="nssm Windows Windows 服务包装软件"></a>nssm Windows Windows 服务包装软件</h2><p><a href="http://nssm.cc" target="_blank" rel="external">官网</a></p>
+<h2 id="gogs-二进制包"><a href="#gogs-二进制包" class="headerlink" title="gogs 二进制包"></a>gogs 二进制包</h2><p><a href="https://gogs.io" target="_blank" rel="external">官网</a></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>一直下一步就可以了</p>
+<h2 id="nssm"><a href="#nssm" class="headerlink" title="nssm"></a>nssm</h2><p>这个不用安装, 解压后, 根据系统使用不同的程序. 要能够在命令行中使用, 必须要将它的路径加入环境变量中</p>
+<h2 id="gogs"><a href="#gogs" class="headerlink" title="gogs"></a>gogs</h2><p>将压缩包解压, 然后启动 nssm 程序来包装 gogs, 包装流程<a href="https://gogs.io/docs/installation/run_as_windows_service" target="_blank" rel="external">参见</a>. </p>
+<h3 id="防火墙配置"><a href="#防火墙配置" class="headerlink" title="防火墙配置"></a>防火墙配置</h3><ul>
+<li>不配置好防火墙, 本机外是没法访问的.</li>
+</ul>
+<p><strong> 启动或关闭 Windows 防火墙 </strong></p>
+<p><img src="/assets/images/git/启动或关闭 Windows 防火墙.png" alt=""></p>
+<p><strong> 高级设置 </strong></p>
+<p><img src="/assets/images/git/高级设置.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gogs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-环信昵称和头像的处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -677,70 +748,6 @@
 
 
   
-    <article id="post-iOS网络-NSURLConnection" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/11/iOS网络-NSURLConnection/">iOS网络-NSURLConnection</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/11/iOS网络-NSURLConnection/" class="archive-article-date">
-  	<time datetime="2017-05-11T03:01:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><ul>
-<li>负责发送请求，建立客户端和服务器的连接</li>
-<li>发送数据给服务器，并收集来自服务器的响应数据</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/05/11/iOS网络-NSURLConnection/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -834,15 +841,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -850,11 +849,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -866,6 +861,30 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
               </li>
              
@@ -874,27 +893,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -906,7 +905,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -914,7 +917,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gogs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -922,11 +933,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
+                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
               </li>
              
               <li class="article-tag-list-item">

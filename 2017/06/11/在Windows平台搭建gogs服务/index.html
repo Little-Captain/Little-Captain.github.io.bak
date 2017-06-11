@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 后端 | Little Captain&#39;s Blog</title>
+  <title>在Windows平台搭建gogs服务 | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Little Captain&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/后端/index.html">
+  <meta name="description" content="准备Git 安装包官网 nssm Windows Windows 服务包装软件官网 gogs 二进制包官网 安装Git一直下一步就可以了 nssm这个不用安装, 解压后, 根据系统使用不同的程序. 要能够在命令行中使用, 必须要将它的路径加入环境变量中 gogs将压缩包解压, 然后启动 nssm 程序来包装 gogs, 包装流程参见.  防火墙配置 不配置好防火墙, 本机外是没法访问的.   启动">
+<meta name="keywords" content="git,gogs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Windows平台搭建gogs服务">
+<meta property="og:url" content="http://yoursite.com/2017/06/11/在Windows平台搭建gogs服务/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
+<meta property="og:description" content="准备Git 安装包官网 nssm Windows Windows 服务包装软件官网 gogs 二进制包官网 安装Git一直下一步就可以了 nssm这个不用安装, 解压后, 根据系统使用不同的程序. 要能够在命令行中使用, 必须要将它的路径加入环境变量中 gogs将压缩包解压, 然后启动 nssm 程序来包装 gogs, 包装流程参见.  防火墙配置 不配置好防火墙, 本机外是没法访问的.   启动">
+<meta property="og:image" content="http://yoursite.com/assets/images/git/启动或关闭%20Windows%20防火墙.png">
+<meta property="og:image" content="http://yoursite.com/assets/images/git/高级设置.png">
+<meta property="og:updated_time" content="2017-06-11T12:54:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Little Captain&#39;s Blog">
+<meta name="twitter:title" content="在Windows平台搭建gogs服务">
+<meta name="twitter:description" content="准备Git 安装包官网 nssm Windows Windows 服务包装软件官网 gogs 二进制包官网 安装Git一直下一步就可以了 nssm这个不用安装, 解压后, 根据系统使用不同的程序. 要能够在命令行中使用, 必须要将它的路径加入环境变量中 gogs将压缩包解压, 然后启动 nssm 程序来包装 gogs, 包装流程参见.  防火墙配置 不配置好防火墙, 本机外是没法访问的.   启动">
+<meta name="twitter:image" content="http://yoursite.com/assets/images/git/启动或关闭%20Windows%20防火墙.png">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -125,110 +133,145 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-在Windows平台搭建gogs服务" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/11/Node-js概述/" class="archive-article-date">
-  	<time datetime="2017-05-11T01:00:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/11/Node-js概述/">Node.js概述</a>
+    <h1 class="article-title" itemprop="name">
+      在Windows平台搭建gogs服务
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/06/11/在Windows平台搭建gogs服务/" class="archive-article-date">
+  	<time datetime="2017-06-11T12:33:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h1><h2 id="Git-安装包"><a href="#Git-安装包" class="headerlink" title="Git 安装包"></a>Git 安装包</h2><p><a href="https://git-for-windows.github.io" target="_blank" rel="external">官网</a></p>
+<h2 id="nssm-Windows-Windows-服务包装软件"><a href="#nssm-Windows-Windows-服务包装软件" class="headerlink" title="nssm Windows Windows 服务包装软件"></a>nssm Windows Windows 服务包装软件</h2><p><a href="http://nssm.cc" target="_blank" rel="external">官网</a></p>
+<h2 id="gogs-二进制包"><a href="#gogs-二进制包" class="headerlink" title="gogs 二进制包"></a>gogs 二进制包</h2><p><a href="https://gogs.io" target="_blank" rel="external">官网</a></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p>一直下一步就可以了</p>
+<h2 id="nssm"><a href="#nssm" class="headerlink" title="nssm"></a>nssm</h2><p>这个不用安装, 解压后, 根据系统使用不同的程序. 要能够在命令行中使用, 必须要将它的路径加入环境变量中</p>
+<h2 id="gogs"><a href="#gogs" class="headerlink" title="gogs"></a>gogs</h2><p>将压缩包解压, 然后启动 nssm 程序来包装 gogs, 包装流程<a href="https://gogs.io/docs/installation/run_as_windows_service" target="_blank" rel="external">参见</a>. </p>
+<h3 id="防火墙配置"><a href="#防火墙配置" class="headerlink" title="防火墙配置"></a>防火墙配置</h3><ul>
+<li>不配置好防火墙, 本机外是没法访问的.</li>
+</ul>
+<p><strong> 启动或关闭 Windows 防火墙 </strong></p>
+<p><img src="/assets/images/git/启动或关闭 Windows 防火墙.png" alt=""></p>
+<p><strong> 高级设置 </strong></p>
+<p><img src="/assets/images/git/高级设置.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gogs</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/11/在Windows平台搭建gogs服务/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/08/PHP开发App接口/" class="archive-article-date">
-  	<time datetime="2017-05-07T23:27:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-08</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/08/PHP开发App接口/">PHP开发App接口</a>
-    </h1>
+  
+    <a href="/2017/05/27/环信昵称和头像的处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">环信昵称和头像的处理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -248,9 +291,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
