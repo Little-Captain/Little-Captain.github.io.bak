@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Objective-C代码规范 | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="排版 程序块要采用缩进风格编写，缩进的空格数为4个。对齐只使用空格键，不使用TAB键。 相对独立的程序块之间、变量说明之后必须加空行。 较长的语句要分成多行书写，长表达式要在低优先级操作符处划分新行，操作符放在新行之首，划分出的新行要进行适当的缩进，使排版整齐，语句可读。 不允许把多个短语句写在一行中，即一行只写一条语句。 大括号添加规则(if、for、函数、方法 …)  1234if (...)">
+  <meta name="description" content="排版 程序块要采用缩进风格编写，缩进的空格数为4个。对齐只使用空格键，不使用TAB键。 相对独立的程序块之间、变量说明之后必须加空行。 较长的语句要分成多行书写，长表达式要在低优先级操作符处划分新行，操作符放在新行之首，划分出的新行要进行适当的缩进，使排版整齐，语句可读。 不允许把多个短语句写在一行中，即一行只写一条语句。 大括号添加规则(if、for、函数、方法 …)">
 <meta name="keywords" content="OC,代码规范">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Objective-C代码规范">
 <meta property="og:url" content="http://yoursite.com/2017/06/13/Objective-C代码规范/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="排版 程序块要采用缩进风格编写，缩进的空格数为4个。对齐只使用空格键，不使用TAB键。 相对独立的程序块之间、变量说明之后必须加空行。 较长的语句要分成多行书写，长表达式要在低优先级操作符处划分新行，操作符放在新行之首，划分出的新行要进行适当的缩进，使排版整齐，语句可读。 不允许把多个短语句写在一行中，即一行只写一条语句。 大括号添加规则(if、for、函数、方法 …)  1234if (...)">
-<meta property="og:updated_time" content="2017-06-13T11:04:35.000Z">
+<meta property="og:description" content="排版 程序块要采用缩进风格编写，缩进的空格数为4个。对齐只使用空格键，不使用TAB键。 相对独立的程序块之间、变量说明之后必须加空行。 较长的语句要分成多行书写，长表达式要在低优先级操作符处划分新行，操作符放在新行之首，划分出的新行要进行适当的缩进，使排版整齐，语句可读。 不允许把多个短语句写在一行中，即一行只写一条语句。 大括号添加规则(if、for、函数、方法 …)">
+<meta property="og:updated_time" content="2017-06-14T10:20:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C代码规范">
-<meta name="twitter:description" content="排版 程序块要采用缩进风格编写，缩进的空格数为4个。对齐只使用空格键，不使用TAB键。 相对独立的程序块之间、变量说明之后必须加空行。 较长的语句要分成多行书写，长表达式要在低优先级操作符处划分新行，操作符放在新行之首，划分出的新行要进行适当的缩进，使排版整齐，语句可读。 不允许把多个短语句写在一行中，即一行只写一条语句。 大括号添加规则(if、for、函数、方法 …)  1234if (...)">
+<meta name="twitter:description" content="排版 程序块要采用缩进风格编写，缩进的空格数为4个。对齐只使用空格键，不使用TAB键。 相对独立的程序块之间、变量说明之后必须加空行。 较长的语句要分成多行书写，长表达式要在低优先级操作符处划分新行，操作符放在新行之首，划分出的新行要进行适当的缩进，使排版整齐，语句可读。 不允许把多个短语句写在一行中，即一行只写一条语句。 大括号添加规则(if、for、函数、方法 …)">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -157,6 +157,7 @@
 <li>不允许把多个短语句写在一行中，即一行只写一条语句。</li>
 <li>大括号添加规则(if、for、函数、方法 …)</li>
 </ul>
+<a id="more"></a>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (...) &#123;</div><div class="line"></div><div class="line">    <span class="comment">// 代码开始</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>在两个以上的关键字、变量、常量进行对等操作时，它们之间的操作符之前、 之后或者前后要加空格;进行非对等操作时，如果是关系密切的立即操作符(++、&amp;、! …)，后不应加空格。</li>
@@ -426,14 +427,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">源代码管理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
@@ -442,15 +435,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+                <a href="javascript:void(0)" class="js-tag color1">源代码管理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,7 +459,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -482,11 +475,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -494,11 +491,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,15 +503,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,15 +531,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,6 +548,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
             
             <div class="clearfix"></div>
