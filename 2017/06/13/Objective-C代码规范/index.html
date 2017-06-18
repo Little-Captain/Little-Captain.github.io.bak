@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/13/Objective-C代码规范/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="排版 程序块要采用缩进风格编写，缩进的空格数为4个。对齐只使用空格键，不使用TAB键。 相对独立的程序块之间、变量说明之后必须加空行。 较长的语句要分成多行书写，长表达式要在低优先级操作符处划分新行，操作符放在新行之首，划分出的新行要进行适当的缩进，使排版整齐，语句可读。 不允许把多个短语句写在一行中，即一行只写一条语句。 大括号添加规则(if、for、函数、方法 …)">
-<meta property="og:updated_time" content="2017-06-14T10:20:22.000Z">
+<meta property="og:updated_time" content="2017-06-17T07:37:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C代码规范">
 <meta name="twitter:description" content="排版 程序块要采用缩进风格编写，缩进的空格数为4个。对齐只使用空格键，不使用TAB键。 相对独立的程序块之间、变量说明之后必须加空行。 较长的语句要分成多行书写，长表达式要在低优先级操作符处划分新行，操作符放在新行之首，划分出的新行要进行适当的缩进，使排版整齐，语句可读。 不允许把多个短语句写在一行中，即一行只写一条语句。 大括号添加规则(if、for、函数、方法 …)">
@@ -168,7 +168,7 @@
 <ul>
 <li>方法声明规则: 一个参数一行</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">NSURLSessionDataTask</span> *)upload:(<span class="built_in">NSString</span> *)URLString</div><div class="line">                               parameters:(<span class="keyword">nullable</span> <span class="keyword">id</span>)parameters</div><div class="line">                                     name:(<span class="built_in">NSString</span> *)name</div><div class="line">                                 fileName:(<span class="keyword">nullable</span> <span class="built_in">NSString</span> *)fileName</div><div class="line">                                     data:(<span class="built_in">NSData</span> *)data</div><div class="line">                                 progress:(<span class="keyword">nullable</span> <span class="keyword">void</span> (^)(<span class="keyword">float</span> progress))progress</div><div class="line">                               completion:(<span class="keyword">nullable</span> <span class="keyword">void</span> (^)(<span class="keyword">id</span> result, <span class="built_in">BOOL</span> isSuccess))completion;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">NSURLSessionDataTask</span> *)upload:(<span class="built_in">NSString</span> *)URLString</div><div class="line">                      parameters:(<span class="keyword">nullable</span> <span class="keyword">id</span>)parameters</div><div class="line">                            name:(<span class="built_in">NSString</span> *)name</div><div class="line">                        fileName:(<span class="keyword">nullable</span> <span class="built_in">NSString</span> *)fileName</div><div class="line">                            data:(<span class="built_in">NSData</span> *)data</div><div class="line">                        progress:(<span class="keyword">nullable</span> <span class="keyword">void</span> (^)(<span class="keyword">float</span> progress))progress;</div></pre></td></tr></table></figure>
 <h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><ul>
 <li>添加必要注释, 尽量做到代码自注释, 通过语义清晰的命名来实现</li>
 <li>方法函数的注释, 使用 Xcode 生成的标准注释</li>
@@ -191,7 +191,7 @@
 <li>对于变量命名，禁止取单个字符，但i、j、k作局部循环变量是允许的。</li>
 <li>命名规范</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 一般变量 : 小驼峰命名法</span></div><div class="line"><span class="built_in">NSString</span> *fileName= <span class="string">@"xxx"</span>;</div><div class="line"><span class="comment">// 全局变量 : 大驼峰命名法</span></div><div class="line"><span class="built_in">NSString</span> *FileName= <span class="string">@"xxx"</span>;</div><div class="line"><span class="comment">// 宏 : k开头</span></div><div class="line"><span class="meta">#define kFileName @<span class="meta-string">"xxx"</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 一般变量 : 小驼峰命名法</span></div><div class="line"><span class="built_in">NSString</span> *fileName= <span class="string">@"xxx"</span>;</div><div class="line"><span class="comment">// 全局静态常量 : 大驼峰命名法</span></div><div class="line"><span class="built_in">NSString</span> * <span class="keyword">const</span> FileName= <span class="string">@"xxx"</span>;</div><div class="line"><span class="comment">// 宏 : k开头</span></div><div class="line"><span class="meta">#define kFileName @<span class="meta-string">"xxx"</span></span></div></pre></td></tr></table></figure>
 <h1 id="可读性"><a href="#可读性" class="headerlink" title="可读性"></a>可读性</h1><ul>
 <li>注意运算符的优先级，并用括号明确表达式的操作顺序，避免使用默认优先级。</li>
 <li>避免使用不易理解的数字，用有意义的标识来替代。涉及物理状态或者含有物理意义的常量，不应直接使用数字，必须用有意义的枚举、const常量、宏来代替。</li>
@@ -427,14 +427,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">源代码管理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
@@ -443,27 +435,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">源代码管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,11 +455,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,11 +479,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,15 +511,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -523,11 +519,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
+                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,11 +535,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gogs</a>
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
+                <a href="javascript:void(0)" class="js-tag color5">gogs</a>
               </li>
              
               <li class="article-tag-list-item">
