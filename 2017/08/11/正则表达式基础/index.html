@@ -6,21 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>多线程-基本概念和原理 | Little Captain&#39;s Blog</title>
+  <title>正则表达式基础 | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="进程 在操作系统中正在运行的一个应用程序 每个进程之间是独立的，每个进程均运行在其专用且受保护的内存空间内">
-<meta name="keywords" content="iOS,多线程">
+  <meta name="description" content="字符      描述              \      将下一个字符标记为一个特殊字符、或一个原义字符、或一个向后引用、或一个八进制转义符。例如，“n”匹配字符“n”。“\n”匹配一个换行符。串行“\”匹配“\”而“(”则匹配“(”。              ^      匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，^也匹配“\n”">
+<meta name="keywords" content="正则表达式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多线程-基本概念和原理">
-<meta property="og:url" content="http://yoursite.com/2017/05/09/多线程-基本概念和原理/index.html">
+<meta property="og:title" content="正则表达式基础">
+<meta property="og:url" content="http://yoursite.com/2017/08/11/正则表达式基础/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="进程 在操作系统中正在运行的一个应用程序 每个进程之间是独立的，每个进程均运行在其专用且受保护的内存空间内">
-<meta property="og:image" content="http://yoursite.com/assets/images/多线程/线程的状态.png">
-<meta property="og:updated_time" content="2017-05-09T10:18:43.000Z">
+<meta property="og:description" content="字符      描述              \      将下一个字符标记为一个特殊字符、或一个原义字符、或一个向后引用、或一个八进制转义符。例如，“n”匹配字符“n”。“\n”匹配一个换行符。串行“\”匹配“\”而“(”则匹配“(”。              ^      匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，^也匹配“\n”">
+<meta property="og:updated_time" content="2017-08-10T17:02:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多线程-基本概念和原理">
-<meta name="twitter:description" content="进程 在操作系统中正在运行的一个应用程序 每个进程之间是独立的，每个进程均运行在其专用且受保护的内存空间内">
-<meta name="twitter:image" content="http://yoursite.com/assets/images/多线程/线程的状态.png">
+<meta name="twitter:title" content="正则表达式基础">
+<meta name="twitter:description" content="字符      描述              \      将下一个字符标记为一个特殊字符、或一个原义字符、或一个向后引用、或一个八进制转义符。例如，“n”匹配字符“n”。“\n”匹配一个换行符。串行“\”匹配“\”而“(”则匹配“(”。              ^      匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，^也匹配“\n”">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -132,82 +130,29 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-多线程-基本概念和原理" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-正则表达式基础" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      多线程-基本概念和原理
+      正则表达式基础
     </h1>
   
 
         
-        <a href="/2017/05/09/多线程-基本概念和原理/" class="archive-article-date">
-  	<time datetime="2017-05-09T09:42:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
+        <a href="/2017/08/11/正则表达式基础/" class="archive-article-date">
+  	<time datetime="2017-08-10T16:57:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><ul>
-<li>在操作系统中正在运行的一个应用程序</li>
-<li>每个进程之间是独立的，每个进程均运行在其专用且受保护的内存空间内</li>
-</ul>
-<a id="more"></a>
-<h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1><ul>
-<li>1个进程要想执行任务，必须得有线程</li>
-<li>每1个进程至少要有1条线程</li>
-<li>一个进程（程序）的所有任务都在线程中执行</li>
-<li>线程的串行<ul>
-<li>1个线程中任务的执行是串行的</li>
-<li>如果要在1个线程中执行多个任务，那么只能一个一个地按顺序执行这些任务</li>
-<li>在同一时间内，1个线程只能执行1个任务</li>
-<li>也可以认为线程是进程中的1条执行路径</li>
-</ul>
-</li>
-</ul>
-<p><em>线程的状态</em></p>
-<p><img src="/assets/images/多线程/线程的状态.png" alt=""></p>
-<h1 id="进程和线程的比较"><a href="#进程和线程的比较" class="headerlink" title="进程和线程的比较"></a>进程和线程的比较</h1><ol>
-<li>线程是CPU调用(执行任务)的最小单位</li>
-<li>进程是CPU分配资源和调度的单位</li>
-<li>一个程序可以对应多个进程，一个进程中可以有多个线程，但至少要有一个线程</li>
-<li>同一个进程内的线程共享进程的资源</li>
-</ol>
-<h1 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h1><ul>
-<li>1个进程中可以开启多条线程，每条线程可以并行（同时）执行不同的任务</li>
-<li><p>比喻</p>
-<ul>
-<li>进程 : 车间</li>
-<li>线程 : 车间工人</li>
-</ul>
-</li>
-<li><p>多线程技术可以提高程序的执行效率, 比如: 同时开启3条线程分别下载3个文件</p>
-</li>
-</ul>
-<h2 id="多线程的原理"><a href="#多线程的原理" class="headerlink" title="多线程的原理"></a>多线程的原理</h2><ul>
-<li>同一时间，CPU只能处理1条线程，只有1条线程在工作（执行）</li>
-<li>多线程并发（同时）执行，其实是CPU快速地在多条线程之间调度（切换）</li>
-<li>如果CPU调度线程的时间足够快，就造成了多线程并发执行的假象</li>
-<li>如果线程非常非常多，会发生什么情况？<ul>
-<li>CPU会在N多线程之间调度，CPU会累死，消耗大量的CPU资源</li>
-<li>每条线程被调度执行的频次会降低（线程的执行效率降低）</li>
-</ul>
-</li>
-</ul>
-<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
-<li>能适当提高程序的执行效率</li>
-<li>能适当提高资源利用率（CPU、内存利用率）</li>
-</ul>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li>创建线程是有开销的(iOS下主要成本包括: 内核数据结构（大约1KB）、栈空间（子线程512KB、主线程1MB，也可以使用-setStackSize:设置，但必须是4K的倍数，而且最小是16K）、创建线程大约需要90毫秒的创建时间)</li>
-<li>如果开启大量的线程，会降低程序的性能</li>
-<li>线程越多，CPU在调度线程上的开销就越大(上下文切换开销)</li>
-<li>程序设计更加复杂(线程之间的通信 , 多线程间的数据共享)</li>
-</ul>
+        <table class="wikitable"><br>  <tbody><br>    <tr><br>      <th style="text-align:center;">字符</th><br>      <th style="text-align:center;">描述</th><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\</th><br>      <td>将下一个字符标记为一个特殊字符、或一个原义字符、或一个向后引用、或一个八进制转义符。例如，“<code>n</code>”匹配字符“<code>n</code>”。“<code>\n</code>”匹配一个换行符。串行“<code>\</code>”匹配“<code>\</code>”而“<code>(</code>”则匹配“<code>(</code>”。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">^</th><br>      <td>匹配输入字符串的开始位置。如果设置了RegExp对象的Multiline属性，^也匹配“<code>\n</code>”或“<code>\r</code>”之后的位置。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">$</th><br>      <td>匹配输入字符串的结束位置。如果设置了RegExp对象的Multiline属性，$也匹配“<code>\n</code>”或“<code>\r</code>”之前的位置。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;"><em></em></th><br>      <td>匹配前面的子表达式零次或多次。例如，zo能匹配“<code>z</code>”以及“<code>zoo</code>”。<em>等价于{0,}。</em></td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">+</th><br>      <td>匹配前面的子表达式一次或多次。例如，“<code>zo+</code>”能匹配“<code>zo</code>”以及“<code>zoo</code>”，但不能匹配“<code>z</code>”。+等价于{1,}。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">?</th><br>      <td>匹配前面的子表达式零次或一次。例如，“<code>do(es)?</code>”可以匹配“<code>does</code>”或“<code>does</code>”中的“<code>do</code>”。?等价于{0,1}。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">{<span style="font-family:Times New Roman; font-style:italic;">n</span>}</th><br>      <td><span style="font-family:Times New Roman; font-style:italic;">n</span>是一个非负整数。匹配确定的<span style="font-family:Times New Roman; font-style:italic;">n</span>次。例如，“<code>o{2}</code>”不能匹配“<code>Bob</code>”中的“<code>o</code>”，但是能匹配“<code>food</code>”中的两个o。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">{<span style="font-family:Times New Roman; font-style:italic;">n</span>,}</th><br>      <td><span style="font-family:Times New Roman; font-style:italic;">n</span>是一个非负整数。至少匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>次。例如，“<code>o{2,}</code>”不能匹配“<code>Bob</code>”中的“<code>o</code>”，但能匹配“<code>foooood</code>”中的所有o。“<code>o{1,}</code>”等价于“<code>o+</code>”。“<code>o{0,}</code>”则等价于“<code>o</code>”。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">{<span style="font-family:Times New Roman; font-style:italic;">n</span>,<span style="font-family:Times New Roman; font-style:italic;">m</span>}</th><br>      <td><span style="font-family:Times New Roman; font-style:italic;">m</span>和<span style="font-family:Times New Roman; font-style:italic;">n</span>均为非负整数，其中<span style="font-family:Times New Roman; font-style:italic;">n</span>&lt;=<span style="font-family:Times New Roman; font-style:italic;">m</span>。最少匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>次且最多匹配<span style="font-family:Times New Roman; font-style:italic;">m</span>次。例如，“<code>o{1,3}</code>”将匹配“<code>fooooood</code>”中的前三个o。“<code>o{0,1}</code>”等价于“<code>o?</code>”。请注意在逗号和两个数之间不能有空格。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">?</th><br>      <td>当该字符紧跟在任何一个其他限制符（*,+,?，{<span style="font-family:Times New Roman; font-style:italic;">n</span>}，{<span style="font-family:Times New Roman; font-style:italic;">n</span>,}，{<span style="font-family:Times New Roman; font-style:italic;">n</span>,<span style="font-family:Times New Roman; font-style:italic;">m</span>}）后面时，匹配模式是非贪婪的。非贪婪模式尽可能少的匹配所搜索的字符串，而默认的贪婪模式则尽可能多的匹配所搜索的字符串。例如，对于字符串“<code>oooo</code>”，“<code>o+?</code>”将匹配单个“<code>o</code>”，而“<code>o+</code>”将匹配所有“<code>o</code>”。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">.</th><br>      <td>匹配除“<code>\</code><span style="font-family:Times New Roman; font-style:italic;"><code>n</code></span>”之外的任何单个字符。要匹配包括“<code>\</code><span style="font-family:Times New Roman; font-style:italic;"><code>n</code></span>”在内的任何字符，请使用像“<code>(.|\n)</code>”的模式。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">(pattern)</th><br>      <td>匹配pattern并获取这一匹配。所获取的匹配可以从产生的Matches集合得到，在VBScript中使用SubMatches集合，在JScript中则使用$0…$9属性。要匹配圆括号字符，请使用“<code>(</code>”或“<code>)</code>”。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">(?:pattern)</th><br>      <td>匹配pattern但不获取匹配结果，也就是说这是一个非获取匹配，不进行存储供以后使用。这在使用或字符“<code>(|)</code>”来组合一个模式的各个部分是很有用。例如“<code>industr(?:y|ies)</code>”就是一个比“<code>industry|industries</code>”更简略的表达式。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">(?=pattern)</th><br>      <td>正向肯定预查，在任何匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如，“<code>Windows(?=95|98|NT|2000)</code>”能匹配“<code>Windows2000</code>”中的“<code>Windows</code>”，但不能匹配“<code>Windows3.1</code>”中的“<code>Windows</code>”。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">(?!pattern)</th><br>      <td>正向否定预查，在任何不匹配pattern的字符串开始处匹配查找字符串。这是一个非获取匹配，也就是说，该匹配不需要获取供以后使用。例如“<code>Windows(?!95|98|NT|2000)</code>”能匹配“<code>Windows3.1</code>”中的“<code>Windows</code>”，但不能匹配“<code>Windows2000</code>”中的“<code>Windows</code>”。预查不消耗字符，也就是说，在一个匹配发生后，在最后一次匹配之后立即开始下一次匹配的搜索，而不是从包含预查的字符之后开始</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">(?&lt;=pattern)</th><br>      <td>反向肯定预查，与正向肯定预查类拟，只是方向相反。例如，“<code>(?&lt;=95|98|NT|2000)Windows</code>”能匹配“<code>2000Windows</code>”中的“<code>Windows</code>”，但不能匹配“<code>3.1Windows</code>”中的“<code>Windows</code>”。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">(?&lt;!pattern)</th><br>      <td>反向否定预查，与正向否定预查类拟，只是方向相反。例如“<code>(?&lt;!95|98|NT|2000)Windows</code>”能匹配“<code>3.1Windows</code>”中的“<code>Windows</code>”，但不能匹配“<code>2000Windows</code>”中的“<code>Windows</code>”。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">x|y</th><br>      <td>匹配x或y。例如，“<code>z|food</code>”能匹配“<code>z</code>”或“<code>food</code>”。“<code>(z|f)ood</code>”则匹配“<code>zood</code>”或“<code>food</code>”。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">[xyz]</th><br>      <td>字符集合。匹配所包含的任意一个字符。例如，“<code>[abc]</code>”可以匹配“<code>plain</code>”中的“<code>a</code>”。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">[^xyz]</th><br>      <td>负值字符集合。匹配未包含的任意字符。例如，“<code>[^abc]</code>”可以匹配“<code>plain</code>”中的“<code>p</code>”。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">[a-z]</th><br>      <td>字符范围。匹配指定范围内的任意字符。例如，“<code>[a-z]</code>”可以匹配“<code>a</code>”到“<code>z</code>”范围内的任意小写字母字符。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">[^a-z]</th><br>      <td>负值字符范围。匹配任何不在指定范围内的任意字符。例如，“<code>[^a-z]</code>”可以匹配任何不在“<code>a</code>”到“<code>z</code>”范围内的任意字符。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\b</th><br>      <td>匹配一个单词边界，也就是指单词和空格间的位置。例如，“<code>er\b</code>”可以匹配“<code>never</code>”中的“<code>er</code>”，但不能匹配“<code>verb</code>”中的“<code>er</code>”。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\B</th><br>      <td>匹配非单词边界。“<code>er\B</code>”能匹配“<code>verb</code>”中的“<code>er</code>”，但不能匹配“<code>never</code>”中的“<code>er</code>”。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\cx</th><br>      <td>匹配由x指明的控制字符。例如，\cM匹配一个Control-M或回车符。x的值必须为A-Z或a-z之一。否则，将c视为一个原义的“<code>c</code>”字符。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\d</th><br>      <td>匹配一个数字字符。等价于[0-9]。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\D</th><br>      <td>匹配一个非数字字符。等价于[^0-9]。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\f</th><br>      <td>匹配一个换页符。等价于\x0c和\cL。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\n</th><br>      <td>匹配一个换行符。等价于\x0a和\cJ。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\r</th><br>      <td>匹配一个回车符。等价于\x0d和\cM。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\s</th><br>      <td>匹配任何空白字符，包括空格、制表符、换页符等等。等价于[ \f\n\r\t\v]。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\S</th><br>      <td>匹配任何非空白字符。等价于[^ \f\n\r\t\v]。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\t</th><br>      <td>匹配一个制表符。等价于\x09和\cI。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\v</th><br>      <td>匹配一个垂直制表符。等价于\x0b和\cK。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\w</th><br>      <td>匹配包括下划线的任何单词字符。等价于“<code>[A-Za-z0-9<em>]</em></code>”。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\W</th><br>      <td>匹配任何非单词字符。等价于“<code>[^A-Za-z0-9]</code>”。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\x<span style="font-family:Times New Roman; font-style:italic;">n</span></th><br>      <td>匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>，其中<span style="font-family:Times New Roman; font-style:italic;">n</span>为十六进制转义值。十六进制转义值必须为确定的两个数字长。例如，“<code>\x41</code>”匹配“<code>A</code>”。“<code>\x041</code>”则等价于“<code>\x04&amp;1</code>”。正则表达式中可以使用ASCII编码。.</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">num</span></th><br>      <td>匹配<span style="font-family:Times New Roman; font-style:italic;">num</span>，其中<span style="font-family:Times New Roman; font-style:italic;">num</span>是一个正整数。对所获取的匹配的引用。例如，“<code>(.)\1</code>”匹配两个连续的相同字符。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">n</span></th><br>      <td>标识一个八进制转义值或一个向后引用。如果\<span style="font-family:Times New Roman; font-style:italic;">n</span>之前至少<span style="font-family:Times New Roman; font-style:italic;">n</span>个获取的子表达式，则<span style="font-family:Times New Roman; font-style:italic;">n</span>为向后引用。否则，如果<span style="font-family:Times New Roman; font-style:italic;">n</span>为八进制数字（0-7），则<span style="font-family:Times New Roman; font-style:italic;">n</span>为一个八进制转义值。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">nm</span></th><br>      <td>标识一个八进制转义值或一个向后引用。如果\<span style="font-family:Times New Roman; font-style:italic;">nm</span>之前至少有<span style="font-family:Times New Roman; font-style:italic;">nm</span>个获得子表达式，则<span style="font-family:Times New Roman; font-style:italic;">nm</span>为向后引用。如果\<span style="font-family:Times New Roman; font-style:italic;">nm</span>之前至少有<span style="font-family:Times New Roman; font-style:italic;">n</span>个获取，则<span style="font-family:Times New Roman; font-style:italic;">n</span>为一个后跟文字<span style="font-family:Times New Roman; font-style:italic;">m</span>的向后引用。如果前面的条件都不满足，若<span style="font-family:Times New Roman; font-style:italic;">n</span>和<span style="font-family:Times New Roman; font-style:italic;">m</span>均为八进制数字（0-7），则\<span style="font-family:Times New Roman; font-style:italic;">nm</span>将匹配八进制转义值<span style="font-family:Times New Roman; font-style:italic;">nm</span>。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\<span style="font-family:Times New Roman; font-style:italic;">nml</span></th><br>      <td>如果<span style="font-family:Times New Roman; font-style:italic;">n</span>为八进制数字（0-3），且<span style="font-family:Times New Roman; font-style:italic;">m和l</span>均为八进制数字（0-7），则匹配八进制转义值<span style="font-family:Times New Roman; font-style:italic;">nm</span>l。</td><br>    </tr><br>    <tr><br>      <th style="text-align:center;">\u<span style="font-family:Times New Roman; font-style:italic;">n</span></th><br>      <td>匹配<span style="font-family:Times New Roman; font-style:italic;">n</span>，其中<span style="font-family:Times New Roman; font-style:italic;">n</span>是一个用四个十六进制数字表示的Unicode字符。例如，\u00A9匹配版权符号（©）。</td><br>    </tr><br>  </tbody><br></table>
+
+
 
       
 
@@ -221,11 +166,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
         		</li>
       		
 		</ul>
@@ -281,7 +222,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/09/多线程-基本概念和原理/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/11/正则表达式基础/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -295,18 +236,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/09/多线程-iOS中的主线程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          多线程-iOS中的主线程
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/09/一款基于AFNetworking封装的网络框架/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">一款基于AFNetworking封装的网络框架</div>
+    <a href="/2017/08/04/命令提示符的格式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">命令提示符的格式</div>
       <i class="icon-circle-right"></i>
     </a>
   
