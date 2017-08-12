@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Little Captain&#39;s Blog</title>
+  <title>shell脚本编程基础 | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Little Captain&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="基础 同一行多个命令顺序执行, 使用;  1data;who">
+<meta name="keywords" content="shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell脚本编程基础">
+<meta property="og:url" content="http://yoursite.com/2017/08/12/shell脚本编程基础/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
+<meta property="og:description" content="基础 同一行多个命令顺序执行, 使用;  1data;who">
+<meta property="og:image" content="http://yoursite.com/assets/images/Linux/Linux退出状态码.png">
+<meta property="og:updated_time" content="2017-08-12T04:59:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Little Captain&#39;s Blog">
+<meta name="twitter:title" content="shell脚本编程基础">
+<meta name="twitter:description" content="基础 同一行多个命令顺序执行, 使用;  1data;who">
+<meta name="twitter:image" content="http://yoursite.com/assets/images/Linux/Linux退出状态码.png">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -125,445 +132,176 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-shell脚本编程基础" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      shell脚本编程基础
+    </h1>
+  
+
+        
+        <a href="/2017/08/12/shell脚本编程基础/" class="archive-article-date">
+  	<time datetime="2017-08-12T03:47:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-12</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><ul>
+<li>同<code>一行多个命令</code>顺序执行, 使用<code>;</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data;who</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>创建shell脚本文件</li>
+<li>在文件的<code>第一行指定</code>要使用的<code>shell</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div></pre></td></tr></table></figure>
+<ul>
+<li>显示消息</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> This is a <span class="built_in">test</span></div><div class="line"><span class="built_in">echo</span> Let\<span class="string">'s see if "this'</span>ll<span class="string">" work</span></div><div class="line">echo "Let<span class="string">'s see if this'</span>ll work<span class="string">"</span></div><div class="line">echo 'Rich says "scripting is easy<span class="string">".'</span></div><div class="line"># -n : 不输出末尾的 newline 字符</div><div class="line">echo -n "The time and date are: <span class="string">";date</span></div></pre></td></tr></table></figure>
+<ul>
+<li>环境变量 : shell维护者一组环境变量, 用来记录特定的系统信息.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$PATH</span></div></pre></td></tr></table></figure>
+<ul>
+<li>用户变量</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 区分大小写</span></div><div class="line"><span class="comment"># 变量、等号和值之间不能出现空格</span></div><div class="line"><span class="comment"># shell自动决定变量值的数据类型</span></div><div class="line"><span class="comment"># 变量的生命周期: 从创建时开始到shell脚本完成时删除掉</span></div><div class="line">var1=10</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 变量每次引用时, 都会输出当前赋给它的值</span></div><div class="line"><span class="comment"># 引用变量来使用其值时, 需要使用 $</span></div><div class="line"><span class="comment"># 引用变量来对其赋值时, 不需要使用 $</span></div><div class="line">value1=10</div><div class="line">value2=<span class="variable">$value1</span></div></pre></td></tr></table></figure>
+<ul>
+<li>反引号 : 将 shell 命令的输出赋给变量</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">testing=`date`</div><div class="line">today=`date +%y%m%d`</div></pre></td></tr></table></figure>
+<ul>
+<li>输出重定向</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将命令输出重定向到一个文件</span></div><div class="line"><span class="comment"># 文件不存在创建</span></div><div class="line"><span class="comment"># 文件存在就覆盖</span></div><div class="line"><span class="comment"># 覆盖输出重定向</span></div><div class="line">date &gt; <span class="built_in">test</span></div><div class="line"><span class="comment"># 文件不存在创建</span></div><div class="line"><span class="comment"># 追加重定向</span></div><div class="line">date &gt;&gt; <span class="built_in">test</span></div></pre></td></tr></table></figure>
+<ul>
+<li>输入重定向</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将文件内容重定向到命令</span></div><div class="line">wc &lt; <span class="built_in">test</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 内联输入重定向</span></div><div class="line"><span class="comment"># 可以在命令行指定输入重定向的数据</span></div><div class="line"><span class="comment"># 使用 &lt;&lt; </span></div><div class="line"><span class="comment">## 需要指定一个文本标记来划分要输入数据的开始和结尾</span></div><div class="line">wc &lt;&lt; EOF</div><div class="line"><span class="built_in">test</span> string 1</div><div class="line"><span class="built_in">test</span> string 2</div><div class="line"><span class="built_in">test</span> string 3</div><div class="line">EOF</div></pre></td></tr></table></figure>
+<ul>
+<li>管道</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Linux 系统会同时运行这两个命令, 在系统内部将它们连接起来</span></div><div class="line"><span class="comment"># 可以在一条命令中使用任意多条管道</span></div><div class="line">rpm -qa | sort</div></pre></td></tr></table></figure>
+<ul>
+<li>退出脚本</li>
+</ul>
+<blockquote>
+<p>shell 中运行的每个命令都使用退出状态码来告诉 shell 它完成了处理. 退出状态码是一个 0~255 之间的整数值, 在命令结束运行时由命令传给 shell.<br>0 : 成功结束<br>非0 : 结束时有错误<br>shell 脚本以脚本的最后一个命令的退出状态码退出</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">data</div><div class="line"><span class="comment"># $? 专属变量保存上一个命令的退出状态码</span></div><div class="line"><span class="built_in">echo</span> $?</div></pre></td></tr></table></figure>
+<p><img src="/assets/images/Linux/Linux退出状态码.png" width="100%" align="center"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># exit 命令允许在脚本退出时指定一个退出状态码</span></div><div class="line"><span class="comment"># 范围 0~255</span></div><div class="line"><span class="comment"># 超出范围会与256取模</span></div><div class="line"><span class="built_in">exit</span> 5</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/16/SVN基本操作/" class="archive-article-date">
-  	<time datetime="2017-05-16T15:00:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/16/SVN基本操作/">SVN基本操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">源代码管理</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SVN</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/12/shell脚本编程基础/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/12/iOS数据的存储方式/" class="archive-article-date">
-  	<time datetime="2017-05-12T02:43:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-12</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/12/iOS数据的存储方式/">iOS数据的存储方式</a>
-    </h1>
+  
+    <a href="/2017/08/11/正则表达式基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">正则表达式基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/11/iOS监测网络状态/" class="archive-article-date">
-  	<time datetime="2017-05-11T06:12:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/11/iOS监测网络状态/">iOS监测网络状态</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/11/iOS文件上传/" class="archive-article-date">
-  	<time datetime="2017-05-11T06:06:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/11/iOS文件上传/">iOS文件上传</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件上传</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/11/iOS文件下载/" class="archive-article-date">
-  	<time datetime="2017-05-11T06:02:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/11/iOS文件下载/">iOS文件下载</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件下载</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/11/iOS解压缩/" class="archive-article-date">
-  	<time datetime="2017-05-11T05:55:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/11/iOS解压缩/">iOS解压缩</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">解压缩</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/11/iOS网络-NSURLSession/" class="archive-article-date">
-  	<time datetime="2017-05-11T03:14:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/11/iOS网络-NSURLSession/">iOS网络-NSURLSession</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/11/iOS网络-NSURLConnection/" class="archive-article-date">
-  	<time datetime="2017-05-11T03:01:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/11/iOS网络-NSURLConnection/">iOS网络-NSURLConnection</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/11/iOS网络-HTTP/" class="archive-article-date">
-  	<time datetime="2017-05-11T02:09:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/11/iOS网络-HTTP/">iOS网络-HTTP</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/11/iOS网络-基础/" class="archive-article-date">
-  	<time datetime="2017-05-11T01:53:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/11/iOS网络-基础/">iOS网络-基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/3/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -584,8 +322,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
