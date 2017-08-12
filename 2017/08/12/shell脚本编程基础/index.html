@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="基础 同一行多个命令顺序执行, 使用;  1data;who">
 <meta property="og:image" content="http://yoursite.com/assets/images/Linux/Linux退出状态码.png">
-<meta property="og:updated_time" content="2017-08-12T04:59:14.000Z">
+<meta property="og:updated_time" content="2017-08-12T05:09:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell脚本编程基础">
 <meta name="twitter:description" content="基础 同一行多个命令顺序执行, 使用;  1data;who">
@@ -199,6 +199,7 @@
 <p>shell 中运行的每个命令都使用退出状态码来告诉 shell 它完成了处理. 退出状态码是一个 0~255 之间的整数值, 在命令结束运行时由命令传给 shell.<br>0 : 成功结束<br>非0 : 结束时有错误<br>shell 脚本以脚本的最后一个命令的退出状态码退出</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">data</div><div class="line"><span class="comment"># $? 专属变量保存上一个命令的退出状态码</span></div><div class="line"><span class="built_in">echo</span> $?</div></pre></td></tr></table></figure>
+<p><strong>Linux退出状态码</strong></p>
 <p><img src="/assets/images/Linux/Linux退出状态码.png" width="100%" align="center"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># exit 命令允许在脚本退出时指定一个退出状态码</span></div><div class="line"><span class="comment"># 范围 0~255</span></div><div class="line"><span class="comment"># 超出范围会与256取模</span></div><div class="line"><span class="built_in">exit</span> 5</div></pre></td></tr></table></figure>
 
@@ -283,6 +284,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/08/12/shell数学运算/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          shell数学运算
+        
+      </div>
+    </a>
   
   
     <a href="/2017/08/11/正则表达式基础/" id="article-nav-older" class="article-nav-link-wrap">
@@ -383,19 +393,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">源代码管理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">iOS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">源代码管理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -427,6 +437,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
@@ -455,11 +469,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,15 +489,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
