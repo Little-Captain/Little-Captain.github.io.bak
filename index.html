@@ -150,40 +150,9 @@
         <h1 id="expr-命令"><a href="#expr-命令" class="headerlink" title="expr 命令"></a>expr 命令</h1><ul>
 <li>expr 命令允许在命令行上处理数学表达式</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">expr 1 + 5</div></pre></td></tr></table></figure>
-<p><strong>expr命令操作符</strong></p>
-<p><img src="/assets/images/Linux/expr命令操作符1.png" width="100%" align="center"></p>
-<p><img src="/assets/images/Linux/expr命令操作符2.png" width="100%" align="center"></p>
-<ul>
-<li>尽管标准操作符在 expr 命令中工作得很好, 但在脚本或命令行上使用它们时就会有问题, 因为许多 expr 命令操作符在 shell 中有其他意思. 可以进行转义</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 操作数和运算符之间必须要有空格</span></div><div class="line">expr 5 \* 2</div></pre></td></tr></table></figure>
-<h1 id="使用方括号"><a href="#使用方括号" class="headerlink" title="使用方括号"></a>使用方括号</h1><ul>
-<li>在 bash 中, 在将一个数学运算结果赋给某个变量时, 可以用美元符合方括号( $[ operation ] )将数学表达式圈起来</li>
-<li>这比使用 expr 命令方便很多, 方括号里面的字符不会认为是 shell 中的特殊字符</li>
-<li>bash 只支持整数运算. zsh 提供了完整的浮点运算</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var1=$[1 + 5]</div></pre></td></tr></table></figure>
-<h1 id="浮点解决方案"><a href="#浮点解决方案" class="headerlink" title="浮点解决方案"></a>浮点解决方案</h1><h2 id="bc"><a href="#bc" class="headerlink" title="bc"></a>bc</h2><ul>
-<li>bash 计算器允许你在命令行输入浮点表达式、解释表达式、计算并返回结果的一种编程语言.</li>
-<li>bash 计算器能够识别: <ul>
-<li>数字(整数和浮点数)</li>
-<li>变量(简单变量和数组)</li>
-<li>注释(#、/<em> </em>/)</li>
-<li>表达式</li>
-<li>编程语句(if-then等)</li>
-<li>函数</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 启动</span></div><div class="line">bc</div><div class="line">bc -q</div><div class="line"><span class="comment"># 进入 bc 后, 定义的变量可以在整个 bc 会话中使用, 不能再 shell 脚本中使用</span></div><div class="line"><span class="comment"># print 语句允许你打印变量和数字</span></div><div class="line"><span class="comment"># 退出</span></div><div class="line">quit</div></pre></td></tr></table></figure>
-<ul>
-<li>浮点运算由一个内建的 scale 变量控制精确度</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 保留 4 位小数, scale 默认是 0</span></div><div class="line">scale=4</div></pre></td></tr></table></figure>
-<h2 id="在脚本中使用-bc"><a href="#在脚本中使用-bc" class="headerlink" title="在脚本中使用 bc"></a>在脚本中使用 bc</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 基本格式</span></div><div class="line"><span class="comment"># options : 设置变量</span></div><div class="line"><span class="comment"># expression : bc 执行的数学表达式</span></div><div class="line">variable=`<span class="built_in">echo</span> <span class="string">"options; expression"</span> | bc`</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># bc 能识别输入重定向</span></div><div class="line"><span class="comment"># 使用 内联输入重定向 最为方便</span></div><div class="line">variable=`bc &lt;&lt; EOF</div><div class="line">options</div><div class="line">statements</div><div class="line">expressions</div><div class="line">EOF</div><div class="line">`</div></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2017/08/12/shell数学运算/#more">more >></a>
+        
       
 
       
@@ -912,11 +881,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -932,11 +901,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -952,15 +921,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
              
               <li class="article-tag-list-item">
