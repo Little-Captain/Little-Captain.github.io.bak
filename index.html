@@ -127,6 +127,159 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-shell控制语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/13/shell控制语句/">shell控制语句</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/13/shell控制语句/" class="archive-article-date">
+  	<time datetime="2017-08-13T01:53:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="if-then语句"><a href="#if-then语句" class="headerlink" title="if-then语句"></a>if-then语句</h1><ul>
+<li>bash 的 if 语句会运行 if 行定义的那个命令. 如果命令的退出状态码是0, 位于 then 部分的命令会被执行</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="built_in">command</span></div><div class="line"><span class="keyword">then</span></div><div class="line">   commands</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="built_in">command</span>; <span class="keyword">then</span></div><div class="line">   commands</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<h1 id="if-then-else语句"><a href="#if-then-else语句" class="headerlink" title="if-then-else语句"></a>if-then-else语句</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="built_in">command</span></div><div class="line"><span class="keyword">then</span></div><div class="line">   commands</div><div class="line"><span class="keyword">else</span></div><div class="line">   commands</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<h1 id="嵌套-if"><a href="#嵌套-if" class="headerlink" title="嵌套 if"></a>嵌套 if</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="built_in">command</span>1</div><div class="line"><span class="keyword">then</span></div><div class="line">   commands</div><div class="line"><span class="keyword">elif</span> <span class="built_in">command</span>2</div><div class="line"><span class="keyword">then</span></div><div class="line">   commands</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<h1 id="test-命令"><a href="#test-命令" class="headerlink" title="test 命令"></a>test 命令</h1><ul>
+<li>如果 test 命令中列出的条件成立, test 命令就会退出并返回状态码 0</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">test</span> condition</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> <span class="built_in">test</span> condition</div><div class="line"><span class="keyword">then</span></div><div class="line">   commands</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># test 命令的简写形式</span></div><div class="line"><span class="comment"># 方括号定义了 test 命令中用到的条件</span></div><div class="line"><span class="comment"># condition 左右的空格是必须的</span></div><div class="line"><span class="keyword">if</span> [ condition ]</div><div class="line"><span class="keyword">then</span></div><div class="line">   commands</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<h2 id="数值比较"><a href="#数值比较" class="headerlink" title="数值比较"></a>数值比较</h2><p><strong>数值比较</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ <span class="variable">$val</span> <span class="_">-gt</span> 5 ]</div><div class="line"><span class="keyword">then</span></div><div class="line">   <span class="built_in">echo</span> <span class="string">"The test value <span class="variable">$val</span> is greater than 5"</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<h2 id="字符串比较"><a href="#字符串比较" class="headerlink" title="字符串比较"></a>字符串比较</h2><p><strong>字符串比较</strong></p>
+<ul>
+<li>字符串大小比较<ul>
+<li>大于小于符号必须转义, 因为它们和重定向符号冲突</li>
+<li>大于小于顺序和sort命令所采用的不同. 在 test 命令中, 大写字母小于小写字母. sort 命令, 则相反. test 命令使用标准的 ASCII 顺序. sort 命令使用系统的本地化语言设置中定义的排序顺序.</li>
+</ul>
+</li>
+</ul>
+<h2 id="文件比较"><a href="#文件比较" class="headerlink" title="文件比较"></a>文件比较</h2><p><strong>文件比较</strong></p>
+<h2 id="复合条件测试"><a href="#复合条件测试" class="headerlink" title="复合条件测试"></a>复合条件测试</h2><ul>
+<li>[ condition1 ] &amp;&amp; [ condition2 ]</li>
+<li>[ condition1 ] || [ condition2 ]</li>
+</ul>
+<h1 id="if-then-的高级特性"><a href="#if-then-的高级特性" class="headerlink" title="if-then 的高级特性"></a>if-then 的高级特性</h1><h2 id="使用双尖括号"><a href="#使用双尖括号" class="headerlink" title="使用双尖括号"></a>使用双尖括号</h2><ul>
+<li>任意的数学<code>赋值</code>或<code>比较</code>表达式</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 可以放入类似C语言中的高级数学表达式</span></div><div class="line">(( expression ))</div></pre></td></tr></table></figure>
+<p><strong>双尖括号命令符号</strong></p>
+<h2 id="使用双方括号"><a href="#使用双方括号" class="headerlink" title="使用双方括号"></a>使用双方括号</h2><ul>
+<li>支持 test 命令中的标准字符串比较</li>
+<li>高级特性 : 模式匹配. 也就是你可以定义一个正则表达式来匹配字符串</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[ expression ]]</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [[ <span class="variable">$USER</span> == r* ]]</div><div class="line"><span class="keyword">then</span></div><div class="line">  <span class="built_in">echo</span> Hello</div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<h1 id="case-命令"><a href="#case-命令" class="headerlink" title="case 命令"></a>case 命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 一旦某个模式匹配了, 后面的模式将不会再进行匹配</span></div><div class="line"><span class="keyword">case</span> variable <span class="keyword">in</span></div><div class="line">pattern1 | pattern2) commands1;;</div><div class="line">pattern3) commands2;;</div><div class="line">*) default commands;;</div><div class="line"><span class="keyword">esac</span></div></pre></td></tr></table></figure>
+<h1 id="for-命令"><a href="#for-命令" class="headerlink" title="for 命令"></a>for 命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> var <span class="keyword">in</span> list</div><div class="line"><span class="keyword">do</span></div><div class="line">  commands</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<ul>
+<li>list 中有特殊字符, 可以使用转义, 或使用引号括起来</li>
+</ul>
+<h2 id="从变量读取列表"><a href="#从变量读取列表" class="headerlink" title="从变量读取列表"></a>从变量读取列表</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">list=<span class="string">"Alabama Alaska Colorado"</span></div><div class="line"><span class="comment"># 向变量中添加文本字符串</span></div><div class="line">list=<span class="variable">$list</span><span class="string">" Arizona"</span></div><div class="line"><span class="keyword">for</span> state <span class="keyword">in</span> <span class="variable">$list</span></div><div class="line"><span class="keyword">do</span></div><div class="line">  <span class="built_in">echo</span> <span class="variable">$state</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h2 id="从命令读取值"><a href="#从命令读取值" class="headerlink" title="从命令读取值"></a>从命令读取值</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">file=<span class="string">"states"</span></div><div class="line"><span class="keyword">for</span> state <span class="keyword">in</span> `cat <span class="variable">$file</span>`</div><div class="line"><span class="keyword">do</span></div><div class="line">  <span class="built_in">echo</span> <span class="string">"Visit beautiful <span class="variable">$state</span>"</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h2 id="更改字段分隔符"><a href="#更改字段分隔符" class="headerlink" title="更改字段分隔符"></a>更改字段分隔符</h2><blockquote>
+<p>IFS 内部字段分隔符, 这个 bash 环境变量保存用作 bash 字段分隔符的字符. 默认的字段分隔符是: 空格、制表符、换行符</p>
+</blockquote>
+<ul>
+<li>可以在 shell 脚本中改变 IFS的值, 当退出 shell 脚本时, IFS 会恢复默认值</li>
+<li>当在一个脚本中, 需要恢复默认值时, 可以使用一个变量暂存</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 仅仅换行符</span></div><div class="line">IFS=$<span class="string">'\n'</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># shell 中暂存</span></div><div class="line">IFS.OLD=<span class="variable">$IFS</span></div><div class="line">IFS=$<span class="string">'\n'</span></div><div class="line"><span class="comment"># code</span></div><div class="line">IFS=<span class="variable">$IFS</span>.OLD</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 指定多个分隔符</span></div><div class="line">IFS=$<span class="string">'\n:;'</span> <span class="comment"># 换行符、冒号、分号</span></div></pre></td></tr></table></figure>
+<h2 id="使用通配符读取目录"><a href="#使用通配符读取目录" class="headerlink" title="使用通配符读取目录"></a>使用通配符读取目录</h2><ul>
+<li>使用 for 命令遍历目录中的文件, 可以使用通配符</li>
+<li>文件扩展通配 : 生成匹配指定的通配符的文件名或路径名的过程</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> file <span class="keyword">in</span> /home/rich/<span class="built_in">test</span>/*</div><div class="line"><span class="keyword">do</span></div><div class="line">  <span class="keyword">if</span> [ <span class="_">-d</span> <span class="string">"<span class="variable">$file</span>"</span> ]</div><div class="line">  <span class="keyword">then</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"<span class="variable">$file</span> is a directory"</span></div><div class="line">  <span class="keyword">elif</span> [ <span class="_">-f</span> <span class="string">"<span class="variable">$file</span>"</span> ]</div><div class="line">  <span class="keyword">then</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"<span class="variable">$file</span> is a file"</span></div><div class="line">  <span class="keyword">fi</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 在 for 命令中通过列出一系列的目录通配符来将目录查找方法和列表方法合并到同一个 for 语句中</span></div><div class="line"><span class="keyword">for</span> file <span class="keyword">in</span> /home/rich/.b* /home/rich/badtest</div><div class="line"><span class="keyword">do</span></div><div class="line">  <span class="keyword">if</span> [ <span class="_">-d</span> <span class="string">"<span class="variable">$file</span>"</span> ]</div><div class="line">  <span class="keyword">then</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"<span class="variable">$file</span> is a directory"</span></div><div class="line">  <span class="keyword">elif</span> [ <span class="_">-f</span> <span class="string">"<span class="variable">$file</span>"</span> ]</div><div class="line">  <span class="keyword">then</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"<span class="variable">$file</span> is a file"</span></div><div class="line">  <span class="keyword">fi</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h1 id="C语言风格的-for-命令"><a href="#C语言风格的-for-命令" class="headerlink" title="C语言风格的 for 命令"></a>C语言风格的 for 命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (( variable assignment; condition; iteration process ))</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># C 风格 for 命令</span></div><div class="line"><span class="keyword">for</span> (( i = 1; i &lt;= 10; ++i ))</div><div class="line"><span class="keyword">do</span></div><div class="line">  <span class="built_in">echo</span> <span class="string">"The next number is <span class="variable">$i</span>"</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 使用多个变量</span></div><div class="line"><span class="keyword">for</span> (( a = 1, b = 10; a &lt;= 10; ++a, --b ))</div><div class="line"><span class="keyword">do</span></div><div class="line">  <span class="built_in">echo</span> <span class="string">"<span class="variable">$a</span> - <span class="variable">$b</span>"</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h1 id="while-命令"><a href="#while-命令" class="headerlink" title="while 命令"></a>while 命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> <span class="built_in">test</span> <span class="built_in">command</span></div><div class="line"><span class="keyword">do</span></div><div class="line">  other commands</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var1=10</div><div class="line"><span class="keyword">while</span> [ <span class="variable">$var1</span> <span class="_">-gt</span> 0 ]</div><div class="line"><span class="keyword">do</span></div><div class="line">  <span class="built_in">echo</span> <span class="variable">$var1</span></div><div class="line">  var1=$[ <span class="variable">$var1</span> - 1 ]</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h2 id="使用多个测试命令"><a href="#使用多个测试命令" class="headerlink" title="使用多个测试命令"></a>使用多个测试命令</h2><ul>
+<li>只有最后一个测试命令的退出状态码会被用来决定什么时候结束循环</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var1=10</div><div class="line"><span class="keyword">while</span> <span class="built_in">echo</span> <span class="variable">$var1</span></div><div class="line">      [ <span class="variable">$var1</span> <span class="_">-gt</span> 0 ]</div><div class="line"><span class="keyword">do</span></div><div class="line">  <span class="built_in">echo</span> <span class="string">"This is inside the loop"</span></div><div class="line">  var1=$[ <span class="variable">$var1</span> - 1 ]</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h1 id="until-命令"><a href="#until-命令" class="headerlink" title="until 命令"></a>until 命令</h1><ul>
+<li>until 命令和while 命令工作的方式完全相反.</li>
+<li>退出状态码非零, 循环执行; 退出状态码为零, 循环结束</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">until <span class="built_in">test</span> commands</div><div class="line"><span class="keyword">do</span></div><div class="line">  other commands</div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure>
+<h1 id="嵌套循环"><a href="#嵌套循环" class="headerlink" title="嵌套循环"></a>嵌套循环</h1><ul>
+<li>循环套循环</li>
+</ul>
+<h1 id="控制循环"><a href="#控制循环" class="headerlink" title="控制循环"></a>控制循环</h1><h2 id="break"><a href="#break" class="headerlink" title="break"></a>break</h2><ul>
+<li>跳出当前层循环</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">break</span></div></pre></td></tr></table></figure>
+<ul>
+<li>跳出指定层级的外部循环</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 默认 n 为 1, 向外递增</span></div><div class="line"><span class="built_in">break</span> n</div></pre></td></tr></table></figure>
+<h2 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h2><ul>
+<li>继续当前层循环</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">continue</span></div></pre></td></tr></table></figure>
+<ul>
+<li>继续指定层级的外部循环</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 默认 n 为 1, 向外递增</span></div><div class="line"><span class="built_in">continue</span> n</div></pre></td></tr></table></figure>
+<h1 id="处理循环的输出"><a href="#处理循环的输出" class="headerlink" title="处理循环的输出"></a>处理循环的输出</h1><ul>
+<li>shell 中处理输出, 要么管接, 要么重定向</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># done 后添加一个处理命令来处理输出</span></div><div class="line"><span class="keyword">for</span> file <span class="keyword">in</span> /home/rich/*</div><div class="line"><span class="keyword">do</span></div><div class="line">  <span class="comment"># code</span></div><div class="line"><span class="keyword">done</span> &gt; output.txt</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-shell数学运算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -677,49 +830,6 @@
 
 
   
-    <article id="post-环信昵称和头像的处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/27/环信昵称和头像的处理/">环信昵称和头像的处理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/27/环信昵称和头像的处理/" class="archive-article-date">
-  	<time datetime="2017-05-27T07:22:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -821,19 +931,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -845,27 +943,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -877,7 +967,31 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -889,19 +1003,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -913,15 +1015,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gogs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -929,7 +1027,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gogs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
              
               <li class="article-tag-list-item">
