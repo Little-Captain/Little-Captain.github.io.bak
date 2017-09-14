@@ -150,20 +150,10 @@
         <h1 id="配置本地推送通知"><a href="#配置本地推送通知" class="headerlink" title="配置本地推送通知"></a>配置本地推送通知</h1><h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2><ul>
 <li>创建和配置包含通知具体内容的 <code>UNMutableNotificationContent</code> 对象</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];</div><div class="line">content.title = [<span class="built_in">NSString</span> localizedUserNotificationStringForKey:<span class="string">@"Wake up!"</span> arguments:<span class="literal">nil</span>];</div><div class="line">content.body = [<span class="built_in">NSString</span> localizedUserNotificationStringForKey:<span class="string">@"Rise and shine! It's morning time!"</span> arguments:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
-<h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><ul>
-<li>创建一个 <code>UNCalendarNotificationTrigger</code>, <code>UNTimeIntervalNotificationTrigger</code>, 或 <code>UNLocationNotificationTrigger</code> 对象来描述通知被递送的条件</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSDateComponents</span>* date = [[<span class="built_in">NSDateComponents</span> alloc] init];</div><div class="line">date.hour = <span class="number">7</span>;</div><div class="line">date.minute = <span class="number">0</span>;</div><div class="line">UNCalendarNotificationTrigger* trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:date repeats:<span class="literal">NO</span>];</div></pre></td></tr></table></figure>
-<h2 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h2><ul>
-<li>通过上面创建两个对象, 再创建一个 <code>UNNotificationRequest</code> 对象</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:<span class="string">@"MorningAlarm"</span> content:content trigger:trigger];</div></pre></td></tr></table></figure>
-<h2 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h2><ul>
-<li>调用 <code>addNotificationRequest:withCompletionHandler:</code> 方法派送通知.</li>
-</ul>
-<h1 id="分配自定义操作"><a href="#分配自定义操作" class="headerlink" title="分配自定义操作"></a>分配自定义操作</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">UNNotificationContent *content = [[UNNotificationContent alloc] init];</div><div class="line"><span class="comment">// 配置内容</span></div><div class="line"></div><div class="line"><span class="comment">// 分配类别</span></div><div class="line">content.categoryIdentifier = <span class="string">@"TIMER_EXPIRED"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 创建请求和派送通知</span></div></pre></td></tr></table></figure>
-
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];</div><div class="line">content.title = [<span class="built_in">NSString</span> localizedUserNotificationStringForKey:<span class="string">@"Wake up!"</span> arguments:<span class="literal">nil</span>];</div><div class="line">content.body = [<span class="built_in">NSString</span> localizedUserNotificationStringForKey:<span class="string">@"Rise and shine! It's morning time!"</span></div><div class="line">        arguments:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/09/13/本地推送通知/#more">more >></a>
+        
       
 
       
@@ -221,22 +211,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="请求用户授权"><a href="#请求用户授权" class="headerlink" title="请求用户授权"></a>请求用户授权</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];</div><div class="line">[center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound) completionHandler:^(<span class="built_in">BOOL</span> granted, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">      <span class="comment">// 通过授权结果完成进一步操作</span></div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<ul>
-<li>获取准确的用户授权信息使用 <code>UNUserNotificationCenter</code> 对象的 <code>getNotificationSettingsWithCompletionHandler:</code> 方法</li>
-</ul>
-<h1 id="配置类别和可操作的通知"><a href="#配置类别和可操作的通知" class="headerlink" title="配置类别和可操作的通知"></a>配置类别和可操作的通知</h1><h2 id="针对-App-注册通知类别"><a href="#针对-App-注册通知类别" class="headerlink" title="针对 App 注册通知类别"></a>针对 App 注册通知类别</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">UNNotificationCategory* generalCategory = [UNNotificationCategory categoryWithIdentifier:<span class="string">@"GENERAL"</span> actions:@[] intentIdentifiers:@[] options:UNNotificationCategoryOptionCustomDismissAction];</div><div class="line"> </div><div class="line"><span class="comment">// Register the notification categories.</span></div><div class="line">UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];</div><div class="line">[center setNotificationCategories:[<span class="built_in">NSSet</span> setWithObjects:generalCategory, <span class="literal">nil</span>]];</div></pre></td></tr></table></figure>
-<h2 id="将自定义操作添加到类别中"><a href="#将自定义操作添加到类别中" class="headerlink" title="将自定义操作添加到类别中"></a>将自定义操作添加到类别中</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">UNNotificationCategory* generalCategory = [UNNotificationCategory</div><div class="line">      categoryWithIdentifier:<span class="string">@"GENERAL"</span></div><div class="line">      actions:@[]</div><div class="line">      intentIdentifiers:@[]</div><div class="line">      options:UNNotificationCategoryOptionCustomDismissAction];</div><div class="line"> </div><div class="line"><span class="comment">// 创建自定义操作</span></div><div class="line">UNNotificationAction* snoozeAction = [UNNotificationAction</div><div class="line">      actionWithIdentifier:<span class="string">@"SNOOZE_ACTION"</span></div><div class="line">      title:<span class="string">@"Snooze"</span></div><div class="line">      options:UNNotificationActionOptionNone];</div><div class="line"> </div><div class="line">UNNotificationAction* stopAction = [UNNotificationAction</div><div class="line">      actionWithIdentifier:<span class="string">@"STOP_ACTION"</span></div><div class="line">      title:<span class="string">@"Stop"</span></div><div class="line">      options:UNNotificationActionOptionForeground];</div><div class="line"> </div><div class="line"><span class="comment">// 创建带有自定义操作的通知类别</span></div><div class="line">UNNotificationCategory* expiredCategory = [UNNotificationCategory</div><div class="line">      categoryWithIdentifier:<span class="string">@"TIMER_EXPIRED"</span></div><div class="line">      actions:@[snoozeAction, stopAction]</div><div class="line">      intentIdentifiers:@[]</div><div class="line">      options:UNNotificationCategoryOptionNone];</div><div class="line"> </div><div class="line"><span class="comment">// 注册通知类别</span></div><div class="line">UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];</div><div class="line">[center setNotificationCategories:[<span class="built_in">NSSet</span> setWithObjects:generalCategory, expiredCategory,</div><div class="line">      <span class="literal">nil</span>]];</div></pre></td></tr></table></figure>
-<h2 id="获取-App-的通知设置"><a href="#获取-App-的通知设置" class="headerlink" title="获取 App 的通知设置"></a>获取 App 的通知设置</h2><ul>
-<li>用户可以随时在系统设置中改变应用的通知设置</li>
-<li>通过使用 <code>UNUserNotificationCenter</code> 对象的 <code>getNotificationSettingsWithCompletionHandler:</code> 方法获取包含当前<code>授权状态</code>和<code>通知环境</code>的 <code>UNNotificationSettings</code> 对象</li>
-</ul>
-<h1 id="管理已被递送的通知"><a href="#管理已被递送的通知" class="headerlink" title="管理已被递送的通知"></a>管理已被递送的通知</h1><ul>
-<li>已被递送的通知没有被 App 或用户及时处理, 它们会一直显示在通知中心.</li>
-<li>使用 <code>UNUserNotificationCenter</code> 对象的 <code>getDeliveredNotificationsWithCompletionHandler:</code> 方法<code>获取</code>在通知中心显示的<code>通知列表</code></li>
-<li>如果发现通知中心的通知已经过时, 可以使用 <code>removeDeliveredNotificationsWithIdentifiers:</code> 方法移除它们</li>
-</ul>
-
+        <h1 id="请求用户授权"><a href="#请求用户授权" class="headerlink" title="请求用户授权"></a>请求用户授权</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];</div><div class="line">[center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)</div><div class="line">   completionHandler:^(<span class="built_in">BOOL</span> granted, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">      <span class="comment">// 通过授权结果完成进一步操作</span></div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/09/13/App的通知支持/#more">more >></a>
+        
       
 
       
@@ -844,10 +822,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
               </li>
              
@@ -860,15 +834,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -884,15 +862,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -928,15 +910,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -956,6 +934,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
@@ -964,11 +946,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -981,10 +963,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
             
             <div class="clearfix"></div>

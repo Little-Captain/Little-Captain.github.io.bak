@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>本地推送通知 | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="配置本地推送通知Step 1 创建和配置包含通知具体内容的 UNMutableNotificationContent 对象  123UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];content.title = [NSString localizedUserNotificatio">
+  <meta name="description" content="配置本地推送通知Step 1 创建和配置包含通知具体内容的 UNMutableNotificationContent 对象  1234UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];content.title = [NSString localizedUserNotificati">
 <meta name="keywords" content="iOS,推送通知">
 <meta property="og:type" content="article">
 <meta property="og:title" content="本地推送通知">
 <meta property="og:url" content="http://yoursite.com/2017/09/13/本地推送通知/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="配置本地推送通知Step 1 创建和配置包含通知具体内容的 UNMutableNotificationContent 对象  123UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];content.title = [NSString localizedUserNotificatio">
-<meta property="og:updated_time" content="2017-09-14T08:30:53.000Z">
+<meta property="og:description" content="配置本地推送通知Step 1 创建和配置包含通知具体内容的 UNMutableNotificationContent 对象  1234UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];content.title = [NSString localizedUserNotificati">
+<meta property="og:updated_time" content="2017-09-14T10:28:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本地推送通知">
-<meta name="twitter:description" content="配置本地推送通知Step 1 创建和配置包含通知具体内容的 UNMutableNotificationContent 对象  123UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];content.title = [NSString localizedUserNotificatio">
+<meta name="twitter:description" content="配置本地推送通知Step 1 创建和配置包含通知具体内容的 UNMutableNotificationContent 对象  1234UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];content.title = [NSString localizedUserNotificati">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -153,15 +153,16 @@
         <h1 id="配置本地推送通知"><a href="#配置本地推送通知" class="headerlink" title="配置本地推送通知"></a>配置本地推送通知</h1><h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2><ul>
 <li>创建和配置包含通知具体内容的 <code>UNMutableNotificationContent</code> 对象</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];</div><div class="line">content.title = [<span class="built_in">NSString</span> localizedUserNotificationStringForKey:<span class="string">@"Wake up!"</span> arguments:<span class="literal">nil</span>];</div><div class="line">content.body = [<span class="built_in">NSString</span> localizedUserNotificationStringForKey:<span class="string">@"Rise and shine! It's morning time!"</span> arguments:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];</div><div class="line">content.title = [<span class="built_in">NSString</span> localizedUserNotificationStringForKey:<span class="string">@"Wake up!"</span> arguments:<span class="literal">nil</span>];</div><div class="line">content.body = [<span class="built_in">NSString</span> localizedUserNotificationStringForKey:<span class="string">@"Rise and shine! It's morning time!"</span></div><div class="line">        arguments:<span class="literal">nil</span>];</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><ul>
 <li>创建一个 <code>UNCalendarNotificationTrigger</code>, <code>UNTimeIntervalNotificationTrigger</code>, 或 <code>UNLocationNotificationTrigger</code> 对象来描述通知被递送的条件</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSDateComponents</span>* date = [[<span class="built_in">NSDateComponents</span> alloc] init];</div><div class="line">date.hour = <span class="number">7</span>;</div><div class="line">date.minute = <span class="number">0</span>;</div><div class="line">UNCalendarNotificationTrigger* trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:date repeats:<span class="literal">NO</span>];</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSDateComponents</span>* date = [[<span class="built_in">NSDateComponents</span> alloc] init];</div><div class="line">date.hour = <span class="number">7</span>;</div><div class="line">date.minute = <span class="number">0</span>;</div><div class="line">UNCalendarNotificationTrigger* trigger = [UNCalendarNotificationTrigger</div><div class="line">       triggerWithDateMatchingComponents:date repeats:<span class="literal">NO</span>];</div></pre></td></tr></table></figure>
 <h2 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h2><ul>
 <li>通过上面创建两个对象, 再创建一个 <code>UNNotificationRequest</code> 对象</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UNNotificationRequest* request = [UNNotificationRequest requestWithIdentifier:<span class="string">@"MorningAlarm"</span> content:content trigger:trigger];</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UNNotificationRequest* request = [UNNotificationRequest</div><div class="line">       requestWithIdentifier:<span class="string">@"MorningAlarm"</span> content:content trigger:trigger];</div></pre></td></tr></table></figure>
 <h2 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h2><ul>
 <li>调用 <code>addNotificationRequest:withCompletionHandler:</code> 方法派送通知.</li>
 </ul>
@@ -356,10 +357,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
               </li>
              
@@ -372,15 +369,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -396,15 +397,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -440,15 +445,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -468,6 +469,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
@@ -476,11 +481,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,10 +498,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
             
             <div class="clearfix"></div>
