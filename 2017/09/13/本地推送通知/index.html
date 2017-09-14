@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>iOS开发中的各种尺寸 | Little Captain&#39;s Blog</title>
+  <title>本地推送通知 | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iPhone系列屏幕大小    2G, 3G, 3GS 4, 4s 5, 5s 6, 6s 6 Plus 6s Plus     320 x 480 320 x 480 320 x 568 375 x 667 414x736   1x 2x 2x 2x 3x    App Icon">
-<meta name="keywords" content="iOS">
+  <meta name="description" content="配置本地推送通知Step 1 创建和配置包含通知具体内容的 UNMutableNotificationContent 对象  Step 2 创建一个 UNCalendarNotificationTrigger, UNTimeIntervalNotificationTrigger, 或 UNLocationNotificationTrigger 对象来描述通知被递送的条件  Step 3 通过上面创">
+<meta name="keywords" content="iOS,推送通知">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发中的各种尺寸">
-<meta property="og:url" content="http://yoursite.com/2017/05/07/iOS开发中的各种尺寸/index.html">
+<meta property="og:title" content="本地推送通知">
+<meta property="og:url" content="http://yoursite.com/2017/09/13/本地推送通知/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="iPhone系列屏幕大小    2G, 3G, 3GS 4, 4s 5, 5s 6, 6s 6 Plus 6s Plus     320 x 480 320 x 480 320 x 568 375 x 667 414x736   1x 2x 2x 2x 3x    App Icon">
-<meta property="og:updated_time" content="2017-05-07T08:07:11.000Z">
+<meta property="og:description" content="配置本地推送通知Step 1 创建和配置包含通知具体内容的 UNMutableNotificationContent 对象  Step 2 创建一个 UNCalendarNotificationTrigger, UNTimeIntervalNotificationTrigger, 或 UNLocationNotificationTrigger 对象来描述通知被递送的条件  Step 3 通过上面创">
+<meta property="og:updated_time" content="2017-09-13T11:02:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发中的各种尺寸">
-<meta name="twitter:description" content="iPhone系列屏幕大小    2G, 3G, 3GS 4, 4s 5, 5s 6, 6s 6 Plus 6s Plus     320 x 480 320 x 480 320 x 568 375 x 667 414x736   1x 2x 2x 2x 3x    App Icon">
+<meta name="twitter:title" content="本地推送通知">
+<meta name="twitter:description" content="配置本地推送通知Step 1 创建和配置包含通知具体内容的 UNMutableNotificationContent 对象  Step 2 创建一个 UNCalendarNotificationTrigger, UNTimeIntervalNotificationTrigger, 或 UNLocationNotificationTrigger 对象来描述通知被递送的条件  Step 3 通过上面创">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -130,196 +130,38 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-iOS开发中的各种尺寸" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-本地推送通知" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      iOS开发中的各种尺寸
+      本地推送通知
     </h1>
   
 
         
-        <a href="/2017/05/07/iOS开发中的各种尺寸/" class="archive-article-date">
-  	<time datetime="2017-05-07T08:04:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-07</time>
+        <a href="/2017/09/13/本地推送通知/" class="archive-article-date">
+  	<time datetime="2017-09-13T09:45:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>iPhone系列屏幕大小</em></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">2G, 3G, 3GS</th>
-<th style="text-align:center">4, 4s</th>
-<th style="text-align:center">5, 5s</th>
-<th style="text-align:center">6, 6s</th>
-<th style="text-align:center">6 Plus 6s Plus</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">320 x 480</td>
-<td style="text-align:center">320 x 480</td>
-<td style="text-align:center">320 x 568</td>
-<td style="text-align:center">375 x 667</td>
-<td style="text-align:center">414x736</td>
-</tr>
-<tr>
-<td style="text-align:center">1x</td>
-<td style="text-align:center">2x</td>
-<td style="text-align:center">2x</td>
-<td style="text-align:center">2x</td>
-<td style="text-align:center">3x</td>
-</tr>
-</tbody>
-</table>
-<p><em>App Icon</em></p>
-<a id="more"></a>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Device or context</th>
-<th style="text-align:center">Icon size</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">iPhone 6s Plus, iPhone 6 Plus</td>
-<td style="text-align:center">180px by 180px</td>
-</tr>
-<tr>
-<td style="text-align:center">iPhone 6s, iPhone 6, iPhone SE</td>
-<td style="text-align:center">120px by 120px</td>
-</tr>
-<tr>
-<td style="text-align:center">iPad Pro</td>
-<td style="text-align:center">167px by 167px</td>
-</tr>
-<tr>
-<td style="text-align:center">iPad, iPad mini</td>
-<td style="text-align:center">152px by 152px</td>
-</tr>
-<tr>
-<td style="text-align:center">App Store</td>
-<td style="text-align:center">1024px by 1024px</td>
-</tr>
-</tbody>
-</table>
-<p><em>Spotlight and Settings Icons</em></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Device</th>
-<th style="text-align:center">Spotlight icon size</th>
-<th style="text-align:center">Settings icon size</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">iPhone 6s Plus, iPhone 6 Plus</td>
-<td style="text-align:center">120px by 120px</td>
-<td style="text-align:center">87px by 87px</td>
-</tr>
-<tr>
-<td style="text-align:center">iPhone 6s, iPhone 6, iPhone SE</td>
-<td style="text-align:center">80px by 80px</td>
-<td style="text-align:center">58px by 58px</td>
-</tr>
-<tr>
-<td style="text-align:center">iPad Pro, iPad, iPad mini</td>
-<td style="text-align:center">80px by 80px</td>
-<td style="text-align:center">58px by 58px</td>
-</tr>
-</tbody>
-</table>
-<p><em>Custom Icon Sizes</em></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Device</th>
-<th style="text-align:center">Navigation bar and toolbar icon size</th>
-<th style="text-align:center">Tab bar icon size</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">iPhone 6s Plus, iPhone 6 Plus</td>
-<td style="text-align:center">About 66px by 66px</td>
-<td style="text-align:center">About 75px by 75px Maximum 144px by 96px</td>
-</tr>
-<tr>
-<td style="text-align:center">iPhone 6s, iPhone 6, iPhone SE</td>
-<td style="text-align:center">About 44px by 44px</td>
-<td style="text-align:center">About 50px by 50px Maximum 96px by 64px</td>
-</tr>
-<tr>
-<td style="text-align:center">iPad Pro, iPad, iPad mini</td>
-<td style="text-align:center">About 44px by 44px</td>
-<td style="text-align:center">About 50px by 50px Maximum 96px by 64px</td>
-</tr>
-</tbody>
-</table>
-<p><em>Image Size and Resolution</em></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Device</th>
-<th style="text-align:center">Scale factor</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">iPhone 6s Plus and iPhone 6 Plus</td>
-<td style="text-align:center">@3x</td>
-</tr>
-<tr>
-<td style="text-align:center">All other high-resolution iOS devices</td>
-<td style="text-align:center">@2x</td>
-</tr>
-</tbody>
-</table>
-<p><em>Launch Screen</em></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Device</th>
-<th style="text-align:center">Portrait size</th>
-<th style="text-align:center">Landscape size</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">iPhone 6s Plus, iPhone 6 Plus</td>
-<td style="text-align:center">1080px by 1920px</td>
-<td style="text-align:center">1920px by 1080px</td>
-</tr>
-<tr>
-<td style="text-align:center">iPhone 6s, iPhone 6</td>
-<td style="text-align:center">750px by 1334px</td>
-<td style="text-align:center">1334px by 750px</td>
-</tr>
-<tr>
-<td style="text-align:center">iPhone SE</td>
-<td style="text-align:center">640px by 1136px</td>
-<td style="text-align:center">1136px by 640px</td>
-</tr>
-<tr>
-<td style="text-align:center">12.9-inch iPad Pro</td>
-<td style="text-align:center">2048px by 2732px</td>
-<td style="text-align:center">2732px by 2048px</td>
-</tr>
-<tr>
-<td style="text-align:center">9.7-inch iPad Pro, iPad Air 2, iPad mini 4, iPad mini 2</td>
-<td style="text-align:center">1536px by 2048px</td>
-<td style="text-align:center">2048px by 1536px</td>
-</tr>
-</tbody>
-</table>
+        <h1 id="配置本地推送通知"><a href="#配置本地推送通知" class="headerlink" title="配置本地推送通知"></a>配置本地推送通知</h1><h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2><ul>
+<li>创建和配置包含通知具体内容的 UNMutableNotificationContent 对象</li>
+</ul>
+<h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><ul>
+<li>创建一个 UNCalendarNotificationTrigger, UNTimeIntervalNotificationTrigger, 或 UNLocationNotificationTrigger 对象来描述通知被递送的条件</li>
+</ul>
+<h2 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h2><ul>
+<li>通过上面创建两个对象, 在创建一个 UNNotificationRequest 对象</li>
+</ul>
+<h2 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h2><ul>
+<li>调用 addNotificationRequest:withCompletionHandler: 方法派出通知.</li>
+</ul>
 
       
 
@@ -334,6 +176,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">推送通知</a>
         		</li>
       		
 		</ul>
@@ -389,7 +235,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/07/iOS开发中的各种尺寸/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/13/本地推送通知/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -403,18 +249,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/07/网络基础概念/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          网络基本概念
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/07/搭建git服务器/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">搭建git服务器</div>
+    <a href="/2017/08/13/shell控制语句/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">shell控制语句</div>
       <i class="icon-circle-right"></i>
     </a>
   
