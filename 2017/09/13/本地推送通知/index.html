@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/13/本地推送通知/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="配置本地推送通知Step 1 创建和配置包含通知具体内容的 UNMutableNotificationContent 对象  1234UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];content.title = [NSString localizedUserNotificati">
-<meta property="og:updated_time" content="2017-09-14T10:28:25.000Z">
+<meta property="og:updated_time" content="2017-09-15T09:04:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="本地推送通知">
 <meta name="twitter:description" content="配置本地推送通知Step 1 创建和配置包含通知具体内容的 UNMutableNotificationContent 对象  1234UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];content.title = [NSString localizedUserNotificati">
@@ -166,7 +166,53 @@
 <h2 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h2><ul>
 <li>调用 <code>addNotificationRequest:withCompletionHandler:</code> 方法派送通知.</li>
 </ul>
-<h1 id="分配自定义操作"><a href="#分配自定义操作" class="headerlink" title="分配自定义操作"></a>分配自定义操作</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">UNNotificationContent *content = [[UNNotificationContent alloc] init];</div><div class="line"><span class="comment">// 配置内容</span></div><div class="line"></div><div class="line"><span class="comment">// 分配类别</span></div><div class="line">content.categoryIdentifier = <span class="string">@"TIMER_EXPIRED"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 创建请求和派送通知</span></div></pre></td></tr></table></figure>
+<h1 id="分配自定义操作"><a href="#分配自定义操作" class="headerlink" title="分配自定义操作"></a>分配自定义操作</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">UNNotificationContent *content = [[UNNotificationContent alloc] init];</div><div class="line"><span class="comment">// 配置内容</span></div><div class="line"></div><div class="line"><span class="comment">// 分配类别, 为内容分配类别, 这样当显示这些内容的时候, 系统就会将这个类别中的操作分配给这个通知</span></div><div class="line"><span class="comment">// 在派送通知请求之前, 为此属性分配一个值, 才有效。</span></div><div class="line">content.categoryIdentifier = <span class="string">@"TIMER_EXPIRED"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 创建请求和派送通知</span></div></pre></td></tr></table></figure>
+<h1 id="为通知内容添加声音"><a href="#为通知内容添加声音" class="headerlink" title="为通知内容添加声音"></a>为通知内容添加声音</h1><ul>
+<li>为 UNMutableNotificationContent 对象的 sound 属性分配一个 UNNotificationSound 对象</li>
+<li>UNNotificationSound 对象可以创建自定义声音或默认通知声音, 自定义的音频必须位于 App 的主 bundle 或沙盒的 Library/Sounds 目录中</li>
+<li>分配自定义声音时, 仅仅通过文件名分配. 如果系统找到了这个文件就播放, 如果没有就播放默认的音频</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 默认</span></div><div class="line">content.sound = [UNNotificationSound defaultSound];</div><div class="line"><span class="comment">// 自定义</span></div><div class="line">content.sound = [UNNotificationSound soundNamed:<span class="string">@"MySound.aiff"</span>];</div></pre></td></tr></table></figure>
+<h1 id="本地通知的派送"><a href="#本地通知的派送" class="headerlink" title="本地通知的派送"></a>本地通知的派送</h1><ul>
+<li>创建 <code>UNNotificationRequest</code> 对象, 然后调用 <code>UNUserNotificationCenter</code> 对象的 <code>addNotificationRequest:withCompletionHandler:</code> 方法</li>
+<li>系统异步派送本地通知. 当派送完成或失败, 就会执行回调 block</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建通知请求对象</span></div><div class="line">UNNotificationRequest* request = [UNNotificationRequest</div><div class="line">       requestWithIdentifier:<span class="string">@"MorningAlarm"</span> content:content trigger:trigger];</div><div class="line"> </div><div class="line">UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];</div><div class="line">[center addNotificationRequest:request withCompletionHandler:^(<span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">   <span class="keyword">if</span> (error != <span class="literal">nil</span>) &#123;</div><div class="line">       <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, error.localizedDescription);</div><div class="line">   &#125;</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<ul>
+<li>计划派送的本地通知将保持活动状态, 直到被系统不计划或被你取消. 当通知被派送, 系统自动将其置为不计划, 除非这是个重复触发的通知.</li>
+<li>取消通知, 可以调用 <code>UNUserNotificationCenter</code> 对象的 <code>removePendingNotificationRequestsWithIdentifiers:</code> 方法</li>
+<li>一个能够被取消的通知, 必须被分配一个 <code>identifier</code> 给对应的 <code>UNNotificationRequest</code> 对象</li>
+<li>调用 <code>removeAllPendingNotificationRequests</code> 方法取消所有被挂起的通知, 它不需要任何 <code>identifier</code></li>
+</ul>
+<h1 id="响应通知事件"><a href="#响应通知事件" class="headerlink" title="响应通知事件"></a>响应通知事件</h1><ul>
+<li>为了实现响应, 必须为 <code>UNUserNotificationCenter</code> 对象实现代理. 代理对象必须遵守 <code>UNUserNotificationCenterDelegate</code> 协议. 这个协议明确了, 通知中心如果将通知信息传递给你的 App. 如果你的通知包含自定义操作, 代理是必须的.</li>
+</ul>
+<h1 id="App-在前台时-处理通知"><a href="#App-在前台时-处理通知" class="headerlink" title="App 在前台时, 处理通知"></a>App 在前台时, 处理通知</h1><ul>
+<li>App 在前台, 通知到达时, 你可以不派送给通知中心或让系统继续下一步操作(显示在通知中心)</li>
+<li>默认情况下, 当 App 在前台时, 通知不会被呈现在通知中心, 而是直接递送通知数据给你的 App</li>
+<li>如果要显示这类通知, 需要实现 <code>UNUserNotificationCenter</code> 对象代理的 <code>userNotificationCenter:willPresentNotification:withCompletionHandler:</code> 方法.</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)userNotificationCenter:(UNUserNotificationCenter *)center</div><div class="line">        willPresentNotification:(UNNotification *)notification</div><div class="line">        withCompletionHandler:(<span class="keyword">void</span> (^)(UNNotificationPresentationOptions options))completionHandler &#123;</div><div class="line">   <span class="comment">// 这儿更新你的 App 界面</span></div><div class="line"> </div><div class="line">    <span class="comment">// 播放音频, 如果什么也不指定, 系统将静默掉这个通知</span></div><div class="line">   completionHandler(UNNotificationPresentationOptionSound);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>如果 App 在后台或者没有运行, 系统不会调用 <code>userNotificationCenter:willPresentNotification:withCompletionHandler:</code> 方法. 这时, 系统根据通知自带信息通知用户</li>
+<li>你可以通过 <code>UNUserNotificationCenter</code> 对象的 <code>getDeliveredNotificationsWithCompletionHandler:</code> 方法确定是否派送通知</li>
+</ul>
+<h1 id="响应用户自定义操作"><a href="#响应用户自定义操作" class="headerlink" title="响应用户自定义操作"></a>响应用户自定义操作</h1><ul>
+<li>用户的操作打包在 <code>UNNotificationResponse</code> 对象中</li>
+<li>在用户选中你的自定义操作时, 递送给你 App 的 <code>UNUserNotificationCenter</code> 对象的代理</li>
+<li>为了接收响应, 代理必须实现 <code>userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:</code> 方法. 这个方法的实现中必须能够处理所有自定义操作, 包括你的 App 和 App 扩展中的所有自定义消息</li>
+<li>如果一个响应发出, 而你的 App 和 App 扩展没有运行, 系统会在后台启动你的 App 和 App 扩展来处理这个响应. 使用这个后台时间来更新你的 App 的数据结构和界面显示, 不要做其他无关操作</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)userNotificationCenter:(UNUserNotificationCenter *)center</div><div class="line">           didReceiveNotificationResponse:(UNNotificationResponse *)response</div><div class="line">           withCompletionHandler:(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))completionHandler &#123;</div><div class="line">           <span class="comment">// 匹配通知类别标识符</span></div><div class="line">    <span class="keyword">if</span> ([response.notification.request.content.categoryIdentifier isEqualToString:<span class="string">@"TIMER_EXPIRED"</span>]) &#123;</div><div class="line">        <span class="comment">// 匹配不同操作</span></div><div class="line">        <span class="keyword">if</span> ([response.actionIdentifier isEqualToString:<span class="string">@"SNOOZE_ACTION"</span>])</div><div class="line">        &#123;</div><div class="line">            <span class="comment">// 具体操作</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ([response.actionIdentifier isEqualToString:<span class="string">@"STOP_ACTION"</span>])</div><div class="line">        &#123;</div><div class="line">            <span class="comment">// 具体操作</span></div><div class="line">        &#125;</div><div class="line"> </div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="comment">// 其他通知类别的操作的匹配处理</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="处理系统标准操作"><a href="#处理系统标准操作" class="headerlink" title="处理系统标准操作"></a>处理系统标准操作</h1><ul>
+<li>触发系统操作时, 通知中心将调用代理的 <code>userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:</code> 方法</li>
+<li>在上述方法中的 response 对象可能包含以下两个标识符之一:<ul>
+<li>UNNotificationDismissActionIdentifier : 表示用户移除了通知, 而没有选中任何自定义操作</li>
+<li>UNNotificationDefaultActionIdentifier : 表示用户启动了 App, 而没有选中任何自定义操作</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)userNotificationCenter:(UNUserNotificationCenter *)center</div><div class="line">          didReceiveNotificationResponse:(UNNotificationResponse *)response</div><div class="line">          withCompletionHandler:(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))completionHandler &#123;</div><div class="line">   <span class="keyword">if</span> ([response.actionIdentifier isEqualToString:UNNotificationDismissActionIdentifier]) &#123;</div><div class="line">       <span class="comment">// 用户移除了通知, 而没有做任何其他动作</span></div><div class="line">   &#125;</div><div class="line">   <span class="keyword">else</span> <span class="keyword">if</span> ([response.actionIdentifier isEqualToString:UNNotificationDefaultActionIdentifier]) &#123;</div><div class="line">       <span class="comment">// 用户启动了 App</span></div><div class="line">   &#125;</div><div class="line"> </div><div class="line">   <span class="comment">// 处理其他操作</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
 
@@ -361,10 +407,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -373,7 +415,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
+                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -389,15 +431,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
+                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -413,19 +447,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -433,7 +467,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -442,6 +476,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -457,7 +499,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -465,11 +507,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
+                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">gogs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,10 +528,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
               </li>
              
               <li class="article-tag-list-item">
