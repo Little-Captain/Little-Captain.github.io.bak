@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Little Captain&#39;s Blog</title>
+  <title>Lean Python(Chapter 4) | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Little Captain&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/4/index.html">
+  <meta name="description" content="Input and Output  显示输出12# 格式print(arg1,arg2,arg3...,sep=&apos; &apos;,end=&apos;\n&apos;)">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lean Python(Chapter 4)">
+<meta property="og:url" content="http://yoursite.com/2017/09/21/Lean-Python-Chapter-4/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
+<meta property="og:description" content="Input and Output  显示输出12# 格式print(arg1,arg2,arg3...,sep=&apos; &apos;,end=&apos;\n&apos;)">
+<meta property="og:updated_time" content="2017-09-21T17:13:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Little Captain&#39;s Blog">
+<meta name="twitter:title" content="Lean Python(Chapter 4)">
+<meta name="twitter:description" content="Input and Output  显示输出12# 格式print(arg1,arg2,arg3...,sep=&apos; &apos;,end=&apos;\n&apos;)">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -125,465 +130,217 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Lean-Python-Chapter-4" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Lean Python(Chapter 4)
+    </h1>
+  
+
+        
+        <a href="/2017/09/21/Lean-Python-Chapter-4/" class="archive-article-date">
+  	<time datetime="2017-09-21T15:39:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Input and Output</p>
+</blockquote>
+<h1 id="显示输出"><a href="#显示输出" class="headerlink" title="显示输出"></a>显示输出</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 格式</span></div><div class="line">print(arg1,arg2,arg3...,sep=<span class="string">' '</span>,end=<span class="string">'\n'</span>)</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>使用格式输出</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(<span class="string">'%d plus %d makes %d'</span> % (<span class="number">3</span>, <span class="number">7</span>, <span class="number">10</span>))</div></pre></td></tr></table></figure>
+<ul>
+<li>抑制最后的空行输出</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(<span class="string">'one...'</span>,<span class="string">'two...'</span>,<span class="string">'three'</span>,end=<span class="string">''</span>)</div></pre></td></tr></table></figure>
+<h1 id="获取用户输入"><a href="#获取用户输入" class="headerlink" title="获取用户输入"></a>获取用户输入</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yourName=input(<span class="string">'Enter your name: '</span>)</div></pre></td></tr></table></figure>
+<ul>
+<li>接收的输入都是字符串, 所以要用户输入数字等需要自行解析</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">count = input(<span class="string">'Enter a number: '</span>)</div><div class="line"><span class="keyword">if</span> len(count) &gt; <span class="number">0</span>:</div><div class="line">    <span class="keyword">if</span> count.isdigit():</div><div class="line">        count = int(count)</div><div class="line">        print(count++)</div></pre></td></tr></table></figure>
+<h1 id="读写文件"><a href="#读写文件" class="headerlink" title="读写文件"></a>读写文件</h1><h2 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fileobj = open(filename, mode)</div></pre></td></tr></table></figure>
+<ul>
+<li>mode</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">打开模式</th>
+<th style="text-align:center">文件存在</th>
+<th style="text-align:center">文件不存在</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">‘r’</td>
+<td style="text-align:center">打开, 只读</td>
+<td style="text-align:center">不存在文件或目录, 报错</td>
+</tr>
+<tr>
+<td style="text-align:center">‘w’</td>
+<td style="text-align:center">打开, 写入(覆盖)</td>
+<td style="text-align:center">创建, 写入</td>
+</tr>
+<tr>
+<td style="text-align:center">‘a’</td>
+<td style="text-align:center">打开, 写入(追加)</td>
+<td style="text-align:center">创建, 写入</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fname = <span class="string">'myfile.txt'</span></div><div class="line">fp = open(fname, <span class="string">'r'</span>)</div><div class="line">fp = open(fname, <span class="string">'w'</span>)</div><div class="line">fp = open(fname, <span class="string">'a'</span>)</div></pre></td></tr></table></figure>
+<h2 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h2><ul>
+<li>一旦你完成文件操作, 就应该关闭文件</li>
+<li>文件的 open 和 close 操作, 总是成对使用</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line">fp = open(fname,<span class="string">'w'</span>) </div><div class="line"><span class="comment"># do something</span></div><div class="line">fp.close()</div></pre></td></tr></table></figure>
+<h2 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h2><ul>
+<li>read() 以<code>字符串</code>的形式<code>读取</code>文件的<code>全部内容</code></li>
+<li>可以将读取的内容以<code>换行符</code>(‘\n’)进行<code>分隔</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fp = open(fname, <span class="string">'r'</span>)</div><div class="line">text = fp.read()</div><div class="line">lines = text.split(<span class="string">'\n'</span>)</div><div class="line">fp.close()</div></pre></td></tr></table></figure>
+<ul>
+<li>readlines() 返回一个 list , list 的元素就是每行的字符串</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fp = open(fname, <span class="string">'r'</span>)</div><div class="line">lines = fp.readlines() <span class="comment"># 每行包含换行符'\n'</span></div><div class="line">fp.close()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fp = open(fname, <span class="string">'r'</span>)</div><div class="line"><span class="comment"># 去掉了右边的空白字符</span></div><div class="line">lines = [line.rstrip() <span class="keyword">for</span> line <span class="keyword">in</span> fp.readlines()]</div><div class="line">fp.close()</div></pre></td></tr></table></figure>
+<ul>
+<li>使用文件对象自带的迭代器逐行读取文件内容</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fp = open(fname,<span class="string">'r'</span>)</div><div class="line"><span class="keyword">for</span> eachLine <span class="keyword">in</span> fp:</div><div class="line">    print(eachLine, end = <span class="string">''</span>)</div><div class="line">fp.close()</div></pre></td></tr></table></figure>
+<h2 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h2><ul>
+<li>标准写入函数 write()</li>
+<li>write() 函数, 不主动添加任何换行符</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fp.write(textline)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">fp = open(<span class="string">'text.txt'</span>,<span class="string">'w'</span>)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    text = input(<span class="string">'Enter text (end with blank):'</span>)</div><div class="line">    <span class="keyword">if</span> len(text)==<span class="number">0</span>:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        fp.write(text+<span class="string">'\n'</span>)</div><div class="line">fp.close()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">lines=[<span class="string">'line 1'</span>,<span class="string">'line 2'</span>,<span class="string">'line 3'</span>,<span class="string">'line 4'</span>]</div><div class="line"><span class="comment"># write all lines with no '\n'</span></div><div class="line">fp.writelines(lines)</div><div class="line"><span class="comment"># writes all line with '\n'</span></div><div class="line">fp.writelines([line+<span class="string">'\n'</span> <span class="keyword">for</span> line <span class="keyword">in</span> lines])</div></pre></td></tr></table></figure>
+<ul>
+<li>注意 : write() 和 writelines() 函数都不会在字符串末尾添加换行符(\n), 你必须自己添加</li>
+</ul>
+<h2 id="访问文件系统"><a href="#访问文件系统" class="headerlink" title="访问文件系统"></a>访问文件系统</h2><ul>
+<li>os 模块中的一些常用函数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="comment"># remove a file (deleteme.txt) from disk</span>os.unlink(<span class="string">'deleteme.txt'</span>)<span class="comment"># rename file on disk (from file.txt to newname.txt)</span>os.rename(<span class="string">'file.txt'</span>,<span class="string">'newname.txt'</span>)<span class="comment"># change current/working directory</span>os.chdir(newdirectory)<span class="comment"># create list of files in a directory</span>filelist = os.listdir(dirname)<span class="comment"># obtain current directory</span>curdir = os.getcwd()<span class="comment"># create a directory</span>os.mkdir(dirname)<span class="comment"># remove a directory (requires it to be empty)</span>os.rmdir(dirname)<span class="comment"># in the following examples, we need to use</span><span class="comment"># the os.path module</span><span class="comment">#</span><span class="comment"># does the file/directory exist?</span>exists = os.path.exists(path)<span class="comment"># does path name exist and(且) is it a file?</span>isfile = os.path.isfile(filepathname)<span class="comment"># does path name exist and(且) is it is directory?</span>isdir = os.path.isdir(filepath)</div></pre></td></tr></table></figure>
+<h1 id="命令行参数"><a href="#命令行参数" class="headerlink" title="命令行参数"></a>命令行参数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python mycopy.py thisfile.txt thatfile.txt</div></pre></td></tr></table></figure>
+<ul>
+<li>如何捕获命令行参数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sysnargs=len(sys.argv) <span class="comment"># sys.argv is List</span>print(<span class="string">'%d argument(s)'</span> % (nargs))n=<span class="number">0</span><span class="keyword">for</span> a <span class="keyword">in</span> sys.argv:    print(<span class="string">'  arg %d is %s'</span> % (n, a))    n+=<span class="number">1</span></div></pre></td></tr></table></figure>
+<ul>
+<li>注意 : <code>第一参数</code>总是<code>程序的名字</code></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/RunLoop就这一篇/" class="archive-article-date">
-  	<time datetime="2017-05-10T11:07:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/RunLoop就这一篇/">RunLoop就这一篇</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RunLoop</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/21/Lean-Python-Chapter-4/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/多线程-NSOperation总结/" class="archive-article-date">
-  	<time datetime="2017-05-10T05:23:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/多线程-NSOperation总结/">多线程-NSOperation总结</a>
-    </h1>
+  
+    <a href="/2017/09/21/Lean-Python-Chapter-3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Lean Python(Chapter 3)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">NSOperation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/多线程-GCD总结/" class="archive-article-date">
-  	<time datetime="2017-05-10T04:19:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/多线程-GCD总结/">多线程-GCD总结</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GCD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/多线程-NSThread的使用/" class="archive-article-date">
-  	<time datetime="2017-05-10T03:59:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/多线程-NSThread的使用/">多线程-NSThread的使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NSThread</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/多线程-线程间通信/" class="archive-article-date">
-  	<time datetime="2017-05-10T03:54:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/多线程-线程间通信/">多线程-线程间通信</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/09/多线程-安全隐患/" class="archive-article-date">
-  	<time datetime="2017-05-09T10:19:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/09/多线程-安全隐患/">多线程-安全隐患</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/09/多线程-iOS中的实现方案/" class="archive-article-date">
-  	<time datetime="2017-05-09T10:03:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/09/多线程-iOS中的实现方案/">多线程-iOS中的实现方案</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/09/多线程-iOS中的主线程/" class="archive-article-date">
-  	<time datetime="2017-05-09T09:57:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/09/多线程-iOS中的主线程/">多线程-iOS中的主线程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/09/多线程-基本概念和原理/" class="archive-article-date">
-  	<time datetime="2017-05-09T09:42:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/09/多线程-基本概念和原理/">多线程-基本概念和原理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/09/一款基于AFNetworking封装的网络框架/" class="archive-article-date">
-  	<time datetime="2017-05-09T08:54:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/09/一款基于AFNetworking封装的网络框架/">一款基于AFNetworking封装的网络框架</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/3/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/5/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -604,8 +361,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
