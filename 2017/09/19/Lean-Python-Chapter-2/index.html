@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/19/Lean-Python-Chapter-2/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="Everything is Object">
-<meta property="og:updated_time" content="2017-09-20T08:52:48.000Z">
+<meta property="og:updated_time" content="2017-09-21T13:24:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lean Python(Chapter 2)">
 <meta name="twitter:description" content="Everything is Object">
@@ -215,6 +215,59 @@
 <ul>
 <li>字符串的格式化</li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># % 操作符提供了字符串格式化功能, 结构如下</span></div><div class="line">formatstring % (arguments to format)</div><div class="line"><span class="comment"># formatstring 包含 %标记的占位符</span></div><div class="line">%c <span class="comment"># 单字符或只有一个字符的字符串</span></div><div class="line">%s <span class="comment"># 字符串</span></div><div class="line">%d <span class="comment"># 整数</span></div><div class="line">%f <span class="comment"># 浮点数</span></div><div class="line">%% <span class="comment"># 百分号</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ntoys = <span class="number">4</span></div><div class="line">myname=<span class="string">'Fred'</span></div><div class="line"><span class="string">'%s has %d toys'</span> % (myname,ntoys)</div><div class="line"><span class="comment"># 'Fred has 4 toys'</span></div></pre></td></tr></table></figure>
+<ul>
+<li>字符串函数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 字符串函数都返回一个新字符串, 因为字符串不可变</span></div><div class="line">find() <span class="comment"># 查找文本</span></div><div class="line">isalpha() <span class="comment"># 判断是否是字母</span></div><div class="line">isdigit() <span class="comment"># 判断是否是数字</span></div><div class="line">join() <span class="comment"># 连接</span></div><div class="line">upper() <span class="comment"># 转换为大写</span></div><div class="line">lower() <span class="comment"># 转换为小写</span></div><div class="line">split() <span class="comment"># 将字符串分离为 list</span></div><div class="line">replace() <span class="comment"># 替换字符</span></div><div class="line">rstrip() <span class="comment"># 移除右边的空白字符</span></div><div class="line">lstrip() <span class="comment"># 移除左边的空白字符</span></div><div class="line">strip() <span class="comment"># 移除左右两边的空白字符</span></div></pre></td></tr></table></figure>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><ul>
+<li>创建</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mylist = []</div><div class="line">names=[<span class="string">'Tom'</span>,<span class="string">'Dick'</span>,<span class="string">'Harry'</span>]</div><div class="line">mixedlist = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="string">'four'</span>] <span class="comment"># 混合</span></div><div class="line">elist = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]] <span class="comment"># 嵌套</span></div><div class="line">names[<span class="number">1</span>] <span class="comment"># 'Dick'</span></div><div class="line">elist[<span class="number">3</span>][<span class="number">1</span>] <span class="comment"># 5</span></div><div class="line"><span class="comment"># 如果访问不存在的 index, 会产生一个 list index 越界错误</span></div></pre></td></tr></table></figure>
+<ul>
+<li>修改</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">mylist = []</div><div class="line"><span class="comment"># append 追加</span></div><div class="line">mylist.append(<span class="string">'Tom'</span>)</div><div class="line">mylist.append(<span class="string">'Dick'</span>)</div><div class="line">mylist.append(<span class="string">'Harry'</span>)</div><div class="line"><span class="comment"># 改变值</span></div><div class="line">mylist[<span class="number">1</span>]=<span class="string">'Bill'</span></div><div class="line"><span class="comment"># 删除</span></div><div class="line"><span class="keyword">del</span> mylist[<span class="number">1</span>] <span class="comment"># # ['Tom','Harry']</span></div></pre></td></tr></table></figure>
+<ul>
+<li>获取索引</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mylist=[<span class="string">'Tom'</span>,<span class="string">'Dick'</span>,<span class="string">'Harry'</span>]</div><div class="line">mylist.index(<span class="string">'Dick'</span>) <span class="comment"># 1</span></div><div class="line">mylist.index(<span class="string">'Henry'</span>) <span class="comment"># 不存在, 抛出错误</span></div></pre></td></tr></table></figure>
+<ul>
+<li>序列操作和相关函数</li>
+</ul>
+<blockquote>
+<p>len、max、min、sum、sorted、reversed</p>
+</blockquote>
+<h2 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h2><ul>
+<li><p>不可变, 这是和列表相比最大的区别</p>
+</li>
+<li><p>创建</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mynumbers = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>)</div><div class="line">months=(<span class="string">'Jan'</span>,<span class="string">'Feb'</span>,<span class="string">'Mar'</span>,<span class="string">'Apr'</span>,<span class="string">'May'</span>,<span class="string">'Jun'</span>,<span class="string">'Jul'</span>,<span class="string">'Aug'</span>,<span class="string">'Sep'</span>,<span class="string">'Oct'</span>,<span class="string">'Nov'</span>,<span class="string">'Dec'</span>)</div><div class="line">mixed = (<span class="string">'a'</span>,<span class="number">123</span>,<span class="string">'some text'</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="string">'testing'</span>])</div></pre></td></tr></table></figure>
+<ul>
+<li>访问</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mynumbers[<span class="number">3</span>]</div><div class="line">months[<span class="number">3</span>:<span class="number">6</span>]</div><div class="line">mixed[<span class="number">2</span>]+<span class="string">' '</span>+mixed[<span class="number">3</span>][<span class="number">3</span>]</div><div class="line"><span class="comment"># 访问一个不存在的 index, 同样会抛出 index 越界的错误</span></div></pre></td></tr></table></figure>
+<ul>
+<li>序列操作和相关函数</li>
+</ul>
+<blockquote>
+<p>len、max、min、sum、sorted、reversed</p>
+</blockquote>
+<h2 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h2><ul>
+<li>创建</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">wdays=&#123; <span class="string">'M'</span>:<span class="string">'Monday'</span>, <span class="string">'T'</span>:<span class="string">'Tuesday'</span>, <span class="string">'W'</span>:<span class="string">'Wednesday'</span>, <span class="string">'Th'</span>:<span class="string">'Thursday'</span>, <span class="string">'F'</span>:<span class="string">'Friday'</span>, <span class="string">'Sa'</span>:<span class="string">'Saturday'</span>, <span class="string">'Su'</span>:<span class="string">'Sunday'</span> &#125;</div><div class="line">wdays[<span class="string">'M'</span>]</div><div class="line">wdays[<span class="string">'W'</span>]</div><div class="line">wdays[<span class="string">'Su'</span>]</div><div class="line">newdict = &#123;&#125; <span class="comment"># 空字典</span></div></pre></td></tr></table></figure>
+<ul>
+<li>修改</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">newdict = &#123;&#125;</div><div class="line"><span class="comment"># 添加</span></div><div class="line">newdict[<span class="string">'1st'</span>] = <span class="string">'first entry'</span></div><div class="line">newdict[<span class="string">'2nd'</span>] = <span class="string">'second entry'</span></div><div class="line"><span class="comment"># 修改</span></div><div class="line">newdict[<span class="string">'1st'</span>] = <span class="string">'new value'</span></div><div class="line"><span class="comment"># 删除</span></div><div class="line"><span class="keyword">del</span> newdict[<span class="string">'2nd'</span>]</div><div class="line"><span class="comment"># 长度</span></div><div class="line">len(newdict)</div></pre></td></tr></table></figure>
+<ul>
+<li>操作, 特殊的有用操作</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 判断 key 是否存在</span></div><div class="line"><span class="string">'Sa'</span> <span class="keyword">in</span> wdays</div><div class="line"><span class="comment"># 通过 keys 创建 List</span></div><div class="line">wdays.keys()</div><div class="line"><span class="comment"># 通过 values 创建一个可递归的 List</span></div><div class="line">wdays.values()</div><div class="line"><span class="comment"># 查找 values, 没找到使用默认值</span></div><div class="line">wdays.get(<span class="string">'X'</span>,<span class="string">'Not a day'</span>)</div></pre></td></tr></table></figure>
 
       
 
@@ -401,6 +454,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
               </li>
              
@@ -413,27 +470,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -445,19 +490,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,15 +514,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -489,10 +542,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
               </li>
              
@@ -501,15 +550,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,6 +570,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
               </li>
              
@@ -529,15 +582,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,6 +595,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
             
             <div class="clearfix"></div>
