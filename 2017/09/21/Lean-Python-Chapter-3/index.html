@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello Blog | Little Captain&#39;s Blog</title>
+  <title>Lean Python(Chapter 3) | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="拿来说说在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。 说到搭建 Blog , 早在半年前就搭建过, 由于当时对”拿来主义”这个概念理解不够成熟, 以为搭建 Blog 就一定要什么都亲力亲为, 无形的放大了工作量.  今天周六, 正好有空, 于是就有了这个 Blog. 用到了什么">
-<meta name="keywords" content="杂谈">
+  <meta name="description" content="Program Structure  做决定if 语句">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello Blog">
-<meta property="og:url" content="http://yoursite.com/2017/05/06/hello-blog/index.html">
+<meta property="og:title" content="Lean Python(Chapter 3)">
+<meta property="og:url" content="http://yoursite.com/2017/09/21/Lean-Python-Chapter-3/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="拿来说说在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。 说到搭建 Blog , 早在半年前就搭建过, 由于当时对”拿来主义”这个概念理解不够成熟, 以为搭建 Blog 就一定要什么都亲力亲为, 无形的放大了工作量.  今天周六, 正好有空, 于是就有了这个 Blog. 用到了什么">
-<meta property="og:updated_time" content="2017-05-16T03:47:15.000Z">
+<meta property="og:description" content="Program Structure  做决定if 语句">
+<meta property="og:updated_time" content="2017-09-21T15:12:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello Blog">
-<meta name="twitter:description" content="拿来说说在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。 说到搭建 Blog , 早在半年前就搭建过, 由于当时对”拿来主义”这个概念理解不够成熟, 以为搭建 Blog 就一定要什么都亲力亲为, 无形的放大了工作量.  今天周六, 正好有空, 于是就有了这个 Blog. 用到了什么">
+<meta name="twitter:title" content="Lean Python(Chapter 3)">
+<meta name="twitter:description" content="Program Structure  做决定if 语句">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -130,44 +130,103 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-blog" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Lean-Python-Chapter-3" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello Blog
+      Lean Python(Chapter 3)
     </h1>
   
 
         
-        <a href="/2017/05/06/hello-blog/" class="archive-article-date">
-  	<time datetime="2017-05-06T03:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-06</time>
+        <a href="/2017/09/21/Lean-Python-Chapter-3/" class="archive-article-date">
+  	<time datetime="2017-09-21T13:26:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="拿来说说"><a href="#拿来说说" class="headerlink" title="拿来说说"></a>拿来说说</h1><p>在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。</p>
-<p>说到搭建 Blog , 早在半年前就搭建过, 由于当时对”拿来主义”这个概念理解不够成熟, 以为搭建 Blog 就一定要什么都亲力亲为, 无形的放大了工作量. </p>
-<p>今天周六, 正好有空, 于是就有了这个 Blog.</p>
-<h1 id="用到了什么"><a href="#用到了什么" class="headerlink" title="用到了什么"></a>用到了什么</h1><a id="more"></a>
+        <blockquote>
+<p>Program Structure</p>
+</blockquote>
+<h1 id="做决定"><a href="#做决定" class="headerlink" title="做决定"></a>做决定</h1><h2 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h2><a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> test:</div><div class="line">    statement1 <span class="comment"># 如果条件为真, 这三条语句都将执行</span></div><div class="line">    statement2</div><div class="line">    statement3</div><div class="line"><span class="comment"># if else</span></div><div class="line"><span class="keyword">if</span> test:</div><div class="line">    DoThis()</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    DoThat()</div><div class="line"><span class="comment"># if elif else</span></div><div class="line"><span class="keyword">if</span> test1:</div><div class="line">    DoThis()</div><div class="line"><span class="keyword">elif</span> test2:</div><div class="line">    DoThat()</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    DoOther()</div></pre></td></tr></table></figure>
 <ul>
-<li><code>Hexo</code><ul>
-<li>简单易用</li>
-<li>使用 Node.js 技术(喜欢 Node, 虽然不需要写 Node 代码)</li>
+<li>同一语句中的 <code>if</code> <code>elif</code> <code>else</code> 的缩进必须保持一致</li>
 </ul>
+<h2 id="pass-语句"><a href="#pass-语句" class="headerlink" title="pass 语句"></a>pass 语句</h2><ul>
+<li>pass 语句就是什么都不做</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> test1:</div><div class="line">    DoThis()</div><div class="line"><span class="keyword">elif</span> test2:</div><div class="line">    DoThat()</div><div class="line"><span class="comment"># else 不是严格必须, 但是加上, 通过使用 pass 语句, 表明这时什么都不做, 语义更明确</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">pass</span></div></pre></td></tr></table></figure>
+<h2 id="常见的测试条件"><a href="#常见的测试条件" class="headerlink" title="常见的测试条件"></a>常见的测试条件</h2><ul>
+<li>比较</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var1 &gt; var2</div></pre></td></tr></table></figure>
+<ul>
+<li>序列的成员所属关系</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">in</span> seq</div><div class="line">var <span class="keyword">not</span> <span class="keyword">in</span> seq</div></pre></td></tr></table></figure>
+<ul>
+<li>序列长度</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">len(x)&gt;<span class="number">0</span></div></pre></td></tr></table></figure>
+<ul>
+<li>布尔值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fileopen <span class="comment"># fileopen == True ?</span></div></pre></td></tr></table></figure>
+<ul>
+<li>变量是否有值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var <span class="comment"># not None (or zero or '')</span></div></pre></td></tr></table></figure>
+<ul>
+<li>校验</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var.isalpha() <span class="comment"># alphanumeric ?</span></div></pre></td></tr></table></figure>
+<ul>
+<li>计算结果比较</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(price * quantity) &gt; <span class="number">100.0</span> <span class="comment"># cost &gt; 100?</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>逻辑操作符: <code>and</code> <code>or</code> <code>not</code> 可以用来连接条件构成复合条件</p>
 </li>
-<li><code>github page</code><ul>
-<li>方便, github 仓库直接管理</li>
-<li>穷, 不解释</li>
-</ul>
+<li><p>嵌套的条件表达式, 通过缩进区分层级</p>
 </li>
-<li><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">Yilia</a>主题 </li>
 </ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a><br><a href="https://pages.github.com" target="_blank" rel="external">github pages</a><br><a href="http://baixin.io/2015/08/HEXO搭建个人博客/" target="_blank" rel="external">HEXO搭建个人博客</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> age&gt;<span class="number">19</span>:</div><div class="line">    <span class="keyword">if</span> carValue&gt;<span class="number">10000</span>:</div><div class="line">        <span class="keyword">if</span> gotConvictions:</div><div class="line">            rejectInsuranceApplication()</div></pre></td></tr></table></figure>
+<h1 id="循环和迭代"><a href="#循环和迭代" class="headerlink" title="循环和迭代"></a>循环和迭代</h1><h2 id="for-循环"><a href="#for-循环" class="headerlink" title="for 循环"></a>for 循环</h2><ul>
+<li>迭代一个集合中的每个元素</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">theTeam=[<span class="string">'Julia'</span>,<span class="string">'Jane'</span>,<span class="string">'Tom'</span>,<span class="string">'Dick'</span>,<span class="string">'Harry'</span>]</div><div class="line"><span class="keyword">for</span> person <span class="keyword">in</span> theTeam:</div><div class="line">    print(<span class="string">'%s is in the team'</span> % person)</div><div class="line"><span class="comment"># for 循环的通用格式为 for var in seq:</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">range(<span class="number">10</span>) <span class="comment"># [0, 1, 2, ... , 9]</span></div><div class="line">range(<span class="number">1</span>, <span class="number">10</span>) <span class="comment"># [1, 2, ... , 9], 不包括 10</span></div><div class="line">range(<span class="number">1</span>, <span class="number">20</span>, <span class="number">3</span>) <span class="comment"># 1 开始, 20 结束(不包括), 3 为步长</span></div><div class="line"></div><div class="line"><span class="comment"># 不想遍历序列, 只是想执行指定的代码指定的次数</span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</div></pre></td></tr></table></figure>
+<h2 id="while-循环"><a href="#while-循环" class="headerlink" title="while 循环"></a>while 循环</h2><ul>
+<li>重复执行循环直到测试失败</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">n = <span class="number">4</span></div><div class="line"><span class="keyword">while</span> n &gt; <span class="number">0</span>:</div><div class="line">    print(n)</div><div class="line">    n -= <span class="number">1</span></div></pre></td></tr></table></figure>
+<h2 id="break-语句"><a href="#break-语句" class="headerlink" title="break 语句"></a>break 语句</h2><ul>
+<li>终止循环, 执行循环后的语句</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    command=input(<span class="string">'Enter command:'</span>)</div><div class="line">    <span class="keyword">if</span> command==<span class="string">'exit'</span>:</div><div class="line">        <span class="keyword">break</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        print(command)</div><div class="line">print(<span class="string">'bye'</span>)</div></pre></td></tr></table></figure>
+<h2 id="continue-语句"><a href="#continue-语句" class="headerlink" title="continue 语句"></a>continue 语句</h2><ul>
+<li>跳过本次循环的后续代码, 直接进行下次循环</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    command=input(<span class="string">'Enter command:'</span>)</div><div class="line">    <span class="keyword">if</span> len(command)==<span class="number">0</span>:</div><div class="line">        <span class="keyword">continue</span></div><div class="line">    <span class="keyword">elif</span> command==<span class="string">'exit'</span>:</div><div class="line">        print(<span class="string">'Goodbye'</span>)</div><div class="line">        <span class="keyword">break</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        print(command)</div><div class="line">print(<span class="string">'bye'</span>)</div></pre></td></tr></table></figure>
+<h2 id="List-Comprehensions-列表推导式、列表解析"><a href="#List-Comprehensions-列表推导式、列表解析" class="headerlink" title="List Comprehensions (列表推导式、列表解析)"></a>List Comprehensions (列表推导式、列表解析)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 普通方法</span></div><div class="line">squares=[]</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>):</div><div class="line">    squares.append(i*i)</div><div class="line"><span class="comment"># 列表推导式</span></div><div class="line">squares=[i*i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>)]</div><div class="line"><span class="comment"># 具体语法</span></div><div class="line">[expr <span class="keyword">for</span> element <span class="keyword">in</span> iterable <span class="keyword">if</span> condition]</div><div class="line"><span class="comment"># if 语句用于从 iterable 中选择元素</span></div><div class="line"><span class="comment"># 例子</span></div><div class="line">evens = [i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">100</span>) <span class="keyword">if</span> <span class="keyword">not</span> i % <span class="number">2</span>]</div><div class="line">trulines = [l <span class="keyword">for</span> l <span class="keyword">in</span> lines <span class="keyword">if</span> l.find(<span class="string">'True'</span>)&gt;<span class="number">-1</span>]</div></pre></td></tr></table></figure>
+<h1 id="使用函数"><a href="#使用函数" class="headerlink" title="使用函数"></a>使用函数</h1><h2 id="函数是什么"><a href="#函数是什么" class="headerlink" title="函数是什么"></a>函数是什么</h2><ul>
+<li>一个函数是一个代码片段</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 关键字 def 用于定义一个新函数</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">lenDictList</span><span class="params">(seq)</span>:</span></div><div class="line">    <span class="keyword">if</span> type(seq) <span class="keyword">not</span> <span class="keyword">in</span> [list,dict]:</div><div class="line">        <span class="keyword">return</span> <span class="number">-1</span></div><div class="line">    nelems = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> elem <span class="keyword">in</span> seq:</div><div class="line">        nelems += <span class="number">1</span></div><div class="line">    <span class="keyword">return</span> nelems</div><div class="line"></div><div class="line"><span class="comment"># 调用实例</span></div><div class="line">l = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</div><div class="line">d = &#123;<span class="number">1</span>:<span class="string">'one'</span>,<span class="number">2</span>:<span class="string">'two'</span>,<span class="number">3</span>:<span class="string">'three'</span>&#125;</div><div class="line">lenDictList(l)</div><div class="line">lenDictList(d)</div><div class="line">lenDictList(<span class="number">34</span>)</div></pre></td></tr></table></figure>
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span></div><div class="line"><span class="keyword">return</span> <span class="keyword">True</span><span class="keyword">return</span> <span class="keyword">False</span><span class="keyword">return</span> r1, r2, r3<span class="keyword">return</span> dict(a = v1, b = v2)</div></pre></td></tr></table></figure>
+<h2 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 左边变量的个数必须和右边函数的返回值个数匹配</span></div><div class="line">count = len(seq)</div><div class="line">max, min, average = analyse(numlist)</div><div class="line">fee = calculateFee(hours, rate, taxfactor)</div></pre></td></tr></table></figure>
+<h2 id="调用时给参数指定名字"><a href="#调用时给参数指定名字" class="headerlink" title="调用时给参数指定名字"></a>调用时给参数指定名字</h2><ul>
+<li>指定名字的参数必须全部位于未指定名字的参数之后</li>
+<li>自定名字的参数是关键字参数, 没有指定名字的参数是位置参数. <code>关键字参数</code>必须位于<code>位置参数</code>之<code>后</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span><span class="params">(a, b, c=<span class="number">1.0</span>)</span>:</span></div><div class="line">    <span class="keyword">return</span> a*b*c</div><div class="line">fn(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</div><div class="line">fn(<span class="number">1</span>,<span class="number">2</span>)</div><div class="line">fn(<span class="number">1</span>,b=<span class="number">2</span>)</div><div class="line">fn(a=<span class="number">1</span>,b=<span class="number">2</span>,c=<span class="number">3</span>)</div><div class="line">fn(<span class="number">1</span>,b=<span class="number">2</span>,<span class="number">3</span>) <span class="comment"># 错误!!! positional argument follows keyword argument</span></div></pre></td></tr></table></figure>
+<h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">sharedvar = <span class="string">"I'm sharable"</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">first</span><span class="params">()</span>:</span></div><div class="line">    print(sharedvar)</div><div class="line">    firstvar = <span class="string">'Not shared'</span></div><div class="line">    <span class="keyword">return</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">second</span><span class="params">()</span>:</span></div><div class="line">    print(sharedvar)</div><div class="line">    print(firstvar) <span class="comment"># error</span></div><div class="line">    <span class="keyword">return</span></div></pre></td></tr></table></figure>
 
       
 
@@ -181,7 +240,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		
 		</ul>
@@ -237,7 +296,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/06/hello-blog/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/21/Lean-Python-Chapter-3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -251,15 +310,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/06/Block 总结/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Block 总结
-        
-      </div>
-    </a>
   
+    <a href="/2017/09/19/Lean-Python-Chapter-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Lean Python(Chapter 2)</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
