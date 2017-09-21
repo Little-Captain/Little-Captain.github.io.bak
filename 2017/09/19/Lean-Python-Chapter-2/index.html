@@ -6,23 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>PHP开发App接口 | Little Captain&#39;s Blog</title>
+  <title>Lean Python(Chapter 2) | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="App接口简介App接口介绍 App(通信)接口定义 接口地址: url 接口文件: 服务器php文件(处理一些业务逻辑)  接口数据: 服务器返回的json、xml    App如何进行通信">
-<meta name="keywords" content="PHP,后端">
+  <meta name="description" content="Everything is Object">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP开发App接口">
-<meta property="og:url" content="http://yoursite.com/2017/05/08/PHP开发App接口/index.html">
+<meta property="og:title" content="Lean Python(Chapter 2)">
+<meta property="og:url" content="http://yoursite.com/2017/09/19/Lean-Python-Chapter-2/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="App接口简介App接口介绍 App(通信)接口定义 接口地址: url 接口文件: 服务器php文件(处理一些业务逻辑)  接口数据: 服务器返回的json、xml    App如何进行通信">
-<meta property="og:image" content="http://yoursite.com/assets/images/php/CS交互.png">
-<meta property="og:image" content="http://yoursite.com/assets/images/php/缓存流程.png">
-<meta property="og:image" content="http://yoursite.com/assets/images/php/定时任务crontab格式.png">
-<meta property="og:updated_time" content="2017-05-11T01:29:58.000Z">
+<meta property="og:description" content="Everything is Object">
+<meta property="og:updated_time" content="2017-09-20T08:52:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP开发App接口">
-<meta name="twitter:description" content="App接口简介App接口介绍 App(通信)接口定义 接口地址: url 接口文件: 服务器php文件(处理一些业务逻辑)  接口数据: 服务器返回的json、xml    App如何进行通信">
-<meta name="twitter:image" content="http://yoursite.com/assets/images/php/CS交互.png">
+<meta name="twitter:title" content="Lean Python(Chapter 2)">
+<meta name="twitter:description" content="Everything is Object">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -134,172 +130,92 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-PHP开发App接口" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Lean-Python-Chapter-2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      PHP开发App接口
+      Lean Python(Chapter 2)
     </h1>
   
 
         
-        <a href="/2017/05/08/PHP开发App接口/" class="archive-article-date">
-  	<time datetime="2017-05-07T23:27:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-08</time>
+        <a href="/2017/09/19/Lean-Python-Chapter-2/" class="archive-article-date">
+  	<time datetime="2017-09-19T10:42:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="App接口简介"><a href="#App接口简介" class="headerlink" title="App接口简介"></a>App接口简介</h1><h2 id="App接口介绍"><a href="#App接口介绍" class="headerlink" title="App接口介绍"></a>App接口介绍</h2><ul>
-<li>App(通信)接口定义<ul>
-<li>接口地址: url</li>
-<li>接口文件: 服务器php文件(处理一些业务逻辑) </li>
-<li>接口数据: 服务器返回的json、xml</li>
+        <blockquote>
+<p>Everything is Object</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="对象类型"><a href="#对象类型" class="headerlink" title="对象类型"></a>对象类型</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 使用 type 查看对象类型</span></div><div class="line">type(<span class="number">23</span>)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>类型有 : int str list class function file bool(True、False) NoneType(None) long</p>
+</blockquote>
+<h1 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">int(<span class="number">4.0</span>)</div><div class="line">str(<span class="number">4</span>)</div><div class="line">list(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</div><div class="line">tuple(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</div><div class="line">dict(one = <span class="number">1</span>, two = <span class="number">2</span>)</div></pre></td></tr></table></figure>
+<h1 id="数"><a href="#数" class="headerlink" title="数"></a>数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">12345678901234567890</span></div><div class="line"><span class="number">1</span> / <span class="number">7.0</span></div><div class="line">x = <span class="number">1E20</span></div><div class="line">int(x/<span class="number">7.0</span>)</div></pre></td></tr></table></figure>
+<h1 id="算数操作"><a href="#算数操作" class="headerlink" title="算数操作"></a>算数操作</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="number">2</span> + <span class="number">3</span></div><div class="line"><span class="number">2.0</span> + <span class="number">3</span></div><div class="line"><span class="number">3</span> - <span class="number">2</span></div><div class="line"><span class="number">3.0</span> - <span class="number">2</span></div><div class="line"><span class="number">3</span> * <span class="number">2</span></div><div class="line"><span class="number">3</span> * <span class="number">2.0</span></div><div class="line"><span class="number">3.0</span> * <span class="number">2.0</span></div><div class="line"><span class="number">3</span> / <span class="number">2</span> <span class="comment"># 除法总是产生浮点数</span></div><div class="line"><span class="number">-6</span> / <span class="number">2</span></div><div class="line"><span class="number">15</span> % <span class="number">4</span> <span class="comment"># int 3</span></div><div class="line"><span class="number">4</span> ** <span class="number">3</span></div><div class="line"><span class="number">-4</span> ** <span class="number">3</span></div><div class="line"><span class="number">4</span> ** <span class="number">-3</span></div></pre></td></tr></table></figure>
+<h1 id="转换函数"><a href="#转换函数" class="headerlink" title="转换函数"></a>转换函数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">int(<span class="number">1.234</span>)</div><div class="line">int(<span class="number">-1.234</span>)</div><div class="line">long(<span class="number">1.234</span>)</div><div class="line">long(<span class="number">-1.234</span>)</div><div class="line">long(<span class="string">'1234'</span>)</div><div class="line">long(<span class="string">'1.234'</span>)</div><div class="line">long(float(<span class="string">'1.234'</span>))</div><div class="line">float(<span class="number">4</span>)</div><div class="line">float(<span class="string">'4.321'</span>)</div></pre></td></tr></table></figure>
+<h1 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 非零即真</span></div><div class="line">bool(<span class="string">'any text'</span>) <span class="comment"># True</span></div><div class="line">bool(<span class="string">''</span>) <span class="comment"># False</span></div><div class="line">bool([]) <span class="comment"># False</span></div></pre></td></tr></table></figure>
+<h1 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> random</div><div class="line"><span class="comment"># 产生 [a, b] 间的 int 数</span></div><div class="line">random.randint(a,b)</div><div class="line"><span class="comment"># 产生 [0.0 1.0] 间的浮点数</span></div><div class="line">random.random()</div></pre></td></tr></table></figure>
+<h1 id="序列-字符串、列表、元组"><a href="#序列-字符串、列表、元组" class="headerlink" title="序列 : 字符串、列表、元组"></a>序列 : 字符串、列表、元组</h1><ul>
+<li>一组字符的序列</li>
+<li>一组值的序列</li>
+<li>一组值的序列, 和列表很相似, 但是元组内的实体不可改变</li>
 </ul>
-</li>
+<h2 id="存取"><a href="#存取" class="headerlink" title="存取"></a>存取</h2><ul>
+<li>可以从前遍历序列, 也可从后遍历序列</li>
 </ul>
-<h2 id="App如何进行通信"><a href="#App如何进行通信" class="headerlink" title="App如何进行通信"></a>App如何进行通信</h2><a id="more"></a>
-<p><img src="/assets/images/php/CS交互.png" alt=""></p>
-<h2 id="通信格式区别-json、xml对比"><a href="#通信格式区别-json、xml对比" class="headerlink" title="通信格式区别(json、xml对比)"></a>通信格式区别(json、xml对比)</h2><ul>
-<li>可读性方面: xml有更清晰的结构</li>
-<li>生成数据方面: json更简单易用</li>
-<li>传输速度方面: json更节省流量</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 从前</span></div><div class="line">x[<span class="number">0</span>]</div><div class="line">...</div><div class="line">x[n<span class="number">-1</span>]</div><div class="line"><span class="comment"># 从后</span></div><div class="line">x[<span class="number">-1</span>]</div><div class="line">...</div><div class="line">x[-n]</div></pre></td></tr></table></figure>
+<h2 id="成员关系"><a href="#成员关系" class="headerlink" title="成员关系"></a>成员关系</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">'a'</span> <span class="keyword">in</span> <span class="string">'track'</span>              <span class="comment"># True</span><span class="number">9</span> <span class="keyword">in</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]          <span class="comment"># False</span><span class="string">'x'</span> <span class="keyword">not</span> <span class="keyword">in</span> <span class="string">'next'</span>           <span class="comment"># False</span><span class="string">'red'</span> <span class="keyword">not</span> <span class="keyword">in</span> [<span class="string">'tan'</span>,<span class="string">'pink'</span>] <span class="comment"># True</span></div></pre></td></tr></table></figure>
+<h2 id="连接操作"><a href="#连接操作" class="headerlink" title="连接操作 : +"></a>连接操作 : +</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sequence1 + sequence2</div><div class="line"><span class="string">'mr'</span> + <span class="string">'joe'</span> + <span class="string">'soap'</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># join() 函数在处理字符串和元组的连接时比较高效, 推荐使用</span></div><div class="line"><span class="string">'-'</span>.join((<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>))</div></pre></td></tr></table></figure>
+<h2 id="元素和切片"><a href="#元素和切片" class="headerlink" title="元素和切片"></a>元素和切片</h2><ul>
+<li>slice 访问格式 <code>[startindex:endindex]</code>, 包括 <code>startindex</code> 的元素, 而不包括 <code>endindex</code> 的元素</li>
+<li><code>[:endindex]</code> 从 <code>0</code> 开始</li>
+<li><code>[startindex:]</code> 到 <code>末尾</code> 结束</li>
 </ul>
-<h2 id="App接口做的哪些事儿"><a href="#App接口做的哪些事儿" class="headerlink" title="App接口做的哪些事儿"></a>App接口做的哪些事儿</h2><ul>
-<li>获取数据: 从数据库中或缓存中获取数据, 然后通过接口数据返回给客户端</li>
-<li>提交数据: 通过接口提交数据给服务器, 然后服务器入库处理, 或其他处理</li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mylist = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>]</div><div class="line">mylist[<span class="number">0</span>] <span class="comment"># 'a'</span></div><div class="line">mylist[<span class="number">1</span>:<span class="number">3</span>] <span class="comment"># ['b', 'c']</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mylist = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>], <span class="number">5</span>]</div><div class="line"><span class="comment"># 使用多重索引访问嵌套的序列</span></div><div class="line">mylist[<span class="number">3</span>][<span class="number">1</span>] <span class="comment"># 'b'</span></div></pre></td></tr></table></figure>
+<h2 id="序列内建函数"><a href="#序列内建函数" class="headerlink" title="序列内建函数"></a>序列内建函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mylist = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">len(mylist)</div><div class="line">max(mylist)</div><div class="line">min(mylist)</div></pre></td></tr></table></figure>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><ul>
+<li>字符串不可变</li>
 </ul>
-<h1 id="封装通信接口方法"><a href="#封装通信接口方法" class="headerlink" title="封装通信接口方法"></a>封装通信接口方法</h1><h2 id="JSON方式封装接口数据方法"><a href="#JSON方式封装接口数据方法" class="headerlink" title="JSON方式封装接口数据方法"></a>JSON方式封装接口数据方法</h2><ul>
-<li>PHP生成JSON数据: json_encode(只接受 uft-8 编码)</li>
-<li>通信数据标准格式的必要字段<ul>
-<li>code: 状态码</li>
-<li>message: 提示信息(数据返回成功、 邮箱格式不正确等等) </li>
-<li>data: 具体数据</li>
-</ul>
-</li>
-</ul>
-<h2 id="XML方式封装接口数据方法"><a href="#XML方式封装接口数据方法" class="headerlink" title="XML方式封装接口数据方法"></a>XML方式封装接口数据方法</h2><ul>
-<li>PHP生成XML数据<ul>
-<li>方式1: 组装字符串</li>
-<li>方式2: 使用系统类(DOMDocument、XMLWriter、SimpleXML)</li>
-</ul>
-</li>
-<li>XML方式封装接口数据方法<ul>
-<li>封装方法</li>
-<li>data数据分析</li>
-</ul>
-</li>
-</ul>
-<h2 id="综合通信方式封装"><a href="#综合通信方式封装" class="headerlink" title="综合通信方式封装"></a>综合通信方式封装</h2><h1 id="核心技术"><a href="#核心技术" class="headerlink" title="核心技术"></a>核心技术</h1><h2 id="缓存技术"><a href="#缓存技术" class="headerlink" title="缓存技术"></a>缓存技术</h2><p><img src="/assets/images/php/缓存流程.png" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mystr = <span class="string">'Paddington Station'</span></div><div class="line">mystr=mystr.upper()</div></pre></td></tr></table></figure>
 <ul>
-<li>目的: 减小服务器的压力</li>
-<li>静态缓存: 保存在磁盘上的静态文件, 用PHP生成数据放入静态文件中</li>
-<li>Memcache、redis</li>
-<li>PHP操作缓存<ul>
-<li><ol>
-<li>生成缓存</li>
-</ol>
-</li>
-<li><ol>
-<li>获取缓存</li>
-</ol>
-</li>
-<li><ol>
-<li>删除缓存</li>
-</ol>
-</li>
+<li>赋值, 字符串成对使用 <code>&#39;</code> 或 <code>&quot;</code> 来包裹. 你可以在一对中使用另一对</li>
 </ul>
-</li>
-</ul>
-<h2 id="Memcache、redis"><a href="#Memcache、redis" class="headerlink" title="Memcache、redis"></a>Memcache、redis</h2><h3 id="基本了解"><a href="#基本了解" class="headerlink" title="基本了解"></a>基本了解</h3><ul>
-<li>Memcache和Redis都是用来管理数据的</li>
-<li>他们数据都是存放在内存里的</li>
-<li>Redis可以定期将数据备份到磁盘中(持久化)</li>
-<li>Memcache只是简单的k/v缓存</li>
-<li>Redis不仅仅支持简单的k/v类型的数据, 同时还提供list, set, hash等数据结构的存储</li>
-</ul>
-<h3 id="redis数据操作-终端"><a href="#redis数据操作-终端" class="headerlink" title="redis数据操作(终端)"></a>redis数据操作(终端)</h3><ul>
-<li><ol>
-<li>开启redis客户端: redis-server 6379.conf</li>
-</ol>
-</li>
-<li><ol>
-<li>设置缓存值: set key value</li>
-</ol>
-</li>
-<li><ol>
-<li>获取缓存数据: get key</li>
-</ol>
-</li>
-<li><ol>
-<li>设置过期时间: setex key time(s) ‘cache’</li>
-</ol>
-</li>
-<li><ol>
-<li>删除缓存: del key</li>
-</ol>
-</li>
-</ul>
-<h3 id="redis数据操作-php"><a href="#redis数据操作-php" class="headerlink" title="redis数据操作(php)"></a>redis数据操作(php)</h3><ul>
-<li><ol>
-<li>安装phpredis扩展</li>
-</ol>
-</li>
-<li><ol>
-<li>php链接redis服务: connect</li>
-</ol>
-</li>
-<li><ol>
-<li>set: 设置缓存</li>
-</ol>
-</li>
-<li><ol>
-<li>get: 获取缓存</li>
-</ol>
-</li>
-</ul>
-<h3 id="PHP操作Memcache"><a href="#PHP操作Memcache" class="headerlink" title="PHP操作Memcache"></a>PHP操作Memcache</h3><ul>
-<li><ol>
-<li>安装memcache扩展</li>
-</ol>
-</li>
-<li><ol>
-<li>连接服务: connect</li>
-</ol>
-</li>
-<li><ol>
-<li>set: 设置缓存</li>
-</ol>
-</li>
-<li><ol>
-<li>get: 获取缓存</li>
-</ol>
-</li>
-</ul>
-<h2 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h2><h3 id="如何设置定时任务常用命令"><a href="#如何设置定时任务常用命令" class="headerlink" title="如何设置定时任务常用命令"></a>如何设置定时任务常用命令</h3><p><img src="/assets/images/php/定时任务crontab格式.png" alt=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">text = <span class="string">'Paul said, "Hello World!"'</span></div><div class="line">print(text)</div></pre></td></tr></table></figure>
 <ul>
-<li><ol>
-<li>定时任务服务提供crontab命令来设定服务</li>
-</ol>
-</li>
-<li><ol>
-<li>crontab -e: 编辑某个用户的cron服务</li>
-</ol>
-</li>
-<li><ol>
-<li>crontab -l: 列出某个用户cron服务的详细内容</li>
-</ol>
-</li>
-<li><ol>
-<li>crontab -r: 删除每个用户的cron服务</li>
-</ol>
-</li>
+<li>访问子串</li>
 </ul>
-<h3 id="如何定时运行PHP程序"><a href="#如何定时运行PHP程序" class="headerlink" title="如何定时运行PHP程序"></a>如何定时运行PHP程序</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">text=<span class="string">'Paul said, "Hi"'</span></div><div class="line">text[:<span class="number">4</span>]</div><div class="line">text[<span class="number">-4</span>:]</div><div class="line">text[<span class="number">5</span>:<span class="number">9</span>]</div><div class="line">text[<span class="number">0</span>:<span class="number">4</span>] + text[<span class="number">12</span>:<span class="number">14</span>]</div></pre></td></tr></table></figure>
+<ul>
+<li>字符串比较</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">'mcr'</span>&gt;<span class="string">'liv'</span></div><div class="line"><span class="string">'X'</span>&gt;<span class="string">'t'</span></div></pre></td></tr></table></figure>
+<ul>
+<li>子串搜索</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">'a'</span> <span class="keyword">in</span> <span class="string">'the task'</span> <span class="comment"># True</span></div><div class="line"><span class="string">'as'</span> <span class="keyword">in</span> <span class="string">'the task'</span> <span class="comment"># True</span></div></pre></td></tr></table></figure>
+<ul>
+<li>特殊字符和转义符</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">\<span class="number">0</span> <span class="comment"># Null character</span>\t <span class="comment"># Horizontal tab</span>\n <span class="comment"># Newline character</span>\<span class="string">' # Single quote\" # Double quote\\ # Backslash</span></div></pre></td></tr></table></figure>
+<ul>
+<li>包裹多行 <code>&quot;&quot;&quot;</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">multiline=<span class="string">"""Line1</span></div><div class="line">Line 2Line 3"""</div></pre></td></tr></table></figure>
+<ul>
+<li>字符串的格式化</li>
+</ul>
+
       
 
       
@@ -312,11 +228,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		
 		</ul>
@@ -372,7 +284,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/08/PHP开发App接口/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/19/Lean-Python-Chapter-2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -386,18 +298,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/08/Git基本操作/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Git基本操作
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/07/网络模型/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">网络模型</div>
+    <a href="/2017/09/19/Lean-Python-Chapter-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Lean Python(Chapter 1)</div>
       <i class="icon-circle-right"></i>
     </a>
   
