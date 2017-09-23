@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/9 | Little Captain&#39;s Blog</title>
+  <title>Lean Python(Chapter 6) | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Little Captain&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2017/09/index.html">
+  <meta name="description" content="Object Orientation  创建对象类的定义 类是对象的模板">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lean Python(Chapter 6)">
+<meta property="og:url" content="http://yoursite.com/2017/09/23/Lean-Python-Chapter-6/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
+<meta property="og:description" content="Object Orientation  创建对象类的定义 类是对象的模板">
+<meta property="og:updated_time" content="2017-09-23T07:35:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Little Captain&#39;s Blog">
+<meta name="twitter:title" content="Lean Python(Chapter 6)">
+<meta name="twitter:description" content="Object Orientation  创建对象类的定义 类是对象的模板">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -125,36 +130,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Lean-Python-Chapter-6" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Lean Python(Chapter 6)
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/23/Lean-Python-Chapter-6/" class="archive-article-date">
+
+        
+        <a href="/2017/09/23/Lean-Python-Chapter-6/" class="archive-article-date">
   	<time datetime="2017-09-23T06:25:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/23/Lean-Python-Chapter-6/">Lean Python(Chapter 6)</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Object Orientation</p>
+</blockquote>
+<h1 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h1><h2 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h2><ul>
+<li>类是对象的模板</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">person</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="string">"Person Class"</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, age, parent = None)</span>:</span></div><div class="line">        self.name =name</div><div class="line">        self.age = age</div><div class="line">        self.created = datetime.today()</div><div class="line">        self.parent = parent</div><div class="line">        self.children = []</div><div class="line">        print(<span class="string">'Created'</span>, self.name, <span class="string">'age'</span>, self.age)</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setName</span><span class="params">(self, name)</span>:</span></div><div class="line">        self.name = name</div><div class="line">        print(<span class="string">'Updated name'</span>, self.name)</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setAge</span><span class="params">(self, age)</span>:</span></div><div class="line">        self.age = age</div><div class="line">        print(<span class="string">'Update age'</span>, self.age)</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addChild</span><span class="params">(self, name, age)</span>:</span></div><div class="line">        child = person(name, age, parent = self)</div><div class="line">        self.children.append(child)</div><div class="line">        print(self.name, <span class="string">'added child'</span>, child.name)</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">listChildren</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">if</span> len(self.children) &gt; <span class="number">0</span>:</div><div class="line">            print(self.name, <span class="string">'has children:'</span>)</div><div class="line">            <span class="keyword">for</span> c <span class="keyword">in</span> self.children:</div><div class="line">                print(<span class="string">'  '</span>, c.name)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            print(self.name, <span class="string">'has no children'</span>)</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getChildren</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.children</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> people <span class="keyword">import</span> person</div><div class="line"></div><div class="line">joe = person(<span class="string">'Joe Bloggs'</span>, <span class="number">47</span>)</div><div class="line"></div><div class="line">print(<span class="string">"Joe's age is "</span>, joe.age)</div><div class="line"></div><div class="line">print(<span class="string">"Joe's full name is "</span>, joe.name)</div><div class="line"></div><div class="line">joe.addChild(<span class="string">'Dick'</span>,<span class="number">7</span>)</div><div class="line">joe.addChild(<span class="string">'Dora'</span>,<span class="number">9</span>)</div><div class="line"></div><div class="line">joe.listChildren()</div><div class="line"></div><div class="line">joekids=joe.getChildren()</div><div class="line"></div><div class="line">print(<span class="string">"** Joe's attributes **"</span>)</div><div class="line">print(vars(joe))</div><div class="line"></div><div class="line">print(<span class="string">"** Joe's Children **"</span>)</div><div class="line"><span class="keyword">for</span> j <span class="keyword">in</span> joekids:</div><div class="line">    print(j.name,<span class="string">'attributes'</span>)</div><div class="line">    print(vars(j))</div></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -166,293 +178,89 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/23/Lean-Python-Chapter-6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/22/Lean-Python-Chapter-5/" class="archive-article-date">
-  	<time datetime="2017-09-22T05:53:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-22</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/22/Lean-Python-Chapter-5/">Lean Python(Chapter 5)</a>
-    </h1>
+  
+    <a href="/2017/09/22/Lean-Python-Chapter-5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Lean Python(Chapter 5)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/21/Lean-Python-Chapter-4/" class="archive-article-date">
-  	<time datetime="2017-09-21T15:39:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/21/Lean-Python-Chapter-4/">Lean Python(Chapter 4)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/21/Lean-Python-Chapter-3/" class="archive-article-date">
-  	<time datetime="2017-09-21T13:26:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/21/Lean-Python-Chapter-3/">Lean Python(Chapter 3)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/19/Lean-Python-Chapter-2/" class="archive-article-date">
-  	<time datetime="2017-09-19T10:42:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/19/Lean-Python-Chapter-2/">Lean Python(Chapter 2)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/19/Lean-Python-Chapter-1/" class="archive-article-date">
-  	<time datetime="2017-09-19T04:40:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/19/Lean-Python-Chapter-1/">Lean Python(Chapter 1)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/13/本地推送通知/" class="archive-article-date">
-  	<time datetime="2017-09-13T09:45:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/13/本地推送通知/">本地推送通知</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">推送通知</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/13/App的通知支持/" class="archive-article-date">
-  	<time datetime="2017-09-13T08:45:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/13/App的通知支持/">App的通知支持</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">推送通知</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -472,8 +280,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
