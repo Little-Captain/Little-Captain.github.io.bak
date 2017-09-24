@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: NSThread | Little Captain&#39;s Blog</title>
+  <title>PyQt(Chapter 1) | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Little Captain&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/NSThread/index.html">
+  <meta name="description" content="Python and Its Features  数据类型Integers 32 bits [-232 232-1]">
+<meta name="keywords" content="Python,PyQt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PyQt(Chapter 1)">
+<meta property="og:url" content="http://yoursite.com/2017/09/24/PyQt-Chapter-1/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
+<meta property="og:description" content="Python and Its Features  数据类型Integers 32 bits [-232 232-1]">
+<meta property="og:updated_time" content="2017-09-24T16:55:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Little Captain&#39;s Blog">
+<meta name="twitter:title" content="PyQt(Chapter 1)">
+<meta name="twitter:description" content="Python and Its Features  数据类型Integers 32 bits [-232 232-1]">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -125,68 +130,205 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-PyQt-Chapter-1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/10/多线程-NSThread的使用/" class="archive-article-date">
-  	<time datetime="2017-05-10T03:59:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/10/多线程-NSThread的使用/">多线程-NSThread的使用</a>
+    <h1 class="article-title" itemprop="name">
+      PyQt(Chapter 1)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/09/24/PyQt-Chapter-1/" class="archive-article-date">
+  	<time datetime="2017-09-24T12:12:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Python and Its Features</p>
+</blockquote>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="Integers"><a href="#Integers" class="headerlink" title="Integers"></a>Integers</h2><ul>
+<li>32 bits</li>
+<li>[-2<sup>32</sup> 2<sup>32</sup>-1]</li>
+</ul>
+<a id="more"></a>
+<h2 id="Long-Integers"><a href="#Long-Integers" class="headerlink" title="Long Integers"></a>Long Integers</h2><ul>
+<li>无限精度, 受限于计算机内存</li>
+</ul>
+<h2 id="Floating-Point-Numbers"><a href="#Floating-Point-Numbers" class="headerlink" title="Floating Point Numbers"></a>Floating Point Numbers</h2><ul>
+<li>浮点总是双精度的, 64 bits</li>
+</ul>
+<h2 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h2><ul>
+<li>仅取两个值: True、False</li>
+</ul>
+<h2 id="Complex-Number-复数"><a href="#Complex-Number-复数" class="headerlink" title="Complex Number(复数)"></a>Complex Number(复数)</h2><ul>
+<li>a + b * j</li>
+<li>a、b都是浮点数</li>
+</ul>
+<h2 id="Strings"><a href="#Strings" class="headerlink" title="Strings"></a>Strings</h2><ul>
+<li>Unicode 字符序列</li>
+</ul>
+<h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h2><ul>
+<li>一组值的有序序列</li>
+</ul>
+<h2 id="Tuples"><a href="#Tuples" class="headerlink" title="Tuples"></a>Tuples</h2><ul>
+<li>不可变、一组值的有序序列</li>
+</ul>
+<h2 id="Sets"><a href="#Sets" class="headerlink" title="Sets"></a>Sets</h2><ul>
+<li>无序的值的集合</li>
+</ul>
+<h2 id="Dictionaries"><a href="#Dictionaries" class="headerlink" title="Dictionaries"></a>Dictionaries</h2><ul>
+<li>无序的键值对集合</li>
+</ul>
+<blockquote>
+<p>0b、0B: 二进制; 0o、0O: 八进制; 0x、0X: 十六进制</p>
+</blockquote>
+<h1 id="编程的基本元素"><a href="#编程的基本元素" class="headerlink" title="编程的基本元素"></a>编程的基本元素</h1><h2 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">10</span> <span class="comment"># Integer literal</span><span class="number">10.50</span> <span class="comment"># Floating-point literal </span></div><div class="line"><span class="number">10.50j</span> <span class="comment">#Imaginary literal </span></div><div class="line"><span class="string">'Hello'</span> <span class="comment"># String literal </span></div><div class="line"><span class="string">"World!"</span> <span class="comment"># String literal </span></div><div class="line"><span class="string">'''Hello World!It might rain today # Triple-quoted string literalTomorrow is Sunday'''</span></div></pre></td></tr></table></figure>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">l = <span class="number">10</span>length = <span class="number">10</span> </div><div class="line">length_rectangle = <span class="number">10.0</span> </div><div class="line">k = <span class="string">"Hello World!"</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = <span class="keyword">True</span> <span class="comment">#Booleanvariable</span>b = [<span class="number">2</span>,<span class="number">9</span>,<span class="number">4</span>] <span class="comment"># List variable</span>c = (<span class="string">'apple'</span>, <span class="string">'mango'</span>, <span class="string">'banana'</span>) <span class="comment"># tuple variable </span></div><div class="line"><span class="comment"># A tuple in python language refers to an ordered, immutable (non changeable) set of values of any data type.</span></div></pre></td></tr></table></figure>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><ul>
+<li>Python 共有 31 个关键字</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">and class elif finally if</div><div class="line">lambda print while as assert</div><div class="line">break continue def del else</div><div class="line">except exec for from global</div><div class="line">import in is not or</div><div class="line">pass raise return try with yield</div></pre></td></tr></table></figure>
+<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># this is comment</span></div></pre></td></tr></table></figure>
+<h1 id="代码多行支持"><a href="#代码多行支持" class="headerlink" title="代码多行支持"></a>代码多行支持</h1><ul>
+<li>物理行 : 编辑器中看见的一行</li>
+<li>逻辑行 : Python 中的一个语句</li>
+<li>Python 中一般物理行就是逻辑行. 但可以使用 <code>\</code> 将多个物理行转换为逻辑行</li>
+<li>如果括号(<code>(``[``{</code>)没有关闭, Python 也将把多个物理行转换为一个逻辑行</li>
+<li>Python 缩排规则仅使用在连续行的第一行, 其他行不适用</li>
+</ul>
+<h1 id="打印输出"><a href="#打印输出" class="headerlink" title="打印输出"></a>打印输出</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 通用语法</span></div><div class="line">print(value, ..., sep=<span class="string">' '</span>, end=<span class="string">'\n'</span>, file=sys.stdout, flush=<span class="keyword">False</span>)</div><div class="line"><span class="comment"># 例子</span></div><div class="line"><span class="keyword">print</span> (<span class="string">"Hello World!"</span>) <span class="keyword">print</span> (<span class="number">10</span>)<span class="keyword">print</span> (l)<span class="keyword">print</span> (<span class="string">"Length is "</span>,l)</div><div class="line"><span class="keyword">print</span> (<span class="string">"Length is %d and Breadth is %d"</span> % (l, b)) <span class="comment"># 如果格式不匹配, 将转换为要输出的格式</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">%s <span class="comment"># Displays in string format.</span>%d <span class="comment"># Displays in decimal format</span>%e <span class="comment"># Displays in exponential format.</span>%f <span class="comment"># Displays in floating-point format.</span>%o <span class="comment"># Displays in octal (base 8) format. </span></div><div class="line">%x <span class="comment"># Displays in hexadecimal format. </span></div><div class="line">%c <span class="comment"># Displays ASCII code.</span></div></pre></td></tr></table></figure>
+<pre><code class="python"><span class="keyword">print</span> (<span class="number">10</span>) 
+print(<span class="string">'Hello World! \
+It might rain today. \
+Tomorrow is Sunday.'</span>)
+print(<span class="string">'''Hello World!
+It might rain today.
+Tomorrow is Sunday.'''</span>)
+</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NSThread</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/24/PyQt-Chapter-1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/09/25/PyQt-Chapter-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          PyQt(Chapter 2)
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/09/24/Lean-Python-Chapter-11/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Lean Python(Chapter 11)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -206,9 +348,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
