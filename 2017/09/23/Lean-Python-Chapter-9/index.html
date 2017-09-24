@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>多线程-线程间通信 | Little Captain&#39;s Blog</title>
+  <title>Lean Python(Chapter 9) | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概念在1个进程中，线程往往不是孤立存在的，多个线程之间需要经常进行通信">
-<meta name="keywords" content="iOS,多线程">
+  <meta name="description" content="Accessing the Web  12345678910111213141516171819202122232425262728293031323334import requestsfrom urllib.parse import urlparseurl = input(&apos;Web url to fetch:&apos;)urlparts = urlparse(url)if urlparts[0] ==">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多线程-线程间通信">
-<meta property="og:url" content="http://yoursite.com/2017/05/10/多线程-线程间通信/index.html">
+<meta property="og:title" content="Lean Python(Chapter 9)">
+<meta property="og:url" content="http://yoursite.com/2017/09/23/Lean-Python-Chapter-9/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="概念在1个进程中，线程往往不是孤立存在的，多个线程之间需要经常进行通信">
-<meta property="og:updated_time" content="2017-05-10T03:58:26.000Z">
+<meta property="og:description" content="Accessing the Web  12345678910111213141516171819202122232425262728293031323334import requestsfrom urllib.parse import urlparseurl = input(&apos;Web url to fetch:&apos;)urlparts = urlparse(url)if urlparts[0] ==">
+<meta property="og:updated_time" content="2017-09-23T09:46:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多线程-线程间通信">
-<meta name="twitter:description" content="概念在1个进程中，线程往往不是孤立存在的，多个线程之间需要经常进行通信">
+<meta name="twitter:title" content="Lean Python(Chapter 9)">
+<meta name="twitter:description" content="Accessing the Web  12345678910111213141516171819202122232425262728293031323334import requestsfrom urllib.parse import urlparseurl = input(&apos;Web url to fetch:&apos;)urlparts = urlparse(url)if urlparts[0] ==">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -130,37 +130,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-多线程-线程间通信" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Lean-Python-Chapter-9" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      多线程-线程间通信
+      Lean Python(Chapter 9)
     </h1>
   
 
         
-        <a href="/2017/05/10/多线程-线程间通信/" class="archive-article-date">
-  	<time datetime="2017-05-10T03:54:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
+        <a href="/2017/09/23/Lean-Python-Chapter-9/" class="archive-article-date">
+  	<time datetime="2017-09-23T09:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>在1个进程中，线程往往不是孤立存在的，多个线程之间需要经常进行通信</p>
-<a id="more"></a>
-<h1 id="具体应用"><a href="#具体应用" class="headerlink" title="具体应用"></a>具体应用</h1><ul>
-<li>1个线程传递数据给另1个线程</li>
-<li>在1个线程中执行完特定任务后，转到另1个线程继续执行任务</li>
-</ul>
-<h1 id="线程间通信常用方法"><a href="#线程间通信常用方法" class="headerlink" title="线程间通信常用方法"></a>线程间通信常用方法</h1><ul>
-<li>performSelectorOnMainThread</li>
-<li>performSelector: onThread:</li>
-<li>GCD 中直接通过线程嵌套来实现</li>
-</ul>
+        <blockquote>
+<p>Accessing the Web</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urlparse</div><div class="line"></div><div class="line">url = input(<span class="string">'Web url to fetch:'</span>)</div><div class="line">urlparts = urlparse(url)</div><div class="line"><span class="keyword">if</span> urlparts[<span class="number">0</span>] == <span class="string">''</span>:</div><div class="line">    url = <span class="string">''</span>.join((<span class="string">'http://'</span>, url))</div><div class="line"></div><div class="line">qstring = input(<span class="string">'Enter query string:'</span>)</div><div class="line"><span class="keyword">if</span> len(qstring) &gt; <span class="number">0</span>:</div><div class="line">    url = <span class="string">'?'</span>.join((url, qstring))</div><div class="line">    </div><div class="line">save = input(<span class="string">'Save downloaded page to disk [y/n]?'</span>)</div><div class="line"></div><div class="line">print(<span class="string">'Requesting'</span>, url)</div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    response = requests.get(url)</div><div class="line">    <span class="keyword">if</span> save.lower() == <span class="string">'y'</span>:</div><div class="line">        geturl = response.url</div><div class="line">        urlparts = urlparse(geturl)</div><div class="line">        netloc = urlparts[<span class="number">1</span>]</div><div class="line">        <span class="keyword">if</span> len(netloc) == <span class="number">0</span>:</div><div class="line">            fname = <span class="string">'save.html'</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            fname = <span class="string">'.'</span>.join((netloc, <span class="string">'html'</span>))</div><div class="line">        print(<span class="string">'Saving to'</span>, fname, <span class="string">'...'</span>)</div><div class="line">        fp = open(fname, <span class="string">'w'</span>, encoding=<span class="string">'utf8'</span>)</div><div class="line">        fp.write(response.text)</div><div class="line">        fp.close()</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        print(response.text)</div><div class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">    print(e.__class__.__name__, e)</div></pre></td></tr></table></figure>
 
       
 
@@ -174,11 +167,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		
 		</ul>
@@ -234,7 +223,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/10/多线程-线程间通信/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/23/Lean-Python-Chapter-9/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -248,18 +237,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/10/多线程-NSThread的使用/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/09/23/Lean-Python-Chapter-10/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          多线程-NSThread的使用
+          Lean Python(Chapter 10)
         
       </div>
     </a>
   
   
-    <a href="/2017/05/09/多线程-安全隐患/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">多线程-安全隐患</div>
+    <a href="/2017/09/23/Lean-Python-Chapter-8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Lean Python(Chapter 8)</div>
       <i class="icon-circle-right"></i>
     </a>
   

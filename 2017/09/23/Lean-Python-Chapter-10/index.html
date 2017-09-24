@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>多线程-线程间通信 | Little Captain&#39;s Blog</title>
+  <title>Lean Python(Chapter 10) | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概念在1个进程中，线程往往不是孤立存在的，多个线程之间需要经常进行通信">
-<meta name="keywords" content="iOS,多线程">
+  <meta name="description" content="字符串搜索 find 返回字符串出现的字符位置, 如果没有找到就返回 -1  1234txt=&quot;The quick brown fox jumps over the lazy dog&quot;txt.find(&apos;jump&apos;)txt.find(&apos;z&apos;)txt.find(&apos;green&apos;) 正则表达式">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多线程-线程间通信">
-<meta property="og:url" content="http://yoursite.com/2017/05/10/多线程-线程间通信/index.html">
+<meta property="og:title" content="Lean Python(Chapter 10)">
+<meta property="og:url" content="http://yoursite.com/2017/09/23/Lean-Python-Chapter-10/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="概念在1个进程中，线程往往不是孤立存在的，多个线程之间需要经常进行通信">
-<meta property="og:updated_time" content="2017-05-10T03:58:26.000Z">
+<meta property="og:description" content="字符串搜索 find 返回字符串出现的字符位置, 如果没有找到就返回 -1  1234txt=&quot;The quick brown fox jumps over the lazy dog&quot;txt.find(&apos;jump&apos;)txt.find(&apos;z&apos;)txt.find(&apos;green&apos;) 正则表达式">
+<meta property="og:updated_time" content="2017-09-23T10:09:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多线程-线程间通信">
-<meta name="twitter:description" content="概念在1个进程中，线程往往不是孤立存在的，多个线程之间需要经常进行通信">
+<meta name="twitter:title" content="Lean Python(Chapter 10)">
+<meta name="twitter:description" content="字符串搜索 find 返回字符串出现的字符位置, 如果没有找到就返回 -1  1234txt=&quot;The quick brown fox jumps over the lazy dog&quot;txt.find(&apos;jump&apos;)txt.find(&apos;z&apos;)txt.find(&apos;green&apos;) 正则表达式">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -130,38 +130,31 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-多线程-线程间通信" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Lean-Python-Chapter-10" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      多线程-线程间通信
+      Lean Python(Chapter 10)
     </h1>
   
 
         
-        <a href="/2017/05/10/多线程-线程间通信/" class="archive-article-date">
-  	<time datetime="2017-05-10T03:54:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
+        <a href="/2017/09/23/Lean-Python-Chapter-10/" class="archive-article-date">
+  	<time datetime="2017-09-23T09:46:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>在1个进程中，线程往往不是孤立存在的，多个线程之间需要经常进行通信</p>
-<a id="more"></a>
-<h1 id="具体应用"><a href="#具体应用" class="headerlink" title="具体应用"></a>具体应用</h1><ul>
-<li>1个线程传递数据给另1个线程</li>
-<li>在1个线程中执行完特定任务后，转到另1个线程继续执行任务</li>
+        <h1 id="字符串搜索"><a href="#字符串搜索" class="headerlink" title="字符串搜索"></a>字符串搜索</h1><ul>
+<li>find 返回字符串出现的字符位置, 如果没有找到就返回 -1</li>
 </ul>
-<h1 id="线程间通信常用方法"><a href="#线程间通信常用方法" class="headerlink" title="线程间通信常用方法"></a>线程间通信常用方法</h1><ul>
-<li>performSelectorOnMainThread</li>
-<li>performSelector: onThread:</li>
-<li>GCD 中直接通过线程嵌套来实现</li>
-</ul>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">txt=<span class="string">"The quick brown fox jumps over the lazy dog"</span></div><div class="line">txt.find(<span class="string">'jump'</span>)</div><div class="line">txt.find(<span class="string">'z'</span>)</div><div class="line">txt.find(<span class="string">'green'</span>)</div></pre></td></tr></table></figure>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1>
       
 
       
@@ -174,11 +167,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		
 		</ul>
@@ -234,7 +223,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/10/多线程-线程间通信/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/23/Lean-Python-Chapter-10/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -248,18 +237,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/10/多线程-NSThread的使用/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          多线程-NSThread的使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/09/多线程-安全隐患/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">多线程-安全隐患</div>
+    <a href="/2017/09/23/Lean-Python-Chapter-9/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Lean Python(Chapter 9)</div>
       <i class="icon-circle-right"></i>
     </a>
   
