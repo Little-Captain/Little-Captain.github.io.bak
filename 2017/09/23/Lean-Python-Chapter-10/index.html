@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Lean Python(Chapter 10) | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="字符串搜索 find 返回字符串出现的字符位置, 如果没有找到就返回 -1  1234txt=&quot;The quick brown fox jumps over the lazy dog&quot;txt.find(&apos;jump&apos;)txt.find(&apos;z&apos;)txt.find(&apos;green&apos;) 正则表达式">
+  <meta name="description" content="字符串搜索 find 返回字符串出现的字符位置, 如果没有找到就返回 -1  1234txt=&quot;The quick brown fox jumps over the lazy dog&quot;txt.find(&apos;jump&apos;)txt.find(&apos;z&apos;)txt.find(&apos;green&apos;)">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lean Python(Chapter 10)">
 <meta property="og:url" content="http://yoursite.com/2017/09/23/Lean-Python-Chapter-10/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="字符串搜索 find 返回字符串出现的字符位置, 如果没有找到就返回 -1  1234txt=&quot;The quick brown fox jumps over the lazy dog&quot;txt.find(&apos;jump&apos;)txt.find(&apos;z&apos;)txt.find(&apos;green&apos;) 正则表达式">
-<meta property="og:updated_time" content="2017-09-23T10:09:49.000Z">
+<meta property="og:description" content="字符串搜索 find 返回字符串出现的字符位置, 如果没有找到就返回 -1  1234txt=&quot;The quick brown fox jumps over the lazy dog&quot;txt.find(&apos;jump&apos;)txt.find(&apos;z&apos;)txt.find(&apos;green&apos;)">
+<meta property="og:updated_time" content="2017-09-24T04:59:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lean Python(Chapter 10)">
-<meta name="twitter:description" content="字符串搜索 find 返回字符串出现的字符位置, 如果没有找到就返回 -1  1234txt=&quot;The quick brown fox jumps over the lazy dog&quot;txt.find(&apos;jump&apos;)txt.find(&apos;z&apos;)txt.find(&apos;green&apos;) 正则表达式">
+<meta name="twitter:description" content="字符串搜索 find 返回字符串出现的字符位置, 如果没有找到就返回 -1  1234txt=&quot;The quick brown fox jumps over the lazy dog&quot;txt.find(&apos;jump&apos;)txt.find(&apos;z&apos;)txt.find(&apos;green&apos;)">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -154,7 +154,10 @@
 <li>find 返回字符串出现的字符位置, 如果没有找到就返回 -1</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">txt=<span class="string">"The quick brown fox jumps over the lazy dog"</span></div><div class="line">txt.find(<span class="string">'jump'</span>)</div><div class="line">txt.find(<span class="string">'z'</span>)</div><div class="line">txt.find(<span class="string">'green'</span>)</div></pre></td></tr></table></figure>
-<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1>
+<a id="more"></a>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 匹配邮箱</span></div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">regex = <span class="string">'\s[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]&#123;2,4&#125;[\s]'</span></div><div class="line">text = <span class="string">"""This is some text with x@y.z embedded e-mails</span></div><div class="line">that we'll use as@example.com</div><div class="line">some lines have no email addresses</div><div class="line">others@have.two valid email@address.com</div><div class="line">The re module is awonderful@thing."""</div><div class="line">print(<span class="string">'** Search text ***\n'</span>+text)</div><div class="line">print(<span class="string">'** Regex ***\n'</span> + regex + <span class="string">'\n***'</span>)</div><div class="line"></div><div class="line">utext = text.upper()</div><div class="line"></div><div class="line">s = re.search(regex, utext)</div><div class="line"><span class="keyword">if</span> s:</div><div class="line">    print(<span class="string">'*** At least one email found "'</span> + s.group() + <span class="string">'"'</span>)</div><div class="line"></div><div class="line">m = re.findall(regex, utext)</div><div class="line"><span class="keyword">if</span> m:</div><div class="line">    <span class="keyword">for</span> match <span class="keyword">in</span> m:</div><div class="line">        print(<span class="string">'Match found'</span>, match.strip())</div></pre></td></tr></table></figure>
+<h2 id="捕获括号"><a href="#捕获括号" class="headerlink" title="捕获括号"></a>捕获括号</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 找出 html 中的 links</span></div><div class="line"><span class="keyword">import</span> urllib.request</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line">response = urllib.request.urlopen(<span class="string">'http://leanpy.com'</span>)</div><div class="line">data1 = str(response.read())</div><div class="line"></div><div class="line">regex = <span class="string">'&lt;a\s[^&gt;]*href\s*=\s*\"([^\"]*)\"[^&gt;]*&gt;(.*?)&lt;/a&gt;'</span></div><div class="line"></div><div class="line">pm = re.compile(regex)</div><div class="line">matches = pm.findall(data1)</div><div class="line"></div><div class="line"><span class="keyword">for</span> m <span class="keyword">in</span> matches:</div><div class="line">    ms=<span class="string">''</span>.join((<span class="string">'Link: "'</span>,m[<span class="number">0</span>],<span class="string">'" Text: "'</span>,m[<span class="number">1</span>],<span class="string">'"'</span>))</div><div class="line">    print(ms)</div></pre></td></tr></table></figure>
+
       
 
       
@@ -236,6 +239,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/09/24/Lean-Python-Chapter-11/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Lean Python(Chapter 11)
+        
+      </div>
+    </a>
   
   
     <a href="/2017/09/23/Lean-Python-Chapter-9/" id="article-nav-older" class="article-nav-link-wrap">
@@ -368,7 +380,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -381,6 +397,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -397,14 +425,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -428,15 +448,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -456,6 +472,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
@@ -468,10 +488,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
@@ -481,10 +497,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
             
             <div class="clearfix"></div>
