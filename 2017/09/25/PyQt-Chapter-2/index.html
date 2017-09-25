@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>PyQt(Chapter 2) | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Getting Wet in Python (深入巨蟒湿地)">
+  <meta name="description" content="Getting Wet in Python (深入巨蟒湿地)  算数操作符12345678x + y # Additionx - y # Subtractionx * y # Multiplicationx / y # Divisionx // y # Truncating division (floor division)x ** y # Exponentiation. Sets x to t">
 <meta name="keywords" content="Python,PyQt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PyQt(Chapter 2)">
 <meta property="og:url" content="http://yoursite.com/2017/09/25/PyQt-Chapter-2/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="Getting Wet in Python (深入巨蟒湿地)">
-<meta property="og:updated_time" content="2017-09-24T16:55:27.000Z">
+<meta property="og:description" content="Getting Wet in Python (深入巨蟒湿地)  算数操作符12345678x + y # Additionx - y # Subtractionx * y # Multiplicationx / y # Divisionx // y # Truncating division (floor division)x ** y # Exponentiation. Sets x to t">
+<meta property="og:updated_time" content="2017-09-25T07:29:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt(Chapter 2)">
-<meta name="twitter:description" content="Getting Wet in Python (深入巨蟒湿地)">
+<meta name="twitter:description" content="Getting Wet in Python (深入巨蟒湿地)  算数操作符12345678x + y # Additionx - y # Subtractionx * y # Multiplicationx / y # Divisionx // y # Truncating division (floor division)x ** y # Exponentiation. Sets x to t">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -153,6 +153,42 @@
         <blockquote>
 <p>Getting Wet in Python (深入巨蟒湿地)</p>
 </blockquote>
+<h1 id="算数操作符"><a href="#算数操作符" class="headerlink" title="算数操作符"></a>算数操作符</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">x + y <span class="comment"># Addition</span></div><div class="line">x - y <span class="comment"># Subtraction</span></div><div class="line">x * y <span class="comment"># Multiplication</span></div><div class="line">x / y <span class="comment"># Division</span></div><div class="line">x // y <span class="comment"># Truncating division (floor division)</span></div><div class="line">x ** y <span class="comment"># Exponentiation. Sets x to the power y</span>x % y <span class="comment"># Modulo operator</span></div><div class="line">–x <span class="comment"># Unary minus</span></div><div class="line">+x <span class="comment"># Unary plus</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="除法操作符"><a href="#除法操作符" class="headerlink" title="除法操作符"></a>除法操作符</h2><ul>
+<li><code>/</code> : 结果总是不会被截断, 结果总是浮点数</li>
+<li><code>//</code> : 不管有没有浮点操作数, 都将结果截断为整数. 但是如果一个操作数为浮点数, 结果就为浮点数</li>
+</ul>
+<p>```python<br>b = 17<br>h = 13<br>a = 1.0 / 2.0 <em> b </em> h<br>print(“Area of triangle is”, a)<br>print(“Base= %d, Height is %d, Area of triangle is %f” % (b, h, a))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```python</div><div class="line">p = q = r = 10a = 1.0 / 3.0 * (p + q + r)print (&quot;Average of three variables is&quot;, a) </div><div class="line">print (&quot;Average of three variables is %.2f&quot; % a) </div><div class="line">print (&quot;Average of three variables is %d&quot; % a)</div></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># __future__ 是版本新特性, 意思是下一个版本会添加, 而且这些新特性可能与当前版本不兼容</span></div><div class="line"><span class="comment"># from __future__ import division</span>p = q = r = <span class="number">10</span>a = (p + q + r) / <span class="number">3</span><span class="keyword">print</span> (<span class="string">"Average of three variables is"</span>, a)</div></pre></td></tr></table></figure>
+<h2 id="幂运算"><a href="#幂运算" class="headerlink" title="幂运算"></a>幂运算</h2><ul>
+<li><code>**</code> a ** b : a<sup>b</sup></li>
+<li>pow(a, b) 与 a ** b 等价</li>
+</ul>
+<p>```python<br>r = 3<br>pi = 22 / 7<br>v = 4 / 3 <em> pi </em> pow(r, 3)<br>print (“Volume of sphere is %.2f” % v)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">```python</div><div class="line">from math import pir = 3v = 4 / 3 * pi * pow(r, 3)print (&quot;Volume of sphere is %.2f&quot; % v)</div></pre></td></tr></table></figure></p>
+<h1 id="多重赋值"><a href="#多重赋值" class="headerlink" title="多重赋值"></a>多重赋值</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p, q, r = <span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>sum, avg = p + q + r, (p + q + r) / <span class="number">3</span></div></pre></td></tr></table></figure>
+<h1 id="使用转义序列"><a href="#使用转义序列" class="headerlink" title="使用转义序列"></a>使用转义序列</h1><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">\a # Bell (beep) </div><div class="line">\b # Backspace </div><div class="line">\f # Form feed </div><div class="line">\n # Newline </div><div class="line">\r # Carriage return </div><div class="line">\t # Tab</div><div class="line">\v # Vertical tab </div><div class="line">\\ # Literal backslash </div><div class="line">\' # Single quote </div><div class="line">\" # Double quote</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">print(<span class="string">'Hello World\nIt\'s hot today'</span>) </div><div class="line">print(<span class="string">'Festival Discount\b\b\b\b\b\b\b\b\b Offer'</span>) </div><div class="line">print(<span class="string">"Isn't it?"</span>)print(<span class="string">'Isn\'t it?'</span>)print(<span class="string">"He said: \"I am going \""</span>)print(<span class="string">'\\Text enclosed in back slashes\\'</span>)<span class="keyword">print</span> (<span class="string">'Bell sound \a'</span>)print(<span class="string">'Name\tEmail Address\tContact Number'</span>)</div></pre></td></tr></table></figure>
+<h1 id="确定数据类型"><a href="#确定数据类型" class="headerlink" title="确定数据类型"></a>确定数据类型</h1><ul>
+<li><code>type</code> 函数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">a = <span class="number">10</span>b = <span class="number">15.5</span>c = <span class="string">"Hello"</span>d = [<span class="number">2</span>, <span class="number">9</span>, <span class="number">4</span>]e = (<span class="string">'apple'</span>, <span class="string">'mango'</span>, <span class="string">'banana'</span>) </div><div class="line">f=<span class="keyword">True</span>print(type(a))</div><div class="line">print(type(b))</div><div class="line">print(type(c))</div><div class="line">print(type(d))</div><div class="line">print(type(e))</div><div class="line">print(type(f))</div></pre></td></tr></table></figure>
+<h1 id="八进制和十六进制"><a href="#八进制和十六进制" class="headerlink" title="八进制和十六进制"></a>八进制和十六进制</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a = <span class="number">0o25</span>b = <span class="number">0x1af</span>print(<span class="string">'Value of a in decimal is'</span>, a) </div><div class="line">c = <span class="number">19</span>print(<span class="string">'19 in octal is %o and in hex is %x'</span> % (c, c)) </div><div class="line">d = oct(c) <span class="comment"># d 是字符串</span>e = hex(c) <span class="comment"># e 是字符串</span>print(<span class="string">'19 in octal is'</span>, d, <span class="string">'and in hex is'</span>, e)</div></pre></td></tr></table></figure>
+<h1 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h1><ul>
+<li>使用 <code>input</code> 函数, 提示用户输入数据, 并从标准输入读入一行数据, 并将读入的数据以字符串返回</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">variable = input(<span class="string">'Message'</span>)</div></pre></td></tr></table></figure>
+<h1 id="自动数据类型转换"><a href="#自动数据类型转换" class="headerlink" title="自动数据类型转换"></a>自动数据类型转换</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a = <span class="number">3</span></div><div class="line">a = a + <span class="number">.0</span> <span class="comment"># int -&gt; float</span></div><div class="line">b = <span class="number">3</span></div><div class="line">b = b + <span class="number">0j</span> <span class="comment"># int -&gt; complex</span></div></pre></td></tr></table></figure>
+<h1 id="显示-强制-数据类型转换"><a href="#显示-强制-数据类型转换" class="headerlink" title="显示(强制)数据类型转换"></a>显示(强制)数据类型转换</h1><ul>
+<li>使用函数进行转换 <code>int</code> <code>float</code> <code>str</code> …</li>
+<li><code>转换失败</code>会<code>抛出异常</code></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int(x=0) -&gt; integer</div><div class="line">int(x, base=10) -&gt; integer # base [2 26]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">l = input(<span class="string">"Enter length: "</span>)</div><div class="line">b = input(<span class="string">"Enter width: "</span>) </div><div class="line">a = int(l) * int(b)print(<span class="string">"Area of rectangle is"</span>, a)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> math <span class="keyword">import</span> pir = int(input(<span class="string">"Enter radius: "</span>))</div><div class="line">a = pi * r * rprint(<span class="string">"Area of the circle is"</span>, a)</div><div class="line">print(<span class="string">"Area of the circle is %.2f"</span> % a)</div></pre></td></tr></table></figure>
+<h1 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h1><ul>
+<li>位运算只能应用于 <code>int</code> <code>long</code></li>
+</ul>
 
       
 
@@ -359,95 +395,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,15 +415,67 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gogs</a>
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
+                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,11 +483,43 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gogs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,10 +528,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
             
             <div class="clearfix"></div>
