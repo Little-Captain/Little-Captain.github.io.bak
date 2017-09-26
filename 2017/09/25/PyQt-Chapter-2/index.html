@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/25/PyQt-Chapter-2/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="Getting Wet in Python (深入巨蟒湿地)  算数操作符12345678x + y # Additionx - y # Subtractionx * y # Multiplicationx / y # Divisionx // y # Truncating division (floor division)x ** y # Exponentiation. Sets x to t">
-<meta property="og:updated_time" content="2017-09-25T07:29:31.000Z">
+<meta property="og:updated_time" content="2017-09-25T09:33:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt(Chapter 2)">
 <meta name="twitter:description" content="Getting Wet in Python (深入巨蟒湿地)  算数操作符12345678x + y # Additionx - y # Subtractionx * y # Multiplicationx / y # Divisionx // y # Truncating division (floor division)x ** y # Exponentiation. Sets x to t">
@@ -189,6 +189,10 @@
 <h1 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h1><ul>
 <li>位运算只能应用于 <code>int</code> <code>long</code></li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">x &lt;&lt; y <span class="comment"># x 左移 y 位</span></div><div class="line">x &gt;&gt; y <span class="comment"># x 右移 y 位</span></div><div class="line">x &amp; y <span class="comment"># x 和 y 按位与</span></div><div class="line">x | y <span class="comment"># x 和 y 按位或</span></div><div class="line">x ^ y <span class="comment"># x 和 y 按位异或</span></div><div class="line">~x <span class="comment"># x 按位取反</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a = <span class="number">10</span> <span class="comment"># 1010</span>b = <span class="number">7</span>  <span class="comment"># 0111</span>c = a &amp; bd = a ^ be = a | bprint(<span class="string">'The result of 10 and 7 operation is'</span>, c)print(<span class="string">'The result of 10 exclusive or 7 operation is'</span> , d) </div><div class="line"><span class="keyword">print</span> (<span class="string">'The result of 10 or 7 operation is'</span>, e)g = a &lt;&lt; <span class="number">2</span>print(<span class="string">'Left shifting - Multiplying 10 by 4 becomes:'</span> , g) </div><div class="line">h = a &gt;&gt; <span class="number">1</span>print(<span class="string">'Right shifting - Dividing 10 by 2 becomes:'</span>, h)</div></pre></td></tr></table></figure>
+<h1 id="复数"><a href="#复数" class="headerlink" title="复数"></a>复数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a = <span class="number">3</span> + <span class="number">1.2j</span></div><div class="line">a.real <span class="comment"># 3.0</span></div><div class="line">a.imag <span class="comment"># 1.2</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = <span class="number">3.0</span> + <span class="number">1.2j</span>b = <span class="number">-2.0</span> - <span class="number">9.0j</span>print(<span class="string">'The two complex numbers are'</span>, a, <span class="string">'and'</span>, b)c = a + bprint(<span class="string">'The addition of two complex numbers is:'</span>, c)print(<span class="string">'The addition of two real numbers is:'</span>, a.real + b.real)</div><div class="line">print(<span class="string">'The addition of two imaginary number is:'</span>, a.imag + b.imag)</div></pre></td></tr></table></figure>
 
       
 
@@ -395,15 +399,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -415,19 +431,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -439,6 +443,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
@@ -447,19 +455,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -471,15 +475,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
+                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+                <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,10 +495,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
@@ -503,23 +503,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,6 +528,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
             
             <div class="clearfix"></div>
