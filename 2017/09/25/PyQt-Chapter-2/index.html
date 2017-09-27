@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/25/PyQt-Chapter-2/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="Getting Wet in Python (深入巨蟒湿地)  算数操作符12345678x + y # Additionx - y # Subtractionx * y # Multiplicationx / y # Divisionx // y # Truncating division (floor division)x ** y # Exponentiation. Sets x to t">
-<meta property="og:updated_time" content="2017-09-26T15:18:08.000Z">
+<meta property="og:updated_time" content="2017-09-27T02:12:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt(Chapter 2)">
 <meta name="twitter:description" content="Getting Wet in Python (深入巨蟒湿地)  算数操作符12345678x + y # Additionx - y # Subtractionx * y # Multiplicationx / y # Divisionx // y # Truncating division (floor division)x ** y # Exponentiation. Sets x to t">
@@ -199,7 +199,33 @@
 <h1 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">and</span> <span class="comment"># 逻辑与</span></div><div class="line"><span class="keyword">or</span>  <span class="comment"># 逻辑或</span></div><div class="line"><span class="keyword">not</span> <span class="comment"># 逻辑非</span></div></pre></td></tr></table></figure>
 <h1 id="比较链"><a href="#比较链" class="headerlink" title="比较链"></a>比较链</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">x &lt;= y <span class="keyword">and</span> y &lt;= z</div><div class="line"><span class="comment"># 等价于</span></div><div class="line">x &lt;= y &lt;= z</div></pre></td></tr></table></figure>
 <h1 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h1><h2 id="while"><a href="#while" class="headerlink" title="while"></a>while</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> expression:    statement1</div><div class="line">    statement2</div><div class="line">    statement3</div></pre></td></tr></table></figure>
-<h2 id="break-and-continue"><a href="#break-and-continue" class="headerlink" title="break and continue"></a>break and continue</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h2 id="break-and-continue"><a href="#break-and-continue" class="headerlink" title="break and continue"></a>break and continue</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">k = <span class="number">1</span></div><div class="line"><span class="keyword">while</span> <span class="number">1</span>:</div><div class="line">    print(k)</div><div class="line">    k += <span class="number">1</span></div><div class="line">    <span class="keyword">if</span> k &gt; <span class="number">10</span>:</div><div class="line">        <span class="keyword">break</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">k = <span class="number">1</span></div><div class="line"><span class="keyword">while</span> k &lt;= <span class="number">10</span>:</div><div class="line">    <span class="keyword">if</span> k == <span class="number">7</span>:</div><div class="line">        k += <span class="number">1</span></div><div class="line">        <span class="keyword">continue</span></div><div class="line">    print(k)</div><div class="line">    k += <span class="number">1</span></div></pre></td></tr></table></figure>
+<h2 id="pass"><a href="#pass" class="headerlink" title="pass"></a>pass</h2><ul>
+<li>表示<code>空的语句块</code>, 什么也不做</li>
+<li>表示代码占位符, 这部分代码你可能在随后扩展程序功能时添加</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">k = <span class="number">1</span></div><div class="line"><span class="keyword">while</span> k &lt;= <span class="number">10</span>:</div><div class="line">    <span class="keyword">if</span> k == <span class="number">7</span>:</div><div class="line">        <span class="keyword">pass</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        print(k)</div><div class="line">    k += <span class="number">1</span></div></pre></td></tr></table></figure>
+<h2 id="range-函数"><a href="#range-函数" class="headerlink" title="range()函数"></a>range()函数</h2><ul>
+<li>参数必须是整数</li>
+<li>生成和返回一个整数的序列</li>
+<li>如果所给参数, 不能产生序列, 就会返回一个空序列</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># [0 x)</span></div><div class="line">range(x)</div><div class="line"><span class="comment"># [x, y)</span></div><div class="line">range(x, y)</div><div class="line"><span class="comment"># [x, y) step 可以小于 0, step 不能为 0</span></div><div class="line">range(x, y, step)</div></pre></td></tr></table></figure>
+<h2 id="for"><a href="#for" class="headerlink" title="for"></a>for</h2><ul>
+<li>通过一个<code>序列</code>(list、tuple、string、dictionary)进行<code>迭代</code></li>
+<li>Python容器包含: 集合(set)、序列(sequence)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> iterating_var <span class="keyword">in</span> sequence:</div><div class="line">    statement1</div><div class="line">    statement2</div><div class="line">    statement3</div></pre></td></tr></table></figure>
+<h2 id="成员操作符"><a href="#成员操作符" class="headerlink" title="成员操作符"></a>成员操作符</h2><ul>
+<li><code>in</code> <code>not in</code> 判断序列中是否存在某个值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> (<span class="number">7</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">4</span>):</div><div class="line">    print(i)</div></pre></td></tr></table></figure>
+<h2 id="choice-函数"><a href="#choice-函数" class="headerlink" title="choice() 函数"></a>choice() 函数</h2><ul>
+<li>从一个序列中随机获取一个值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># choice(sequence)</span></div><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> choice</div><div class="line">k = choice(range(<span class="number">1</span>, <span class="number">10</span>))</div><div class="line">print(<span class="string">"Random number is"</span>, k)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">print(<span class="number">1</span>)</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">101</span>):</div><div class="line">    x = <span class="number">1</span></div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">2</span>, i):</div><div class="line">        n = i % j</div><div class="line">        <span class="keyword">if</span> n == <span class="number">0</span>:</div><div class="line">            x = <span class="number">0</span></div><div class="line">            <span class="keyword">break</span></div><div class="line">    <span class="keyword">if</span> x == <span class="number">1</span>:</div><div class="line">        print(i)</div></pre></td></tr></table></figure>
 
       
 
@@ -418,11 +444,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -434,15 +456,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -458,11 +480,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -470,7 +492,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,15 +500,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -494,11 +516,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,6 +536,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
               </li>
              
@@ -522,11 +548,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,7 +564,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
             
             <div class="clearfix"></div>
