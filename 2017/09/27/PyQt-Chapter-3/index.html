@@ -6,22 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>SVN基本操作 | Little Captain&#39;s Blog</title>
+  <title>PyQt(Chapter 3) | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基本操作原理图">
-<meta name="keywords" content="源代码管理,SVN">
+  <meta name="description" content="Sequence 有序 通过索引定位 切片操作取出子 sequence String、Tuple(至少含有两个元素, (1) 为 int 1) 不可变(创建后, 元素不可变), List 可变 + * [] 是所有 sequence 通用的操作符 + 连接 * 重复序列, 产生新的序列 [] 取出指定的元素和子 sequence">
+<meta name="keywords" content="Python,PyQt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SVN基本操作">
-<meta property="og:url" content="http://yoursite.com/2017/05/16/SVN基本操作/index.html">
+<meta property="og:title" content="PyQt(Chapter 3)">
+<meta property="og:url" content="http://yoursite.com/2017/09/27/PyQt-Chapter-3/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="基本操作原理图">
-<meta property="og:image" content="http://yoursite.com/assets/images/SVN/基本操作.png">
-<meta property="og:image" content="http://yoursite.com/assets/images/SVN/SVN架构示意图.png">
-<meta property="og:updated_time" content="2017-05-16T15:34:06.000Z">
+<meta property="og:description" content="Sequence 有序 通过索引定位 切片操作取出子 sequence String、Tuple(至少含有两个元素, (1) 为 int 1) 不可变(创建后, 元素不可变), List 可变 + * [] 是所有 sequence 通用的操作符 + 连接 * 重复序列, 产生新的序列 [] 取出指定的元素和子 sequence">
+<meta property="og:updated_time" content="2017-09-27T06:09:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SVN基本操作">
-<meta name="twitter:description" content="基本操作原理图">
-<meta name="twitter:image" content="http://yoursite.com/assets/images/SVN/基本操作.png">
+<meta name="twitter:title" content="PyQt(Chapter 3)">
+<meta name="twitter:description" content="Sequence 有序 通过索引定位 切片操作取出子 sequence String、Tuple(至少含有两个元素, (1) 为 int 1) 不可变(创建后, 元素不可变), List 可变 + * [] 是所有 sequence 通用的操作符 + 连接 * 重复序列, 产生新的序列 [] 取出指定的元素和子 sequence">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -133,58 +130,52 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SVN基本操作" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-PyQt-Chapter-3" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      SVN基本操作
+      PyQt(Chapter 3)
     </h1>
   
 
         
-        <a href="/2017/05/16/SVN基本操作/" class="archive-article-date">
-  	<time datetime="2017-05-16T15:00:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-16</time>
+        <a href="/2017/09/27/PyQt-Chapter-3/" class="archive-article-date">
+  	<time datetime="2017-09-27T02:15:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>基本操作原理图</em></p>
-<p><img src="/assets/images/SVN/基本操作.png" alt=""></p>
-<a id="more"></a>
-<p><em>SVN版本管理架构模式</em></p>
-<p><img src="/assets/images/SVN/SVN架构示意图.png" alt=""></p>
-<h1 id="SVN客户端常用命令"><a href="#SVN客户端常用命令" class="headerlink" title="SVN客户端常用命令"></a>SVN客户端常用命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 下载服务器的代码到本地 （简写svn co）</span></div><div class="line">svn checkout</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将改动的文件提交到服务器（简写svn ci）</span></div><div class="line">svn commit</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 更新服务器的代码到本地 （简写svn up）</span></div><div class="line">svn update</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 向本地的版本控制库中添加新文件</span></div><div class="line">svn add</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 从本地的版本控制库中删除文件（简写svn del、svn rm）</span></div><div class="line">svn delete</div><div class="line">svn remove</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 移动文件或者目录或文件更名</span></div><div class="line">svn move</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 创建纳入版本控制下的新目录</span></div><div class="line">svn mkdir</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 撤销之前的一切修改</span></div><div class="line">svn revert</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将两个版本之间的差异合并到当前文件</span></div><div class="line">svn merge</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看文件的详细信息</span></div><div class="line">svn info</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看不同版本的区别</span></div><div class="line">svn diff</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看日志信息</span></div><div class="line">svn <span class="built_in">log</span></div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 列出版本库下的文件和目录列表</span></div><div class="line">svn list</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查看文件状态（简写svn st）</span></div><div class="line">svn status</div><div class="line"><span class="comment"># 状态说明</span></div><div class="line"><span class="string">' '</span> 没有修改</div><div class="line"><span class="string">'A'</span> 被添加到本地代码仓库</div><div class="line"><span class="string">'C'</span> 冲突</div><div class="line"><span class="string">'D'</span> 被删除</div><div class="line"><span class="string">'I'</span> 被忽略</div><div class="line"><span class="string">'M'</span> 被修改</div><div class="line"><span class="string">'R'</span> 被替换</div><div class="line"><span class="string">'X'</span> 外部定义创建的版本目录</div><div class="line"><span class="string">'?'</span> 文件没有被添加到本地版本库内</div><div class="line"><span class="string">'!'</span> 文件丢失或者不完整（不是通过svn命令删除的文件）</div><div class="line"><span class="string">'~'</span> 受控文件被其他文件阻隔</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 获取帮助信息（比如svn help ci）</span></div><div class="line">svn <span class="built_in">help</span></div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 加锁</span></div><div class="line">svn lock</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 解锁</span></div><div class="line">svn unlock</div></pre></td></tr></table></figure>
-<h1 id="常见操作详细解析"><a href="#常见操作详细解析" class="headerlink" title="常见操作详细解析"></a>常见操作详细解析</h1><h2 id="检出"><a href="#检出" class="headerlink" title="检出"></a>检出</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将项目检出（下载） 至本地</span></div><div class="line"><span class="comment"># 如果省略路径，就下载到命令行当前所在的路径</span></div><div class="line">svn checkout URL  [PATH]</div><div class="line">svn co URL  [PATH]</div><div class="line"><span class="comment"># 常用方式</span></div><div class="line">svn checkout URL --username=xxx --password=xxx</div></pre></td></tr></table></figure>
-<h2 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将改动过的文件提交至服务器</span></div><div class="line"><span class="comment"># 如果省略路径，将命令行所在路径中所有改动过的文件提交到服务器</span></div><div class="line">svn commit  -m <span class="string">"注释"</span>  [PATH]</div><div class="line">svn ci  -m <span class="string">"注释"</span>  [PATH]</div></pre></td></tr></table></figure>
-<h2 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 提交一个新建的文件到服务器，需要2个步骤</span></div><div class="line"><span class="comment"># 添加新建的文件到本地的版本控制库中：</span></div><div class="line">svn add PATH</div><div class="line"></div><div class="line"><span class="comment"># 提交刚才的添加操作到服务器：</span></div><div class="line">svn commit</div><div class="line"></div><div class="line"><span class="comment"># 如果直接提交一个没有添加到本地版本控制库中的文件，会报下面的错误</span></div><div class="line">is not a working copy</div></pre></td></tr></table></figure>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 删除服务器上的某个文件，需要做2个步骤</span></div><div class="line"><span class="comment"># 将文件从本地的版本控制库中移除：</span></div><div class="line">svn delete PATH</div><div class="line"><span class="comment"># 或</span></div><div class="line">svn remove PATH</div><div class="line"></div><div class="line"><span class="comment"># 提交刚才的删除操作到服务器：</span></div><div class="line">svn commit</div></pre></td></tr></table></figure>
-<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将服务器的最新代码更新到本地</span></div><div class="line"><span class="comment"># 如果省略路径，就更新命令行所在路径的所有内容</span></div><div class="line">svn update [PATH]</div><div class="line"><span class="comment"># 将文件恢复至某个版本</span></div><div class="line">svn update -r 版本号 [PATH]</div></pre></td></tr></table></figure>
-<h1 id="使用SVN总结"><a href="#使用SVN总结" class="headerlink" title="使用SVN总结"></a>使用SVN总结</h1><ul>
-<li>只要有改动就 <code>commit</code></li>
-<li>只要有提交就 <code>update</code></li>
+        <h1 id="Sequence"><a href="#Sequence" class="headerlink" title="Sequence"></a>Sequence</h1><ul>
+<li>有序</li>
+<li>通过索引定位</li>
+<li>切片操作取出子 sequence</li>
+<li>String、Tuple(至少含有两个元素, (1) 为 int 1) 不可变(创建后, 元素不可变), List 可变</li>
+<li><code>+</code> <code>*</code> <code>[]</code> 是所有 sequence 通用的操作符</li>
+<li><code>+</code> 连接</li>
+<li><code>*</code> 重复序列, 产生新的序列</li>
+<li><code>[]</code> 取出指定的元素和子 sequence</li>
 </ul>
-<h2 id="关于版本回退"><a href="#关于版本回退" class="headerlink" title="关于版本回退"></a>关于版本回退</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 不小心写错了很多东西，想撤销所写的东西（还未把修改提交到服务器）</span></div><div class="line">svn revert</div><div class="line"></div><div class="line"><span class="comment"># 不小心删错了文件，想把文件恢复回来（还未把删除提交到服务器）</span></div><div class="line">svn revert</div><div class="line"></div><div class="line"><span class="comment"># 不小心写错了很多东西，想撤销所写的东西（已经把修改提交到服务器）</span></div><div class="line">svn update -r 版本号</div><div class="line"></div><div class="line"><span class="comment"># 不小心删错了文件，想把文件恢复回来（已经把删除提交到服务器）</span></div><div class="line">svn update -r 版本号</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># +</span></div><div class="line">[<span class="number">1</span>, <span class="number">1</span>] + [<span class="number">1</span>, <span class="number">2</span>] <span class="comment"># [1, 1, 1, 2]</span></div><div class="line">(<span class="number">1</span>, <span class="number">2</span>) + (<span class="number">1</span>, <span class="number">2</span>) <span class="comment"># [1, 2, 1, 2]</span></div><div class="line"><span class="string">'12'</span> + <span class="string">'12'</span> <span class="comment"># '1212'</span></div><div class="line"><span class="comment"># *</span></div><div class="line">[<span class="number">1</span>, <span class="number">2</span>] * <span class="number">3</span> <span class="comment"># [1, 2, 1, 2, 1, 2]</span></div><div class="line">(<span class="number">1</span>, <span class="number">2</span>) * <span class="number">3</span> <span class="comment"># (1, 2, 1, 2, 1, 2)</span></div><div class="line"><span class="string">'12'</span> * <span class="number">3</span> <span class="comment"># '121212'</span></div><div class="line"><span class="comment"># []</span></div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>][<span class="number">1</span>:<span class="number">3</span>] <span class="comment"># [2, 3]</span></div><div class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)[<span class="number">1</span>:<span class="number">3</span>] <span class="comment"># (2, 3)</span></div><div class="line"><span class="string">'12312312'</span>[<span class="number">1</span>:<span class="number">3</span>] <span class="comment"># '23'</span></div></pre></td></tr></table></figure>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><ul>
+<li><code>&#39;</code> <code>&quot;</code> <code>&#39;&#39;&#39;</code> <code>&quot;&quot;&quot;</code></li>
+<li><p>字符串以 <code>\0</code> 结束</p>
+</li>
+<li><p>不可变</p>
+</li>
+<li>当你对字符串执行一个操作时, 将创建一个新字符串</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">k = <span class="string">'Hello World!'</span></div><div class="line">k = <span class="string">"Hello World!"</span></div><div class="line">k = <span class="string">'''Hello World!</span></div><div class="line">It\' s hot today</div><div class="line">Let\'s party '''</div></pre></td></tr></table></figure>
+<h2 id="函数与方法的区别"><a href="#函数与方法的区别" class="headerlink" title="函数与方法的区别"></a>函数与方法的区别</h2><ul>
+<li>函数是模块中的方法, 通过名字直接调用</li>
+<li>方法与对象关联, 被对象调用</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 常用字符串方法和函数</span></div><div class="line">str()</div><div class="line">max()</div><div class="line">min()</div><div class="line">len()</div><div class="line">sorted()</div><div class="line">reversed()</div><div class="line">capitalize()</div><div class="line">lower()</div><div class="line">upper()</div><div class="line">swapcase()</div><div class="line">title()</div><div class="line">join(sequence)</div><div class="line">ljust(width)</div><div class="line">rjust(width)</div><div class="line">center(width)</div><div class="line">lstrip()</div><div class="line">rstrip()</div><div class="line">strip()</div><div class="line">isalnum()</div><div class="line">isalpha()</div><div class="line">isdigit()</div><div class="line">islower()</div><div class="line">istitle()</div><div class="line">isupper()</div></pre></td></tr></table></figure>
 
       
 
@@ -198,11 +189,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">源代码管理</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SVN</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
         		</li>
       		
 		</ul>
@@ -258,7 +249,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/16/SVN基本操作/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/27/PyQt-Chapter-3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -272,18 +263,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/24/Xcode常见设置集锦/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Xcode常见设置集锦
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/12/iOS数据的存储方式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iOS数据的存储方式</div>
+    <a href="/2017/09/25/PyQt-Chapter-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PyQt(Chapter 2)</div>
       <i class="icon-circle-right"></i>
     </a>
   
