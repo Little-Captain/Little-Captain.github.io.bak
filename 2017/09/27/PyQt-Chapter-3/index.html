@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/27/PyQt-Chapter-3/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="Sequence 有序 通过索引定位 切片操作取出子 sequence String、Tuple(至少含有两个元素, (1) 为 int 1) 不可变(创建后, 元素不可变), List 可变 + * [] 是所有 sequence 通用的操作符 + 连接 * 重复序列, 产生新的序列 [] 取出指定的元素和子 sequence">
-<meta property="og:updated_time" content="2017-09-27T06:09:13.000Z">
+<meta property="og:updated_time" content="2017-09-27T17:14:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt(Chapter 3)">
 <meta name="twitter:description" content="Sequence 有序 通过索引定位 切片操作取出子 sequence String、Tuple(至少含有两个元素, (1) 为 int 1) 不可变(创建后, 元素不可变), List 可变 + * [] 是所有 sequence 通用的操作符 + 连接 * 重复序列, 产生新的序列 [] 取出指定的元素和子 sequence">
@@ -175,7 +175,11 @@
 <li>函数是模块中的方法, 通过名字直接调用</li>
 <li>方法与对象关联, 被对象调用</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 常用字符串方法和函数</span></div><div class="line">str()</div><div class="line">max()</div><div class="line">min()</div><div class="line">len()</div><div class="line">sorted()</div><div class="line">reversed()</div><div class="line">capitalize()</div><div class="line">lower()</div><div class="line">upper()</div><div class="line">swapcase()</div><div class="line">title()</div><div class="line">join(sequence)</div><div class="line">ljust(width)</div><div class="line">rjust(width)</div><div class="line">center(width)</div><div class="line">lstrip()</div><div class="line">rstrip()</div><div class="line">strip()</div><div class="line">isalnum()</div><div class="line">isalpha()</div><div class="line">isdigit()</div><div class="line">islower()</div><div class="line">istitle()</div><div class="line">isupper()</div></pre></td></tr></table></figure>
+<h2 id="字符串常用函数和方法"><a href="#字符串常用函数和方法" class="headerlink" title="字符串常用函数和方法"></a>字符串常用函数和方法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 常用字符串方法和函数</span></div><div class="line">str()</div><div class="line">max()</div><div class="line">min()</div><div class="line">len()</div><div class="line">sorted()</div><div class="line">reversed()</div><div class="line">capitalize()</div><div class="line">lower()</div><div class="line">upper()</div><div class="line">swapcase()</div><div class="line">title()</div><div class="line">join(sequence)</div><div class="line">ljust(width)</div><div class="line">rjust(width)</div><div class="line">center(width)</div><div class="line">lstrip()</div><div class="line">rstrip()</div><div class="line">strip()</div><div class="line">isalnum()</div><div class="line">isalpha()</div><div class="line">isdigit()</div><div class="line">islower()</div><div class="line">istitle()</div><div class="line">isupper()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">s = input(<span class="string">"Enter a string: "</span>)</div><div class="line">n = len(s)</div><div class="line">print(<span class="string">"The first character of"</span>, s, <span class="string">"is"</span>, s[<span class="number">0</span>])</div><div class="line">print(<span class="string">"The entered string will appear character wise as:"</span>)</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,n):</div><div class="line">    print(s[i])</div><div class="line">print(<span class="string">"The entered string will appear character wise as:"</span>)</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s:</div><div class="line">    <span class="keyword">print</span> (i)</div><div class="line">print(<span class="string">"String with its characters sorted is"</span>, sorted(s))</div><div class="line">print(<span class="string">"String in reverse form is"</span>, <span class="string">""</span>.join(reversed(s)))</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查找子字符串的方法</span></div><div class="line">count(s, [start], [end]) <span class="comment">#  查找 s 出现的次数</span></div><div class="line">find(s, [start], [end]) <span class="comment"># 查找 s 出现的第一个 index, 没有返回 -1</span></div><div class="line">index(s, [start], [end]) <span class="comment"># 查找 s 出现的第一个 index, 没有抛出错误</span></div><div class="line">rfind(s, [start], [end]) <span class="comment"># 查找 s 出现的最后一个 index, 没有返回 -1</span></div><div class="line">rindex(s, [start], [end]) <span class="comment"># 查找 s 出现的最后一个 index, 没有抛出错误</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 匹配特定的字符串前缀或后缀</span></div><div class="line"><span class="comment"># suffix 可以是一个 字符串 or 字符串构成的tuple</span></div><div class="line">startswith(suffix, [start], [end]) <span class="comment"># 返回 True or False</span></div><div class="line">endswith(suffix, [start], [end])</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 切割字符串 or 替换字符串</span></div><div class="line">partition(separator)</div><div class="line"><span class="string">'aLb'</span>.partition(<span class="string">'L'</span>) <span class="comment"># ('a', 'L', 'b')</span></div><div class="line"><span class="string">'aLb'</span>.partition(<span class="string">':'</span>) <span class="comment"># ('aLb', '', '')</span></div><div class="line">split(separator,[n]) <span class="comment"># n 表示切分几次</span></div><div class="line">splitlines(boolean)  <span class="comment"># 通过行分隔符切割字符串</span></div><div class="line">expandtabs([tabsize]) <span class="comment"># 将 tab 展开为 空格</span></div><div class="line">replace(sl, s2, [n]) <span class="comment"># 将 s1 替换为 s2 n 次, n 没有指定, 替换所有</span></div></pre></td></tr></table></figure>
 
       
 
@@ -394,15 +398,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -414,27 +418,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -443,6 +435,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -458,19 +454,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,7 +490,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,11 +498,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,6 +515,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
             
             <div class="clearfix"></div>
