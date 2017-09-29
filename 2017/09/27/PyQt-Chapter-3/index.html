@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/27/PyQt-Chapter-3/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="Sequence 有序 通过索引定位 切片操作取出子 sequence String、Tuple(至少含有两个元素, (1) 为 int 1) 不可变(创建后, 元素不可变), List 可变 + * [] 是所有 sequence 通用的操作符 + 连接 * 重复序列, 产生新的序列 [] 取出指定的元素和子 sequence">
-<meta property="og:updated_time" content="2017-09-27T17:14:42.000Z">
+<meta property="og:updated_time" content="2017-09-28T08:08:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt(Chapter 3)">
 <meta name="twitter:description" content="Sequence 有序 通过索引定位 切片操作取出子 sequence String、Tuple(至少含有两个元素, (1) 为 int 1) 不可变(创建后, 元素不可变), List 可变 + * [] 是所有 sequence 通用的操作符 + 连接 * 重复序列, 产生新的序列 [] 取出指定的元素和子 sequence">
@@ -180,6 +180,17 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 查找子字符串的方法</span></div><div class="line">count(s, [start], [end]) <span class="comment">#  查找 s 出现的次数</span></div><div class="line">find(s, [start], [end]) <span class="comment"># 查找 s 出现的第一个 index, 没有返回 -1</span></div><div class="line">index(s, [start], [end]) <span class="comment"># 查找 s 出现的第一个 index, 没有抛出错误</span></div><div class="line">rfind(s, [start], [end]) <span class="comment"># 查找 s 出现的最后一个 index, 没有返回 -1</span></div><div class="line">rindex(s, [start], [end]) <span class="comment"># 查找 s 出现的最后一个 index, 没有抛出错误</span></div></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 匹配特定的字符串前缀或后缀</span></div><div class="line"><span class="comment"># suffix 可以是一个 字符串 or 字符串构成的tuple</span></div><div class="line">startswith(suffix, [start], [end]) <span class="comment"># 返回 True or False</span></div><div class="line">endswith(suffix, [start], [end])</div></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 切割字符串 or 替换字符串</span></div><div class="line">partition(separator)</div><div class="line"><span class="string">'aLb'</span>.partition(<span class="string">'L'</span>) <span class="comment"># ('a', 'L', 'b')</span></div><div class="line"><span class="string">'aLb'</span>.partition(<span class="string">':'</span>) <span class="comment"># ('aLb', '', '')</span></div><div class="line">split(separator,[n]) <span class="comment"># n 表示切分几次</span></div><div class="line">splitlines(boolean)  <span class="comment"># 通过行分隔符切割字符串</span></div><div class="line">expandtabs([tabsize]) <span class="comment"># 将 tab 展开为 空格</span></div><div class="line">replace(sl, s2, [n]) <span class="comment"># 将 s1 替换为 s2 n 次, n 没有指定, 替换所有</span></div></pre></td></tr></table></figure>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><ul>
+<li>一维数组</li>
+<li>二维数组</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">m1 = [ [<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>] ]</div><div class="line">m2 = [ [<span class="number">9</span>, <span class="number">8</span>], [<span class="number">7</span>, <span class="number">6</span>], [<span class="number">5</span>, <span class="number">4</span>], [<span class="number">3</span>, <span class="number">2</span>] ]</div><div class="line">m3 = [ <span class="number">2</span>*[<span class="number">0</span>] <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>) ]</div><div class="line">print(<span class="string">"Addition of two matrices is"</span>)</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>):</div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">2</span>):</div><div class="line">        m3[i][j] = m1[i][j] + m2[i][j]</div><div class="line"><span class="keyword">for</span> row <span class="keyword">in</span> m3:</div><div class="line">    <span class="keyword">print</span> (row)</div></pre></td></tr></table></figure>
+<h1 id="List"><a href="#List" class="headerlink" title="List"></a>List</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">months = [<span class="string">'January'</span>, <span class="string">'February'</span>, <span class="string">'March'</span>, \</div><div class="line">          <span class="string">'April'</span>, <span class="string">'May'</span>, <span class="string">'June'</span>, <span class="string">'July'</span>, \</div><div class="line">          <span class="string">'August'</span>, <span class="string">'September'</span>, <span class="string">'October'</span>, \</div><div class="line">          <span class="string">'November'</span>, <span class="string">'December'</span>]</div><div class="line">index = <span class="number">0</span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> months:</div><div class="line">    print(index + <span class="number">1</span>, i)</div><div class="line">    index += <span class="number">1</span></div><div class="line">n = int(input(<span class="string">"Enter a value between 1 and 12: "</span>))</div><div class="line"><span class="keyword">if</span> <span class="number">1</span> &lt;= n &lt;= <span class="number">12</span>:</div><div class="line">    <span class="keyword">print</span> (<span class="string">"The month is"</span>, months[n - <span class="number">1</span>])</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> (<span class="string">"Value is out of the range"</span>)</div></pre></td></tr></table></figure>
+<h2 id="切片操作-slicing"><a href="#切片操作-slicing" class="headerlink" title="切片操作(slicing)"></a>切片操作(slicing)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 基本语法</span></div><div class="line">list[start_index:end_index] <span class="comment"># 包含 start_index(默认0) , 不包含 end_index(默认至结束)</span></div><div class="line">tmplist = [<span class="string">'John'</span>, <span class="string">'Kelly'</span>, <span class="number">10</span>, <span class="string">'Caroline'</span>, <span class="number">15</span>, <span class="string">'Steve'</span>, <span class="string">'Katheline'</span>]</div><div class="line">tmplist[<span class="number">0</span>:<span class="number">3</span>]</div><div class="line">tmplist[<span class="number">2</span>:<span class="number">4</span>]</div><div class="line">tmplist[<span class="number">-4</span>]</div><div class="line">tmplist[<span class="number">-4</span>:<span class="number">-2</span>]</div><div class="line">tmplist[<span class="number">-5</span>:<span class="number">5</span>]</div><div class="line">tmplist[:<span class="number">3</span>]</div><div class="line">tmplist[<span class="number">3</span>:]</div><div class="line">tmplist[:<span class="number">-3</span>]</div><div class="line">tmplist[<span class="number">-3</span>:]</div></pre></td></tr></table></figure>
+<ul>
+<li><code>list</code> 相关方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">append(object)</div><div class="line">insert(index, object) <span class="comment"># 将 object 插入 index 前, index 超出范围, 小于就在前追加, 大于就在后追加</span></div><div class="line">pop(index) <span class="comment"># 默认 -1, 最后一个元素. 移除并返回. 对空 list 操作将抛出异常</span></div><div class="line"><span class="keyword">del</span> list[n] <span class="comment"># 删除 list 的 n</span></div><div class="line">remove(value) <span class="comment"># 移除, 如果 value 不再 list 中, 将抛出异常</span></div><div class="line">reverse() <span class="comment"># 反转 list</span></div><div class="line">extend(list) <span class="comment"># 将 list 的元素添加到原始 list 中</span></div><div class="line">count(value) <span class="comment"># 统计 value 在 list 中出现的次数</span></div><div class="line">index(value) <span class="comment"># 获取 value 在 list 中 index, 不存在将抛出异常</span></div></pre></td></tr></table></figure>
 
       
 
@@ -374,15 +385,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">源代码管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -418,7 +429,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -430,10 +453,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
@@ -442,27 +461,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,6 +478,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,7 +509,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,7 +529,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
             
             <div class="clearfix"></div>
