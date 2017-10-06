@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/27/PyQt-Chapter-3/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="Sequence 有序 通过索引定位 切片操作取出子 sequence String、Tuple(至少含有两个元素, (1) 为 int 1) 不可变(创建后, 元素不可变), List 可变 + * [] 是所有 sequence 通用的操作符 + 连接 * 重复序列, 产生新的序列 [] 取出指定的元素和子 sequence">
-<meta property="og:updated_time" content="2017-09-28T08:08:42.000Z">
+<meta property="og:updated_time" content="2017-09-30T09:22:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt(Chapter 3)">
 <meta name="twitter:description" content="Sequence 有序 通过索引定位 切片操作取出子 sequence String、Tuple(至少含有两个元素, (1) 为 int 1) 不可变(创建后, 元素不可变), List 可变 + * [] 是所有 sequence 通用的操作符 + 连接 * 重复序列, 产生新的序列 [] 取出指定的元素和子 sequence">
@@ -191,6 +191,16 @@
 <li><code>list</code> 相关方法</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">append(object)</div><div class="line">insert(index, object) <span class="comment"># 将 object 插入 index 前, index 超出范围, 小于就在前追加, 大于就在后追加</span></div><div class="line">pop(index) <span class="comment"># 默认 -1, 最后一个元素. 移除并返回. 对空 list 操作将抛出异常</span></div><div class="line"><span class="keyword">del</span> list[n] <span class="comment"># 删除 list 的 n</span></div><div class="line">remove(value) <span class="comment"># 移除, 如果 value 不再 list 中, 将抛出异常</span></div><div class="line">reverse() <span class="comment"># 反转 list</span></div><div class="line">extend(list) <span class="comment"># 将 list 的元素添加到原始 list 中</span></div><div class="line">count(value) <span class="comment"># 统计 value 在 list 中出现的次数</span></div><div class="line">index(value) <span class="comment"># 获取 value 在 list 中 index, 不存在将抛出异常</span></div></pre></td></tr></table></figure>
+<h1 id="Tuple"><a href="#Tuple" class="headerlink" title="Tuple"></a>Tuple</h1><ul>
+<li>不可变</li>
+<li>可存储任何数据类型</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">names = (<span class="string">'John'</span>, <span class="string">'Kelly'</span>, <span class="string">'Caroline'</span>, <span class="string">'Steve'</span>, <span class="string">'Katheline'</span>)</div><div class="line">n = input(<span class="string">"Enter the name to search: "</span>)</div><div class="line"><span class="keyword">if</span> n <span class="keyword">in</span> names:</div><div class="line">    print(<span class="string">"The name"</span>, n, <span class="string">"is present in the tuple"</span>)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    print(<span class="string">"The name"</span>, n, <span class="string">"does not exist in the tuple"</span>)</div><div class="line">countries = (<span class="string">'U.S.'</span>, <span class="string">'U.K'</span>, <span class="string">'India'</span>)</div><div class="line">names += countries</div><div class="line">print(<span class="string">"The tuples are concatenated. The concatenated tuple is"</span>, names)</div></pre></td></tr></table></figure>
+<h1 id="Dictionary"><a href="#Dictionary" class="headerlink" title="Dictionary"></a>Dictionary</h1><ul>
+<li>可变</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">d = &#123;key1 : value1, key2 : value2 &#125;</div></pre></td></tr></table></figure>
+<h2 id="常用方法和函数"><a href="#常用方法和函数" class="headerlink" title="常用方法和函数"></a>常用方法和函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">clear()</div><div class="line">pop(key, [default]) <span class="comment"># key 对应的值不存在, 返回 default 指定的默认值</span></div><div class="line">update(new, [key=value...])</div><div class="line">copy()</div><div class="line">get(key, [default]) <span class="comment"># 如果 key 不存在, 默认值也没有提供, 就抛出一个异常</span>items()</div><div class="line">keys()</div><div class="line">values()</div></pre></td></tr></table></figure>
 
       
 
@@ -393,11 +403,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
+                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
+                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -417,7 +427,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -425,15 +439,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -445,18 +455,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
               </li>
              
@@ -465,15 +463,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,15 +475,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,11 +499,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
+                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">gogs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
