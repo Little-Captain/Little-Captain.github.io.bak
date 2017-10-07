@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/27/PyQt-Chapter-3/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="Sequence 有序 通过索引定位 切片操作取出子 sequence String、Tuple(至少含有两个元素, (1) 为 int 1) 不可变(创建后, 元素不可变), List 可变 + * [] 是所有 sequence 通用的操作符 + 连接 * 重复序列, 产生新的序列 [] 取出指定的元素和子 sequence">
-<meta property="og:updated_time" content="2017-09-30T09:22:08.000Z">
+<meta property="og:updated_time" content="2017-10-07T05:16:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt(Chapter 3)">
 <meta name="twitter:description" content="Sequence 有序 通过索引定位 切片操作取出子 sequence String、Tuple(至少含有两个元素, (1) 为 int 1) 不可变(创建后, 元素不可变), List 可变 + * [] 是所有 sequence 通用的操作符 + 连接 * 重复序列, 产生新的序列 [] 取出指定的元素和子 sequence">
@@ -200,7 +200,12 @@
 <li>可变</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">d = &#123;key1 : value1, key2 : value2 &#125;</div></pre></td></tr></table></figure>
-<h2 id="常用方法和函数"><a href="#常用方法和函数" class="headerlink" title="常用方法和函数"></a>常用方法和函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">clear()</div><div class="line">pop(key, [default]) <span class="comment"># key 对应的值不存在, 返回 default 指定的默认值</span></div><div class="line">update(new, [key=value...])</div><div class="line">copy()</div><div class="line">get(key, [default]) <span class="comment"># 如果 key 不存在, 默认值也没有提供, 就抛出一个异常</span>items()</div><div class="line">keys()</div><div class="line">values()</div></pre></td></tr></table></figure>
+<h2 id="常用方法和函数"><a href="#常用方法和函数" class="headerlink" title="常用方法和函数"></a>常用方法和函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">clear()</div><div class="line">pop(key, [default]) <span class="comment"># key 对应的值不存在, 返回 default 指定的默认值</span></div><div class="line">update(new, [key=value...]) <span class="comment"># 合并两个字典, 已存在的 key 更新</span></div><div class="line">copy()</div><div class="line">get(key, [default]) <span class="comment"># 如果 key 不存在, 默认值也没有提供, 就抛出一个异常</span>items() <span class="comment"># 返回 tuple 组成的 序列 (key, value)</span></div><div class="line">keys() <span class="comment"># 返回 key 组成的 序列</span></div><div class="line">values() <span class="comment"># 返回 value 组成的 序列</span></div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">student1 = &#123;<span class="string">'John'</span> : <span class="number">60</span>, <span class="string">'Kelly'</span> : <span class="number">70</span>, <span class="string">'Caroline'</span> : <span class="number">80</span>&#125;</div><div class="line">student2 = dict([(<span class="string">'David'</span>, <span class="number">90</span>), (<span class="string">'John'</span>,<span class="number">55</span>)])</div><div class="line">print(<span class="string">'The items in dictionary student1 are:'</span>, student1.items())</div><div class="line">print(<span class="string">'The keys in student1 dictionary are:'</span>, student1.keys())</div><div class="line">print(<span class="string">'The values in student1 dictionary are:'</span>, student1.values())</div><div class="line">student1.update(student2)</div><div class="line">print(<span class="string">'The items in dictionary student1 after merging with student2 dictionary are:'</span>, student1.items())</div><div class="line">n = input(<span class="string">'Enter name whose marks you want to see: '</span>)</div><div class="line"><span class="keyword">if</span> n <span class="keyword">in</span> student1: <span class="comment"># key</span></div><div class="line">    print(<span class="string">'The marks of'</span>, n , <span class="string">'are'</span> , student1.get(n))</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    print(<span class="string">'Sorry the name'</span>, n, <span class="string">'does not exist in student1 dictionary'</span>)</div></pre></td></tr></table></figure>
+<h1 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h1><h2 id="并"><a href="#并" class="headerlink" title="并(|)"></a>并(|)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">S1 = set([<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">100</span>])</div><div class="line">S2 = set([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">11</span>,<span class="number">15</span>])</div><div class="line">S1 | S2 <span class="comment"># set([1,3,5,6,10,11,15,100])</span></div></pre></td></tr></table></figure>
+<h2 id="交-amp"><a href="#交-amp" class="headerlink" title="交(&amp;)"></a>交(&amp;)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">S1 &amp; S2 <span class="comment"># set([3, 5, 6, 11])</span></div></pre></td></tr></table></figure>
+<h2 id="差"><a href="#差" class="headerlink" title="差(-)"></a>差(-)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">S1 - S2 <span class="comment"># set([10, 100])</span></div></pre></td></tr></table></figure>
+<h2 id="集合的常用方法和函数"><a href="#集合的常用方法和函数" class="headerlink" title="集合的常用方法和函数"></a>集合的常用方法和函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">len()</div><div class="line">max()</div><div class="line">min()</div><div class="line">sum()any() <span class="comment"># 只要集合中有一个值为 True 就返回 True</span>all() <span class="comment"># 集合中所有的值都为 True 才返回 True</span></div><div class="line">sorted() <span class="comment"># 将集合中元素排序后, 以 list 输出</span>clear() </div><div class="line">pop() <span class="comment"># 移除集合中任意的一个元素, 如果集合为空, 将抛出异常</span></div><div class="line">add(item)remove(item)/discard(item) <span class="comment"># 移除指定的元素, 如果不存在, 就抛出异常</span></div><div class="line">update(set) <span class="comment"># 将指定的 set 合并到原集合中</span></div></pre></td></tr></table></figure>
 
       
 
@@ -391,6 +396,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
               </li>
              
@@ -403,27 +412,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
+                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -439,11 +432,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -463,23 +472,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,6 +488,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
               </li>
              
@@ -499,11 +504,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,11 +516,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,11 +528,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
