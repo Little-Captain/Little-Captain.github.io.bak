@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/09/PyQt-Chapter-5/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="Classes  类 类是数据和操作的模板 通过类可以创建实例(对象)  123# 多个父类用逗号隔开class classname[(base-classes)]:    statement(s)">
-<meta property="og:updated_time" content="2017-10-09T11:18:11.000Z">
+<meta property="og:updated_time" content="2017-10-09T17:12:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt(Chapter 5)">
 <meta name="twitter:description" content="Classes  类 类是数据和操作的模板 通过类可以创建实例(对象)  123# 多个父类用逗号隔开class classname[(base-classes)]:    statement(s)">
@@ -227,7 +227,33 @@
 <li>如果父类也有 <code>__init__</code> 方法, 子类的 <code>__init__</code> 方法必须调用</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">rect</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.l = <span class="number">8</span></div><div class="line">        self.b = <span class="number">5</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rectarea</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.l * self.b</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">triangle</span><span class="params">(rect)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="comment"># 调用父类的初始化方法</span></div><div class="line">        rect.__init__(self)</div><div class="line">        self.x = <span class="number">17</span></div><div class="line">        self.y = <span class="number">13</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">trigarea</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>/<span class="number">2</span> * self.x * self.y</div><div class="line"></div><div class="line">r=triangle()</div><div class="line"><span class="comment"># 如果通过多态去调用父类的方法, 涉及到父类的属性, 父类的 __init__ 方法必须在子类的__init__ 方法中调用</span></div><div class="line">print(<span class="string">"Area of rectangle is "</span>, r.rectarea())</div><div class="line">print(<span class="string">"Area of triangle is "</span>, r.trigarea())</div></pre></td></tr></table></figure>
-<h4 id="访问控制指示符"><a href="#访问控制指示符" class="headerlink" title="访问控制指示符"></a>访问控制指示符</h4><h3 id="多层继承"><a href="#多层继承" class="headerlink" title="多层继承"></a>多层继承</h3><h3 id="多继承"><a href="#多继承" class="headerlink" title="多继承"></a>多继承</h3>
+<h4 id="访问控制指示符"><a href="#访问控制指示符" class="headerlink" title="访问控制指示符"></a>访问控制指示符</h4><ul>
+<li>用于标识类成员的可见性</li>
+<li><code>public</code> : 类的外部和内部同样访问</li>
+<li><code>private</code> : 类的外部不能访问, 一个 <code>private</code> 成员通过使用 <code>__</code> 前缀定义, 并且不能以下划线结束</li>
+<li>类外部访问 private 成员, 使用 <code>_类名</code>+<code>private成员名</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 访问 public 成员</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">rect</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, y)</span>:</span></div><div class="line">        self.l = x</div><div class="line">        self.b = y</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rectarea</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.l * self.b</div><div class="line">r = rect(<span class="number">5</span>, <span class="number">8</span>)</div><div class="line">print(<span class="string">"Area of rectangle is "</span>, r.rectarea())</div><div class="line">print(<span class="string">"Area of rectangle is "</span>, r.l * r.b)</div><div class="line"><span class="comment"># 访问 private 成员</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">rect</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x,y)</span>:</span></div><div class="line">        self.__l = x</div><div class="line">        self.__b = y</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rectarea</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.__l * self.__b</div><div class="line">r=rect(<span class="number">5</span>,<span class="number">8</span>)</div><div class="line"><span class="keyword">print</span> (<span class="string">"Area of rectangle is "</span>, r.rectarea())</div><div class="line"><span class="comment"># 类外部访问 private 成员, 使用 _类名+private成员</span></div><div class="line"><span class="keyword">print</span> (<span class="string">"Area of rectangle is "</span>, r._rect__l * r._rect__b)</div><div class="line"><span class="keyword">print</span> (<span class="string">"Area of rectangle is "</span>, r.__l* r.__b) <span class="comment"># 抛出错误</span></div></pre></td></tr></table></figure>
+<ul>
+<li>一个子类可以访问父类的 <code>public</code> 成员变量和方法</li>
+</ul>
+<h4 id="重写-override"><a href="#重写-override" class="headerlink" title="重写(override)"></a>重写(override)</h4><ul>
+<li>子类重写父类的方法, 先走子类的方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">rect</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.l = <span class="number">8</span></div><div class="line">        self.b = <span class="number">5</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">area</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.l * self.b</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">triangle</span><span class="params">(rect)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        rect.__init__(self)</div><div class="line">        self.x = <span class="number">17</span></div><div class="line">        self.y = <span class="number">13</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">area</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>/<span class="number">2</span> * self.x * self.y</div><div class="line">r=triangle()</div><div class="line"><span class="keyword">print</span> (<span class="string">"Area of triangle is "</span>, r.area())</div></pre></td></tr></table></figure>
+<ul>
+<li>在子类中访问父类的方法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">rect</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        self.l = <span class="number">8</span></div><div class="line">        self.b = <span class="number">5</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">area</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">"Area of rectangle is "</span>, self.l * self.b)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">triangle</span><span class="params">(rect)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        rect.__init__(self)</div><div class="line">        self.x = <span class="number">17</span></div><div class="line">        self.y = <span class="number">13</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">area</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="comment"># 使用 类名 调用父类中方法</span></div><div class="line">        rect.area(self)</div><div class="line">        print(<span class="string">"Area of triangle is "</span>, <span class="number">1</span>/<span class="number">2</span> * self.x * self.y)</div><div class="line">r = triangle()</div><div class="line">r.area()</div></pre></td></tr></table></figure>
+<h3 id="多层继承"><a href="#多层继承" class="headerlink" title="多层继承"></a>多层继承</h3><ul>
+<li>C 继承自 B, B 继承自 A, 这就是多层继承</li>
+<li>C 可以访问 B 中的 public 成员, B 可以访问 A 中的 public 成员</li>
+<li>父类中的 public 成员在子类中也是 public 成员</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">worker</span>:</span>    ...<span class="class"><span class="keyword">class</span> <span class="title">officer</span><span class="params">(worker)</span>:</span>    ...<span class="class"><span class="keyword">class</span> <span class="title">manager</span><span class="params">(officer)</span>:</span>    ...</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">worker</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, c, n, s)</span>:</span></div><div class="line">        self.code = c</div><div class="line">        self.name = n</div><div class="line">        self.salary = s</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">showworker</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">"Code is "</span>, self.code)</div><div class="line">        print(<span class="string">"Name is "</span>, self.name)</div><div class="line">        print(<span class="string">"Salary is "</span>, self.salary)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">officer</span><span class="params">(worker)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, c, n, s)</span>:</span></div><div class="line">        worker.__init__(self, c, n, s)</div><div class="line">        self.hra = s * <span class="number">60</span> / <span class="number">100</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">showofficer</span><span class="params">(self)</span>:</span></div><div class="line">        worker.showworker(self)</div><div class="line">        print(<span class="string">"HRA - House Rent Allowance is "</span>, self.hra)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">manager</span><span class="params">(officer)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, c, n, s)</span>:</span></div><div class="line">        officer.__init__(self, c, n, s)</div><div class="line">        self.da = s * <span class="number">98</span> / <span class="number">100</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">showmanager</span><span class="params">(self)</span>:</span></div><div class="line">        officer.showofficer(self)</div><div class="line">        <span class="keyword">print</span> (<span class="string">"DA - Dearness Allowance is "</span>, self.da)</div><div class="line">w = worker(<span class="number">101</span>, <span class="string">'John'</span> , <span class="number">2000</span>)</div><div class="line">o = officer(<span class="number">102</span>, <span class="string">'David'</span>, <span class="number">4000</span>)</div><div class="line">m = manager(<span class="number">103</span>, <span class="string">'Ben'</span> , <span class="number">5000</span>)</div><div class="line"><span class="keyword">print</span> (<span class="string">"Information of worker is "</span>)</div><div class="line">w.showworker()</div><div class="line"><span class="keyword">print</span> (<span class="string">"\nInformation of officer is "</span>)</div><div class="line">o.showofficer()</div><div class="line"><span class="keyword">print</span> (<span class="string">"\nInformation of manager is "</span>)</div><div class="line">m.showmanager()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">student</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, r, n)</span>:</span></div><div class="line">        self.roll = r</div><div class="line">        self.name = n</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">showstudent</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">"Roll : "</span>, self.roll)</div><div class="line">        print(<span class="string">"Name is "</span>, self.name)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">science</span><span class="params">(student)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, r, n, p, c)</span>:</span></div><div class="line">        student.__init__(self, r, n)</div><div class="line">        self.physics = p</div><div class="line">        self.chemistry = c</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">showscience</span><span class="params">(self)</span>:</span></div><div class="line">        student.showstudent(self)</div><div class="line">        print(<span class="string">"Physics marks : "</span>, self.physics)</div><div class="line">        print(<span class="string">"Chemistry marks : "</span>, self.chemistry)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">arts</span><span class="params">(student)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, r,n,h,g)</span>:</span></div><div class="line">        student.__init__(self,r,n)</div><div class="line">        self.history = h</div><div class="line">        self.geography=g</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">showarts</span><span class="params">(self)</span>:</span></div><div class="line">        student.showstudent(self)</div><div class="line">        print(<span class="string">"History marks : "</span>, self.history)</div><div class="line">        print(<span class="string">"Geography marks : "</span>, self.geography)</div><div class="line">s = science(<span class="number">101</span>, <span class="string">'David'</span>, <span class="number">65</span>, <span class="number">75</span>)</div><div class="line">a = arts(<span class="number">102</span>, <span class="string">'Ben'</span>, <span class="number">70</span>, <span class="number">60</span>)</div><div class="line">print(<span class="string">"Information of science student is "</span>)</div><div class="line">s.showscience()</div><div class="line">print(<span class="string">"\nInformation of arts student is "</span>)</div><div class="line">a.showarts()</div></pre></td></tr></table></figure>
+<h3 id="多继承"><a href="#多继承" class="headerlink" title="多继承"></a>多继承</h3>
       
 
       
@@ -417,10 +443,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
               </li>
              
@@ -430,6 +452,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">源代码管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -445,18 +471,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -465,11 +479,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -485,11 +515,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,19 +527,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,6 +540,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,6 +579,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
@@ -558,14 +592,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
             
             <div class="clearfix"></div>
