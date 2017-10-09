@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>PyQt(Chapter 4) | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="函数 在 Python 中, 函数别当做对象  函数的定义12def function-name(parameters):    statements(s) 返回语句 返回语句是可选的, 如果没有, 函数返回 None  默认参数值1234def sum(x, y = 10):    return x + yprint(sum(10))print(sum(5, 8)) 关键字参数12345def">
+  <meta name="description" content="函数 在 Python 中, 函数别当做对象  函数的定义12def function-name(parameters):    statements(s)">
 <meta name="keywords" content="Python,PyQt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PyQt(Chapter 4)">
 <meta property="og:url" content="http://yoursite.com/2017/10/07/PyQt-Chapter-4/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="函数 在 Python 中, 函数别当做对象  函数的定义12def function-name(parameters):    statements(s) 返回语句 返回语句是可选的, 如果没有, 函数返回 None  默认参数值1234def sum(x, y = 10):    return x + yprint(sum(10))print(sum(5, 8)) 关键字参数12345def">
-<meta property="og:updated_time" content="2017-10-08T12:51:05.000Z">
+<meta property="og:description" content="函数 在 Python 中, 函数别当做对象  函数的定义12def function-name(parameters):    statements(s)">
+<meta property="og:updated_time" content="2017-10-09T03:37:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt(Chapter 4)">
-<meta name="twitter:description" content="函数 在 Python 中, 函数别当做对象  函数的定义12def function-name(parameters):    statements(s) 返回语句 返回语句是可选的, 如果没有, 函数返回 None  默认参数值1234def sum(x, y = 10):    return x + yprint(sum(10))print(sum(5, 8)) 关键字参数12345def">
+<meta name="twitter:description" content="函数 在 Python 中, 函数别当做对象  函数的定义12def function-name(parameters):    statements(s)">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -154,6 +154,7 @@
 <li>在 Python 中, <code>函数</code>别当做<code>对象</code></li>
 </ul>
 <h2 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">function</span>-<span class="title">name</span><span class="params">(parameters)</span>:</span></div><div class="line">    statements(s)</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="返回语句"><a href="#返回语句" class="headerlink" title="返回语句"></a>返回语句</h2><ul>
 <li>返回语句是可选的, 如果没有, 函数返回 None</li>
 </ul>
@@ -174,7 +175,65 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">global</span> x</div><div class="line">    <span class="keyword">print</span> (<span class="string">"Value of x in compute function is"</span>, x)</div><div class="line">    x += <span class="number">5</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dispvalue</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">global</span> x</div><div class="line">    <span class="keyword">print</span> (<span class="string">"Value of x in dispvalue function is"</span>, x)</div><div class="line">    x -= <span class="number">2</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">x = <span class="number">0</span></div><div class="line">compute()</div><div class="line">dispvalue()</div><div class="line">compute()</div></pre></td></tr></table></figure>
 <h3 id="本地变量"><a href="#本地变量" class="headerlink" title="本地变量"></a>本地变量</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute</span><span class="params">(x)</span>:</span></div><div class="line">    x += <span class="number">5</span></div><div class="line">    print(<span class="string">"Value of x in function is"</span>, x)</div><div class="line">    <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">x = <span class="number">10</span></div><div class="line">compute(x)</div><div class="line"><span class="keyword">print</span> (<span class="string">"Value of x is still"</span>, x)</div></pre></td></tr></table></figure>
-<h2 id="Lambda-函数"><a href="#Lambda-函数" class="headerlink" title="Lambda 函数"></a>Lambda 函数</h2>
+<h2 id="Lambda-函数"><a href="#Lambda-函数" class="headerlink" title="Lambda 函数"></a>Lambda 函数</h2><ul>
+<li>一个 lambda 函数只能包含一条语句</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">filter(function, sequence)</div><div class="line">map(function, sequence)</div><div class="line">reduce(function, sequence)</div></pre></td></tr></table></figure>
+<h2 id="函数的属性"><a href="#函数的属性" class="headerlink" title="函数的属性"></a>函数的属性</h2><ul>
+<li>函数是对象, 所以有属性</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 函数属性</span></div><div class="line">functionname.__doc__ <span class="comment"># 函数文档字符串, 函数体的第一行字符串</span></div><div class="line">functionname.__name__ <span class="comment"># 函数名</span></div><div class="line">functionname.__module__ <span class="comment"># 函数所属模块名</span></div><div class="line">functionname.__defaults__ <span class="comment"># 一个 tuple, 代表分配给默认参数的默认参数值</span></div><div class="line">functionname.__code__ <span class="comment"># 实际的代码对象</span></div><div class="line">functionname.__dict__ <span class="comment"># 代表函数属性的本地命名空间</span></div><div class="line"><span class="comment"># 你可以 set 和 get 属于你自己的函数属性</span></div></pre></td></tr></table></figure>
+<h3 id="文档字符串"><a href="#文档字符串" class="headerlink" title="文档字符串"></a>文档字符串</h3><ul>
+<li>函数体的第一个逻辑行代表函数的文档字符串</li>
+<li>要显示文档字符串使用 <code>__doc__</code> 属性</li>
+<li><code>函数</code>、<code>类</code>、<code>模块</code>都有文档字符串</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">rect</span><span class="params">(l, b)</span>:</span></div><div class="line">    <span class="string">'''Computes the area of rectangle</span></div><div class="line">Values for length and breadth are passed to the function for computation'''</div><div class="line">    print(<span class="string">'Area of rectangle is'</span>, l*b)</div><div class="line">rect(<span class="number">5</span>, <span class="number">8</span>)</div><div class="line">print(rect.__doc__)</div></pre></td></tr></table></figure>
+<h1 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h1><ul>
+<li>一个函数, 自己调用自己</li>
+<li>实现递归调用, 结束条件必须明确</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">addseq</span><span class="params">(x)</span>:</span></div><div class="line">    <span class="keyword">if</span> x == <span class="number">1</span>: <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    <span class="keyword">else</span>: <span class="keyword">return</span> x + addseq(x<span class="number">-1</span>)</div><div class="line">print(<span class="string">'The sum of first 10 sequence numbers is'</span>, addseq(<span class="number">10</span>))</div></pre></td></tr></table></figure>
+<h1 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h1><ul>
+<li>迭代器用于循环遍历一个集合中的数据</li>
+<li>iter() 函数创建一个迭代器对象</li>
+<li>一旦获取到了一个迭代器对象, 就可以通过迭代器对象的 next() 方法遍历这个对象</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># iter 调用对象的 __iter__ 方法获取一个迭代器对象</span></div><div class="line">iter(object)</div></pre></td></tr></table></figure>
+<h2 id="generator"><a href="#generator" class="headerlink" title="generator"></a>generator</h2><ul>
+<li>另一个中创建迭代器的方法, 使用 <code>generator</code></li>
+<li>generator 是一个创建迭代器的函数</li>
+<li>对于一个函数要变成 <code>generator</code>, 必须在返回语句中使用 <code>yield</code> 关键字</li>
+<li>同理, <code>generator</code> 函数使用 <code>yield</code> 关键字来获取一个容器对象的下一个值</li>
+<li><code>yield</code> 语句仅仅在定义 <code>generator</code> 函数时使用, 且仅仅在 <code>generator</code> 函数体内使用</li>
+<li>当调用一个 <code>generator</code> 函数时, 它返回一个称为 <code>generator iterator</code> 的迭代器</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fruits</span><span class="params">(seq)</span>:</span></div><div class="line">    <span class="keyword">for</span> fruit <span class="keyword">in</span> seq:</div><div class="line">        <span class="keyword">yield</span> <span class="string">'%s'</span> % fruit</div><div class="line"></div><div class="line">f = fruits([<span class="string">'Apple'</span>, <span class="string">'Orange'</span>, <span class="string">'Mango'</span>, <span class="string">'Banana'</span> ])</div><div class="line">print(<span class="string">'The list of fruits is:'</span> )</div><div class="line">print(f.__next__())</div><div class="line">print(f.__next__())</div><div class="line">print(f.__next__())</div><div class="line">print(f.__next__())</div><div class="line">f = fruits([<span class="string">'Apple'</span>, <span class="string">'Orange'</span>, <span class="string">'Mango'</span>, <span class="string">'Banana'</span> ])</div><div class="line">print(<span class="string">'The list of fruits is:'</span> )</div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> f:</div><div class="line">    <span class="keyword">print</span> (x)</div></pre></td></tr></table></figure>
+<h2 id="generator-expression"><a href="#generator-expression" class="headerlink" title="generator expression"></a>generator expression</h2><ul>
+<li><code>generator expression</code> : 创建迭代器对象, 通过圆括号包裹</li>
+<li><code>generator expression</code> 像是匿名函数, 通常由<code>至少一个 for 语句</code>和<code>零个或多个 if 语句</code>组成</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">squarenum</span><span class="params">(x)</span>:</span></div><div class="line">    <span class="keyword">return</span> x * x</div><div class="line">iteratorobj = (squarenum(x) <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">6</span>))</div><div class="line">print(<span class="string">'The squares of first five sequence numbers'</span>)</div><div class="line">print(iteratorobj.__next__())</div><div class="line">print(iteratorobj.__next__())</div><div class="line">print(iteratorobj.__next__())</div><div class="line">print(iteratorobj.__next__())</div><div class="line">print(iteratorobj.__next__())</div><div class="line">print(iteratorobj.__next__())</div></pre></td></tr></table></figure>
+<h1 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h1><ul>
+<li>一个模块就是一个针对特定任务的一些函数、变量组成的一个文件</li>
+<li>一个模块只要被导入, 可以在任何地方重用</li>
+<li>模块的文件名必须以<code>.py</code>为后缀名</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 导入模块的多种方式</span></div><div class="line"><span class="comment"># 方式一: 全部导入, 不重命名</span></div><div class="line"><span class="keyword">import</span> calendar</div><div class="line">calendar.prcal()</div><div class="line"><span class="comment"># 方式二: 指定导入, 不需要模块名前缀</span></div><div class="line"><span class="keyword">from</span> calendar <span class="keyword">import</span> prcal</div><div class="line">prcal()</div><div class="line"><span class="comment"># 方式三: 指定全部导入, 不需要模块名前缀</span></div><div class="line"><span class="keyword">from</span> calendar <span class="keyword">import</span> *</div><div class="line">prcal()</div><div class="line"><span class="comment"># 方式四: 全部导入, 重命名</span></div><div class="line"><span class="keyword">import</span> calendar <span class="keyword">as</span> cal</div><div class="line">cal.prcal()</div></pre></td></tr></table></figure>
+<h2 id="Math-模块"><a href="#Math-模块" class="headerlink" title="Math 模块"></a>Math 模块</h2><ul>
+<li>Math 模块包含一些三角函数、常量、还有其他很多很多的函数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">math.pi</div><div class="line">math.e</div><div class="line">ceil(x)</div><div class="line">floor(x)</div></pre></td></tr></table></figure>
+<h3 id="dir-函数"><a href="#dir-函数" class="headerlink" title="dir() 函数"></a>dir() 函数</h3><ul>
+<li>查看模块中所有 <code>identifier</code>, 包括函数、类、变量</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 不传参, 就使用当前模块</span></div><div class="line">dir(模块名)</div></pre></td></tr></table></figure>
+<h1 id="命令行参数"><a href="#命令行参数" class="headerlink" title="命令行参数"></a>命令行参数</h1><ul>
+<li><code>sys.argv</code> 命令行参数存储的变量, 它是个 list, 长度至少是1, 0索引位置指示的是运行的程序名</li>
+<li>传入命令行参数时, 使用<code>空格</code>分隔</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line">print(<span class="string">'There are %d arguments'</span> % len(sys.argv))</div><div class="line">print(<span class="string">'The command line arguments are:'</span> )</div><div class="line">print(sys.argv)</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> sys.argv:</div><div class="line">    print(i)</div><div class="line">    print(<span class="string">'Path of the Python is'</span> , sys.path)</div></pre></td></tr></table></figure>
+
       
 
       
@@ -368,10 +427,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
               </li>
              
@@ -384,19 +439,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -412,11 +463,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -428,23 +483,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -456,15 +507,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">解压缩</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,7 +535,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,19 +543,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -505,6 +560,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
