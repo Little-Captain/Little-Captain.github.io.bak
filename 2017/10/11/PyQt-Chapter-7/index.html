@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: CocoaPods | Little Captain&#39;s Blog</title>
+  <title>PyQt(Chapter 7) | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Little Captain&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/CocoaPods/index.html">
+  <meta name="description" content="PyQt  窗口和对话框 对话框包括两类: modal、modeless modal: 禁止用户与程序的其他部分交互 modeless: 与 modal 相对, 用户可以自由的与应用程序的其他部分交互    创建应用程序 通过简单的纯文本编辑器创建 使用 Qt Designer">
+<meta name="keywords" content="Python,PyQt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PyQt(Chapter 7)">
+<meta property="og:url" content="http://yoursite.com/2017/10/11/PyQt-Chapter-7/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
+<meta property="og:description" content="PyQt  窗口和对话框 对话框包括两类: modal、modeless modal: 禁止用户与程序的其他部分交互 modeless: 与 modal 相对, 用户可以自由的与应用程序的其他部分交互    创建应用程序 通过简单的纯文本编辑器创建 使用 Qt Designer">
+<meta property="og:updated_time" content="2017-10-11T15:07:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Little Captain&#39;s Blog">
+<meta name="twitter:title" content="PyQt(Chapter 7)">
+<meta name="twitter:description" content="PyQt  窗口和对话框 对话框包括两类: modal、modeless modal: 禁止用户与程序的其他部分交互 modeless: 与 modal 相对, 用户可以自由的与应用程序的其他部分交互    创建应用程序 通过简单的纯文本编辑器创建 使用 Qt Designer">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -125,60 +130,531 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-PyQt-Chapter-7" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/08/发布框架到CocoaPods上/" class="archive-article-date">
-  	<time datetime="2017-05-08T00:16:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/08/发布框架到CocoaPods上/">发布框架到CocoaPods上</a>
+    <h1 class="article-title" itemprop="name">
+      PyQt(Chapter 7)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/10/11/PyQt-Chapter-7/" class="archive-article-date">
+  	<time datetime="2017-10-11T09:30:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>PyQt</p>
+</blockquote>
+<h1 id="窗口和对话框"><a href="#窗口和对话框" class="headerlink" title="窗口和对话框"></a>窗口和对话框</h1><ul>
+<li>对话框包括两类: modal、modeless<ul>
+<li>modal: 禁止用户与程序的其他部分交互</li>
+<li>modeless: 与 modal 相对, 用户可以自由的与应用程序的其他部分交互</li>
+</ul>
+</li>
+</ul>
+<h1 id="创建应用程序"><a href="#创建应用程序" class="headerlink" title="创建应用程序"></a>创建应用程序</h1><ul>
+<li>通过简单的纯文本编辑器创建</li>
+<li>使用 Qt Designer</li>
+</ul>
+<a id="more"></a>
+<h2 id="使用-Code-创建-GUI-程序"><a href="#使用-Code-创建-GUI-程序" class="headerlink" title="使用 Code 创建 GUI 程序"></a>使用 Code 创建 GUI 程序</h2><ul>
+<li>这是针对 Qt4 的代码, Qt5 运行要不起来</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 导入需要的模块</span></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> PyQt5 <span class="keyword">import</span> QtGui, QtCore</div><div class="line"><span class="comment"># QWidget 是所有的交互对象的基类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">demowind</span><span class="params">(QtGui.QWidget)</span>:</span></div><div class="line">    <span class="comment"># 构造函数</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, parent = None)</span>:</span></div><div class="line">        QtGui.QWidget.__init__(self, parent)</div><div class="line">        <span class="comment"># 设置控件的几何属性</span></div><div class="line">        self.setGeometry(<span class="number">300</span>, <span class="number">300</span>, <span class="number">200</span>, <span class="number">200</span>)</div><div class="line">        <span class="comment"># 设置title, title将显示在title bar上</span></div><div class="line">        self.setWindowTitle(<span class="string">'Demo window'</span>)</div><div class="line">        <span class="comment"># 创建一个 Push 按钮, 显示 `Close` 文字</span></div><div class="line">        quit = QtGui.QPushButton(<span class="string">'Close'</span>, self)</div><div class="line">        <span class="comment"># 设置几何属性, 相对父控件</span></div><div class="line">        quit.setGeometry(<span class="number">10</span>, <span class="number">10</span>, <span class="number">70</span>, <span class="number">40</span>)</div><div class="line">        <span class="comment"># 事件处理 : signal 和 slot</span></div><div class="line">        <span class="comment"># signal 是 事件</span></div><div class="line">        <span class="comment"># slot 是 当事件发生时的处理方法</span></div><div class="line">        <span class="comment"># connect 方法将 signal 和 slot 进行连接</span></div><div class="line">        self.connect(quit, QtCore.SIGNAL(<span class="string">'clicked()'</span>), \</div><div class="line">                     QtGui.qApp, QtCore.SLOT(<span class="string">'quit()'</span>))</div><div class="line"><span class="comment"># 创建应用程序对象</span></div><div class="line">app = QtGui.QApplication(sys.argv)</div><div class="line"><span class="comment"># 创建 demowind 实例对象</span></div><div class="line">dw = demowind()</div><div class="line"><span class="comment"># 显示 dw</span></div><div class="line">dw.show()</div><div class="line"><span class="comment"># 启动事件处理循环</span></div><div class="line"><span class="comment"># 事件处理直到: exit 方法被调用, 或主控件被销毁</span></div><div class="line"><span class="comment"># exec_ 有 _ 是因为 exec 被 Python 关键字占用了</span></div><div class="line">sys.exit(app.exec_())</div></pre></td></tr></table></figure>
+<h2 id="使用-Qt-Designer"><a href="#使用-Qt-Designer" class="headerlink" title="使用 Qt Designer"></a>使用 Qt Designer</h2><ul>
+<li>预定义的 UI 模板<ul>
+<li>Dialog with buttons at the bottom : OK 和 Cancel 按钮被放置在底部的对话框</li>
+<li>Dialog with buttons on the right : OK 和 Cancel 按钮被放置在右侧的对话框</li>
+<li>Dialog without buttons : 没有任何按钮的对话框</li>
+<li>Main window : 提供一个带有菜单栏和工具栏(可以移除)的应用程序主窗口</li>
+<li>Widget : 创建一个父类是 QWidget 的控件</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>When creating a GUI application, you need to specify a <code>top-level widget</code>, which is usually <code>QDialog</code>, <code>QWidget</code>, or <code>QMainWindow</code>. If you create an application based on the <code>Dialog template</code>, the top-level widget or the first class that you inherit is <code>QDialog</code>. Similarly, if the application is based on the <code>Main Window template</code>, the top-level widget will be <code>QMainWindow</code>, and if you use the <code>Widget template</code> for your application, the top-level widget will be <code>QWidget</code>. The widgets that you use for the user interface are then treated as child widgets of the classes.</p>
+<p>The <code>main component</code> used for creating a user interface is <code>widgets</code>. <code>Button</code>, <code>menus</code>, and <code>scrollbars</code> are examples of widgets and are not only used for receiving user input but also for displaying data and status information. <code>Widgets</code> can be <code>nested</code> inside another in a parent-child relationship. A widget that has <code>no parent widget</code> is called a <code>window</code>. The class for widgets, <code>QWidget</code>, provides methods to render them on screen, receive user input, and handle different events. <code>All UI elements that Qt provides are subclasses of QWidget</code>. Qt Designer displays a list of widgets in a Widget Box displayed on the left side.</p>
+</blockquote>
+<h3 id="Widget-Box"><a href="#Widget-Box" class="headerlink" title="Widget Box"></a>Widget Box</h3><ul>
+<li>Widget Box 用于分类显示 widget 的列表, 相似功能的 widget 放入一个分类中</li>
+<li>类别<ul>
+<li>Layouts</li>
+<li>Spacers</li>
+<li>Buttons</li>
+<li>Item Views(Model-Based)</li>
+<li>Item Widgets(Item-Based)</li>
+<li>Containers</li>
+<li>Input Widgets</li>
+<li>Display Widgets</li>
+<li>Phonon</li>
+</ul>
+</li>
+</ul>
+<h4 id="Layouts"><a href="#Layouts" class="headerlink" title="Layouts"></a>Layouts</h4><blockquote>
+<p>Layouts are used for arranging widgets in a desired manner. The <code>layout</code> <code>controls</code> the <code>size</code> of the <code>widgets</code> <code>within it</code>, and <code>widgets</code> are <code>automatically</code> <code>resized</code> when the form is resized.</p>
+</blockquote>
+<ul>
+<li>用于布局控件</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">widget</th>
+<th style="text-align:center">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Vertical Layout(QVBoxLayout)</td>
+<td style="text-align:center">Arranges widgets vertically, one below the other</td>
+</tr>
+<tr>
+<td style="text-align:center">Horizontal Layout(QHBoxLayout)</td>
+<td style="text-align:center">Arranges widgets horizontally, one next to the other</td>
+</tr>
+<tr>
+<td style="text-align:center">Grid Layout (QGridLayout)</td>
+<td style="text-align:center">Arranges widgets into rows and columns</td>
+</tr>
+<tr>
+<td style="text-align:center">Form Layout (QFormLayout)</td>
+<td style="text-align:center">Arranges widgets in a two- column layout. The first column usually displays message(s) in labels, and the second column usually contains the widgets, enabling the user to enter/edit data corresponding to the labels in the first column</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Spacers"><a href="#Spacers" class="headerlink" title="Spacers"></a>Spacers</h4><blockquote>
+<p>Spacers are not visible while running a form and are used for inserting spaces between widgets or groups of widgets.</p>
+</blockquote>
+<ul>
+<li>用于在控件间插入空白</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">widget</th>
+<th style="text-align:center">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Horizontal Spacer (Spacer)</td>
+<td style="text-align:center">Inserts horizontal spaces between widgets</td>
+</tr>
+<tr>
+<td style="text-align:center">Vertical Spacer (Spacer)</td>
+<td style="text-align:center">Inserts vertical spaces between widgets</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Buttons"><a href="#Buttons" class="headerlink" title="Buttons"></a>Buttons</h4><blockquote>
+<p>Buttons are used to initiate an action. They are event or signal generators that can be used to perform tasks.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">widget</th>
+<th style="text-align:center">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Push Button (QPushButton)</td>
+<td style="text-align:center">Displays a command button</td>
+</tr>
+<tr>
+<td style="text-align:center">Tool Button (QToolButton)</td>
+<td style="text-align:center">Displays a button to access commands or options. Used inside a toolbar</td>
+</tr>
+<tr>
+<td style="text-align:center">Radio Button (QRadioButton)</td>
+<td style="text-align:center">Displays a radio button with a text label</td>
+</tr>
+<tr>
+<td style="text-align:center">Check Box (QCheckBox)</td>
+<td style="text-align:center">Displays a check box with a text label</td>
+</tr>
+<tr>
+<td style="text-align:center">Command Link Button (QCommandLinkButton)</td>
+<td style="text-align:center">Displays a command link button</td>
+</tr>
+<tr>
+<td style="text-align:center">Button Box (QDialogButtonBox)</td>
+<td style="text-align:center">A sub-class of QWidgetthat presents a set of buttons in a layout</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Item-Views-Model-Based"><a href="#Item-Views-Model-Based" class="headerlink" title="Item Views (Model-Based)"></a>Item Views (Model-Based)</h4><blockquote>
+<p>Item Views widgets are used for displaying large volumes of data. Model-based means that the widgets are part of a <code>model/view</code> framework and enable you to present data in different formats and through multiple views. The classes of these widgets implement the interfaces defined by the <code>QAbstractItemViewclass</code> to allow it to display data provided by models derived from the <code>QAbstractItemModelclass</code>.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">widget</th>
+<th style="text-align:center">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">List View (QListView)</td>
+<td style="text-align:center">Used to display a list of items. Must be used with a QAbstractItemModel subclass</td>
+</tr>
+<tr>
+<td style="text-align:center">Tree View (QTreeView)</td>
+<td style="text-align:center">Used to display hierarchical data. Must be used with a QAbstractItemModel subclass</td>
+</tr>
+<tr>
+<td style="text-align:center">Table View (QTableView)</td>
+<td style="text-align:center">Used to display data in tabular form. Can display icons as well as text in every cell. Must be used in conjunction with a QAbstractItemModel subclass</td>
+</tr>
+<tr>
+<td style="text-align:center">Column View (QColumnView)</td>
+<td style="text-align:center">Provides a model/view implementation of a column view. It displays data in a number of list views</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Item-Widgets-Item-Based"><a href="#Item-Widgets-Item-Based" class="headerlink" title="Item Widgets (Item-Based)"></a>Item Widgets (Item-Based)</h4><blockquote>
+<p>Item Widgets have self-contained views.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">widget</th>
+<th style="text-align:center">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">List Widget (QListWidget)</td>
+<td style="text-align:center">Used to display a list of items. It has a built-in model, so items can be added to it directly</td>
+</tr>
+<tr>
+<td style="text-align:center">Tree Widget (QTreeWidget)</td>
+<td style="text-align:center">Used to display hierarchical data. It has a built-in model, so items can be added to it directly</td>
+</tr>
+<tr>
+<td style="text-align:center">Table Widget (QTableWidget)</td>
+<td style="text-align:center">Used to display data in tabular form. Can display icons as well as text in every cell. It has a built-in model, so items can be added to it directly</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Containers"><a href="#Containers" class="headerlink" title="Containers"></a>Containers</h4><blockquote>
+<p>Container widgets are used to control a collection of objects on a form. A widget dropped onto a container becomes a child object of the container. The child objects in a container can also be arranged in desired layouts.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">widget</th>
+<th style="text-align:center">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Group Box (QGroupBox)</td>
+<td style="text-align:center">Used to group together a collection of widgets of similar function</td>
+</tr>
+<tr>
+<td style="text-align:center">Scroll Area (QScrollArea)</td>
+<td style="text-align:center">Used to display the contents of a child widget within a frame. If the child widget exceeds the size of the frame, scrollbars appear to enable you to view the entire child widget</td>
+</tr>
+<tr>
+<td style="text-align:center">Tool Box (QToolBox)</td>
+<td style="text-align:center">Displays a series of pages or sections in a tool box</td>
+</tr>
+<tr>
+<td style="text-align:center">Tab Widget (QTabWidget)</td>
+<td style="text-align:center">Displays tabs that can be used to display information. A large volume of information can be displayed by splitting it into chunks and displaying it under individual tabs</td>
+</tr>
+<tr>
+<td style="text-align:center">Stacked Widget (QStackedWidget)</td>
+<td style="text-align:center">Displays a stack of widgets where only one widget is visible at a time</td>
+</tr>
+<tr>
+<td style="text-align:center">Frame (QFrame)</td>
+<td style="text-align:center">Used to enclose and group widgets. Can also be used as a placeholder in forms</td>
+</tr>
+<tr>
+<td style="text-align:center">Widget (QWidget)</td>
+<td style="text-align:center">The base class of all user interface objects</td>
+</tr>
+<tr>
+<td style="text-align:center">MdiArea (QMdiArea)</td>
+<td style="text-align:center">Provides an area for displaying MDI windows</td>
+</tr>
+<tr>
+<td style="text-align:center">Dock Widget (QDockWidget)</td>
+<td style="text-align:center">Can be docked inside a main window or floated as an independent tool window</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Input-Widgets"><a href="#Input-Widgets" class="headerlink" title="Input Widgets"></a>Input Widgets</h4><blockquote>
+<p>Input Widgets are for used for interacting with the user. The user can supply data to the application through these widgets.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">widget</th>
+<th style="text-align:center">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Combo Box (QComboBox)</td>
+<td style="text-align:center">Displays a pop-up list</td>
+</tr>
+<tr>
+<td style="text-align:center">Font Combo Box (QFontComboBox)</td>
+<td style="text-align:center">Displays a combo box that allows font selection</td>
+</tr>
+<tr>
+<td style="text-align:center">Line Edit (QLineEdit)</td>
+<td style="text-align:center">Displays a single-line text box for entering/editing plain text</td>
+</tr>
+<tr>
+<td style="text-align:center">Text Edit (QTextEdit)</td>
+<td style="text-align:center">Used to edit plain text or HTML</td>
+</tr>
+<tr>
+<td style="text-align:center">Plain Text Edit (QPlainTextEdit)</td>
+<td style="text-align:center">Used to edit and display plain text</td>
+</tr>
+<tr>
+<td style="text-align:center">Spin Box (QSpinBox)</td>
+<td style="text-align:center">Displays a spin box</td>
+</tr>
+<tr>
+<td style="text-align:center">Double Spin Box (QDoubleSpinBox)</td>
+<td style="text-align:center">Displays a spin box for double values</td>
+</tr>
+<tr>
+<td style="text-align:center">Time Edit (QTimeEdit)</td>
+<td style="text-align:center">Used for editing times</td>
+</tr>
+<tr>
+<td style="text-align:center">Date Edit (QDateEdit)</td>
+<td style="text-align:center">Used for editing dates</td>
+</tr>
+<tr>
+<td style="text-align:center">Date/Time Edit (QDateTimeEdit)</td>
+<td style="text-align:center">Used for editing dates and times</td>
+</tr>
+<tr>
+<td style="text-align:center">Dial (QDial)</td>
+<td style="text-align:center">Displays a rounded range control</td>
+</tr>
+<tr>
+<td style="text-align:center">Horizontal Scrollbar (QScrollBar)</td>
+<td style="text-align:center">Displays a horizontal scrollbar</td>
+</tr>
+<tr>
+<td style="text-align:center">Vertical Scrollbar (QScrollBar)</td>
+<td style="text-align:center">Displays a vertical scrollbar</td>
+</tr>
+<tr>
+<td style="text-align:center">Horizontal Slider(QSlider)</td>
+<td style="text-align:center">Displays a horizontal slider</td>
+</tr>
+<tr>
+<td style="text-align:center">Vertical Slider (QSlider)</td>
+<td style="text-align:center">Displays a vertical slider</td>
+</tr>
+<tr>
+<td style="text-align:center">QsciScintilla</td>
+<td style="text-align:center">Scintilla is an editing component that performs syntax styling, code completion, break points, auto indenting, and other tasks. It is very useful in editing and debugging source code. The Scintilla component is inside QsciScintillaand used in Qt Designer for developing GUI applications like any other Qt widget</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Display-Widgets"><a href="#Display-Widgets" class="headerlink" title="Display Widgets"></a>Display Widgets</h4><blockquote>
+<p>Display widgets are used for displaying information or messages to the user.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">widget</th>
+<th style="text-align:center">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Label (QLabel)</td>
+<td style="text-align:center">Displays text or images</td>
+</tr>
+<tr>
+<td style="text-align:center">Text Browser (QTextBrowser)</td>
+<td style="text-align:center">Displays a read-only multiline text box that can display both plain text and HTML, including lists, tables, and images. It supports clickable links as well as cascading style sheets</td>
+</tr>
+<tr>
+<td style="text-align:center">Graphics View (QGraphicsView)</td>
+<td style="text-align:center">Used to displays graphics</td>
+</tr>
+<tr>
+<td style="text-align:center">Calendar (QCalenderWidget)</td>
+<td style="text-align:center">Displays a monthly calendar allowing you to select a date</td>
+</tr>
+<tr>
+<td style="text-align:center">LCD Number (QLCDNumber)</td>
+<td style="text-align:center">Displays digits in LCD-like display</td>
+</tr>
+<tr>
+<td style="text-align:center">Progress Bar (QProgressBar)</td>
+<td style="text-align:center">Displays horizontal and vertical progress bars</td>
+</tr>
+<tr>
+<td style="text-align:center">Horizontal Line (QFrame)</td>
+<td style="text-align:center">Displays a horizontal line</td>
+</tr>
+<tr>
+<td style="text-align:center">Vertical Line (QFrame)</td>
+<td style="text-align:center">Displays a vertical line</td>
+</tr>
+<tr>
+<td style="text-align:center">QDeclarativeView</td>
+<td style="text-align:center">A QGraphicsViewsubclass provided for displaying QML interfaces. To display a QML interface within QWidget-based GUI applications that do not use the Graphics View framework, QDeclarativeis used. QDeclarativeViewinitializes QGraphicsViewfor optimal performance with QML so that user interface objects can be placed on a standard QGraphicsSceneand displayed with QGraphics-View. QML is a declarative language used to describe the user interface in a tree of objects with properties</td>
+</tr>
+<tr>
+<td style="text-align:center">QWebView</td>
+<td style="text-align:center">Used to view and edit web documents</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Phonon"><a href="#Phonon" class="headerlink" title="Phonon"></a>Phonon</h4><blockquote>
+<p>Phonon is a multimedia API that provides an abstraction layer for capturing, mixing, processing, and playing audio and video.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">widget</th>
+<th style="text-align:center">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Phonon::VideoPlayer</td>
+<td style="text-align:center">Used to display video</td>
+</tr>
+<tr>
+<td style="text-align:center">Phonon::SeekSlider</td>
+<td style="text-align:center">Displays slider for setting positions in media stream</td>
+</tr>
+<tr>
+<td style="text-align:center">Phonon::VolumeSlider</td>
+<td style="text-align:center">Displays slider to control volume of audio output</td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CocoaPods</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/11/PyQt-Chapter-7/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/10/10/PyQt-Chapter-6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PyQt(Chapter 6)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -198,9 +674,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
