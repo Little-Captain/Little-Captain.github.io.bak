@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/11/PyQt-Chapter-7/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="PyQt  窗口和对话框 对话框包括两类: modal、modeless modal: 禁止用户与程序的其他部分交互 modeless: 与 modal 相对, 用户可以自由的与应用程序的其他部分交互    创建应用程序 通过简单的纯文本编辑器创建 使用 Qt Designer">
-<meta property="og:updated_time" content="2017-10-11T15:31:35.000Z">
+<meta property="og:updated_time" content="2017-10-11T16:16:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt(Chapter 7)">
 <meta name="twitter:description" content="PyQt  窗口和对话框 对话框包括两类: modal、modeless modal: 禁止用户与程序的其他部分交互 modeless: 与 modal 相对, 用户可以自由的与应用程序的其他部分交互    创建应用程序 通过简单的纯文本编辑器创建 使用 Qt Designer">
@@ -578,13 +578,104 @@
 </tr>
 </tbody>
 </table>
-<p>|  |  |<br>|  |  |<br>|  |  |<br>|  |  |<br>|  |  |<br>|  |  |<br>|  |  |<br>|  |  |<br>|  |  |<br>|  |  |<br>|  |  |<br>|  |  |</p>
-<ol>
-<li>Python</li>
-<li>PyQt</li>
-<li>Qt</li>
-<li>PyCharm</li>
-</ol>
+<h2 id="Entering-Single-Line-Data"><a href="#Entering-Single-Line-Data" class="headerlink" title="Entering Single-Line Data"></a>Entering Single-Line Data</h2><blockquote>
+<p>To allow the user to enter or edit single-line data, you use the Line Edit widget, which is an instance of <code>QLineEdit</code>. The widget <code>supports</code> simple editing mechanisms such as <code>undo</code>, <code>redo</code>, <code>cut</code>, and <code>paste</code>.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Methods</th>
+<th style="text-align:center">Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">setEchoMode()</td>
+<td style="text-align:center">Used to set the echo mode of the Line Edit widget to determine how the contents of the Line Edit widget are displayed. The available options are these: <br> Normal: Default mode. Displays characters as they are entered. <br> NoEcho: Doesn’t display anything. <br> Password: Displays asterisks as the user enters data. <br> PasswordEchoOnEdit: Displays characters when editing; otherwise, asterisks are displayed.</td>
+</tr>
+<tr>
+<td style="text-align:center">maxLength()</td>
+<td style="text-align:center">Used to specify the maximum length of text that user can enter. For multiline editing, you use QTextEdit</td>
+</tr>
+<tr>
+<td style="text-align:center">setText()</td>
+<td style="text-align:center">Assigns text to the Line Edit widget</td>
+</tr>
+<tr>
+<td style="text-align:center">text()</td>
+<td style="text-align:center">Fetches the text entered in the Line Edit widget</td>
+</tr>
+<tr>
+<td style="text-align:center">clear()</td>
+<td style="text-align:center">Clears the contents of the Line Edit widget</td>
+</tr>
+<tr>
+<td style="text-align:center">setReadOnly()</td>
+<td style="text-align:center">Passes the Boolean value true to this method to make the Line Edit widget read-only. The user cannot edit the contents of the Line Edit widget but can copy it. The cursor will become invisible in read-only mode</td>
+</tr>
+<tr>
+<td style="text-align:center">isReadOnly()</td>
+<td style="text-align:center">Returns true if the Line Edit widget is in read-only mode</td>
+</tr>
+<tr>
+<td style="text-align:center">setEnabled()</td>
+<td style="text-align:center">The Line Edit widget will be blurred, indicating that it is disabled. You cannot edit content in a disabled Line Edit widget, but you can assign text via the setText() method</td>
+</tr>
+<tr>
+<td style="text-align:center">setFocus()</td>
+<td style="text-align:center">Used to set the cursor on the specified Line Edit widget</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>相关信号(signal)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Signals</th>
+<th style="text-align:center">Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">textChanged()</td>
+<td style="text-align:center">The signal is emitted when text in the Line Edit widget is changed</td>
+</tr>
+<tr>
+<td style="text-align:center">returnPressed()</td>
+<td style="text-align:center">The signal is emitted when Return or Enter is pressed</td>
+</tr>
+<tr>
+<td style="text-align:center">editingFinished()</td>
+<td style="text-align:center">The signal is emitted when focus is lost on the Line Edit widget, confirming the editing task is over on it</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Displaying-Buttons"><a href="#Displaying-Buttons" class="headerlink" title="Displaying Buttons"></a>Displaying Buttons</h2><blockquote>
+<p>To display pushbuttons (usually command buttons) in an application, you need to create an instance of the <code>QPushButton</code> class. When assigning text to buttons, you can create <code>shortcut</code> keys by preceding any character in the text with an <code>ampersand</code>.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Methods</th>
+<th style="text-align:center">Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">setText()</td>
+<td style="text-align:center">Used to assign the text to the pushbutton</td>
+</tr>
+<tr>
+<td style="text-align:center">setIcon()</td>
+<td style="text-align:center">Used to assign icon to the pushbutton</td>
+</tr>
+</tbody>
+</table>
+<h1 id="Event-Handling-in-PyQt"><a href="#Event-Handling-in-PyQt" class="headerlink" title="Event Handling in PyQt"></a>Event Handling in PyQt</h1><blockquote>
+<p>In PyQt, the <code>event-handling mechanism</code> is also known as <code>signals and slots</code>. Every widget emits signals when its state changes. Whenever a signal is emitted, it is simply thrown. To perform a task in response to a signal, the signal has to be connected to a slot. A slot refers to the method containing the code that you want to be executed on occurrence of a signal. Most widgets have predefined slots, you don’t have to write code for connecting a predefined signal to a predefined slot. To respond to the signals emitted, you identify the <code>QObject</code> and the signal it emits and invoke the associated method. You can use Qt Designer for connecting signals with built-in slots.</p>
+</blockquote>
 
       
 
@@ -671,6 +762,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/10/12/PyQt5-window/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          PyQt5 window
+        
+      </div>
+    </a>
   
   
     <a href="/2017/10/10/PyQt-Chapter-6/" id="article-nav-older" class="article-nav-link-wrap">
@@ -803,15 +903,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -823,19 +923,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -879,11 +971,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -895,19 +991,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gogs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gogs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -924,6 +1020,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
             
             <div class="clearfix"></div>
