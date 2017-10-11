@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/10/PyQt-Chapter-6/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="File Handling   文件是数据对象序列的容器, 被描述为字节序列 文件处理是读写文件的技术  文件分类  文本文件: 容易理解, 但是不易更新 二进制文件: 优化了处理速度. 通过 offset 写入数据, 通过 seek() 方法访问特定的数据 Pickled files: 用于存储对象. 为了优化性能, 将对象存储为二进制格式   处理文件三步走:  打开文件 执行文件操作(读、">
-<meta property="og:updated_time" content="2017-10-10T15:43:03.000Z">
+<meta property="og:updated_time" content="2017-10-11T05:15:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt(Chapter 6)">
 <meta name="twitter:description" content="File Handling   文件是数据对象序列的容器, 被描述为字节序列 文件处理是读写文件的技术  文件分类  文本文件: 容易理解, 但是不易更新 二进制文件: 优化了处理速度. 通过 offset 写入数据, 通过 seek() 方法访问特定的数据 Pickled files: 用于存储对象. 为了优化性能, 将对象存储为二进制格式   处理文件三步走:  打开文件 执行文件操作(读、">
@@ -328,7 +328,51 @@
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pickle</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">rect</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, y)</span>:</span></div><div class="line">        self.l = x</div><div class="line">        self.b = y</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rectarea</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="comment"># 这样返回的是一个 tuple</span></div><div class="line">        <span class="keyword">return</span> <span class="string">"Area of rectangle is"</span>, self.l * self.b</div><div class="line">r = rect(<span class="number">5</span>, <span class="number">8</span>)</div><div class="line">f = open(<span class="string">'studentinfo.bin'</span>, <span class="string">'wb'</span>)</div><div class="line">pickle.dump(r, f)</div><div class="line">f.close()</div><div class="line"><span class="keyword">del</span> r</div><div class="line">f = open(<span class="string">'studentinfo.bin'</span>,<span class="string">'rb'</span>)</div><div class="line">storedobj = pickle.load(f)</div><div class="line">print(type(storedobj))</div><div class="line">print(storedobj.rectarea())</div></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pickle</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">user</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, y, z)</span>:</span></div><div class="line">        self.id = x</div><div class="line">        self.name = y</div><div class="line">        self.emailadd = z</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dispuser</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'User ID:'</span>, self.id)</div><div class="line">        print(<span class="string">'User Name:'</span>, self.name)</div><div class="line">        print(<span class="string">'Email Address:'</span>, self.emailadd)</div><div class="line">f = open(<span class="string">'UsersInfo.bin'</span>, <span class="string">'wb'</span>)</div><div class="line">n = int(input(<span class="string">'How many users? '</span>))</div><div class="line">print(<span class="string">'Enter'</span>, n, <span class="string">'numbers'</span>)</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, n):</div><div class="line">    u = input(<span class="string">'User ID: '</span>)</div><div class="line">    n = input(<span class="string">'User Name: '</span>)</div><div class="line">    e = input(<span class="string">'Email Address: '</span>)</div><div class="line">    usrobj = user(u, n, e)</div><div class="line">    pickle.dump(usrobj,f)</div><div class="line">f.close()</div><div class="line">print(<span class="string">'\nInformation of the users is:'</span>)</div><div class="line">f = open(<span class="string">'UsersInfo.bin'</span>, <span class="string">'rb'</span>)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        <span class="comment"># 从 f 中 load 对象, load 方法是 一个接一个 的 load 对象的</span></div><div class="line">        usrobj = pickle.load(f)</div><div class="line">    <span class="keyword">except</span> EOFError:</div><div class="line">        <span class="comment"># 文件结束异常捕获</span></div><div class="line">        <span class="keyword">break</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="comment"># 使用 load 的对象</span></div><div class="line">        usrobj.dispuser()</div><div class="line">f.close()</div></pre></td></tr></table></figure>
-<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><ul>
+<li>异常处理的两种形式<ul>
+<li>try/except : 至少要有一个 <code>except</code> 语句与 <code>try</code> 语句配对</li>
+<li>try/finally : 不管异常出现与否, <code>finally</code> 语句总是被执行. </li>
+</ul>
+</li>
+</ul>
+<h2 id="try-except"><a href="#try-except" class="headerlink" title="try/except"></a>try/except</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:    statement(s)</div><div class="line"><span class="keyword">except</span> SomeException: <span class="comment"># except 的数量无限制, 每一个 except 表达式就是一个异常处理器(exception handler)</span>    code <span class="keyword">for</span> handling exception </div><div class="line">[<span class="keyword">else</span>:    statement(s)]</div></pre></td></tr></table></figure>
+<ul>
+<li><p>try/except 的处理过程</p>
+<ul>
+<li>执行 try 代码块</li>
+<li>如果 try 代码块没有抛出异常, except 代码块被忽略</li>
+<li>如果 try 代码块抛出了异常, 就会通过 except 来匹配对应的异常, 当匹配到了, 就执行 except 代码块</li>
+<li>如果 except 没有匹配到, Python 会在 try 代码块的外部继续寻找 <code>exception handler</code>. 如果还是没有找到, 就使用 Python 内建的异常处理器</li>
+<li>else 语句只有在 try 代码块执行成功(没有抛出异常)时, 才执行. </li>
+<li>try 代码块可以嵌套</li>
+</ul>
+</li>
+<li><p>常见异常</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">AssertionError <span class="comment"># 断言失败异常</span></div><div class="line">AttributeError <span class="comment"># 属性没有找到异常</span></div><div class="line">EOFError <span class="comment"># 读取文件超出文件结束符异常</span></div><div class="line">FloatingPointError <span class="comment"># 浮点操作失败异常</span></div><div class="line">IOError <span class="comment"># I/O 操作失败异常</span></div><div class="line">IndexError <span class="comment"># index 超出 range</span>KeyError <span class="comment"># mapping 的 key 不存在</span></div><div class="line">OSError <span class="comment"># 操作系统调用失败</span></div><div class="line">OverflowError <span class="comment"># 值太大, 不能表示. 移除异常</span></div><div class="line">TypeError <span class="comment"># 对参数应用了不适当的类型</span>ValueError <span class="comment"># 使用了不适当的参数值</span></div><div class="line">ZeroDivisionError <span class="comment"># 除零异常 ( / %)</span></div></pre></td></tr></table></figure>
+<h2 id="try-finally"><a href="#try-finally" class="headerlink" title="try/finally"></a>try/finally</h2><ul>
+<li>异常出现后, 后续代码就会停止执行并退出程序</li>
+<li>无论异常出现与否, 一些确定的都需要被执行, 包括释放内存、关闭文件, 这时就可以使用 finally 代码块</li>
+<li>try/finally 的处理过程<ul>
+<li>执行 try 代码块</li>
+<li>如果 try 代码块没有抛出异常, finally 代码块被执行</li>
+<li>如果 try 代码块中执行到退出语句(return、break、continue), finally 代码块在退出前被执行</li>
+<li>如果 try 代码块中出现了异常, 先执行 finally 代码块, 然后再抛出异常</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">try</span>:</div><div class="line">    f = open(<span class="string">'aboutbook.txt'</span>, <span class="string">'r'</span>)</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        lines = f.read()</div><div class="line">    <span class="keyword">finally</span>:</div><div class="line">        f.close()</div><div class="line"><span class="keyword">except</span> IOError:</div><div class="line">    print(<span class="string">'File aboutbook.txt does not exist'</span>)</div><div class="line">    sys.exit(<span class="number">1</span>)</div><div class="line">print(lines)</div></pre></td></tr></table></figure>
+<h2 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h2><ul>
+<li>可以在 try/except 中使用 <code>raise</code> 语句抛出确定的异常</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>:    <span class="keyword">if</span> condition:        <span class="keyword">raise</span> customException, statement <span class="keyword">for</span> customException </div><div class="line"><span class="keyword">except</span> customException, e:    statements <span class="keyword">for</span> customException</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">myException</span><span class="params">(Exception)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, quantity)</span>:</span></div><div class="line">        Exception.__init__(self)</div><div class="line">        self.quantity = quantity</div><div class="line"><span class="keyword">try</span>:</div><div class="line">    s = int(input(<span class="string">'Enter quantity '</span>))</div><div class="line">    <span class="keyword">if</span> s &lt;= <span class="number">0</span>:</div><div class="line">        <span class="keyword">raise</span> myException(s)</div><div class="line"><span class="keyword">except</span> EOFError:</div><div class="line">    print(<span class="string">'You pressed EOF '</span>)</div><div class="line"><span class="keyword">except</span> myException <span class="keyword">as</span> ex:</div><div class="line">    print(<span class="string">'myException:The quantity entered is %d, it must be some positive value'</span>\</div><div class="line">          % ex.quantity)</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span> (<span class="string">'No exception raised.'</span>)</div></pre></td></tr></table></figure>
+<h2 id="使用断言"><a href="#使用断言" class="headerlink" title="使用断言"></a>使用断言</h2><ul>
+<li>当断言失败时, 会抛出 <code>AssertionError</code> 异常</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">n = int(input(<span class="string">'Enter a positive value: '</span>))</div><div class="line"><span class="keyword">assert</span>(n &gt;= <span class="number">0</span>), <span class="string">"Entered value is not a positive value"</span></div></pre></td></tr></table></figure>
+
       
 
       
@@ -518,11 +562,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
+                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
+                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,11 +590,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,15 +618,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,11 +646,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,6 +659,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -626,11 +682,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,10 +702,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
@@ -663,10 +711,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
             
             <div class="clearfix"></div>
