@@ -127,38 +127,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-PyQt-Chapter-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PyQt5-absolute-position" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/27/PyQt-Chapter-3/">PyQt(Chapter 3)</a>
+      <a class="article-title" href="/2017/10/12/PyQt5-absolute-position/">PyQt5 absolute position</a>
     </h1>
   
 
         
-        <a href="/2017/09/27/PyQt-Chapter-3/" class="archive-article-date">
-  	<time datetime="2017-09-27T02:15:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-27</time>
+        <a href="/2017/10/12/PyQt5-absolute-position/" class="archive-article-date">
+  	<time datetime="2017-10-12T02:14:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Sequence"><a href="#Sequence" class="headerlink" title="Sequence"></a>Sequence</h1><ul>
-<li>有序</li>
-<li>通过索引定位</li>
-<li>切片操作取出子 sequence</li>
-<li>String、Tuple(至少含有两个元素, (1) 为 int 1) 不可变(创建后, 元素不可变), List 可变</li>
-<li><code>+</code> <code>*</code> <code>[]</code> 是所有 sequence 通用的操作符</li>
-<li><code>+</code> 连接</li>
-<li><code>*</code> 重复序列, 产生新的序列</li>
-<li><code>[]</code> 取出指定的元素和子 sequence</li>
-</ul>
+        <blockquote>
+<p>absolute position</p>
+<p>PyQt5 supports several layout methods such as <code>grid layouts</code>, <code>horzontal layous</code> and <code>absolute positioning</code>. The layout you should pick depends on your preference and type of application.</p>
+<p>Absolute positioning gives you total control over the widget positions but you have to explicitly define every widget location.</p>
+<p>Widgets can be added on an absolute position using the move(x,y) method.</p>
+</blockquote>
         
-          <a class="article-more-a" href="/2017/09/27/PyQt-Chapter-3/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/12/PyQt5-absolute-position/#more">more >></a>
         
       
 
@@ -197,20 +193,20 @@
 
 
   
-    <article id="post-PyQt-Chapter-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PyQt5-textbox" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/25/PyQt-Chapter-2/">PyQt(Chapter 2)</a>
+      <a class="article-title" href="/2017/10/12/PyQt5-textbox/">PyQt5 textbox</a>
     </h1>
   
 
         
-        <a href="/2017/09/25/PyQt-Chapter-2/" class="archive-article-date">
-  	<time datetime="2017-09-24T16:54:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-25</time>
+        <a href="/2017/10/12/PyQt5-textbox/" class="archive-article-date">
+  	<time datetime="2017-10-12T01:52:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
 </a>
         
       </header>
@@ -218,11 +214,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>Getting Wet in Python (深入巨蟒湿地)</p>
+<p>textbox</p>
+<p>The widget is called <code>QLineEdit</code> and has the methods <code>setText()</code> to set the textbox value and <code>text()</code> to get the value.</p>
+<p>We can set the <code>size</code> of the textbox using the resize(width,height) method. The <code>position</code> can be set using the move(x,y) method or using a grid layout.</p>
 </blockquote>
-<h1 id="算数操作符"><a href="#算数操作符" class="headerlink" title="算数操作符"></a>算数操作符</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">x + y <span class="comment"># Addition</span></div><div class="line">x - y <span class="comment"># Subtraction</span></div><div class="line">x * y <span class="comment"># Multiplication</span></div><div class="line">x / y <span class="comment"># Division</span></div><div class="line">x // y <span class="comment"># Truncating division (floor division)</span></div><div class="line">x ** y <span class="comment"># Exponentiation. Sets x to the power y</span>x % y <span class="comment"># Modulo operator</span></div><div class="line">–x <span class="comment"># Unary minus</span></div><div class="line">+x <span class="comment"># Unary plus</span></div></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/09/25/PyQt-Chapter-2/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/12/PyQt5-textbox/#more">more >></a>
         
       
 
@@ -261,20 +258,20 @@
 
 
   
-    <article id="post-PyQt-Chapter-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PyQt5-messagebox" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/24/PyQt-Chapter-1/">PyQt(Chapter 1)</a>
+      <a class="article-title" href="/2017/10/12/PyQt5-messagebox/">PyQt5 messagebox</a>
     </h1>
   
 
         
-        <a href="/2017/09/24/PyQt-Chapter-1/" class="archive-article-date">
-  	<time datetime="2017-09-24T12:12:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-24</time>
+        <a href="/2017/10/12/PyQt5-messagebox/" class="archive-article-date">
+  	<time datetime="2017-10-12T01:36:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
 </a>
         
       </header>
@@ -282,14 +279,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>Python and Its Features</p>
+<p>messagebox</p>
+<p>To show a messagebox we need to import <code>QMessageBox</code>. We use the method <code>QMessageBox.question()</code> to display the messagebox</p>
 </blockquote>
-<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="Integers"><a href="#Integers" class="headerlink" title="Integers"></a>Integers</h2><ul>
-<li>32 bits</li>
-<li>[-2<sup>32</sup> 2<sup>32</sup>-1]</li>
-</ul>
         
-          <a class="article-more-a" href="/2017/09/24/PyQt-Chapter-1/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/12/PyQt5-messagebox/#more">more >></a>
         
       
 
@@ -328,20 +322,20 @@
 
 
   
-    <article id="post-Lean-Python-Chapter-11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PyQt5-signals-and-slots" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/24/Lean-Python-Chapter-11/">Lean Python(Chapter 11)</a>
+      <a class="article-title" href="/2017/10/12/PyQt5-signals-and-slots/">PyQt5 signals and slots</a>
     </h1>
   
 
         
-        <a href="/2017/09/24/Lean-Python-Chapter-11/" class="archive-article-date">
-  	<time datetime="2017-09-24T05:00:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-24</time>
+        <a href="/2017/10/12/PyQt5-signals-and-slots/" class="archive-article-date">
+  	<time datetime="2017-10-12T01:19:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
 </a>
         
       </header>
@@ -349,11 +343,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>Databases</p>
+<p>signals and slots</p>
+<p>Graphical applications (GUI) are event-driven, unlike console or terminal applications. A users action like clicks a button or selecting an item in a list is called an event.</p>
+<p>If an event takes place, each PyQt5 widget can emit a signal. A signal does not execute any action, that is done by a slot.</p>
 </blockquote>
-<h1 id="SQLite"><a href="#SQLite" class="headerlink" title="SQLite"></a>SQLite</h1><h2 id="数据库函数"><a href="#数据库函数" class="headerlink" title="数据库函数"></a>数据库函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 打开连接数据库</span></div><div class="line">conn = sqlite3.connect(filename)</div><div class="line"><span class="comment"># 执行 SQL</span></div><div class="line">conn.executescript(sql)</div><div class="line"><span class="comment"># 返回游标</span></div><div class="line">cursor = conn.cursor()</div><div class="line"><span class="comment"># 执行查询操作, 返回数据</span></div><div class="line">cursor.execute(sql)</div><div class="line">rows = cursor.fetchall()</div></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/09/24/Lean-Python-Chapter-11/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/12/PyQt5-signals-and-slots/#more">more >></a>
         
       
 
@@ -368,6 +363,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
         		</li>
       		
 		</ul>
@@ -388,270 +387,232 @@
 
 
   
-    <article id="post-Lean-Python-Chapter-10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PyQt5-buttons" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/23/Lean-Python-Chapter-10/">Lean Python(Chapter 10)</a>
+      <a class="article-title" href="/2017/10/12/PyQt5-buttons/">PyQt5 buttons</a>
     </h1>
   
 
         
-        <a href="/2017/09/23/Lean-Python-Chapter-10/" class="archive-article-date">
-  	<time datetime="2017-09-23T09:46:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
+        <a href="/2017/10/12/PyQt5-buttons/" class="archive-article-date">
+  	<time datetime="2017-10-11T16:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="字符串搜索"><a href="#字符串搜索" class="headerlink" title="字符串搜索"></a>字符串搜索</h1><ul>
-<li>find 返回字符串出现的字符位置, 如果没有找到就返回 -1</li>
+        <blockquote>
+<p>buttons</p>
+<p>PyQt5 supports buttons using the QPushButton class. This class is inside the PyQt5.QtWidgets group. The button can be created by calling the constructor QPushButton with the text to display as parameter</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/10/12/PyQt5-buttons/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-PyQt5-statusbar" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/12/PyQt5-statusbar/">PyQt5 statusbar</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/12/PyQt5-statusbar/" class="archive-article-date">
+  	<time datetime="2017-10-11T16:38:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>statusbar</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/10/12/PyQt5-statusbar/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-PyQt5-window" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/12/PyQt5-window/">PyQt5 window</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/12/PyQt5-window/" class="archive-article-date">
+  	<time datetime="2017-10-11T16:16:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>window</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2017/10/12/PyQt5-window/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-PyQt-Chapter-7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/11/PyQt-Chapter-7/">PyQt(Chapter 7)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/11/PyQt-Chapter-7/" class="archive-article-date">
+  	<time datetime="2017-10-11T09:30:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>PyQt</p>
+</blockquote>
+<h1 id="窗口和对话框"><a href="#窗口和对话框" class="headerlink" title="窗口和对话框"></a>窗口和对话框</h1><ul>
+<li>对话框包括两类: modal、modeless<ul>
+<li>modal: 禁止用户与程序的其他部分交互</li>
+<li>modeless: 与 modal 相对, 用户可以自由的与应用程序的其他部分交互</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">txt=<span class="string">"The quick brown fox jumps over the lazy dog"</span></div><div class="line">txt.find(<span class="string">'jump'</span>)</div><div class="line">txt.find(<span class="string">'z'</span>)</div><div class="line">txt.find(<span class="string">'green'</span>)</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/09/23/Lean-Python-Chapter-10/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Lean-Python-Chapter-9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/23/Lean-Python-Chapter-9/">Lean Python(Chapter 9)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/23/Lean-Python-Chapter-9/" class="archive-article-date">
-  	<time datetime="2017-09-23T09:21:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Accessing the Web</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> urlparse</div><div class="line"></div><div class="line">url = input(<span class="string">'Web url to fetch:'</span>)</div><div class="line">urlparts = urlparse(url)</div><div class="line"><span class="keyword">if</span> urlparts[<span class="number">0</span>] == <span class="string">''</span>:</div><div class="line">    url = <span class="string">''</span>.join((<span class="string">'http://'</span>, url))</div><div class="line"></div><div class="line">qstring = input(<span class="string">'Enter query string:'</span>)</div><div class="line"><span class="keyword">if</span> len(qstring) &gt; <span class="number">0</span>:</div><div class="line">    url = <span class="string">'?'</span>.join((url, qstring))</div><div class="line">    </div><div class="line">save = input(<span class="string">'Save downloaded page to disk [y/n]?'</span>)</div><div class="line"></div><div class="line">print(<span class="string">'Requesting'</span>, url)</div><div class="line"></div><div class="line"><span class="keyword">try</span>:</div><div class="line">    response = requests.get(url)</div><div class="line">    <span class="keyword">if</span> save.lower() == <span class="string">'y'</span>:</div><div class="line">        geturl = response.url</div><div class="line">        urlparts = urlparse(geturl)</div><div class="line">        netloc = urlparts[<span class="number">1</span>]</div><div class="line">        <span class="keyword">if</span> len(netloc) == <span class="number">0</span>:</div><div class="line">            fname = <span class="string">'save.html'</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            fname = <span class="string">'.'</span>.join((netloc, <span class="string">'html'</span>))</div><div class="line">        print(<span class="string">'Saving to'</span>, fname, <span class="string">'...'</span>)</div><div class="line">        fp = open(fname, <span class="string">'w'</span>, encoding=<span class="string">'utf8'</span>)</div><div class="line">        fp.write(response.text)</div><div class="line">        fp.close()</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        print(response.text)</div><div class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">    print(e.__class__.__name__, e)</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Lean-Python-Chapter-8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/23/Lean-Python-Chapter-8/">Lean Python(Chapter 8)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/23/Lean-Python-Chapter-8/" class="archive-article-date">
-  	<time datetime="2017-09-23T08:42:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Testing Your Code</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/09/23/Lean-Python-Chapter-8/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Lean-Python-Chapter-7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/23/Lean-Python-Chapter-7/">Lean Python(Chapter 7)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/23/Lean-Python-Chapter-7/" class="archive-article-date">
-  	<time datetime="2017-09-23T07:39:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Exception and Error Handling</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/09/23/Lean-Python-Chapter-7/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Lean-Python-Chapter-6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/23/Lean-Python-Chapter-6/">Lean Python(Chapter 6)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/23/Lean-Python-Chapter-6/" class="archive-article-date">
-  	<time datetime="2017-09-23T06:25:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Object Orientation</p>
-</blockquote>
-<h1 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h1><h2 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h2><ul>
-<li>类是对象的模板</li>
+</li>
+</ul>
+<h1 id="创建应用程序"><a href="#创建应用程序" class="headerlink" title="创建应用程序"></a>创建应用程序</h1><ul>
+<li>通过简单的纯文本编辑器创建</li>
+<li>使用 Qt Designer</li>
 </ul>
         
-          <a class="article-more-a" href="/2017/09/23/Lean-Python-Chapter-6/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/11/PyQt-Chapter-7/#more">more >></a>
         
       
 
@@ -666,6 +627,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
         		</li>
       		
 		</ul>
@@ -686,20 +651,20 @@
 
 
   
-    <article id="post-Lean-Python-Chapter-5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-PyQt-Chapter-6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/22/Lean-Python-Chapter-5/">Lean Python(Chapter 5)</a>
+      <a class="article-title" href="/2017/10/10/PyQt-Chapter-6/">PyQt(Chapter 6)</a>
     </h1>
   
 
         
-        <a href="/2017/09/22/Lean-Python-Chapter-5/" class="archive-article-date">
-  	<time datetime="2017-09-22T05:53:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-22</time>
+        <a href="/2017/10/10/PyQt-Chapter-6/" class="archive-article-date">
+  	<time datetime="2017-10-10T10:38:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
 </a>
         
       </header>
@@ -707,10 +672,29 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>Module</p>
+<p>File Handling</p>
 </blockquote>
+<ul>
+<li>文件是数据对象序列的容器, 被描述为字节序列</li>
+<li><p>文件处理是读写文件的技术</p>
+</li>
+<li><p>文件分类</p>
+<ul>
+<li>文本文件: 容易理解, 但是不易更新</li>
+<li>二进制文件: 优化了处理速度. 通过 offset 写入数据, 通过 seek() 方法访问特定的数据</li>
+<li>Pickled files: 用于存储对象. 为了优化性能, 将对象存储为二进制格式</li>
+</ul>
+</li>
+<li><p>处理文件三步走:</p>
+<ul>
+<li>打开文件</li>
+<li>执行文件操作(读、写、更新)</li>
+<li>关闭文件</li>
+</ul>
+</li>
+</ul>
         
-          <a class="article-more-a" href="/2017/09/22/Lean-Python-Chapter-5/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/10/PyQt-Chapter-6/#more">more >></a>
         
       
 
@@ -725,6 +709,78 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-PyQt-Chapter-5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/09/PyQt-Chapter-5/">PyQt(Chapter 5)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/09/PyQt-Chapter-5/" class="archive-article-date">
+  	<time datetime="2017-10-09T03:41:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Classes</p>
+</blockquote>
+<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><ul>
+<li>类是数据和操作的模板</li>
+<li>通过类可以创建实例(对象)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 多个父类用逗号隔开</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">classname</span>[<span class="params">(base-classes)</span>]:</span></div><div class="line">    statement(s)</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/10/09/PyQt-Chapter-5/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
         		</li>
       		
 		</ul>
@@ -747,7 +803,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -838,6 +894,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -846,7 +906,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
+                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -854,19 +914,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -879,6 +927,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -918,15 +974,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -938,11 +994,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -127,31 +127,33 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-RunLoop就这一篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-iOS数据的存储方式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/10/RunLoop就这一篇/">RunLoop就这一篇</a>
+      <a class="article-title" href="/2017/05/12/iOS数据的存储方式/">iOS数据的存储方式</a>
     </h1>
   
 
         
-        <a href="/2017/05/10/RunLoop就这一篇/" class="archive-article-date">
-  	<time datetime="2017-05-10T11:07:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
+        <a href="/2017/05/12/iOS数据的存储方式/" class="archive-article-date">
+  	<time datetime="2017-05-12T02:43:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ul>
-<li>字面意思 : 运行循环</li>
+        <h1 id="沙盒-磁盘"><a href="#沙盒-磁盘" class="headerlink" title="沙盒(磁盘)"></a>沙盒(磁盘)</h1><h2 id="沙盒简介"><a href="#沙盒简介" class="headerlink" title="沙盒简介"></a>沙盒简介</h2><ul>
+<li>每个iOS应用程序都有自己的应用沙盒</li>
+<li>应用沙盒就是文件系统目录,  与其它文件系统隔离</li>
+<li>应用必须待在自己的沙盒里, 其它应用不能访问该沙盒</li>
 </ul>
         
-          <a class="article-more-a" href="/2017/05/10/RunLoop就这一篇/#more">more >></a>
+          <a class="article-more-a" href="/2017/05/12/iOS数据的存储方式/#more">more >></a>
         
       
 
@@ -169,11 +171,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RunLoop</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据</a>
         		</li>
       		
 		</ul>
@@ -194,473 +192,37 @@
 
 
   
-    <article id="post-多线程-NSOperation总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-iOS监测网络状态" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/10/多线程-NSOperation总结/">多线程-NSOperation总结</a>
+      <a class="article-title" href="/2017/05/11/iOS监测网络状态/">iOS监测网络状态</a>
     </h1>
   
 
         
-        <a href="/2017/05/10/多线程-NSOperation总结/" class="archive-article-date">
-  	<time datetime="2017-05-10T05:23:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
+        <a href="/2017/05/11/iOS监测网络状态/" class="archive-article-date">
+  	<time datetime="2017-05-11T06:12:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ul>
-<li>配合使用 NSOperation 和 NSOperationQueue 也能实现多线程编程</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/05/10/多线程-NSOperation总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">NSOperation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-多线程-GCD总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/10/多线程-GCD总结/">多线程-GCD总结</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/10/多线程-GCD总结/" class="archive-article-date">
-  	<time datetime="2017-05-10T04:19:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><ul>
-<li>全称是Grand Central Dispatch，可译为“宏大的中枢调度器”</li>
-<li>纯C语言，提供了非常多强大的函数</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/05/10/多线程-GCD总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">GCD</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-多线程-NSThread的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/10/多线程-NSThread的使用/">多线程-NSThread的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/10/多线程-NSThread的使用/" class="archive-article-date">
-  	<time datetime="2017-05-10T03:59:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一个NSThread对象就代表一条线程</p>
-<h1 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h1><h2 id="1-创建线程"><a href="#1-创建线程" class="headerlink" title="1. 创建线程"></a>1. 创建线程</h2><ul>
-<li>init<ul>
-<li>具体使用: 自定义线程类继承自NSThread, 重写 main 方法(自定义任务、start 方法中会调用 main 方法)</li>
-</ul>
-</li>
-<li>initWithTarget</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/05/10/多线程-NSThread的使用/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NSThread</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-多线程-线程间通信" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/10/多线程-线程间通信/">多线程-线程间通信</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/10/多线程-线程间通信/" class="archive-article-date">
-  	<time datetime="2017-05-10T03:54:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>在1个进程中，线程往往不是孤立存在的，多个线程之间需要经常进行通信</p>
-        
-          <a class="article-more-a" href="/2017/05/10/多线程-线程间通信/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-多线程-安全隐患" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/09/多线程-安全隐患/">多线程-安全隐患</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/09/多线程-安全隐患/" class="archive-article-date">
-  	<time datetime="2017-05-09T10:19:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="资源共享问题"><a href="#资源共享问题" class="headerlink" title="资源共享问题"></a>资源共享问题</h1><ul>
-<li>1块资源可能会被多个线程共享，也就是多个线程可能会访问同一块资源</li>
-<li>比如: 多个线程访问同一个对象、同一个变量、同一个文件</li>
-<li>当多个线程访问同一块资源时，很容易引发数据错乱和数据安全问题</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/05/09/多线程-安全隐患/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-多线程-iOS中的实现方案" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/09/多线程-iOS中的实现方案/">多线程-iOS中的实现方案</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/09/多线程-iOS中的实现方案/" class="archive-article-date">
-  	<time datetime="2017-05-09T10:03:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <table>
-<thead>
-<tr>
-<th>方案</th>
-<th>简介</th>
-<th>语言</th>
-<th>线程生命周期</th>
-<th>使用频率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pthread</td>
-<td>一套通用的多线程API<br>适用于Unix/Linux/Windows等系统<br>跨平台/可移植<br>使用难度大</td>
-<td>C</td>
-<td>程序员管理</td>
-<td>几乎不用</td>
-</tr>
-<tr>
-<td>NSThread</td>
-<td>使用更加面向对象<br>简单易用，可直接操作线程对象</td>
-<td>OC</td>
-<td>程序员管理</td>
-<td>偶尔使用</td>
-</tr>
-<tr>
-<td>GCD</td>
-<td>旨在替代NSThread等线程技术<br>充分利用设备的多核</td>
-<td>C</td>
-<td>自动管理</td>
-<td>经常使用</td>
-</tr>
-<tr>
-<td>NSOperation</td>
-<td>基于GCD（底层是GCD）<br>比GCD多了一些更简单实用的功能<br>使用更加面向对象</td>
-<td>OC</td>
-<td>自动管理</td>
-<td>经常使用</td>
-</tr>
-</tbody>
-</table>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-多线程-iOS中的主线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/09/多线程-iOS中的主线程/">多线程-iOS中的主线程</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/09/多线程-iOS中的主线程/" class="archive-article-date">
-  	<time datetime="2017-05-09T09:57:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>一个iOS程序运行后，默认会开启1条线程, 称为“主线程”或“UI线程”</li>
-</ul>
-<h2 id="主线程的主要作用"><a href="#主线程的主要作用" class="headerlink" title="主线程的主要作用"></a>主线程的主要作用</h2><ul>
-<li>显示 / 刷新UI界面</li>
-<li>处理UI事件<ul>
-<li>点击事件</li>
-<li>滚动事件</li>
-<li>拖拽事件</li>
-<li>…</li>
+        <h1 id="为什么要监听"><a href="#为什么要监听" class="headerlink" title="为什么要监听"></a>为什么要监听</h1><ul>
+<li>让用户了解自己的网络状态，防止一些误会, 怪应用无能</li>
+<li>根据用户的网络状态进行智能处理，节省用户流量，提高用户体验<ul>
+<li>WIFI\3G网络：自动下载高清图片</li>
+<li>低速网络：只下载缩略图</li>
+<li>没有网络：只显示离线的缓存数据</li>
 </ul>
 </li>
 </ul>
         
-          <a class="article-more-a" href="/2017/05/09/多线程-iOS中的主线程/#more">more >></a>
+          <a class="article-more-a" href="/2017/05/11/iOS监测网络状态/#more">more >></a>
         
       
 
@@ -675,136 +237,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-多线程-基本概念和原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/09/多线程-基本概念和原理/">多线程-基本概念和原理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/09/多线程-基本概念和原理/" class="archive-article-date">
-  	<time datetime="2017-05-09T09:42:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><ul>
-<li>在操作系统中正在运行的一个应用程序</li>
-<li>每个进程之间是独立的，每个进程均运行在其专用且受保护的内存空间内</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/05/09/多线程-基本概念和原理/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-一款基于AFNetworking封装的网络框架" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/09/一款基于AFNetworking封装的网络框架/">一款基于AFNetworking封装的网络框架</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/09/一款基于AFNetworking封装的网络框架/" class="archive-article-date">
-  	<time datetime="2017-05-09T08:54:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://github.com/Little-Captain/LCNetworking" target="_blank" rel="external">框架地址</a></p>
-<h1 id="AFNetworking-存在的问题"><a href="#AFNetworking-存在的问题" class="headerlink" title="AFNetworking 存在的问题"></a>AFNetworking 存在的问题</h1>
-        
-          <a class="article-more-a" href="/2017/05/09/一款基于AFNetworking封装的网络框架/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Objective-C</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -829,9 +261,520 @@
 
 
   
+    <article id="post-iOS文件上传" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/11/iOS文件上传/">iOS文件上传</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/11/iOS文件上传/" class="archive-article-date">
+  	<time datetime="2017-05-11T06:06:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="设置请求头"><a href="#设置请求头" class="headerlink" title="设置请求头"></a>设置请求头</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[request setValue:<span class="string">@"multipart/form-data; boundary=分割线"</span> forHTTPHeaderField:<span class="string">@"Content-Type"</span>];</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/05/11/iOS文件上传/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件上传</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-iOS文件下载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/11/iOS文件下载/">iOS文件下载</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/11/iOS文件下载/" class="archive-article-date">
+  	<time datetime="2017-05-11T06:02:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="小文件"><a href="#小文件" class="headerlink" title="小文件"></a>小文件</h1><ul>
+<li>利用NSURLConnection发送一个HTTP请求下载</li>
+<li>直接用NSData的 +dataWithContentsOfURL</li>
+<li>下载图片, 可以利用SDWebImage框架</li>
+</ul>
+        
+          <a class="article-more-a" href="/2017/05/11/iOS文件下载/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">文件下载</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-iOS解压缩" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/11/iOS解压缩/">iOS解压缩</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/11/iOS解压缩/" class="archive-article-date">
+  	<time datetime="2017-05-11T05:55:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="使用第三方框架"><a href="#使用第三方框架" class="headerlink" title="使用第三方框架"></a>使用第三方框架</h1><p><a href="https://github.com/ZipArchive/ZipArchive" target="_blank" rel="external">框架地址</a></p>
+<ul>
+<li>ZipArchive</li>
+<li>需要引入libz.dylib框架</li>
+</ul>
+        
+          <a class="article-more-a" href="/2017/05/11/iOS解压缩/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">解压缩</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-iOS网络-NSURLSession" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/11/iOS网络-NSURLSession/">iOS网络-NSURLSession</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/11/iOS网络-NSURLSession/" class="archive-article-date">
+  	<time datetime="2017-05-11T03:14:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Task的类型"><a href="#Task的类型" class="headerlink" title="Task的类型"></a>Task的类型</h1><p><img src="/assets/images/网络/Task类型.png" alt=""></p>
+        
+          <a class="article-more-a" href="/2017/05/11/iOS网络-NSURLSession/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-iOS网络-NSURLConnection" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/11/iOS网络-NSURLConnection/">iOS网络-NSURLConnection</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/11/iOS网络-NSURLConnection/" class="archive-article-date">
+  	<time datetime="2017-05-11T03:01:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><ul>
+<li>负责发送请求，建立客户端和服务器的连接</li>
+<li>发送数据给服务器，并收集来自服务器的响应数据</li>
+</ul>
+        
+          <a class="article-more-a" href="/2017/05/11/iOS网络-NSURLConnection/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-iOS网络-HTTP" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/11/iOS网络-HTTP/">iOS网络-HTTP</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/11/iOS网络-HTTP/" class="archive-article-date">
+  	<time datetime="2017-05-11T02:09:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h2 id="如何找到服务器"><a href="#如何找到服务器" class="headerlink" title="如何找到服务器?"></a>如何找到服务器?</h2><ul>
+<li>客户端通过URL找到想要连接的服务器</li>
+</ul>
+        
+          <a class="article-more-a" href="/2017/05/11/iOS网络-HTTP/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-iOS网络-基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/11/iOS网络-基础/">iOS网络-基础</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/11/iOS网络-基础/" class="archive-article-date">
+  	<time datetime="2017-05-11T01:53:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="学习网络编程的意义"><a href="#学习网络编程的意义" class="headerlink" title="学习网络编程的意义"></a>学习网络编程的意义</h1><ul>
+<li>在移动互联网时代，移动应用的特征<ul>
+<li>几乎所有应用都需要用到网络</li>
+<li>只有通过网络跟外界进行数据交互、数据更新，应用才能保持新鲜、活力</li>
+<li>如果没有了网络，也就缺少了数据变化，无论外观多么华丽，终将变成一潭死水</li>
+</ul>
+</li>
+<li>网络编程是一种实时更新应用数据的常用手段</li>
+<li>网络编程是开发优秀网络应用的前提和基础</li>
+</ul>
+        
+          <a class="article-more-a" href="/2017/05/11/iOS网络-基础/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Linux任务管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/11/Linux任务管理/">Linux任务管理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/11/Linux任务管理/" class="archive-article-date">
+  	<time datetime="2017-05-11T01:36:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="amp"><a href="#amp" class="headerlink" title="&amp;"></a>&amp;</h1><ul>
+<li>加在命令后, 把这个任务放入到后台执行</li>
+</ul>
+<h1 id="ctrl-z"><a href="#ctrl-z" class="headerlink" title="ctrl + z"></a>ctrl + z</h1><ul>
+<li>可以将正在前台执行的命令放入后台, 并处于暂停状态</li>
+</ul>
+        
+          <a class="article-more-a" href="/2017/05/11/Linux任务管理/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
     </nav>
   
 
@@ -922,6 +865,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -930,7 +877,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
+                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -938,19 +885,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -963,6 +898,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1002,15 +945,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件上传</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">文件下载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1022,11 +965,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
               <li class="article-tag-list-item">
