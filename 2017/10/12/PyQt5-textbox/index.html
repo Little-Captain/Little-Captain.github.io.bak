@@ -6,23 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>PHP开发App接口 | Little Captain&#39;s Blog</title>
+  <title>PyQt5 textbox | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="App接口简介App接口介绍 App(通信)接口定义 接口地址: url 接口文件: 服务器php文件(处理一些业务逻辑)  接口数据: 服务器返回的json、xml    App如何进行通信">
-<meta name="keywords" content="后端,PHP">
+  <meta name="description" content="textbox The widget is called QLineEdit and has the methods setText() to set the textbox value and text() to get the value. We can set the size of the textbox using the resize(width,height) method. Th">
+<meta name="keywords" content="Python,PyQt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP开发App接口">
-<meta property="og:url" content="http://yoursite.com/2017/05/08/PHP开发App接口/index.html">
+<meta property="og:title" content="PyQt5 textbox">
+<meta property="og:url" content="http://yoursite.com/2017/10/12/PyQt5-textbox/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="App接口简介App接口介绍 App(通信)接口定义 接口地址: url 接口文件: 服务器php文件(处理一些业务逻辑)  接口数据: 服务器返回的json、xml    App如何进行通信">
-<meta property="og:image" content="http://yoursite.com/assets/images/php/CS交互.png">
-<meta property="og:image" content="http://yoursite.com/assets/images/php/缓存流程.png">
-<meta property="og:image" content="http://yoursite.com/assets/images/php/定时任务crontab格式.png">
-<meta property="og:updated_time" content="2017-05-11T01:29:58.000Z">
+<meta property="og:description" content="textbox The widget is called QLineEdit and has the methods setText() to set the textbox value and text() to get the value. We can set the size of the textbox using the resize(width,height) method. Th">
+<meta property="og:updated_time" content="2017-10-12T02:13:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP开发App接口">
-<meta name="twitter:description" content="App接口简介App接口介绍 App(通信)接口定义 接口地址: url 接口文件: 服务器php文件(处理一些业务逻辑)  接口数据: 服务器返回的json、xml    App如何进行通信">
-<meta name="twitter:image" content="http://yoursite.com/assets/images/php/CS交互.png">
+<meta name="twitter:title" content="PyQt5 textbox">
+<meta name="twitter:description" content="textbox The widget is called QLineEdit and has the methods setText() to set the textbox value and text() to get the value. We can set the size of the textbox using the resize(width,height) method. Th">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -134,172 +130,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-PHP开发App接口" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-PyQt5-textbox" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      PHP开发App接口
+      PyQt5 textbox
     </h1>
   
 
         
-        <a href="/2017/05/08/PHP开发App接口/" class="archive-article-date">
-  	<time datetime="2017-05-07T23:27:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-08</time>
+        <a href="/2017/10/12/PyQt5-textbox/" class="archive-article-date">
+  	<time datetime="2017-10-12T01:52:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="App接口简介"><a href="#App接口简介" class="headerlink" title="App接口简介"></a>App接口简介</h1><h2 id="App接口介绍"><a href="#App接口介绍" class="headerlink" title="App接口介绍"></a>App接口介绍</h2><ul>
-<li>App(通信)接口定义<ul>
-<li>接口地址: url</li>
-<li>接口文件: 服务器php文件(处理一些业务逻辑) </li>
-<li>接口数据: 服务器返回的json、xml</li>
-</ul>
-</li>
-</ul>
-<h2 id="App如何进行通信"><a href="#App如何进行通信" class="headerlink" title="App如何进行通信"></a>App如何进行通信</h2><a id="more"></a>
-<p><img src="/assets/images/php/CS交互.png" alt=""></p>
-<h2 id="通信格式区别-json、xml对比"><a href="#通信格式区别-json、xml对比" class="headerlink" title="通信格式区别(json、xml对比)"></a>通信格式区别(json、xml对比)</h2><ul>
-<li>可读性方面: xml有更清晰的结构</li>
-<li>生成数据方面: json更简单易用</li>
-<li>传输速度方面: json更节省流量</li>
-</ul>
-<h2 id="App接口做的哪些事儿"><a href="#App接口做的哪些事儿" class="headerlink" title="App接口做的哪些事儿"></a>App接口做的哪些事儿</h2><ul>
-<li>获取数据: 从数据库中或缓存中获取数据, 然后通过接口数据返回给客户端</li>
-<li>提交数据: 通过接口提交数据给服务器, 然后服务器入库处理, 或其他处理</li>
-</ul>
-<h1 id="封装通信接口方法"><a href="#封装通信接口方法" class="headerlink" title="封装通信接口方法"></a>封装通信接口方法</h1><h2 id="JSON方式封装接口数据方法"><a href="#JSON方式封装接口数据方法" class="headerlink" title="JSON方式封装接口数据方法"></a>JSON方式封装接口数据方法</h2><ul>
-<li>PHP生成JSON数据: json_encode(只接受 uft-8 编码)</li>
-<li>通信数据标准格式的必要字段<ul>
-<li>code: 状态码</li>
-<li>message: 提示信息(数据返回成功、 邮箱格式不正确等等) </li>
-<li>data: 具体数据</li>
-</ul>
-</li>
-</ul>
-<h2 id="XML方式封装接口数据方法"><a href="#XML方式封装接口数据方法" class="headerlink" title="XML方式封装接口数据方法"></a>XML方式封装接口数据方法</h2><ul>
-<li>PHP生成XML数据<ul>
-<li>方式1: 组装字符串</li>
-<li>方式2: 使用系统类(DOMDocument、XMLWriter、SimpleXML)</li>
-</ul>
-</li>
-<li>XML方式封装接口数据方法<ul>
-<li>封装方法</li>
-<li>data数据分析</li>
-</ul>
-</li>
-</ul>
-<h2 id="综合通信方式封装"><a href="#综合通信方式封装" class="headerlink" title="综合通信方式封装"></a>综合通信方式封装</h2><h1 id="核心技术"><a href="#核心技术" class="headerlink" title="核心技术"></a>核心技术</h1><h2 id="缓存技术"><a href="#缓存技术" class="headerlink" title="缓存技术"></a>缓存技术</h2><p><img src="/assets/images/php/缓存流程.png" alt=""></p>
-<ul>
-<li>目的: 减小服务器的压力</li>
-<li>静态缓存: 保存在磁盘上的静态文件, 用PHP生成数据放入静态文件中</li>
-<li>Memcache、redis</li>
-<li>PHP操作缓存<ul>
-<li><ol>
-<li>生成缓存</li>
-</ol>
-</li>
-<li><ol>
-<li>获取缓存</li>
-</ol>
-</li>
-<li><ol>
-<li>删除缓存</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Memcache、redis"><a href="#Memcache、redis" class="headerlink" title="Memcache、redis"></a>Memcache、redis</h2><h3 id="基本了解"><a href="#基本了解" class="headerlink" title="基本了解"></a>基本了解</h3><ul>
-<li>Memcache和Redis都是用来管理数据的</li>
-<li>他们数据都是存放在内存里的</li>
-<li>Redis可以定期将数据备份到磁盘中(持久化)</li>
-<li>Memcache只是简单的k/v缓存</li>
-<li>Redis不仅仅支持简单的k/v类型的数据, 同时还提供list, set, hash等数据结构的存储</li>
-</ul>
-<h3 id="redis数据操作-终端"><a href="#redis数据操作-终端" class="headerlink" title="redis数据操作(终端)"></a>redis数据操作(终端)</h3><ul>
-<li><ol>
-<li>开启redis客户端: redis-server 6379.conf</li>
-</ol>
-</li>
-<li><ol>
-<li>设置缓存值: set key value</li>
-</ol>
-</li>
-<li><ol>
-<li>获取缓存数据: get key</li>
-</ol>
-</li>
-<li><ol>
-<li>设置过期时间: setex key time(s) ‘cache’</li>
-</ol>
-</li>
-<li><ol>
-<li>删除缓存: del key</li>
-</ol>
-</li>
-</ul>
-<h3 id="redis数据操作-php"><a href="#redis数据操作-php" class="headerlink" title="redis数据操作(php)"></a>redis数据操作(php)</h3><ul>
-<li><ol>
-<li>安装phpredis扩展</li>
-</ol>
-</li>
-<li><ol>
-<li>php链接redis服务: connect</li>
-</ol>
-</li>
-<li><ol>
-<li>set: 设置缓存</li>
-</ol>
-</li>
-<li><ol>
-<li>get: 获取缓存</li>
-</ol>
-</li>
-</ul>
-<h3 id="PHP操作Memcache"><a href="#PHP操作Memcache" class="headerlink" title="PHP操作Memcache"></a>PHP操作Memcache</h3><ul>
-<li><ol>
-<li>安装memcache扩展</li>
-</ol>
-</li>
-<li><ol>
-<li>连接服务: connect</li>
-</ol>
-</li>
-<li><ol>
-<li>set: 设置缓存</li>
-</ol>
-</li>
-<li><ol>
-<li>get: 获取缓存</li>
-</ol>
-</li>
-</ul>
-<h2 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h2><h3 id="如何设置定时任务常用命令"><a href="#如何设置定时任务常用命令" class="headerlink" title="如何设置定时任务常用命令"></a>如何设置定时任务常用命令</h3><p><img src="/assets/images/php/定时任务crontab格式.png" alt=""></p>
-<ul>
-<li><ol>
-<li>定时任务服务提供crontab命令来设定服务</li>
-</ol>
-</li>
-<li><ol>
-<li>crontab -e: 编辑某个用户的cron服务</li>
-</ol>
-</li>
-<li><ol>
-<li>crontab -l: 列出某个用户cron服务的详细内容</li>
-</ol>
-</li>
-<li><ol>
-<li>crontab -r: 删除每个用户的cron服务</li>
-</ol>
-</li>
-</ul>
-<h3 id="如何定时运行PHP程序"><a href="#如何定时运行PHP程序" class="headerlink" title="如何定时运行PHP程序"></a>如何定时运行PHP程序</h3>
+        <blockquote>
+<p>textbox</p>
+<p>The widget is called <code>QLineEdit</code> and has the methods <code>setText()</code> to set the textbox value and <code>text()</code> to get the value.</p>
+<p>We can set the <code>size</code> of the textbox using the resize(width,height) method. The <code>position</code> can be set using the move(x,y) method or using a grid layout.</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, QApplication, QWidget, QPushButton, QAction, QLineEdit, QMessageBox</div><div class="line"><span class="keyword">from</span> PyQt5.QtGui <span class="keyword">import</span> QIcon</div><div class="line"><span class="keyword">from</span> PyQt5.QtCore <span class="keyword">import</span> pyqtSlot</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span><span class="params">(QMainWindow)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super().__init__()</div><div class="line">        self.title = <span class="string">'PyQt5 textbox - pythonspot.com'</span></div><div class="line">        self.left = <span class="number">10</span></div><div class="line">        self.top = <span class="number">10</span></div><div class="line">        self.width = <span class="number">400</span></div><div class="line">        self.height = <span class="number">140</span></div><div class="line">        self.initUI()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initUI</span><span class="params">(self)</span>:</span></div><div class="line">        self.setWindowTitle(self.title)</div><div class="line">        self.setGeometry(self.left, self.top, self.width, self.height)</div><div class="line"></div><div class="line">        <span class="comment"># 创建 textbox</span></div><div class="line">        self.textbox = QLineEdit(self)</div><div class="line">        self.textbox.move(<span class="number">20</span>, <span class="number">20</span>)</div><div class="line">        self.textbox.resize(<span class="number">280</span>, <span class="number">40</span>)</div><div class="line"></div><div class="line">        <span class="comment"># 在 window 中创建一个 button</span></div><div class="line">        self.button = QPushButton(<span class="string">'Show text'</span>, self)</div><div class="line">        self.button.move(<span class="number">20</span>, <span class="number">80</span>)</div><div class="line"></div><div class="line">        <span class="comment"># 将 button 和 on_click 函数连接</span></div><div class="line">        self.button.clicked.connect(self.on_click)</div><div class="line">        self.show()</div><div class="line"></div><div class="line"><span class="meta">    @pyqtSlot()</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_click</span><span class="params">(self)</span>:</span></div><div class="line">        textboxValue = self.textbox.text()</div><div class="line">        QMessageBox.question(self, <span class="string">'Message - pythonspot.com'</span>, <span class="string">"You typed: "</span> + textboxValue, QMessageBox.Ok,</div><div class="line">                             QMessageBox.Ok)</div><div class="line">        self.textbox.setText(<span class="string">''</span>)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app = QApplication(sys.argv)</div><div class="line">    ex = App()</div><div class="line">    sys.exit(app.exec_())</div></pre></td></tr></table></figure>
+
       
 
       
@@ -312,11 +170,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
         		</li>
       		
 		</ul>
@@ -372,7 +230,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/08/PHP开发App接口/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/12/PyQt5-textbox/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -386,18 +244,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/08/Git基本操作/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Git基本操作
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/07/网络模型/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">网络模型</div>
+    <a href="/2017/10/12/PyQt5-messagebox/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PyQt5 messagebox</div>
       <i class="icon-circle-right"></i>
     </a>
   
