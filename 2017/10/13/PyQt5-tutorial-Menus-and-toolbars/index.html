@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/13/PyQt5-tutorial-Menus-and-toolbars/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="QMainWindow The QMainWindow class provides a main application window. This enables to create a classic application skeleton with a statusbar, toolbars, and a menubar.">
-<meta property="og:updated_time" content="2017-10-13T06:20:38.000Z">
+<meta property="og:updated_time" content="2017-10-13T08:17:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt5 tutorial(Menus and toolbars)">
 <meta name="twitter:description" content="QMainWindow The QMainWindow class provides a main application window. This enables to create a classic application skeleton with a statusbar, toolbars, and a menubar.">
@@ -167,7 +167,16 @@
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, QAction, QMenu, QApplication</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span><span class="params">(QMainWindow)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super().__init__()</div><div class="line"></div><div class="line">        self.initUI()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initUI</span><span class="params">(self)</span>:</span></div><div class="line">        menubar = self.menuBar()</div><div class="line">        <span class="comment"># 针对 macOS 适配</span></div><div class="line">        menubar.setNativeMenuBar(<span class="keyword">False</span>)</div><div class="line">        fileMenu = menubar.addMenu(<span class="string">'File'</span>)</div><div class="line"></div><div class="line">        <span class="comment"># New menu is created with QMenu.</span></div><div class="line">        impMenu = QMenu(<span class="string">'Import'</span>, self)</div><div class="line">        impAct = QAction(<span class="string">'Import mail'</span>, self)</div><div class="line">        <span class="comment"># An action is added to the submenu with addAction().</span></div><div class="line">        impMenu.addAction(impAct)</div><div class="line"></div><div class="line">        newAct = QAction(<span class="string">'New'</span>, self)</div><div class="line"></div><div class="line">        fileMenu.addAction(newAct)</div><div class="line">        fileMenu.addMenu(impMenu)</div><div class="line"></div><div class="line">        self.setGeometry(<span class="number">300</span>, <span class="number">300</span>, <span class="number">300</span>, <span class="number">200</span>)</div><div class="line">        self.setWindowTitle(<span class="string">'Submenu'</span>)</div><div class="line">        self.show()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app = QApplication(sys.argv)</div><div class="line">    ex = Example()</div><div class="line">    sys.exit(app.exec_())</div></pre></td></tr></table></figure>
 <h1 id="Check-menu"><a href="#Check-menu" class="headerlink" title="Check menu"></a>Check menu</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, QAction, QApplication</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span><span class="params">(QMainWindow)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super().__init__()</div><div class="line"></div><div class="line">        self.initUI()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initUI</span><span class="params">(self)</span>:</span></div><div class="line"></div><div class="line">        self.statusbar = self.statusBar()</div><div class="line">        self.statusbar.showMessage(<span class="string">'Ready'</span>)</div><div class="line"></div><div class="line">        menubar = self.menuBar()</div><div class="line">        <span class="comment"># 针对 macOS 适配</span></div><div class="line">        menubar.setNativeMenuBar(<span class="keyword">False</span>)</div><div class="line">        viewMenu = menubar.addMenu(<span class="string">'View'</span>)</div><div class="line">        <span class="comment"># 创建 action, 使能 check</span></div><div class="line">        viewStatAct = QAction(<span class="string">'View statusbar'</span>, self, checkable=<span class="keyword">True</span>)</div><div class="line">        <span class="comment"># 设置相应的状态栏提示</span></div><div class="line">        viewStatAct.setStatusTip(<span class="string">'View statusbar'</span>)</div><div class="line">        <span class="comment"># 默认 checked</span></div><div class="line">        viewStatAct.setChecked(<span class="keyword">True</span>)</div><div class="line">        <span class="comment"># 连接方法 toggleMenu</span></div><div class="line">        viewStatAct.triggered.connect(self.toggleMenu)</div><div class="line">        <span class="comment"># 添加 action</span></div><div class="line">        viewMenu.addAction(viewStatAct)</div><div class="line"></div><div class="line">        self.setGeometry(<span class="number">300</span>, <span class="number">300</span>, <span class="number">300</span>, <span class="number">200</span>)</div><div class="line">        self.setWindowTitle(<span class="string">'Check menu'</span>)</div><div class="line">        self.show()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">toggleMenu</span><span class="params">(self, state)</span>:</span></div><div class="line">        <span class="comment"># 根据状态设置状态栏是否隐藏</span></div><div class="line">        <span class="keyword">if</span> state:</div><div class="line">            self.statusbar.show()</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            self.statusbar.hide()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app = QApplication(sys.argv)</div><div class="line">    ex = Example()</div><div class="line">    sys.exit(app.exec_())</div></pre></td></tr></table></figure>
-<h1 id="Context-menu"><a href="#Context-menu" class="headerlink" title="Context menu"></a>Context menu</h1>
+<h1 id="Context-menu"><a href="#Context-menu" class="headerlink" title="Context menu"></a>Context menu</h1><blockquote>
+<p>A context menu, also called a popup menu, is a list of commands that appears under some context. </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, qApp, QMenu, QApplication</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span><span class="params">(QMainWindow)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super().__init__()</div><div class="line"></div><div class="line">        self.initUI()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initUI</span><span class="params">(self)</span>:</span></div><div class="line">        self.setGeometry(<span class="number">300</span>, <span class="number">300</span>, <span class="number">300</span>, <span class="number">200</span>)</div><div class="line">        self.setWindowTitle(<span class="string">'Context menu'</span>)</div><div class="line">        self.show()</div><div class="line">    <span class="comment"># To work with a context menu, we have to</span></div><div class="line">    <span class="comment"># reimplement the contextMenuEvent() method.</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">contextMenuEvent</span><span class="params">(self, event)</span>:</span></div><div class="line">        cmenu = QMenu(self)</div><div class="line"></div><div class="line">        newAct = cmenu.addAction(<span class="string">"New"</span>)</div><div class="line">        opnAct = cmenu.addAction(<span class="string">"Open"</span>)</div><div class="line">        quitAct = cmenu.addAction(<span class="string">"Quit"</span>)</div><div class="line">        <span class="comment"># The context menu is displayed with the exec_() method.</span></div><div class="line">        <span class="comment"># The get the coordinates of the mouse pointer from the event object.</span></div><div class="line">        <span class="comment"># The mapToGlobal() method translates the widget coordinates</span></div><div class="line">        <span class="comment"># to the global screen coordinates.</span></div><div class="line">        action = cmenu.exec_(self.mapToGlobal(event.pos()))</div><div class="line"></div><div class="line">        <span class="keyword">if</span> action == quitAct:</div><div class="line">            qApp.quit()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app = QApplication(sys.argv)</div><div class="line">    ex = Example()</div><div class="line">    sys.exit(app.exec_())</div></pre></td></tr></table></figure>
+<h1 id="Toolbar"><a href="#Toolbar" class="headerlink" title="Toolbar"></a>Toolbar</h1><blockquote>
+<p>Toolbars provide a quick access to the most frequently used commands.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, QAction, qApp, QApplication</div><div class="line"><span class="keyword">from</span> PyQt5.QtGui <span class="keyword">import</span> QIcon</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span><span class="params">(QMainWindow)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super().__init__()</div><div class="line"></div><div class="line">        self.initUI()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initUI</span><span class="params">(self)</span>:</span></div><div class="line">        exitAct = QAction(QIcon(<span class="string">'web.png'</span>), <span class="string">'Exit'</span>, self)</div><div class="line">        exitAct.setShortcut(<span class="string">'Ctrl+Q'</span>)</div><div class="line">        exitAct.triggered.connect(qApp.quit)</div><div class="line">        <span class="comment"># The toolbar is created with the addToolBar() method.</span></div><div class="line">        self.toolbar = self.addToolBar(<span class="string">'Exit'</span>)</div><div class="line">        self.toolbar.addAction(exitAct)</div><div class="line"></div><div class="line">        self.setGeometry(<span class="number">300</span>, <span class="number">300</span>, <span class="number">300</span>, <span class="number">200</span>)</div><div class="line">        self.setWindowTitle(<span class="string">'Toolbar'</span>)</div><div class="line">        self.show()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app = QApplication(sys.argv)</div><div class="line">    ex = Example()</div><div class="line">    sys.exit(app.exec_())</div></pre></td></tr></table></figure>
+<h1 id="Putting-it-together"><a href="#Putting-it-together" class="headerlink" title="Putting it together"></a>Putting it together</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, QTextEdit, QAction, QApplication</div><div class="line"><span class="keyword">from</span> PyQt5.QtGui <span class="keyword">import</span> QIcon</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span><span class="params">(QMainWindow)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super().__init__()</div><div class="line"></div><div class="line">        self.initUI()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initUI</span><span class="params">(self)</span>:</span></div><div class="line">        textEdit = QTextEdit()</div><div class="line">        self.setCentralWidget(textEdit)</div><div class="line"></div><div class="line">        exitAct = QAction(QIcon(<span class="string">'web.png'</span>), <span class="string">'Exit'</span>, self)</div><div class="line">        exitAct.setShortcut(<span class="string">'Ctrl+Q'</span>)</div><div class="line">        exitAct.setStatusTip(<span class="string">'Exit application'</span>)</div><div class="line">        exitAct.triggered.connect(self.close)</div><div class="line"></div><div class="line">        self.statusBar()</div><div class="line"></div><div class="line">        menubar = self.menuBar()</div><div class="line">        <span class="comment"># 针对 macOS 适配</span></div><div class="line">        menubar.setNativeMenuBar(<span class="keyword">False</span>)</div><div class="line">        fileMenu = menubar.addMenu(<span class="string">'&amp;File'</span>)</div><div class="line">        fileMenu.addAction(exitAct)</div><div class="line"></div><div class="line">        toolbar = self.addToolBar(<span class="string">'Exit'</span>)</div><div class="line">        toolbar.addAction(exitAct)</div><div class="line"></div><div class="line">        self.setGeometry(<span class="number">300</span>, <span class="number">300</span>, <span class="number">350</span>, <span class="number">250</span>)</div><div class="line">        self.setWindowTitle(<span class="string">'Main window'</span>)</div><div class="line">        self.show()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app = QApplication(sys.argv)</div><div class="line">    ex = Example()</div><div class="line">    sys.exit(app.exec_())</div></pre></td></tr></table></figure>
+
       
 
       
@@ -253,6 +262,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/10/13/PyQt5-tutorial-Layout-management/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          PyQt5 tutorial(Layout management)
+        
+      </div>
+    </a>
   
   
     <a href="/2017/10/12/PyQt5-tutorial-First-programs/" id="article-nav-older" class="article-nav-link-wrap">
@@ -357,11 +375,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
+                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
+                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -397,6 +415,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
@@ -405,11 +431,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码规范</a>
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -453,15 +479,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Swift</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -477,15 +499,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,10 +524,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
             
             <div class="clearfix"></div>
