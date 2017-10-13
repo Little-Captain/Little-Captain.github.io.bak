@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Little Captain&#39;s Blog</title>
+  <title>PyQt5 tutorial(Menus and toolbars) | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Little Captain&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="QMainWindow The QMainWindow class provides a main application window. This enables to create a classic application skeleton with a statusbar, toolbars, and a menubar.">
+<meta name="keywords" content="Python,PyQt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PyQt5 tutorial(Menus and toolbars)">
+<meta property="og:url" content="http://yoursite.com/2017/10/13/PyQt5-tutorial-Menus-and-toolbars/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
+<meta property="og:description" content="QMainWindow The QMainWindow class provides a main application window. This enables to create a classic application skeleton with a statusbar, toolbars, and a menubar.">
+<meta property="og:updated_time" content="2017-10-13T06:20:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Little Captain&#39;s Blog">
+<meta name="twitter:title" content="PyQt5 tutorial(Menus and toolbars)">
+<meta name="twitter:description" content="QMainWindow The QMainWindow class provides a main application window. This enables to create a classic application skeleton with a statusbar, toolbars, and a menubar.">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -125,36 +130,51 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-PyQt5-tutorial-Menus-and-toolbars" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PyQt5 tutorial(Menus and toolbars)
+    </h1>
+  
+
+        
+        <a href="/2017/10/13/PyQt5-tutorial-Menus-and-toolbars/" class="archive-article-date">
+  	<time datetime="2017-10-13T03:10:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-13</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="QMainWindow"><a href="#QMainWindow" class="headerlink" title="QMainWindow"></a>QMainWindow</h1><blockquote>
+<p>The <code>QMainWindow</code> class provides a main application window. This enables to create a classic application skeleton with a statusbar, toolbars, and a menubar.</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Statusbar"><a href="#Statusbar" class="headerlink" title="Statusbar"></a>Statusbar</h1><blockquote>
+<p>A statusbar is a widget that is used for displaying status information.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, QApplication</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span><span class="params">(QMainWindow)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super().__init__()</div><div class="line"></div><div class="line">        self.initUI()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initUI</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="comment"># statusBar 是懒加载的</span></div><div class="line">        <span class="comment"># To get the statusbar, we call the statusBar() method </span></div><div class="line">        <span class="comment"># of the QtGui.QMainWindow class. The first call of </span></div><div class="line">        <span class="comment"># the method creates a status bar. </span></div><div class="line">        <span class="comment"># Subsequent calls return the statusbar object. </span></div><div class="line">        <span class="comment"># The showMessage() displays a message on the statusbar.</span></div><div class="line">        self.statusBar().showMessage(<span class="string">'Ready'</span>)</div><div class="line"></div><div class="line">        self.setGeometry(<span class="number">300</span>, <span class="number">300</span>, <span class="number">250</span>, <span class="number">150</span>)</div><div class="line">        self.setWindowTitle(<span class="string">'Statusbar'</span>)</div><div class="line">        self.show()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app = QApplication(sys.argv)</div><div class="line">    ex = Example()</div><div class="line">    sys.exit(app.exec_())</div></pre></td></tr></table></figure>
+<h1 id="Simple-menu"><a href="#Simple-menu" class="headerlink" title="Simple menu"></a>Simple menu</h1><blockquote>
+<p>A menubar is a common part of a GUI application. It is a group of commands located in various menus. (Mac OS treats menubars differently. To get a similar outcome, we can add the following line: menubar.setNativeMenuBar(False).)</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, QAction, qApp, QApplication</div><div class="line"><span class="keyword">from</span> PyQt5.QtGui <span class="keyword">import</span> QIcon</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span><span class="params">(QMainWindow)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super().__init__()</div><div class="line"></div><div class="line">        self.initUI()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initUI</span><span class="params">(self)</span>:</span></div><div class="line">        exitAct = QAction(QIcon(<span class="string">'exit.png'</span>), <span class="string">'&amp;Exit'</span>, self)</div><div class="line">        exitAct.setShortcut(<span class="string">'Ctrl+Q'</span>)</div><div class="line">        exitAct.setStatusTip(<span class="string">'Exit application'</span>)</div><div class="line">        exitAct.triggered.connect(qApp.quit)</div><div class="line"></div><div class="line">        self.statusBar()</div><div class="line"></div><div class="line">        menubar = self.menuBar()</div><div class="line">        <span class="comment"># 针对 macOS 适配</span></div><div class="line">        menubar.setNativeMenuBar(<span class="keyword">False</span>)</div><div class="line">        fileMenu = menubar.addMenu(<span class="string">'&amp;File'</span>)</div><div class="line">        fileMenu.addAction(exitAct)</div><div class="line"></div><div class="line">        self.setGeometry(<span class="number">300</span>, <span class="number">300</span>, <span class="number">300</span>, <span class="number">200</span>)</div><div class="line">        self.setWindowTitle(<span class="string">'Simple menu'</span>)</div><div class="line">        self.show()</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app = QApplication(sys.argv)</div><div class="line">    ex = Example()</div><div class="line">    sys.exit(app.exec_())</div></pre></td></tr></table></figure>
+<h1 id="Submenu"><a href="#Submenu" class="headerlink" title="Submenu"></a>Submenu</h1><blockquote>
+<p>A submenu is a menu located inside another menu.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, QAction, QMenu, QApplication</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span><span class="params">(QMainWindow)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super().__init__()</div><div class="line"></div><div class="line">        self.initUI()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initUI</span><span class="params">(self)</span>:</span></div><div class="line">        menubar = self.menuBar()</div><div class="line">        <span class="comment"># 针对 macOS 适配</span></div><div class="line">        menubar.setNativeMenuBar(<span class="keyword">False</span>)</div><div class="line">        fileMenu = menubar.addMenu(<span class="string">'File'</span>)</div><div class="line"></div><div class="line">        <span class="comment"># New menu is created with QMenu.</span></div><div class="line">        impMenu = QMenu(<span class="string">'Import'</span>, self)</div><div class="line">        impAct = QAction(<span class="string">'Import mail'</span>, self)</div><div class="line">        <span class="comment"># An action is added to the submenu with addAction().</span></div><div class="line">        impMenu.addAction(impAct)</div><div class="line"></div><div class="line">        newAct = QAction(<span class="string">'New'</span>, self)</div><div class="line"></div><div class="line">        fileMenu.addAction(newAct)</div><div class="line">        fileMenu.addMenu(impMenu)</div><div class="line"></div><div class="line">        self.setGeometry(<span class="number">300</span>, <span class="number">300</span>, <span class="number">300</span>, <span class="number">200</span>)</div><div class="line">        self.setWindowTitle(<span class="string">'Submenu'</span>)</div><div class="line">        self.show()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app = QApplication(sys.argv)</div><div class="line">    ex = Example()</div><div class="line">    sys.exit(app.exec_())</div></pre></td></tr></table></figure>
+<h1 id="Check-menu"><a href="#Check-menu" class="headerlink" title="Check menu"></a>Check menu</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QMainWindow, QAction, QApplication</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span><span class="params">(QMainWindow)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super().__init__()</div><div class="line"></div><div class="line">        self.initUI()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initUI</span><span class="params">(self)</span>:</span></div><div class="line"></div><div class="line">        self.statusbar = self.statusBar()</div><div class="line">        self.statusbar.showMessage(<span class="string">'Ready'</span>)</div><div class="line"></div><div class="line">        menubar = self.menuBar()</div><div class="line">        <span class="comment"># 针对 macOS 适配</span></div><div class="line">        menubar.setNativeMenuBar(<span class="keyword">False</span>)</div><div class="line">        viewMenu = menubar.addMenu(<span class="string">'View'</span>)</div><div class="line">        <span class="comment"># 创建 action, 使能 check</span></div><div class="line">        viewStatAct = QAction(<span class="string">'View statusbar'</span>, self, checkable=<span class="keyword">True</span>)</div><div class="line">        <span class="comment"># 设置相应的状态栏提示</span></div><div class="line">        viewStatAct.setStatusTip(<span class="string">'View statusbar'</span>)</div><div class="line">        <span class="comment"># 默认 checked</span></div><div class="line">        viewStatAct.setChecked(<span class="keyword">True</span>)</div><div class="line">        <span class="comment"># 连接方法 toggleMenu</span></div><div class="line">        viewStatAct.triggered.connect(self.toggleMenu)</div><div class="line">        <span class="comment"># 添加 action</span></div><div class="line">        viewMenu.addAction(viewStatAct)</div><div class="line"></div><div class="line">        self.setGeometry(<span class="number">300</span>, <span class="number">300</span>, <span class="number">300</span>, <span class="number">200</span>)</div><div class="line">        self.setWindowTitle(<span class="string">'Check menu'</span>)</div><div class="line">        self.show()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">toggleMenu</span><span class="params">(self, state)</span>:</span></div><div class="line">        <span class="comment"># 根据状态设置状态栏是否隐藏</span></div><div class="line">        <span class="keyword">if</span> state:</div><div class="line">            self.statusbar.show()</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            self.statusbar.hide()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app = QApplication(sys.argv)</div><div class="line">    ex = Example()</div><div class="line">    sys.exit(app.exec_())</div></pre></td></tr></table></figure>
+<h1 id="Context-menu"><a href="#Context-menu" class="headerlink" title="Context menu"></a>Context menu</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/12/PyQt5-font-dialog/" class="archive-article-date">
-  	<time datetime="2017-10-12T09:12:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/12/PyQt5-font-dialog/">PyQt5 font dialog</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -170,400 +190,88 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/13/PyQt5-tutorial-Menus-and-toolbars/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/12/PyQt5-drag-and-drop/" class="archive-article-date">
-  	<time datetime="2017-10-12T06:13:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/12/PyQt5-drag-and-drop/">PyQt5 drag and drop</a>
-    </h1>
+  
+    <a href="/2017/10/12/PyQt5-tutorial-First-programs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PyQt5 tutorial(First programs)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/12/PyQt5-colors/" class="archive-article-date">
-  	<time datetime="2017-10-12T06:01:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/12/PyQt5-colors/">PyQt5 colors</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/12/PyQT5-color-dialog/" class="archive-article-date">
-  	<time datetime="2017-10-12T05:50:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/12/PyQT5-color-dialog/">PyQT5 color dialog</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/12/PyQt5-pixels/" class="archive-article-date">
-  	<time datetime="2017-10-12T05:14:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/12/PyQt5-pixels/">PyQt5 pixels</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/12/PyQt5-image/" class="archive-article-date">
-  	<time datetime="2017-10-12T05:07:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/12/PyQt5-image/">PyQt5 image</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/12/PyQt5-file-dialog/" class="archive-article-date">
-  	<time datetime="2017-10-12T04:35:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/12/PyQt5-file-dialog/">PyQt5 file dialog</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/12/PyQT5-input-dialog/" class="archive-article-date">
-  	<time datetime="2017-10-12T04:09:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/12/PyQT5-input-dialog/">PyQT5 input dialog</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/12/PyQt5-grid-layout/" class="archive-article-date">
-  	<time datetime="2017-10-12T03:57:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/12/PyQt5-grid-layout/">PyQt5 grid layout</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/12/PyQt5-horizontal-layout/" class="archive-article-date">
-  	<time datetime="2017-10-12T03:43:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/12/PyQt5-horizontal-layout/">PyQt5 horizontal layout</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/10/">10</a><a class="extend next" rel="next" href="/archives/page/3/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -584,8 +292,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
