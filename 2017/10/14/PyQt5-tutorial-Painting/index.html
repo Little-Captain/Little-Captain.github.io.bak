@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/14/PyQt5-tutorial-Painting/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="PyQt5 painting system is able to render vector graphics, images, and outline font-based text. Painting is needed in applications when we want to change or enhance an existing widget, or if we are cre">
-<meta property="og:updated_time" content="2017-10-13T16:26:24.000Z">
+<meta property="og:updated_time" content="2017-10-13T16:37:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt5 tutorial(Painting)">
 <meta name="twitter:description" content="PyQt5 painting system is able to render vector graphics, images, and outline font-based text. Painting is needed in applications when we want to change or enhance an existing widget, or if we are cre">
@@ -154,6 +154,14 @@
 <p>PyQt5 painting system is able to render vector graphics, images, and outline font-based text. Painting is needed in applications when we want to change or enhance an existing widget, or if we are creating a custom widget from scratch. To do the drawing, we use the painting API provided by the PyQt5 toolkit.</p>
 </blockquote>
 <a id="more"></a>
+<h1 id="QPainter"><a href="#QPainter" class="headerlink" title="QPainter"></a>QPainter</h1><ul>
+<li><code>QPainter</code> performs low-level painting on widgets and other paint devices. It can draw everything from simple lines to complex shapes.</li>
+</ul>
+<h2 id="The-paintEvent-method"><a href="#The-paintEvent-method" class="headerlink" title="The paintEvent method"></a>The paintEvent method</h2><ul>
+<li>The painting is done within the paintEvent() method. The <code>painting code</code> is <code>placed between the begin() and end() methods</code> of the QPainter object. It performs low-level painting on widgets and other paint devices.</li>
+</ul>
+<h2 id="Drawing-text"><a href="#Drawing-text" class="headerlink" title="Drawing text"></a>Drawing text</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QWidget, QApplication</div><div class="line"><span class="keyword">from</span> PyQt5.QtGui <span class="keyword">import</span> QPainter, QColor, QFont</div><div class="line"><span class="keyword">from</span> PyQt5.QtCore <span class="keyword">import</span> Qt</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span><span class="params">(QWidget)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super().__init__()</div><div class="line"></div><div class="line">        self.initUI()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initUI</span><span class="params">(self)</span>:</span></div><div class="line">        self.text = <span class="string">"Лев Николаевич Толстой\nАнна Каренина"</span></div><div class="line"></div><div class="line">        self.setGeometry(<span class="number">300</span>, <span class="number">300</span>, <span class="number">280</span>, <span class="number">170</span>)</div><div class="line">        self.setWindowTitle(<span class="string">'Drawing text'</span>)</div><div class="line">        self.show()</div><div class="line"></div><div class="line">    <span class="comment"># Drawing is done within the paint event.</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">paintEvent</span><span class="params">(self, event)</span>:</span></div><div class="line">        <span class="comment"># The QPainter class is responsible for all the low-level painting.</span></div><div class="line">        <span class="comment"># All the painting methods go between begin() and end() methods.</span></div><div class="line">        <span class="comment"># The actual painting is delegated to the drawText() method.</span></div><div class="line">        qp = QPainter()</div><div class="line">        qp.begin(self)</div><div class="line">        self.drawText(event, qp)</div><div class="line">        qp.end()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drawText</span><span class="params">(self, event, qp)</span>:</span></div><div class="line">        qp.setPen(QColor(<span class="number">168</span>, <span class="number">34</span>, <span class="number">3</span>))</div><div class="line">        qp.setFont(QFont(<span class="string">'Decorative'</span>, <span class="number">10</span>))</div><div class="line">        <span class="comment"># The drawText() method draws text on the window. </span></div><div class="line">        <span class="comment"># The rect() method of the paint event returns </span></div><div class="line">        <span class="comment"># the rectangle that needs to be updated. </span></div><div class="line">        <span class="comment"># With the Qt.AlignCenter we align the text in both dimensions.</span></div><div class="line">        qp.drawText(event.rect(), Qt.AlignCenter, self.text)</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app = QApplication(sys.argv)</div><div class="line">    ex = Example()</div><div class="line">    sys.exit(app.exec_())</div></pre></td></tr></table></figure>
+<h2 id="Drawing-points"><a href="#Drawing-points" class="headerlink" title="Drawing points"></a>Drawing points</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 
       
 
@@ -348,15 +356,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">源代码管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -372,15 +380,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -392,11 +400,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -440,6 +456,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
@@ -456,7 +476,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -464,15 +484,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -489,10 +501,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
             
             <div class="clearfix"></div>
