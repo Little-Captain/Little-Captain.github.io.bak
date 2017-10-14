@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/14/PyQt5-tutorial-Custom-widgets/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="Custom widgets are created by using the drawing tools provided by the toolkit. There are two basic possibilities: a programmer can modify or enhance an existing widget or he can create a custom widge">
-<meta property="og:updated_time" content="2017-10-14T05:59:09.000Z">
+<meta property="og:updated_time" content="2017-10-14T06:17:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PyQt5 tutorial(Custom widgets)">
 <meta name="twitter:description" content="Custom widgets are created by using the drawing tools provided by the toolkit. There are two basic possibilities: a programmer can modify or enhance an existing widget or he can create a custom widge">
@@ -157,6 +157,7 @@
 <h1 id="Burning-widget"><a href="#Burning-widget" class="headerlink" title="Burning widget"></a>Burning widget</h1><blockquote>
 <p>This is a widget that we can see in Nero, K3B, or other CD/DVD burning software.</p>
 </blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> (QWidget, QSlider, QApplication,</div><div class="line">                             QHBoxLayout, QVBoxLayout)</div><div class="line"><span class="keyword">from</span> PyQt5.QtCore <span class="keyword">import</span> QObject, Qt, pyqtSignal</div><div class="line"><span class="keyword">from</span> PyQt5.QtGui <span class="keyword">import</span> QPainter, QFont, QColor, QPen</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Communicate</span><span class="params">(QObject)</span>:</span></div><div class="line">    updateBW = pyqtSignal(int)</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BurningWidget</span><span class="params">(QWidget)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super().__init__()</div><div class="line"></div><div class="line">        self.initUI()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initUI</span><span class="params">(self)</span>:</span></div><div class="line"></div><div class="line">        self.setMinimumSize(<span class="number">1</span>, <span class="number">30</span>)</div><div class="line">        self.value = <span class="number">75</span></div><div class="line">        self.num = [<span class="number">75</span>, <span class="number">150</span>, <span class="number">225</span>, <span class="number">300</span>, <span class="number">375</span>, <span class="number">450</span>, <span class="number">525</span>, <span class="number">600</span>, <span class="number">675</span>]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setValue</span><span class="params">(self, value)</span>:</span></div><div class="line"></div><div class="line">        self.value = value</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">paintEvent</span><span class="params">(self, e)</span>:</span></div><div class="line"></div><div class="line">        qp = QPainter()</div><div class="line">        qp.begin(self)</div><div class="line">        self.drawWidget(qp)</div><div class="line">        qp.end()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drawWidget</span><span class="params">(self, qp)</span>:</span></div><div class="line"></div><div class="line">        MAX_CAPACITY = <span class="number">700</span></div><div class="line">        OVER_CAPACITY = <span class="number">750</span></div><div class="line"></div><div class="line">        font = QFont(<span class="string">'Serif'</span>, <span class="number">7</span>, QFont.Light)</div><div class="line">        qp.setFont(font)</div><div class="line"></div><div class="line">        <span class="comment"># We draw the widget dynamically.</span></div><div class="line">        <span class="comment"># The greater is the window,</span></div><div class="line">        <span class="comment"># the greater is the burning widget</span></div><div class="line">        <span class="comment"># and vice versa. That is why we must calculate</span></div><div class="line">        <span class="comment"># the size of the widget onto which we draw the custom widget.</span></div><div class="line">        <span class="comment"># The till parameter determines the total size to be drawn.</span></div><div class="line">        <span class="comment"># This value comes from the slider widget.</span></div><div class="line">        <span class="comment"># It is a proportion of the whole area.</span></div><div class="line">        <span class="comment"># The full parameter determines the point</span></div><div class="line">        <span class="comment"># where we begin to draw in red colour.</span></div><div class="line"></div><div class="line">        <span class="comment"># The actual drawing consists of three steps.</span></div><div class="line">        <span class="comment"># We draw the yellow or the red and yellow rectangle.</span></div><div class="line">        <span class="comment"># Then we draw the vertical lines which divide</span></div><div class="line">        <span class="comment"># the widget into several parts.</span></div><div class="line">        <span class="comment"># Finally, we draw the numbers which indicate the capacity of the medium.</span></div><div class="line">        size = self.size()</div><div class="line">        w = size.width()</div><div class="line">        h = size.height()</div><div class="line"></div><div class="line">        step = int(round(w / <span class="number">10</span>))</div><div class="line"></div><div class="line">        till = int(((w / OVER_CAPACITY) * self.value))</div><div class="line">        full = int(((w / OVER_CAPACITY) * MAX_CAPACITY))</div><div class="line"></div><div class="line">        <span class="keyword">if</span> self.value &gt;= MAX_CAPACITY:</div><div class="line"></div><div class="line">            qp.setPen(QColor(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>))</div><div class="line">            qp.setBrush(QColor(<span class="number">255</span>, <span class="number">255</span>, <span class="number">184</span>))</div><div class="line">            qp.drawRect(<span class="number">0</span>, <span class="number">0</span>, full, h)</div><div class="line">            qp.setPen(QColor(<span class="number">255</span>, <span class="number">175</span>, <span class="number">175</span>))</div><div class="line">            qp.setBrush(QColor(<span class="number">255</span>, <span class="number">175</span>, <span class="number">175</span>))</div><div class="line">            qp.drawRect(full, <span class="number">0</span>, till - full, h)</div><div class="line"></div><div class="line">        <span class="keyword">else</span>:</div><div class="line"></div><div class="line">            qp.setPen(QColor(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>))</div><div class="line">            qp.setBrush(QColor(<span class="number">255</span>, <span class="number">255</span>, <span class="number">184</span>))</div><div class="line">            qp.drawRect(<span class="number">0</span>, <span class="number">0</span>, till, h)</div><div class="line"></div><div class="line">        pen = QPen(QColor(<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>), <span class="number">1</span>,</div><div class="line">                   Qt.SolidLine)</div><div class="line"></div><div class="line">        qp.setPen(pen)</div><div class="line">        qp.setBrush(Qt.NoBrush)</div><div class="line">        qp.drawRect(<span class="number">0</span>, <span class="number">0</span>, w - <span class="number">1</span>, h - <span class="number">1</span>)</div><div class="line"></div><div class="line">        j = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(step, <span class="number">10</span> * step, step):</div><div class="line">            qp.drawLine(i, <span class="number">0</span>, i, <span class="number">5</span>)</div><div class="line">            metrics = qp.fontMetrics()</div><div class="line">            fw = metrics.width(str(self.num[j]))</div><div class="line">            qp.drawText(i - fw / <span class="number">2</span>, h / <span class="number">2</span>, str(self.num[j]))</div><div class="line">            j = j + <span class="number">1</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span><span class="params">(QWidget)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super().__init__()</div><div class="line"></div><div class="line">        self.initUI()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initUI</span><span class="params">(self)</span>:</span></div><div class="line">        OVER_CAPACITY = <span class="number">750</span></div><div class="line"></div><div class="line">        sld = QSlider(Qt.Horizontal, self)</div><div class="line">        sld.setFocusPolicy(Qt.NoFocus)</div><div class="line">        sld.setRange(<span class="number">1</span>, OVER_CAPACITY)</div><div class="line">        sld.setValue(<span class="number">75</span>)</div><div class="line">        sld.setGeometry(<span class="number">30</span>, <span class="number">40</span>, <span class="number">150</span>, <span class="number">30</span>)</div><div class="line"></div><div class="line">        self.c = Communicate()</div><div class="line">        self.wid = BurningWidget()</div><div class="line">        self.c.updateBW[int].connect(self.wid.setValue)</div><div class="line"></div><div class="line">        sld.valueChanged[int].connect(self.changeValue)</div><div class="line">        hbox = QHBoxLayout()</div><div class="line">        hbox.addWidget(self.wid)</div><div class="line">        vbox = QVBoxLayout()</div><div class="line">        vbox.addStretch(<span class="number">1</span>)</div><div class="line">        vbox.addLayout(hbox)</div><div class="line">        self.setLayout(vbox)</div><div class="line"></div><div class="line">        self.setGeometry(<span class="number">300</span>, <span class="number">300</span>, <span class="number">390</span>, <span class="number">210</span>)</div><div class="line">        self.setWindowTitle(<span class="string">'Burning widget'</span>)</div><div class="line">        self.show()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">changeValue</span><span class="params">(self, value)</span>:</span></div><div class="line">        self.c.updateBW.emit(value)</div><div class="line">        self.wid.repaint()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app = QApplication(sys.argv)</div><div class="line">    ex = Example()</div><div class="line">    sys.exit(app.exec_())</div></pre></td></tr></table></figure>
 
       
 
@@ -371,11 +372,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -383,7 +384,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -395,19 +396,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -416,6 +421,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -443,15 +452,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Swift</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -467,15 +472,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,10 +497,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
             
             <div class="clearfix"></div>
