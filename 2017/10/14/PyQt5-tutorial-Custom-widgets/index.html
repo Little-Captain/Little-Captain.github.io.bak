@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>PyQt5 absolute position | Little Captain&#39;s Blog</title>
+  <title>PyQt5 tutorial(Custom widgets) | Little Captain&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="absolute position PyQt5 supports several layout methods such as grid layouts, horzontal layous and absolute positioning. The layout you should pick depends on your preference and type of application.">
+  <meta name="description" content="Custom widgets are created by using the drawing tools provided by the toolkit. There are two basic possibilities: a programmer can modify or enhance an existing widget or he can create a custom widge">
 <meta name="keywords" content="Python,PyQt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PyQt5 absolute position">
-<meta property="og:url" content="http://yoursite.com/2017/10/12/PyQt5-absolute-position/index.html">
+<meta property="og:title" content="PyQt5 tutorial(Custom widgets)">
+<meta property="og:url" content="http://yoursite.com/2017/10/14/PyQt5-tutorial-Custom-widgets/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
-<meta property="og:description" content="absolute position PyQt5 supports several layout methods such as grid layouts, horzontal layous and absolute positioning. The layout you should pick depends on your preference and type of application.">
-<meta property="og:updated_time" content="2017-10-12T02:23:57.000Z">
+<meta property="og:description" content="Custom widgets are created by using the drawing tools provided by the toolkit. There are two basic possibilities: a programmer can modify or enhance an existing widget or he can create a custom widge">
+<meta property="og:updated_time" content="2017-10-14T05:59:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PyQt5 absolute position">
-<meta name="twitter:description" content="absolute position PyQt5 supports several layout methods such as grid layouts, horzontal layous and absolute positioning. The layout you should pick depends on your preference and type of application.">
+<meta name="twitter:title" content="PyQt5 tutorial(Custom widgets)">
+<meta name="twitter:description" content="Custom widgets are created by using the drawing tools provided by the toolkit. There are two basic possibilities: a programmer can modify or enhance an existing widget or he can create a custom widge">
   
   
     <link rel="icon" href="/assets/images/avatar.jpg">
@@ -130,20 +130,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-PyQt5-absolute-position" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-PyQt5-tutorial-Custom-widgets" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      PyQt5 absolute position
+      PyQt5 tutorial(Custom widgets)
     </h1>
   
 
         
-        <a href="/2017/10/12/PyQt5-absolute-position/" class="archive-article-date">
-  	<time datetime="2017-10-12T02:14:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-12</time>
+        <a href="/2017/10/14/PyQt5-tutorial-Custom-widgets/" class="archive-article-date">
+  	<time datetime="2017-10-14T05:56:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-14</time>
 </a>
         
       </header>
@@ -151,13 +151,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>absolute position</p>
-<p>PyQt5 supports several layout methods such as <code>grid layouts</code>, <code>horzontal layous</code> and <code>absolute positioning</code>. The layout you should pick depends on your preference and type of application.</p>
-<p>Absolute positioning gives you total control over the widget positions but you have to explicitly define every widget location.</p>
-<p>Widgets can be added on an absolute position using the move(x,y) method.</p>
+<p>Custom widgets are created by using the drawing tools provided by the toolkit. There are two basic possibilities: a programmer can modify or enhance an existing widget or he can create a custom widget from scratch.</p>
 </blockquote>
 <a id="more"></a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QApplication, QWidget, QMainWindow, QLabel</div><div class="line"><span class="keyword">from</span> PyQt5.QtGui <span class="keyword">import</span> QIcon</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span><span class="params">(QMainWindow)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">        super().__init__()</div><div class="line">        self.title = <span class="string">'PyQt absolute positioning - pythonspot.com'</span></div><div class="line">        self.left = <span class="number">10</span></div><div class="line">        self.top = <span class="number">10</span></div><div class="line">        self.width = <span class="number">440</span></div><div class="line">        self.height = <span class="number">280</span></div><div class="line">        self.initUI()</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initUI</span><span class="params">(self)</span>:</span></div><div class="line">        self.setWindowTitle(self.title)</div><div class="line">        self.setGeometry(self.left, self.top, self.width, self.height)</div><div class="line"></div><div class="line">        label = QLabel(<span class="string">'Python'</span>, self)</div><div class="line">        label.move(<span class="number">50</span>, <span class="number">50</span>)</div><div class="line"></div><div class="line">        label2 = QLabel(<span class="string">'PyQt5'</span>, self)</div><div class="line">        label2.move(<span class="number">100</span>, <span class="number">100</span>)</div><div class="line"></div><div class="line">        label3 = QLabel(<span class="string">'Examples'</span>, self)</div><div class="line">        label3.move(<span class="number">150</span>, <span class="number">150</span>)</div><div class="line"></div><div class="line">        label4 = QLabel(<span class="string">'pythonspot.com'</span>, self)</div><div class="line">        label4.move(<span class="number">200</span>, <span class="number">200</span>)</div><div class="line"></div><div class="line">        self.show()</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app = QApplication(sys.argv)</div><div class="line">    ex = App()</div><div class="line">    sys.exit(app.exec_())</div></pre></td></tr></table></figure>
+<h1 id="Burning-widget"><a href="#Burning-widget" class="headerlink" title="Burning widget"></a>Burning widget</h1><blockquote>
+<p>This is a widget that we can see in Nero, K3B, or other CD/DVD burning software.</p>
+</blockquote>
 
       
 
@@ -231,7 +230,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/12/PyQt5-absolute-position/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/14/PyQt5-tutorial-Custom-widgets/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -245,18 +244,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/10/12/PyQt5-menu/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          PyQt5 menu
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/10/12/PyQt5-textbox/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">PyQt5 textbox</div>
+    <a href="/2017/10/14/PyQt5-tutorial-Painting/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PyQt5 tutorial(Painting)</div>
       <i class="icon-circle-right"></i>
     </a>
   
