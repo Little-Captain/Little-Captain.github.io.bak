@@ -127,6 +127,112 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Building-C-Applications-Basic-Terminology" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/19/Building-C-Applications-Basic-Terminology/">Building C++ Applications(Basic Terminology)</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/19/Building-C-Applications-Basic-Terminology/" class="archive-article-date">
+  	<time datetime="2017-10-19T02:01:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>编译、链接、打包<br>可执行程序、静态库、动态库</p>
+</blockquote>
+<ul>
+<li>The three basic tools used to build C++ applications are the <code>compiler</code>, the <code>linker</code>, and the <code>archiver</code> (or librarian). A collection of these programs and possibly other tools is called a toolset.<ul>
+<li>The <code>compiler</code> takes C++ source files as input and produces <code>object files</code>, which <code>contain</code> a mixture of <code>machine-executable code</code> and <code>symbolic references to functions and data</code>. </li>
+<li>The <code>archiver</code> takes a collection of <code>object files</code> as <code>input</code> and <code>produces a static library</code>, or archive, <code>which is simply a collection of object files grouped for convenient use</code>. </li>
+<li>The <code>linker</code> takes a collection of <code>object files</code> and <code>libraries</code> and <code>resolves</code> their <code>symbolic references</code> to <code>produce</code> either an <code>executable</code> or <code>dynamic library</code>. Roughly speaking, the <code>linker</code> operates by <code>matching each use of a symbol to its definition</code>. When an executable or dynamic library is created, it is said to be linked; the libraries used to build the executable or dynamic library are said to be linked against.</li>
+</ul>
+</li>
+<li>An <code>executable</code>, or application, is simply any program that can be executed by the operating system. </li>
+<li>A <code>dynamic library</code>, also called a <code>shared library</code>, is like an executable except that <code>it can’t be run on its own</code>; <code>it consists of a body of machine-executable code that is loaded into memory after an application is started and can be shared by one or more applications.</code> On Windows, dynamic libraries are also called dynamic link libraries (DLLs).</li>
+<li>The <code>object files</code> and <code>static libraries</code> on which an executable depends are needed only when the executable is built. </li>
+<li>The <code>dynamic libraries</code> on which an executable depends, however, must be present on a user’s system when the executable is run.</li>
+</ul>
+<p><strong>File extensions on Windows and Unix</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">File type</th>
+<th style="text-align:center">Windows</th>
+<th style="text-align:center">Mac OS X</th>
+<th style="text-align:center">Other Unix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Object files</td>
+<td style="text-align:center">.obj</td>
+<td style="text-align:center">.o</td>
+<td style="text-align:center">.o</td>
+</tr>
+<tr>
+<td style="text-align:center">Static libraries</td>
+<td style="text-align:center">.lib</td>
+<td style="text-align:center">.a</td>
+<td style="text-align:center">.a</td>
+</tr>
+<tr>
+<td style="text-align:center">Dynamic libraries</td>
+<td style="text-align:center">.dll</td>
+<td style="text-align:center">.dylib</td>
+<td style="text-align:center">.so</td>
+</tr>
+<tr>
+<td style="text-align:center">Executables</td>
+<td style="text-align:center">.exe</td>
+<td style="text-align:center">No extension</td>
+<td style="text-align:center">No extension</td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-conda的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -673,69 +779,6 @@
 
 
   
-    <article id="post-PyQt5-tutorial-Events-and-signals" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/13/PyQt5-tutorial-Events-and-signals/">PyQt5 tutorial(Events and signals)</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/13/PyQt5-tutorial-Events-and-signals/" class="archive-article-date">
-  	<time datetime="2017-10-13T12:12:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h1><blockquote>
-<p>GUI applications are <code>event-driven</code>. Events are generated mainly by the user of an application. But they can be generated by other means as well; e.g. an Internet connection, a window manager, or a timer. When we call the application’s <code>exec_()</code> method, the <code>application enters</code> the <code>main loop</code>. The <code>main loop</code> <code>fetches events</code> and <code>sends them to the objects</code>.</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/10/13/PyQt5-tutorial-Events-and-signals/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PyQt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -829,11 +872,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
+                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -845,11 +888,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">JavaSE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -865,31 +924,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -902,6 +937,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -933,6 +980,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
@@ -941,7 +992,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
+                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -949,15 +1000,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GCD</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -965,11 +1008,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color2">NSOperation</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
               </li>
              
               <li class="article-tag-list-item">
