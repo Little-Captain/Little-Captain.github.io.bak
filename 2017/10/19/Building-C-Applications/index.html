@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/19/Building-C-Applications/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="编译、链接、打包可执行程序、静态库、动态库构建、工具集">
-<meta property="og:updated_time" content="2017-10-20T05:55:21.000Z">
+<meta property="og:updated_time" content="2017-10-20T17:18:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Building C++ Applications">
 <meta name="twitter:description" content="编译、链接、打包可执行程序、静态库、动态库构建、工具集">
@@ -454,6 +454,133 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li>On both Windows and Unix, libraries can be passed to the linker in two ways:<ul>
+<li>By specifying a pathname on the command line</li>
+<li>By specifying the simple name of the library together with a location to search for the library</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>The locations to search for libraries can usually be specified on the command line. Most linkers use the option <code>-L&lt;directory&gt;</code> for this purpose, but Visual C++ use <code>-lipath:&lt;directory&gt;</code></p>
+</blockquote>
+<ul>
+<li>The way the name of a library is specified to the linker differs between Unix and Windows. <code>On Windows</code>, the full name of the library is specified, including the file extension. <code>On Unix—and on Windows when using the GCC toolset—libraries</code> are specified using the -l option followed by the name of the library, with the file extension and the lib prefix removed. This means that the name of <code>a library must begin with lib to be automatically found by the linker</code>. More interestingly, it gives the linker the opportunity to choose between several versions of a library. If the linker finds both static and dynamic version of a library, the dynamic library is selected, unless otherwise specified. On some systems, the linker may choose between several versions of a dynamic library based on the portion of the file name following .so.</li>
+<li>Be aware that Unix linkers can be very sensitive to the order in which object files and static libraries are specified on the command line: if a static library or object file references a symbol defined in a second static library or object file, the first file must appear before the second file on the command line. To resolve circular dependencies, it is sometimes necessary to specify a given library or object file more than once. Another solution is to pass a sequence of object files and static libraries to linker bracketed by <code>-(</code> and <code>-)</code>; this causes the file to be searched repeatedly until all references are resolved. This option should be avoided if possible because it can significantly degrade performance.</li>
+</ul>
+<h4 id="Running-your-application"><a href="#Running-your-application" class="headerlink" title="Running your application"></a>Running your application</h4><ul>
+<li>If your application uses a dynamic variant of your toolset’s runtime library, the runtime library must be available when your application is run and in a location where it will be found automatically by the operating system’s dynamic loader. <code>Typically, this means that the dynamic runtime library must be placed either in the same directory as your application or in one of a list of system-specific directories.</code> This is more of a concern when developing for Windows than when developing for Unix, since on Unix the appropriate runtime libraries are often already installed in the correct locations.</li>
+</ul>
+<h1 id="Boost-Build"><a href="#Boost-Build" class="headerlink" title="Boost.Build"></a>Boost.Build</h1><h2 id="Build-process"><a href="#Build-process" class="headerlink" title="Build process"></a>Build process</h2><blockquote>
+<p><code>Jamfiles</code> and an interpreter called <code>b2</code></p>
+</blockquote>
+<ul>
+<li>每一个包含配置文件的目录都是一个项目, 如果这个目录中没有配置文件, 什么都不会发生.</li>
+<li>当 <code>b2</code> 启动时, 它只在当前目录中搜索配置文件, 如果没有它不会做任何事情.</li>
+<li><code>b2</code> 搜索的文件名为 <code>Jamfile.jam</code>. 如果在当前目录中找到了 <code>Jamfile</code>, 它将继续在父目录中搜索更多的 <code>Jamfile</code>. <code>b2</code> 向上搜索知道找到一个配置文件名为 <code>Jamroot.jam</code>. <code>Jamroot.jam</code> 和 <code>Jamfile.jam</code> 没有区别, 它仅仅用于指示 <code>b2</code> 不用再向上继续搜索了.</li>
+<li><code>b2</code> 在父文件夹中搜索配置文件的原因是: 便于分组配置. 如果一些组件有相似的配置, 可以将相似的配置写入配置文件放入父文件夹中, 在子文件夹的组件构建时, 父文件夹的中配置将自动被使用</li>
+<li>注意: <code>b2</code> 必须找到 <code>Jamroot.jam</code> 文件. 如果 <code>Jamroot.jam</code> 文件存在于当前文件夹下, 那么就不需要 <code>Jamfile.jam</code> 文件了. 如果 <code>Jamroot.jam</code> 文件在父文件夹下, 那么 <code>Jamfile.jam</code> 就必须存在于当前文件夹下, 否则 <code>b2</code> 不做任何事情</li>
+<li>如果将 <code>b2</code> 复制到不包含 <code>Jamfile</code> 的目录，并启动程序，<code>b2</code> 将抛出找不到构建系统的错误. <code>b2</code> 首先做的是<code>加载构建系统</code>而不是搜索 <code>Jamfile</code></li>
+<li><code>b2</code> 是一个解释器(解释 <code>Jamfile</code>), 它并不知道怎么构建程序. <code>Boost.Build</code> 是 <code>Jamfile</code> 的真实执行者, <code>Jamfile</code> 包含使 <code>Boost.Build</code> 成为强大工具的所有执行逻辑.</li>
+<li><code>b2</code> 仅仅读取 <code>Jamfile</code> 的内容, 所以它需要知道到哪里去寻找 <code>Jamfiles Boost.Build</code></li>
+<li><code>b2</code> 启动后, 首先在当前目录寻找 <code>boost-build.jam</code>, 如果没有找到就在所有的父文件夹. 这个文件中只需要告诉 <code>b2</code> 到什么地方去寻找构建系统 <code>boost-build /Users/Liu-Mac/CODE/C++/boost_1_65_1/tools/build/src ;</code>. 包含构建系统的文件中必须包含 <code>bootstrap.jam</code> 文件, 这就是 <code>b2</code> 加载构建系统需要的文件</li>
+<li>如果启动 <code>b2</code> 时, 没有指定使用的工具集, <code>b2</code> 会自行检测并决定使用哪个工具集. 手动指定方法 <code>b2 toolset = gcc</code> or <code>b2 toolset = msvc</code></li>
+<li>一旦构建系统被发现, 加载, 锁定工具集, <code>b2</code> 在当前目录搜索 <code>Jamfile.jam</code> , 如果没有找到就抛出错误</li>
+<li>如果你创建了一个空的 <code>Jamfile.jam</code>, 启动 <code>b2</code> 后, 另一个错误将抛出, <code>b2</code> 最终需要寻找一个叫 <code>Jamroot.jam</code>的 <code>Jamfile</code></li>
+<li>注意: 如果你的项目很小, 那么你只需要一个存放于当前目录的配置文件 <code>Jamroot.jam</code>.</li>
+<li>构建过程总结:<ul>
+<li><ol>
+<li>在当前目录创建 <code>boost-build.jam</code> 文件, 用于指示 <code>构建系统</code> 地址, 保证构建系统目录中存在 <code>bootstrap.jam</code> 文件</li>
+</ol>
+</li>
+<li><ol>
+<li>编写 <code>Jamfiles</code>. 小项目: 直接在当前项目中创建 <code>Jamroot.jam</code> 文件; 大项目: 当前目录中创建 <code>Jamfile.jam</code>, 将各个组件公共的配置项, 抽出放入父目录的 <code>Jamfile.jam</code> 文件中, 工程根目录必须存在 <code>Jamroot.jam</code> 文件</li>
+</ol>
+</li>
+<li><ol>
+<li>启动 <code>b2</code> 程序, 进行构建 <code>b2 toolset = gcc</code></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Toolset Name</th>
+<th style="text-align:center">Vendor</th>
+<th style="text-align:center">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">acc</td>
+<td style="text-align:center">Hewlett Packard</td>
+<td style="text-align:center">Only very recent versions are known to work well with Boost</td>
+</tr>
+<tr>
+<td style="text-align:center">borland</td>
+<td style="text-align:center">Borland</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">como</td>
+<td style="text-align:center">Comeau Computing</td>
+<td style="text-align:center">Using this toolset may require configuring another toolset to act as its backend.</td>
+</tr>
+<tr>
+<td style="text-align:center">darwin</td>
+<td style="text-align:center">Apple Computer</td>
+<td style="text-align:center">Apple’s version of the GCC toolchain with support for Darwin and MacOS X features such as frameworks.</td>
+</tr>
+<tr>
+<td style="text-align:center">gcc</td>
+<td style="text-align:center">The Gnu Project</td>
+<td style="text-align:center">Includes support for Cygwin and MinGW compilers.</td>
+</tr>
+<tr>
+<td style="text-align:center">hp_cxx</td>
+<td style="text-align:center">Hewlett Packard</td>
+<td style="text-align:center">Targeted at the Tru64 operating system.</td>
+</tr>
+<tr>
+<td style="text-align:center">intel</td>
+<td style="text-align:center">Intel</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">msvc</td>
+<td style="text-align:center">Microsoft</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">sun</td>
+<td style="text-align:center">Oracle</td>
+<td style="text-align:center">Only very recent versions are known to work well with Boost. Note that the Oracle/Sun compiler has a large number of options which effect binary compatibility: it is vital that the libraries are built with the same options that your appliction will use. In particular be aware that the default standard library may not work well with Boost, unless you are building for C++11. The particular compiler options you need can be injected with the b2 command line options cxxflags=<code>and</code>linkflags=. For example to build with the Apache standard library in C++03 mode use b2 cxxflags=-library=stdcxx4 linkflags=-library=stdcxx4.</td>
+</tr>
+<tr>
+<td style="text-align:center">vacpp</td>
+<td style="text-align:center">IBM</td>
+<td style="text-align:center">The VisualAge C++ compiler.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Basic-tasks"><a href="#Basic-tasks" class="headerlink" title="Basic tasks"></a>Basic tasks</h2><blockquote>
+<p><code>Rules</code> and <code>features</code></p>
+</blockquote>
+<h2 id="Project-management"><a href="#Project-management" class="headerlink" title="Project management"></a>Project management</h2><blockquote>
+<p>Multiple Jamfiles</p>
+</blockquote>
+<h2 id="Best-practices"><a href="#Best-practices" class="headerlink" title="Best practices"></a>Best practices</h2><blockquote>
+<p>How Boost.Build is used by others</p>
+</blockquote>
+<h2 id="Rule-reference"><a href="#Rule-reference" class="headerlink" title="Rule reference"></a>Rule reference</h2><blockquote>
+<p>Building blocks for Jamfiles</p>
+</blockquote>
+<h2 id="Feature-reference"><a href="#Feature-reference" class="headerlink" title="Feature reference"></a>Feature reference</h2><blockquote>
+<p>Configuration options for the build process</p>
+</blockquote>
+<p><a href="http://www.boost.org/build/doc/html/index.html" target="_blank" rel="external">Boost.Build User Manual</a></p>
 
       
 
@@ -644,10 +771,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -672,6 +795,18 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">OC</a>
               </li>
              
@@ -684,19 +819,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">后端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -708,18 +835,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVN</a>
               </li>
              
@@ -728,7 +843,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Xcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -752,11 +879,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -764,15 +891,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gogs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,11 +903,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color4">NSThread</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gogs</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
