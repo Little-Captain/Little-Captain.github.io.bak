@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/19/Building-C-Applications/index.html">
 <meta property="og:site_name" content="Little Captain&#39;s Blog">
 <meta property="og:description" content="编译、链接、打包可执行程序、静态库、动态库构建、工具集">
-<meta property="og:updated_time" content="2017-10-20T17:18:30.000Z">
+<meta property="og:updated_time" content="2017-10-23T05:43:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Building C++ Applications">
 <meta name="twitter:description" content="编译、链接、打包可执行程序、静态库、动态库构建、工具集">
@@ -373,201 +373,22 @@
 <li><code>Instead</code>, the usual approach is to define a macro that expands to <strong>declspec(dllexport) when building your DLL and to </strong>declspec(dllimport) otherwise. In Example, I used the macro GEORGERINGO_DECL for this purpose. On Windows, GEORGERINGO_DECL expands to <strong>declspec(dllexport) if the macro GEORGERING_SOURCE is defined and to </strong>declspec(dllimport) otherwise. By defining GEORGERING_SOURCE when building the DLL libgeorgeringo.dll but not when compiling code that uses libgeorgeringo.dll, you obtain the desired result.</li>
 </ul>
 <p><strong>Example</strong></p>
-<pre><code class="C++"><span class="meta">#<span class="meta-keyword">ifndef</span> GEORGERINGO_HPP_INCLUDED</span>
-<span class="meta">#<span class="meta-keyword">define</span> GEORGERINGO_HPP_INCLUDED</span>
-<span class="comment">// define GEORGERINGO_DLL when building libgerogreringo.dll </span>
-<span class="meta"># <span class="meta-keyword">if</span> defined(_WIN32) &amp;&amp; !defined(__GNUC__)</span>
-<span class="meta">#  <span class="meta-keyword">ifdef</span> GEORGERINGO_DLL</span>
-<span class="meta">#   <span class="meta-keyword">define</span> GEORGERINGO_DECL __declspec(dllexport)</span>
-<span class="meta">#  <span class="meta-keyword">else</span></span>
-<span class="meta">#   <span class="meta-keyword">define</span> GEORGERINGO_DECL __declspec(dllimport) </span>
-<span class="meta">#  <span class="meta-keyword">endif</span></span>
-<span class="meta"># <span class="meta-keyword">endif</span> <span class="comment">// WIN32</span></span>
-
-<span class="meta">#<span class="meta-keyword">ifndef</span> GEORGERINGO_DECL</span>
-<span class="meta"># <span class="meta-keyword">define</span> GEORGERINGO_DECL</span>
-<span class="meta">#<span class="meta-keyword">endif</span></span>
-
-<span class="comment">// Prints "George, and Ringo\n"</span>
-<span class="meta">#<span class="meta-keyword">ifdef</span> __MWERKS__</span>
-<span class="meta"># <span class="meta-keyword">pragma</span> export on</span>
-<span class="meta">#<span class="meta-keyword">endif</span></span>
-
-<span class="function">GEORGERINGO_DECL <span class="keyword">void</span> <span class="title">georgeringo</span><span class="params">()</span></span>; 
-<span class="meta">#<span class="meta-keyword">ifdef</span> __MWERKS__</span>
-<span class="meta"># <span class="meta-keyword">pragma</span> export off</span>
-<span class="meta">#<span class="meta-keyword">endif</span></span>
-
-<span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// GEORGERINGO_HPP_INCLUDED</span></span>
-</code></pre>
-<h4 id="Building-DLLs-with-GCC"><a href="#Building-DLLs-with-GCC" class="headerlink" title="Building DLLs with GCC"></a>Building DLLs with GCC</h4><ul>
-<li>The Cygwin and MinGW ports of GCC, handle DLLs <code>differently</code> than other Windows toolsets. When you build a DLL with GCC, all functions, classes, and data are exported by default. This behavior can be modified by passing the option –no-export-all-symbols to the linker, by using the attribute <strong>declspec(dllexport) in your source files, or by using a .def file. In each of these three cases, unless you use the option –export-all-symbols to force the linker to export all symbols, the only exported functions, classes, and data will be those marked </strong>declspec(dllexport) or listed in the .def file.</li>
-<li>It’s therefore possible to use the GCC toolset to build DLLs in two ways: like an ordinary Windows toolset, exporting symbols explicitly using <strong>declspec, or like a Unix toolset, exporting all symbols automatically. If you choose this method, you should consider using the option –export-all-symbols as a safety measure, in case you happen to include headers containing </strong>declspec(dllexport).</li>
-<li>GCC differs from other Windows toolsets in a second way: rather than passing the linker an import library associated with a DLL, you can pass the DLL itself. This is usually faster than using an import library. It can also create problems, however, since several versions of a DLL may exist on your system, and you must ensure that the linker selects the correct version.</li>
-</ul>
-<h4 id="GCC-4-0’s-fvisibility-option"><a href="#GCC-4-0’s-fvisibility-option" class="headerlink" title="GCC 4.0’s -fvisibility option"></a>GCC 4.0’s -fvisibility option</h4><ul>
-<li>See C++ Cookbook 30 page</li>
-</ul>
-<h3 id="Building-a-Complex-Application-from-the-Command-Line"><a href="#Building-a-Complex-Application-from-the-Command-Line" class="headerlink" title="Building a Complex Application from the Command Line"></a>Building a Complex Application from the Command Line</h3><ul>
-<li>Step<ul>
-<li>Start by building the static and dynamic libraries on which your application depends. Or use the third party libraries</li>
-<li>Next, compile your application’s .cpp files into object files. You may need to use the -I option to tell your compiler where to search for the headers needed by your application</li>
-<li>Finally, use your linker to produce an executable from the collection of object files and libraries. For each library, you must either provide a full pathname or tell the linker where to search for it</li>
-</ul>
-</li>
-<li>At each stage of this process, if you are using a toolset which comes with static and dynamic variants of its runtime libraries, and if your program uses at least one dynamic library, you should direct the compiler or linker to use a dynamically linked runtime library</li>
-</ul>
-<p><strong>Commands for linking the application hellobeatle.exe</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Toolset</th>
-<th style="text-align:center">Input files</th>
-<th style="text-align:center">Command line</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">GCC (Unix)</td>
-<td style="text-align:center">hellobeatles.o <br>libjohnpaul.a <br>libgeorgeringo.so</td>
-<td style="text-align:center">g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo <br>or <br>g++ -o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.so</td>
-</tr>
-<tr>
-<td style="text-align:center">GCC (Mac OS X)</td>
-<td style="text-align:center">hellobeatles.o <br>libjohnpaul.a <br>libgeorgeringo.dylib</td>
-<td style="text-align:center">g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo<br>or<br>g++ -o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.dylib</td>
-</tr>
-<tr>
-<td style="text-align:center">GCC (Cygwin)</td>
-<td style="text-align:center">hellobeatles.o <br>libjohnpaul.a <br>libgeorgeringo.dll.a</td>
-<td style="text-align:center">g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo<br>or<br>g++ -o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.dll.a</td>
-</tr>
-<tr>
-<td style="text-align:center">GCC (MinGW)</td>
-<td style="text-align:center">hellobeatles.o <br>libjohnpaul.a <br>libgeorgeringo.a</td>
-<td style="text-align:center">g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo<br>or<br>g++ –o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.a</td>
-</tr>
-<tr>
-<td style="text-align:center">Visual C++</td>
-<td style="text-align:center">hellobeatles.obj <br>libjohnpaul.lib <br>libgeorgeringo.lib</td>
-<td style="text-align:center">link -nologo -out:hellobeatles.exe -libpath:../johnpaul -libpath:../georgeringo libjohnpaul.lib libgeorgeringo.lib hellobeatles.obj</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>On both Windows and Unix, libraries can be passed to the linker in two ways:<ul>
-<li>By specifying a pathname on the command line</li>
-<li>By specifying the simple name of the library together with a location to search for the library</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>The locations to search for libraries can usually be specified on the command line. Most linkers use the option <code>-L&lt;directory&gt;</code> for this purpose, but Visual C++ use <code>-lipath:&lt;directory&gt;</code></p>
-</blockquote>
-<ul>
-<li>The way the name of a library is specified to the linker differs between Unix and Windows. <code>On Windows</code>, the full name of the library is specified, including the file extension. <code>On Unix—and on Windows when using the GCC toolset—libraries</code> are specified using the -l option followed by the name of the library, with the file extension and the lib prefix removed. This means that the name of <code>a library must begin with lib to be automatically found by the linker</code>. More interestingly, it gives the linker the opportunity to choose between several versions of a library. If the linker finds both static and dynamic version of a library, the dynamic library is selected, unless otherwise specified. On some systems, the linker may choose between several versions of a dynamic library based on the portion of the file name following .so.</li>
-<li>Be aware that Unix linkers can be very sensitive to the order in which object files and static libraries are specified on the command line: if a static library or object file references a symbol defined in a second static library or object file, the first file must appear before the second file on the command line. To resolve circular dependencies, it is sometimes necessary to specify a given library or object file more than once. Another solution is to pass a sequence of object files and static libraries to linker bracketed by <code>-(</code> and <code>-)</code>; this causes the file to be searched repeatedly until all references are resolved. This option should be avoided if possible because it can significantly degrade performance.</li>
-</ul>
-<h4 id="Running-your-application"><a href="#Running-your-application" class="headerlink" title="Running your application"></a>Running your application</h4><ul>
-<li>If your application uses a dynamic variant of your toolset’s runtime library, the runtime library must be available when your application is run and in a location where it will be found automatically by the operating system’s dynamic loader. <code>Typically, this means that the dynamic runtime library must be placed either in the same directory as your application or in one of a list of system-specific directories.</code> This is more of a concern when developing for Windows than when developing for Unix, since on Unix the appropriate runtime libraries are often already installed in the correct locations.</li>
-</ul>
-<h1 id="Boost-Build"><a href="#Boost-Build" class="headerlink" title="Boost.Build"></a>Boost.Build</h1><h2 id="Build-process"><a href="#Build-process" class="headerlink" title="Build process"></a>Build process</h2><blockquote>
-<p><code>Jamfiles</code> and an interpreter called <code>b2</code></p>
-</blockquote>
-<ul>
-<li>每一个包含配置文件的目录都是一个项目, 如果这个目录中没有配置文件, 什么都不会发生.</li>
-<li>当 <code>b2</code> 启动时, 它只在当前目录中搜索配置文件, 如果没有它不会做任何事情.</li>
-<li><code>b2</code> 搜索的文件名为 <code>Jamfile.jam</code>. 如果在当前目录中找到了 <code>Jamfile</code>, 它将继续在父目录中搜索更多的 <code>Jamfile</code>. <code>b2</code> 向上搜索知道找到一个配置文件名为 <code>Jamroot.jam</code>. <code>Jamroot.jam</code> 和 <code>Jamfile.jam</code> 没有区别, 它仅仅用于指示 <code>b2</code> 不用再向上继续搜索了.</li>
-<li><code>b2</code> 在父文件夹中搜索配置文件的原因是: 便于分组配置. 如果一些组件有相似的配置, 可以将相似的配置写入配置文件放入父文件夹中, 在子文件夹的组件构建时, 父文件夹的中配置将自动被使用</li>
-<li>注意: <code>b2</code> 必须找到 <code>Jamroot.jam</code> 文件. 如果 <code>Jamroot.jam</code> 文件存在于当前文件夹下, 那么就不需要 <code>Jamfile.jam</code> 文件了. 如果 <code>Jamroot.jam</code> 文件在父文件夹下, 那么 <code>Jamfile.jam</code> 就必须存在于当前文件夹下, 否则 <code>b2</code> 不做任何事情</li>
-<li>如果将 <code>b2</code> 复制到不包含 <code>Jamfile</code> 的目录，并启动程序，<code>b2</code> 将抛出找不到构建系统的错误. <code>b2</code> 首先做的是<code>加载构建系统</code>而不是搜索 <code>Jamfile</code></li>
-<li><code>b2</code> 是一个解释器(解释 <code>Jamfile</code>), 它并不知道怎么构建程序. <code>Boost.Build</code> 是 <code>Jamfile</code> 的真实执行者, <code>Jamfile</code> 包含使 <code>Boost.Build</code> 成为强大工具的所有执行逻辑.</li>
-<li><code>b2</code> 仅仅读取 <code>Jamfile</code> 的内容, 所以它需要知道到哪里去寻找 <code>Jamfiles Boost.Build</code></li>
-<li><code>b2</code> 启动后, 首先在当前目录寻找 <code>boost-build.jam</code>, 如果没有找到就在所有的父文件夹. 这个文件中只需要告诉 <code>b2</code> 到什么地方去寻找构建系统 <code>boost-build /Users/Liu-Mac/CODE/C++/boost_1_65_1/tools/build/src ;</code>. 包含构建系统的文件中必须包含 <code>bootstrap.jam</code> 文件, 这就是 <code>b2</code> 加载构建系统需要的文件</li>
-<li>如果启动 <code>b2</code> 时, 没有指定使用的工具集, <code>b2</code> 会自行检测并决定使用哪个工具集. 手动指定方法 <code>b2 toolset = gcc</code> or <code>b2 toolset = msvc</code></li>
-<li>一旦构建系统被发现, 加载, 锁定工具集, <code>b2</code> 在当前目录搜索 <code>Jamfile.jam</code> , 如果没有找到就抛出错误</li>
-<li>如果你创建了一个空的 <code>Jamfile.jam</code>, 启动 <code>b2</code> 后, 另一个错误将抛出, <code>b2</code> 最终需要寻找一个叫 <code>Jamroot.jam</code>的 <code>Jamfile</code></li>
-<li>注意: 如果你的项目很小, 那么你只需要一个存放于当前目录的配置文件 <code>Jamroot.jam</code>.</li>
-<li>构建过程总结:<ul>
-<li><ol>
-<li>在当前目录创建 <code>boost-build.jam</code> 文件, 用于指示 <code>构建系统</code> 地址, 保证构建系统目录中存在 <code>bootstrap.jam</code> 文件</li>
-</ol>
-</li>
-<li><ol>
-<li>编写 <code>Jamfiles</code>. 小项目: 直接在当前项目中创建 <code>Jamroot.jam</code> 文件; 大项目: 当前目录中创建 <code>Jamfile.jam</code>, 将各个组件公共的配置项, 抽出放入父目录的 <code>Jamfile.jam</code> 文件中, 工程根目录必须存在 <code>Jamroot.jam</code> 文件</li>
-</ol>
-</li>
-<li><ol>
-<li>启动 <code>b2</code> 程序, 进行构建 <code>b2 toolset = gcc</code></li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Toolset Name</th>
-<th style="text-align:center">Vendor</th>
-<th style="text-align:center">Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">acc</td>
-<td style="text-align:center">Hewlett Packard</td>
-<td style="text-align:center">Only very recent versions are known to work well with Boost</td>
-</tr>
-<tr>
-<td style="text-align:center">borland</td>
-<td style="text-align:center">Borland</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">como</td>
-<td style="text-align:center">Comeau Computing</td>
-<td style="text-align:center">Using this toolset may require configuring another toolset to act as its backend.</td>
-</tr>
-<tr>
-<td style="text-align:center">darwin</td>
-<td style="text-align:center">Apple Computer</td>
-<td style="text-align:center">Apple’s version of the GCC toolchain with support for Darwin and MacOS X features such as frameworks.</td>
-</tr>
-<tr>
-<td style="text-align:center">gcc</td>
-<td style="text-align:center">The Gnu Project</td>
-<td style="text-align:center">Includes support for Cygwin and MinGW compilers.</td>
-</tr>
-<tr>
-<td style="text-align:center">hp_cxx</td>
-<td style="text-align:center">Hewlett Packard</td>
-<td style="text-align:center">Targeted at the Tru64 operating system.</td>
-</tr>
-<tr>
-<td style="text-align:center">intel</td>
-<td style="text-align:center">Intel</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">msvc</td>
-<td style="text-align:center">Microsoft</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">sun</td>
-<td style="text-align:center">Oracle</td>
-<td style="text-align:center">Only very recent versions are known to work well with Boost. Note that the Oracle/Sun compiler has a large number of options which effect binary compatibility: it is vital that the libraries are built with the same options that your appliction will use. In particular be aware that the default standard library may not work well with Boost, unless you are building for C++11. The particular compiler options you need can be injected with the b2 command line options cxxflags=<code>and</code>linkflags=. For example to build with the Apache standard library in C++03 mode use b2 cxxflags=-library=stdcxx4 linkflags=-library=stdcxx4.</td>
-</tr>
-<tr>
-<td style="text-align:center">vacpp</td>
-<td style="text-align:center">IBM</td>
-<td style="text-align:center">The VisualAge C++ compiler.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Basic-tasks"><a href="#Basic-tasks" class="headerlink" title="Basic tasks"></a>Basic tasks</h2><blockquote>
-<p><code>Rules</code> and <code>features</code></p>
-</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> GEORGERINGO_HPP_INCLUDED</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> GEORGERINGO_HPP_INCLUDED</span></div><div class="line"><span class="comment">// define GEORGERINGO_DLL when building libgerogreringo.dll </span></div><div class="line"><span class="meta"># <span class="meta-keyword">if</span> defined(_WIN32) &amp;&amp; !defined(__GNUC__)</span></div><div class="line"><span class="meta">#  <span class="meta-keyword">ifdef</span> GEORGERINGO_DLL</span></div><div class="line"><span class="meta">#   <span class="meta-keyword">define</span> GEORGERINGO_DECL __declspec(dllexport)</span></div><div class="line"><span class="meta">#  <span class="meta-keyword">else</span></span></div><div class="line"><span class="meta">#   <span class="meta-keyword">define</span> GEORGERINGO_DECL __declspec(dllimport) </span></div><div class="line"><span class="meta">#  <span class="meta-keyword">endif</span></span></div><div class="line"><span class="meta"># <span class="meta-keyword">endif</span> <span class="comment">// WIN32</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> GEORGERINGO_DECL</span></div><div class="line"><span class="meta"># <span class="meta-keyword">define</span> GEORGERINGO_DECL</span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line"><span class="comment">// Prints "George, and Ringo\n"</span></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __MWERKS__</span></div><div class="line"><span class="meta"># <span class="meta-keyword">pragma</span> export on</span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line"><span class="function">GEORGERINGO_DECL <span class="keyword">void</span> <span class="title">georgeringo</span><span class="params">()</span></span>; </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __MWERKS__</span></div><div class="line"><span class="meta"># <span class="meta-keyword">pragma</span> export off</span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// GEORGERINGO_HPP_INCLUDED</span></span></div><div class="line">```#### Building DLLs with GCC</div><div class="line"></div><div class="line">* The Cygwin <span class="keyword">and</span> MinGW ports of GCC, handle DLLs `differently` than other Windows toolsets. When you build a DLL with GCC, all functions, classes, <span class="keyword">and</span> data are exported by <span class="keyword">default</span>. This behavior can be modified by passing the option --no-<span class="keyword">export</span>-all-symbols to the linker, by <span class="keyword">using</span> the attribute __declspec(dllexport) in your source files, <span class="keyword">or</span> by <span class="keyword">using</span> a .def file. In each of these three cases, unless you use the option --<span class="keyword">export</span>-all-symbols to force the linker to <span class="keyword">export</span> all symbols, the only exported functions, classes, <span class="keyword">and</span> data will be those marked __declspec(dllexport) <span class="keyword">or</span> listed in the .def file.</div><div class="line">* It’s therefore possible to use the GCC toolset to build DLLs in two ways: like an ordinary Windows toolset, exporting symbols explicitly <span class="keyword">using</span> __declspec, <span class="keyword">or</span> like a Unix toolset, exporting all symbols automatically. If you choose <span class="keyword">this</span> method, you should consider <span class="keyword">using</span> the option --<span class="keyword">export</span>-all-symbols as a safety measure, in <span class="keyword">case</span> you happen to include headers containing __declspec(dllexport).</div><div class="line">* GCC differs from other Windows toolsets in a second way: rather than passing the linker an <span class="keyword">import</span> library associated with a DLL, you can pass the DLL itself. This is usually faster than <span class="keyword">using</span> an <span class="keyword">import</span> library. It can also create problems, however, since several versions of a DLL may exist on your system, <span class="keyword">and</span> you must ensure that the linker selects the correct version.#### GCC <span class="number">4.0</span>’s -fvisibility option</div><div class="line"></div><div class="line">* See C++ Cookbook <span class="number">30</span> page</div><div class="line"></div><div class="line">### Building a Complex Application from the Command Line</div><div class="line"></div><div class="line">* Step</div><div class="line">  * Start by building the <span class="keyword">static</span> <span class="keyword">and</span> dynamic libraries on which your application depends. Or use the third party libraries</div><div class="line">  * Next, compile your application’s .cpp files into object files. You may need to use the -I option to tell your compiler where to search <span class="keyword">for</span> the headers needed by your application</div><div class="line">  * Finally, use your linker to produce an executable from the collection of object files <span class="keyword">and</span> libraries. For each library, you must either provide a full pathname <span class="keyword">or</span> tell the linker where to search <span class="keyword">for</span> it</div><div class="line">* At each stage of <span class="keyword">this</span> process, <span class="keyword">if</span> you are <span class="keyword">using</span> a toolset which comes with <span class="keyword">static</span> <span class="keyword">and</span> dynamic variants of its runtime libraries, <span class="keyword">and</span> <span class="keyword">if</span> your program uses at least one dynamic library, you should direct the compiler <span class="keyword">or</span> linker to use a dynamically linked runtime library</div><div class="line"></div><div class="line">**Commands <span class="keyword">for</span> linking the application hellobeatle.exe**</div><div class="line"></div><div class="line">| Toolset | Input files | Command line |</div><div class="line">| :-: | :-: | :-: |</div><div class="line">| GCC (Unix) | hellobeatles.o &lt;br&gt;libjohnpaul.a &lt;br&gt;libgeorgeringo.so | g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo &lt;br&gt;<span class="keyword">or</span> &lt;br&gt;g++ -o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.so |</div><div class="line">| GCC (Mac OS X) | hellobeatles.o &lt;br&gt;libjohnpaul.a &lt;br&gt;libgeorgeringo.dylib | g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo&lt;br&gt;<span class="keyword">or</span>&lt;br&gt;g++ -o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.dylib |</div><div class="line">| GCC (Cygwin) | hellobeatles.o &lt;br&gt;libjohnpaul.a &lt;br&gt;libgeorgeringo.dll.a | g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo&lt;br&gt;<span class="keyword">or</span>&lt;br&gt;g++ -o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.dll.a |</div><div class="line">| GCC (MinGW) | hellobeatles.o &lt;br&gt;libjohnpaul.a &lt;br&gt;libgeorgeringo.a | g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo&lt;br&gt;<span class="keyword">or</span>&lt;br&gt;g++ --o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.a |</div><div class="line">| Visual C++ | hellobeatles.obj &lt;br&gt;libjohnpaul.lib &lt;br&gt;libgeorgeringo.lib | link -nologo -out:hellobeatles.exe -libpath:../johnpaul -libpath:../georgeringo libjohnpaul.lib libgeorgeringo.lib hellobeatles.obj |</div><div class="line"></div><div class="line">* On both Windows <span class="keyword">and</span> Unix, libraries can be passed to the linker in two ways:</div><div class="line">  * By specifying a pathname on the command line</div><div class="line">  * By specifying the simple name of the library together with a location to search <span class="keyword">for</span> the library</div><div class="line"></div><div class="line">&gt; The locations to search <span class="keyword">for</span> libraries can usually be specified on the command line. Most linkers use the option `-L&lt;directory&gt;` <span class="keyword">for</span> <span class="keyword">this</span> purpose, but Visual C++ use `-lipath:&lt;directory&gt;`</div><div class="line"></div><div class="line">* The way the name of a library is specified to the linker differs between Unix <span class="keyword">and</span> Windows. `On Windows`, the full name of the library is specified, including the file extension. `On Unix—<span class="keyword">and</span> on Windows when <span class="keyword">using</span> the GCC toolset—libraries` are specified <span class="keyword">using</span> the -l option followed by the name of the library, with the file extension <span class="keyword">and</span> the lib prefix removed. This means that the name of `a library must begin with lib to be automatically found by the linker`. More interestingly, it gives the linker the opportunity to choose between several versions of a library. If the linker finds both <span class="keyword">static</span> <span class="keyword">and</span> dynamic version of a library, the dynamic library is selected, unless otherwise specified. On some systems, the linker may choose between several versions of a dynamic library based on the portion of the file name following .so.</div><div class="line">* Be aware that Unix linkers can be very sensitive to the order in which object files <span class="keyword">and</span> <span class="keyword">static</span> libraries are specified on the command line: <span class="keyword">if</span> a <span class="keyword">static</span> library <span class="keyword">or</span> object file references a symbol defined in a second <span class="keyword">static</span> library <span class="keyword">or</span> object file, the first file must appear before the second file on the command line. To resolve circular dependencies, it is sometimes necessary to specify a given library <span class="keyword">or</span> object file more than once. Another solution is to pass a sequence of object files <span class="keyword">and</span> <span class="keyword">static</span> libraries to linker bracketed by `-(` <span class="keyword">and</span> `-)`; <span class="keyword">this</span> causes the file to be searched repeatedly until all references are resolved. This option should be avoided <span class="keyword">if</span> possible because it can significantly degrade performance.</div><div class="line"></div><div class="line">#### Running your application</div><div class="line"></div><div class="line">* If your application uses a dynamic variant of your toolset’s runtime library, the runtime library must be available when your application is run <span class="keyword">and</span> in a location where it will be found automatically by the operating system’s dynamic loader. `Typically, <span class="keyword">this</span> means that the dynamic runtime library must be placed either in the same directory as your application <span class="keyword">or</span> in one of a <span class="built_in">list</span> of system-specific directories.` This is more of a concern when developing <span class="keyword">for</span> Windows than when developing <span class="keyword">for</span> Unix, since on Unix the appropriate runtime libraries are often already installed in the correct locations.</div><div class="line"></div><div class="line"># Boost.Build</div><div class="line"></div><div class="line">## Build process</div><div class="line"></div><div class="line">&gt; `Jamfiles` <span class="keyword">and</span> an interpreter called `b2`</div><div class="line"></div><div class="line">* 每一个包含配置文件的目录都是一个项目, 如果这个目录中没有配置文件, 什么都不会发生.</div><div class="line">* 当 `b2` 启动时, 它只在当前目录中搜索配置文件, 如果没有它不会做任何事情.</div><div class="line">* `b2` 搜索的文件名为 `Jamfile.jam`. 如果在当前目录中找到了 `Jamfile`, 它将继续在父目录中搜索更多的 `Jamfile`. `b2` 向上搜索知道找到一个配置文件名为 `Jamroot.jam`. `Jamroot.jam` 和 `Jamfile.jam` 没有区别, 它仅仅用于指示 `b2` 不用再向上继续搜索了.</div><div class="line">* `b2` 在父文件夹中搜索配置文件的原因是: 便于分组配置. 如果一些组件有相似的配置, 可以将相似的配置写入配置文件放入父文件夹中, 在子文件夹的组件构建时, 父文件夹的中配置将自动被使用</div><div class="line">* 注意: `b2` 必须找到 `Jamroot.jam` 文件. 如果 `Jamroot.jam` 文件存在于当前文件夹下, 那么就不需要 `Jamfile.jam` 文件了. 如果 `Jamroot.jam` 文件在父文件夹下, 那么 `Jamfile.jam` 就必须存在于当前文件夹下, 否则 `b2` 不做任何事情</div><div class="line">* 如果将 `b2` 复制到不包含 `Jamfile` 的目录，并启动程序，`b2` 将抛出找不到构建系统的错误. `b2` 首先做的是`加载构建系统`而不是搜索 `Jamfile`</div><div class="line">* `b2` 是一个解释器(解释 `Jamfile`), 它并不知道怎么构建程序. `Boost.Build` 是 `Jamfile` 的真实执行者, `Jamfile` 包含使 `Boost.Build` 成为强大工具的所有执行逻辑.</div><div class="line">* `b2` 仅仅读取 `Jamfile` 的内容, 所以它需要知道到哪里去寻找 `Jamfiles Boost.Build`</div><div class="line">* `b2` 启动后, 首先在当前目录寻找 `boost-build.jam`, 如果没有找到就在所有的父文件夹. 这个文件中只需要告诉 `b2` 到什么地方去寻找构建系统 `boost-build /Users/Liu-Mac/CODE/C++/boost_1_65_1/tools/build/src ; `. 包含构建系统的文件中必须包含 `bootstrap.jam` 文件, 这就是 `b2` 加载构建系统需要的文件</div><div class="line">* 如果启动 `b2` 时, 没有指定使用的工具集, `b2` 会自行检测并决定使用哪个工具集. 手动指定方法 `b2 toolset = gcc` <span class="keyword">or</span> `b2 toolset = msvc`</div><div class="line">* 一旦构建系统被发现, 加载, 锁定工具集, `b2` 在当前目录搜索 `Jamfile.jam` , 如果没有找到就抛出错误</div><div class="line">* 如果你创建了一个空的 `Jamfile.jam`, 启动 `b2` 后, 另一个错误将抛出, `b2` 最终需要寻找一个叫 `Jamroot.jam`的 `Jamfile`</div><div class="line">* 注意: 如果你的项目很小, 那么你只需要一个存放于当前目录的配置文件 `Jamroot.jam`.</div><div class="line">* 构建过程总结:</div><div class="line">  * <span class="number">1.</span> 在当前目录创建 `boost-build.jam` 文件, 用于指示 `构建系统` 地址, 保证构建系统目录中存在 `bootstrap.jam` 文件</div><div class="line">  * <span class="number">2.</span> 编写 `Jamfiles`. 小项目: 直接在当前项目中创建 `Jamroot.jam` 文件; 大项目: 当前目录中创建 `Jamfile.jam`, 将各个组件公共的配置项, 抽出放入父目录的 `Jamfile.jam` 文件中, 工程根目录必须存在 `Jamroot.jam` 文件</div><div class="line">  * <span class="number">3.</span> 启动 `b2` 程序, 进行构建 `b2 toolset = gcc`</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">| Toolset Name | Vendor | Notes |</div><div class="line">| :-: | :-: | :-: |</div><div class="line">| acc | Hewlett Packard | Only very recent versions are known to work well with Boost |</div><div class="line">| borland | Borland |  |</div><div class="line">| como | Comeau Computing | Using <span class="keyword">this</span> toolset may require configuring another toolset to act as its backend. |</div><div class="line">| darwin | Apple Computer | Apple's version of the GCC toolchain with support <span class="keyword">for</span> Darwin <span class="keyword">and</span> MacOS X features such as frameworks. |</div><div class="line">| gcc | The Gnu Project | Includes support <span class="keyword">for</span> Cygwin <span class="keyword">and</span> MinGW compilers. |</div><div class="line">| hp_cxx | Hewlett Packard | Targeted at the Tru64 operating system. |</div><div class="line">| intel | Intel |  |</div><div class="line">| msvc | Microsoft |  |</div><div class="line">| sun | Oracle | Only very recent versions are known to work well with Boost. Note that the Oracle/Sun compiler has a large number of options which effect binary compatibility: it is vital that the libraries are built with the same options that your appliction will use. In particular be aware that the <span class="keyword">default</span> standard library may <span class="keyword">not</span> work well with Boost, unless you are building <span class="keyword">for</span> C++<span class="number">11.</span> The particular compiler options you need can be injected with the b2 command line options cxxflags=``<span class="keyword">and</span> ``linkflags=. For example to build with the Apache standard library in C++<span class="number">03</span> mode use b2 cxxflags=-library=stdcxx4 linkflags=-library=stdcxx4. |</div><div class="line">| vacpp | IBM | The VisualAge C++ compiler. |</div><div class="line"></div><div class="line">## Basic tasks</div><div class="line"></div><div class="line">&gt; `Rules` <span class="keyword">and</span> `features`</div><div class="line"></div><div class="line">* `Boost.Build` 提供了很多内置的规则(函数). `exe` 就是最常用的一个.</div><div class="line">* `Boost.Build` 基于的编程语言, 只有一种数据类型, 就是`字符串数组`. 数组可以为空或包含一个或多个字符串. </div><div class="line">* 函数调用的规则: 字符串如果有空格就要使用双引号包裹. 参数之间用 `:` 隔开, 函数调用结尾使用 `;`. 语句中, 严格使用空格隔开, `:` 左右, `;` 左侧.</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">**exe规则**</div></pre></td></tr></table></figure>
+<p>exe hello : hello.cpp ; </p>
+<h1 id="指定生成-release-版本-默认是生成-debug-版本"><a href="#指定生成-release-版本-默认是生成-debug-版本" class="headerlink" title="指定生成 release 版本, 默认是生成 debug 版本"></a>指定生成 <code>release</code> 版本, 默认是生成 <code>debug</code> 版本</h1><p>exe hello : hello.cpp : <variant>release ; </variant></p>
+<h1 id="b2-variant-debug-在上面的-Jamfile-下-这条命令会报错"><a href="#b2-variant-debug-在上面的-Jamfile-下-这条命令会报错" class="headerlink" title="b2 variant = debug 在上面的 Jamfile 下, 这条命令会报错."></a><code>b2 variant = debug</code> 在上面的 Jamfile 下, 这条命令会报错.</h1><h1 id="exe-的第四个参数包含默认使用-但是可以被覆盖的功能"><a href="#exe-的第四个参数包含默认使用-但是可以被覆盖的功能" class="headerlink" title="exe 的第四个参数包含默认使用, 但是可以被覆盖的功能"></a><code>exe</code> 的第四个参数包含默认使用, 但是可以被覆盖的功能</h1><p>exe hello : hello.cpp : : <variant>release ; </variant></p>
+<h1 id="同时构建-debug-release-版本"><a href="#同时构建-debug-release-版本" class="headerlink" title="同时构建 debug release 版本"></a>同时构建 <code>debug</code> <code>release</code> 版本</h1><h1 id="第四个参数值不能放在第三个参数-这会抛出错误-不能将互相排斥的值传入第三个参数"><a href="#第四个参数值不能放在第三个参数-这会抛出错误-不能将互相排斥的值传入第三个参数" class="headerlink" title="第四个参数值不能放在第三个参数, 这会抛出错误. 不能将互相排斥的值传入第三个参数"></a>第四个参数值不能放在第三个参数, 这会抛出错误. 不能将互相排斥的值传入第三个参数</h1><p>exe hello : hello.cpp : : <variant>debug <variant>release ; </variant></variant></p>
+<h1 id="在-exe-中内置两个预处理指令-WIN32-、-WIN32"><a href="#在-exe-中内置两个预处理指令-WIN32-、-WIN32" class="headerlink" title="在 exe 中内置两个预处理指令 WIN32 、 _WIN32"></a>在 exe 中内置两个预处理指令 WIN32 、 _WIN32</h1><h1 id="用于定义预处理指令"><a href="#用于定义预处理指令" class="headerlink" title=" 用于定义预处理指令"></a><define> 用于定义预处理指令</define></h1><p>exe hello : hello.cpp : <define>WIN32 <define>_WIN32 : <variant>debug <variant>release ; </variant></variant></define></define></p>
+<h1 id="并不互斥-所以这里将其放在第四个参数和第三个参数的唯一区别就是-第四个参数的是默认值-可以被覆盖丢弃-第三个参数传递的任何东西是不可改变的"><a href="#并不互斥-所以这里将其放在第四个参数和第三个参数的唯一区别就是-第四个参数的是默认值-可以被覆盖丢弃-第三个参数传递的任何东西是不可改变的" class="headerlink" title=" 并不互斥, 所以这里将其放在第四个参数和第三个参数的唯一区别就是: 第四个参数的是默认值, 可以被覆盖丢弃, 第三个参数传递的任何东西是不可改变的"></a><define> 并不互斥, 所以这里将其放在第四个参数和第三个参数的唯一区别就是: 第四个参数的是默认值, 可以被覆盖丢弃, 第三个参数传递的任何东西是不可改变的</define></h1><p>exe hello : hello.cpp : : <variant>debug <variant>release <define>WIN32 <define>_WIN32 ; </define></define></variant></variant></p>
+<h1 id="互斥-所以这里会生成-2-2-4-个版本"><a href="#互斥-所以这里会生成-2-2-4-个版本" class="headerlink" title=" 互斥. 所以这里会生成 2 * 2 (4) 个版本"></a><optimization> 互斥. 所以这里会生成 2 * 2 (4) 个版本</optimization></h1><p>exe hello : hello.cpp : : <variant>debug <variant>release <optimization>speed <optimization>off ;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**lib规则**</div></pre></td></tr></table></figure></optimization></optimization></variant></variant></p>
+<h1 id="构建动态链接库-默认"><a href="#构建动态链接库-默认" class="headerlink" title="构建动态链接库(默认)"></a>构建动态链接库(默认)</h1><p>lib world : world.cpp ; </p>
+<h1 id="设置-标签为-static-可以生成静态库"><a href="#设置-标签为-static-可以生成静态库" class="headerlink" title="设置  标签为 static, 可以生成静态库"></a>设置 <link> 标签为 static, 可以生成静态库</h1><p>lib world : world.cpp : <link>static ; </p>
+<h1 id="同时构建静态和动态链接库-第三个和第四个参数的规则和-exe-一样"><a href="#同时构建静态和动态链接库-第三个和第四个参数的规则和-exe-一样" class="headerlink" title="同时构建静态和动态链接库. 第三个和第四个参数的规则和 exe 一样"></a>同时构建静态和动态链接库. 第三个和第四个参数的规则和 exe 一样</h1><p>lib hello : hello.cpp : : <link>static <link>shared ;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**install规则**</div></pre></td></tr></table></figure></p>
+<p>exe hello : hello.cpp ; </p>
+<h1 id="hello-是对第一个语句中的-hello-的引用"><a href="#hello-是对第一个语句中的-hello-的引用" class="headerlink" title="hello 是对第一个语句中的 hello 的引用"></a>hello 是对第一个语句中的 hello 的引用</h1><p>install “/Users/Liu-Mac/Desktop/bin” : hello ; </p>
+<h1 id="使用-标签将安装目录放到第三个参数"><a href="#使用-标签将安装目录放到第三个参数" class="headerlink" title="使用  标签将安装目录放到第三个参数"></a>使用 <locatin> 标签将安装目录放到第三个参数</locatin></h1><h1 id="将引用上一个语句的-hello-尽量放在前面的参数位置上"><a href="#将引用上一个语句的-hello-尽量放在前面的参数位置上" class="headerlink" title="将引用上一个语句的 hello 尽量放在前面的参数位置上"></a>将引用上一个语句的 hello 尽量放在前面的参数位置上</h1><p>install install-bin : hello : <location>“/Users/Liu-Mac/Desktop/bin” ; </location></p>
+<h1 id="通过-确定操作系统-然后指定不同的安装目录"><a href="#通过-确定操作系统-然后指定不同的安装目录" class="headerlink" title="通过  确定操作系统, 然后指定不同的安装目录"></a>通过 <target-os> 确定操作系统, 然后指定不同的安装目录</target-os></h1><p>install install-bin : hello : <target-os>windows:<location>“C:/Program Files/hello” <target-os>linux:<location>/usr/local/bin ;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">**glob规则**</div></pre></td></tr></table></figure></location></target-os></location></target-os></p>
+<h1 id="glob-规则允许你使用通配符"><a href="#glob-规则允许你使用通配符" class="headerlink" title="glob 规则允许你使用通配符"></a>glob 规则允许你使用通配符</h1><h1 id="这是一个嵌套的函数调用-glob-规则的结果作为-exe-规则的第二个参数传入-嵌套调用的时候使用"><a href="#这是一个嵌套的函数调用-glob-规则的结果作为-exe-规则的第二个参数传入-嵌套调用的时候使用" class="headerlink" title="这是一个嵌套的函数调用, glob 规则的结果作为 exe 规则的第二个参数传入. 嵌套调用的时候使用 [ ]"></a>这是一个嵌套的函数调用, glob 规则的结果作为 exe 规则的第二个参数传入. 嵌套调用的时候使用 <code>[</code> <code>]</code></h1><p>exe hello : [ glob *.cpp ] ;<br>```</p>
 <h2 id="Project-management"><a href="#Project-management" class="headerlink" title="Project management"></a>Project management</h2><blockquote>
 <p>Multiple Jamfiles</p>
 </blockquote>
@@ -581,6 +402,9 @@
 <p>Configuration options for the build process</p>
 </blockquote>
 <p><a href="http://www.boost.org/build/doc/html/index.html" target="_blank" rel="external">Boost.Build User Manual</a></p>
+<h1 id="GNU-make"><a href="#GNU-make" class="headerlink" title="GNU make"></a>GNU make</h1><ul>
+<li>待续…</li>
+</ul>
 
       
 
@@ -767,7 +591,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Objective-C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -783,10 +615,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
@@ -795,15 +623,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">后端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -815,27 +643,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PyQt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">推送通知</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SVN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -847,15 +671,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RunLoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">UITableView</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+                <a href="javascript:void(0)" class="js-tag color3">数据</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -875,11 +703,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据</a>
+                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -887,15 +711,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Swift</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CocoaPods</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
+                <a href="javascript:void(0)" class="js-tag color5">gogs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">文件处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -907,15 +731,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gogs</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -924,6 +744,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">软件架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GCD</a>
               </li>
             
             <div class="clearfix"></div>
